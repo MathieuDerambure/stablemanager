@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_08_27_110718) do
+ActiveRecord::Schema.define(version: 2018_08_27_145127) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -56,33 +56,12 @@ ActiveRecord::Schema.define(version: 2018_08_27_110718) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "periodicities", force: :cascade do |t|
-    t.string "monday"
-    t.string "tuesday"
-    t.string "wednesday"
-    t.string "thursday"
-    t.string "friday"
-    t.string "saturday"
-    t.string "sunday"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "shoe_makers", force: :cascade do |t|
     t.string "name"
     t.string "email"
     t.string "phone"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-  end
-
-  create_table "task_periodicities", force: :cascade do |t|
-    t.bigint "periodicities_id"
-    t.bigint "tasks_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["periodicities_id"], name: "index_task_periodicities_on_periodicities_id"
-    t.index ["tasks_id"], name: "index_task_periodicities_on_tasks_id"
   end
 
   create_table "tasks", force: :cascade do |t|
@@ -100,6 +79,8 @@ ActiveRecord::Schema.define(version: 2018_08_27_110718) do
     t.bigint "shoe_maker_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "weekly"
+    t.boolean "monthly"
     t.index ["activity_id"], name: "index_tasks_on_activity_id"
     t.index ["comment_id"], name: "index_tasks_on_comment_id"
     t.index ["food_type_id"], name: "index_tasks_on_food_type_id"
@@ -132,8 +113,6 @@ ActiveRecord::Schema.define(version: 2018_08_27_110718) do
 
   add_foreign_key "communications", "users"
   add_foreign_key "horses", "users"
-  add_foreign_key "task_periodicities", "periodicities", column: "periodicities_id"
-  add_foreign_key "task_periodicities", "tasks", column: "tasks_id"
   add_foreign_key "tasks", "activities"
   add_foreign_key "tasks", "comments"
   add_foreign_key "tasks", "food_types"
