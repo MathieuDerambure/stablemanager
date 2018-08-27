@@ -10,10 +10,105 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_08_27_102855) do
+ActiveRecord::Schema.define(version: 2018_08_27_110718) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "activities", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "comments", force: :cascade do |t|
+    t.string "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "communications", force: :cascade do |t|
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_communications_on_user_id"
+  end
+
+  create_table "food_types", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "horses", force: :cascade do |t|
+    t.string "name"
+    t.integer "box"
+    t.string "formula"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_horses_on_user_id"
+  end
+
+  create_table "medecines", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "periodicities", force: :cascade do |t|
+    t.string "monday"
+    t.string "tuesday"
+    t.string "wednesday"
+    t.string "thursday"
+    t.string "friday"
+    t.string "saturday"
+    t.string "sunday"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "shoe_makers", force: :cascade do |t|
+    t.string "name"
+    t.string "email"
+    t.string "phone"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "task_periodicities", force: :cascade do |t|
+    t.bigint "periodicities_id"
+    t.bigint "tasks_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["periodicities_id"], name: "index_task_periodicities_on_periodicities_id"
+    t.index ["tasks_id"], name: "index_task_periodicities_on_tasks_id"
+  end
+
+  create_table "tasks", force: :cascade do |t|
+    t.boolean "doing"
+    t.boolean "done"
+    t.date "start_time"
+    t.date "end_time"
+    t.bigint "horse_id"
+    t.bigint "user_id"
+    t.bigint "food_type_id"
+    t.bigint "activity_id"
+    t.bigint "medecine_id"
+    t.bigint "comment_id"
+    t.bigint "vetenary_id"
+    t.bigint "shoe_maker_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["activity_id"], name: "index_tasks_on_activity_id"
+    t.index ["comment_id"], name: "index_tasks_on_comment_id"
+    t.index ["food_type_id"], name: "index_tasks_on_food_type_id"
+    t.index ["horse_id"], name: "index_tasks_on_horse_id"
+    t.index ["medecine_id"], name: "index_tasks_on_medecine_id"
+    t.index ["shoe_maker_id"], name: "index_tasks_on_shoe_maker_id"
+    t.index ["user_id"], name: "index_tasks_on_user_id"
+    t.index ["vetenary_id"], name: "index_tasks_on_vetenary_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -27,4 +122,24 @@ ActiveRecord::Schema.define(version: 2018_08_27_102855) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  create_table "vetenaries", force: :cascade do |t|
+    t.string "name"
+    t.string "email"
+    t.string "phone"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_foreign_key "communications", "users"
+  add_foreign_key "horses", "users"
+  add_foreign_key "task_periodicities", "periodicities", column: "periodicities_id"
+  add_foreign_key "task_periodicities", "tasks", column: "tasks_id"
+  add_foreign_key "tasks", "activities"
+  add_foreign_key "tasks", "comments"
+  add_foreign_key "tasks", "food_types"
+  add_foreign_key "tasks", "horses"
+  add_foreign_key "tasks", "medecines"
+  add_foreign_key "tasks", "shoe_makers"
+  add_foreign_key "tasks", "users"
+  add_foreign_key "tasks", "vetenaries"
 end
