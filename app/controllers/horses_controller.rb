@@ -6,7 +6,6 @@ class HorsesController < ApplicationController
     @horses = Horse.all
   end
 
-
   def show
   end
 
