@@ -26,7 +26,7 @@
         <% if horse.photo.url.nil? %>
          <div class="wrapper" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('http://res.cloudinary.com/dk6vsgttl/image/upload/v1534863841/0caeecaab59c4a6bd6d9a36666c361d3.jpg')">
           <%else %>
-          <div class="wrapper" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path @horse.photo, height: 400, width: 600, crop: :fill %>')">
+          <div class="wrapper" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path horse.photo, height: 400, width: 600, crop: :fill %>')">
           <% end %>
             <div class="data">
               <div class="content">
