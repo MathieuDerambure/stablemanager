@@ -1,3 +1,7 @@
-ca marche ?
-<%= cl_image_tag("aeqoiqblnth6py9x3b4w.jpg",
-      width: 400, height: 300, crop: :fill) %>
+
+<% @horses.each do |horse| %>
+<%= horse.name %>
+<%= horse.box %>
+<%= link_to "More info", horse %>
+<% end %>
+
