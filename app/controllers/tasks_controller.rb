@@ -1,4 +1,5 @@
 class TasksController < ApplicationController
+  before_action :set_horse, only: [:new, :create]
 
   def index
     @tasks = Task.all
@@ -10,7 +11,7 @@ class TasksController < ApplicationController
 
   def create
     @task = Task.new(task_params)
-    @task.horse = Horse.find(params[:horse_id])
+
     if @task.save
       redirect_to horse_tasks_path
     else
@@ -23,7 +24,22 @@ class TasksController < ApplicationController
 
   private
   def task_params
-    params.require(:task).permit(:user_id, :horse_id, :food_id, :activity_id, :medecine_id, :shoe_maker_id, :vetenary_id, :comment_id, :doing, :done, :start_time, :end_time)
+    params.require(:task).permit(:user_id,
+                                  :horse_id,
+                                  :food_id,
+                                  :activity_id,
+                                  :medecine_id,
+                                  :shoe_maker_id,
+                                  :vetenary_id,
+                                  :comment_id,
+                                  :doing,
+                                  :done,
+                                  :start_time,
+                                  :end_time)
+  end
+
+  def set_horse
+    @horse = Horse.find(params[:horse_id])
   end
 
 end
