@@ -1,0 +1,63 @@
+.better_checkbox {
+  display:flex;
+  // le label
+  label{
+    background-color:white;
+    margin-right:10px;
+    padding:10px 15px;
+    border-radius:$border-radius-base;
+    border: 1px solid #CCC;
+
+  }
+  // le label de l'input lorsque checked
+  input[type="checkbox"]:checked+label {
+    background: $brand-primary;
+    color:white;
+    border: 1px solid $brand-primary;
+
+
+  }
+  // l'input
+  input[type="checkbox"]{
+    display:none;
+
+  }
+  // la légende
+  legend{
+    display:none;
+  }
+}
+.better_radio {
+  display:flex;
+  // le label
+  label{
+    background-color:white;
+    margin-right:10px;
+    padding:10px 15px;
+    border-radius:$border-radius-base;
+    border: 1px solid #CCC;
+
+  }
+  // le label de l'input lorsque checked
+  input[type="radio"]:checked+label {
+    background: $brand-primary;
+    color:white;
+    border: 1px solid $brand-primary;
+
+
+  }
+  // l'input
+  input[type="radio"]{
+    display:none;
+
+  }
+  // la légende
+  legend{
+    display:none;
+  }
+}
+
+.form-check{
+  display:inline-block;
+}
+
