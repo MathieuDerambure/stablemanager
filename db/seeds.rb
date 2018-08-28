@@ -1,6 +1,7 @@
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
 
+p "Je destroy_all de Task"
 p "Je destroy_all de Activity"
 p "Je destroy_all de FoodType"
 p "Je destroy_all de Medecine"
@@ -9,8 +10,8 @@ p "Je destroy_all de ShoeMaker"
 p "Je destroy_all de Comment"
 p "Je destroy_all de Horse"
 p "Je destroy_all de User"
-p "Je destroy_all de Task"
 
+Task.destroy_all
 Activity.destroy_all
 FoodType.destroy_all
 Medecine.destroy_all
@@ -19,7 +20,7 @@ ShoeMaker.destroy_all
 Comment.destroy_all
 Horse.destroy_all
 User.destroy_all
-Task.destroy_all
+
 
 act1 = Activity.create!(name: "Paddock")
 act2 = Activity.create!(name: "Marche")
@@ -38,19 +39,19 @@ vet1 = Vetenary.create!(name: 'Dupont', email: 'dupont@gmail.com', phone: '11111
 vet2 = Vetenary.create!(name: 'Nollet', email: 'nollet@gmail.com', phone: '2222222222')
 vet3 = Vetenary.create!(name: 'Rocky', email: 'rocky@gmail.com', phone: '3333333333')
 vet4 = Vetenary.create!(name: 'Salmon', email: 'salmon@gmail.com', phone: '4444444444')
-vet5 = Vetenary.create!(name: 'Derambure', email: 'derambure@gmail.com', phone: '5555555555')
-vet6 = Vetenary.create!(name: 'Chazal', email: 'claire@gmail.com', phone: '6666666666')
-vet7 = Vetenary.create!(name: 'Saunier', email: 'saunier@gmail.com', phone: '7777777777')
-vet8 = Vetenary.create!(name: 'Papillard', email: 'papillard@gmail.com', phone: '8888888888')
+# vet5 = Vetenary.create!(name: 'Derambure', email: 'derambure@gmail.com', phone: '5555555555')
+# vet6 = Vetenary.create!(name: 'Chazal', email: 'claire@gmail.com', phone: '6666666666')
+# vet7 = Vetenary.create!(name: 'Saunier', email: 'saunier@gmail.com', phone: '7777777777')
+# vet8 = Vetenary.create!(name: 'Papillard', email: 'papillard@gmail.com', phone: '8888888888')
 
 shoe1 = ShoeMaker.create!(name: 'Trump', email: 'trump@gmail.com', phone: '1111111111')
 shoe2 = ShoeMaker.create!(name: 'Kim', email: 'little_rocket_man@gmail.com', phone: '2222222222')
 shoe3 = ShoeMaker.create!(name: 'Pence', email: 'pence@gmail.com', phone: '3333333333')
 shoe4 = ShoeMaker.create!(name: 'Balladur', email: 'balladur@gmail.com', phone: '4444444444')
-shoe5 = ShoeMaker.create!(name: 'Chirac', email: 'patrick@gmail.com', phone: '5555555555')
-shoe6 = ShoeMaker.create!(name: 'Gayet', email: 'julie@gmail.com', phone: '6666666666')
-shoe7 = ShoeMaker.create!(name: 'Aubry', email: 'martine@gmail.com', phone: '7777777777')
-shoe8 = ShoeMaker.create!(name: 'Pasqua', email: 'charles@gmail.com', phone: '8888888888')
+# shoe5 = ShoeMaker.create!(name: 'Chirac', email: 'patrick@gmail.com', phone: '5555555555')
+# shoe6 = ShoeMaker.create!(name: 'Gayet', email: 'julie@gmail.com', phone: '6666666666')
+# shoe7 = ShoeMaker.create!(name: 'Aubry', email: 'martine@gmail.com', phone: '7777777777')
+# shoe8 = ShoeMaker.create!(name: 'Pasqua', email: 'charles@gmail.com', phone: '8888888888')
 
 com1 = Comment.create!(description: "Cheval malade.")
 com2 = Comment.create!(description: "Cheval boiteux, téléphoner au vétérinaire.")
@@ -91,8 +92,15 @@ horse8 = Horse.create!(name: "Capuccin", box: 8 , formula: 'three', user_id: pro
 # horse22 = Horse.create!(name: "Boogy", box: 22 , formula: 'four', user_id: prop3.id , remote_photo_url: "https://res.cloudinary.com/dk6vsgttl/image/upload/v1534867381/hudada_24.jpg")
 # horse23 = Horse.create!(name: "Rock", box: 23 , formula: 'four', user_id: prop4.id , remote_photo_url: "https://res.cloudinary.com/dk6vsgttl/image/upload/v1534867381/hudada_25.jpg")
 
-task1 = Task.create!(doing: false, done: false, start_time: Date.today, end_time: Date.today, horse_id: horse1.id, user_id: empl1.id , food_type_id: food1.id, comment_id: com1.id, weekly: true, monthly: false)
-task2 = Task.create!(doing: false, done: false, start_time: Date.today, end_time: Date.today, horse_id: horse1.id, user_id: empl1.id , activity_id: act1.id, comment_id: com1.id, weekly: true, monthly: false)
+task1 = Task.create!(doing: false, done: false, start_time: Date.today, end_time: Date.today, horse_id: horse1.id, food_type_id: food1.id, weekly: true, monthly: false)
+task2 = Task.create!(doing: false, done: false, start_time: Date.today, end_time: Date.today, horse_id: horse1.id, activity_id: act1.id, weekly: true, monthly: false)
+task3 = Task.create!(doing: true, done: false, start_time: Date.today, end_time: Date.today, horse_id: horse2.id, activity_id: act2.id, weekly: true, monthly: false)
+task4 = Task.create!(doing: false, done: false, start_time: Date.today, end_time: Date.today, horse_id: horse2.id, activity_id: act3.id, weekly: true, monthly: false)
+task5 = Task.create!(doing: true, done: true, start_time: Date.today, end_time: Date.today, horse_id: horse2.id, vetenary_id: vet1.id, comment_id: com1.id, weekly: false, monthly: false)
+task6 = Task.create!(doing: false, done: true, start_time: Date.today, end_time: Date.today, horse_id: horse3.id, medecine_id: medic2.id, weekly: false, monthly: true)
+task7 = Task.create!(doing: false, done: true, start_time: Date.today, end_time: Date.today, horse_id: horse4.id, shoe_maker_id: shoe1.id, weekly: false, monthly: true)
+task8 = Task.create!(doing: false, done: false, start_time: Date.today, end_time: Date.today, horse_id: horse5.id, activity_id: act4.id, weekly: true, monthly: false)
+
 
 p "C'est uploadé !"
 p Activity.all
