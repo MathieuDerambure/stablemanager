@@ -42,7 +42,7 @@ class HorsesController < ApplicationController
   private
 
   def horse_params
-    params.require(:horse).permit(:name, :box, :formula)
+    params.require(:horse).permit(:name, :box, :formula, :photo)
   end
 
   def set_horse
