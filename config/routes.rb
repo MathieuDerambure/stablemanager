@@ -6,4 +6,5 @@ Rails.application.routes.draw do
   resources :horses do
     resources :tasks, only: [:new, :index, :create]
   end
+  resources :communications
 end
