@@ -1,53 +1,41 @@
-
-<div class="container">
-  <div class="row" >
-    <h3><strong>Mes <%= @horses.count %> chevaux enregistrés</strong>
-      <%= link_to new_horse_path, class:"btn btn-primary" do%>
-        <i class="fas fa-plus-circle"></i> &nbsp;Ajouter un cheval
-      <% end %>
-    </h3>
-  </div>
-</div>
-
-
-<div class="container">
-  <div class="row">
-    <div class="col-xs-8 col-xs-offset-2">
-      <%= render './shared/search' %>
+<div class="">
+    <div class="row">
+      <div class="col-xs-12">
+        <%= render './shared/search' %>
+      </div>
     </div>
-  </div>
-</div>
 
+  <div class="container">
 
-<div class="row">
-  <div class="col-xs-6">
-  <% @horses.each do |horse| %>
-    <%= link_to horse do %>
-      <div class="horse card" data-aos="fade-up">
-        <% if horse.photo.url.nil? %>
-         <div class="wrapper" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('http://res.cloudinary.com/dk6vsgttl/image/upload/v1534863841/0caeecaab59c4a6bd6d9a36666c361d3.jpg')">
-          <%else %>
-          <div class="wrapper" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path horse.photo, height: 400, width: 600, crop: :fill %>')">
-          <% end %>
-            <div class="data">
-              <div class="content">
-                <h4 class="title">
-                   <strong><%= horse.name %></strong>
-                   <br>
-                   <strong>Numéro de box: </strong><%= horse.box %>
-                   <br>
-                   <strong>Propriétaire: </strong><%= horse.user.email %>
+    <div class="flex-box">
+      <div class="flex-item">
+        <%= link_to new_horse_path, class:"btn btn-primary" do%>
+        <i class="fas fa-plus-circle"></i>
+        <% end %>
+      </div>
+    </div>
 
-                </h4>
-                <%= link_to "Éditer", edit_horse_path(horse) %>
-                <%= link_to "Supprimer", horse_path(horse),
-                method: :delete,
-                data: {confirm: "Sure?"} %>
-              </div>
+    <div class="row">
+      <% @horses.each do |horse| %>
+        <div class="col-xs-6 col-sm-4">
+          <div class="card">
+            <div class="card-category"><%= horse.name %></div>
+            <div class="card-description">
+              <h2><%= horse.user.email %></h2>
+              <p>Box:<%= horse.box %></p>
             </div>
+            <% if horse.photo.url.nil? %>
+              <% url = 'http://res.cloudinary.com/dk6vsgttl/image/upload/v1534863841/0caeecaab59c4a6bd6d9a36666c361d3.jpg' %>
+            <% else %>
+              <% url = cl_image_path horse.photo, width: 40, height: 40, crop: :fill %>
+            <% end %>
+            <%= image_tag url, class: 'card-user' %>
+
+            <%= link_to "", edit_horse_path(horse), class: 'fas fa-edit card-edit' %>
+            <%= link_to "", horse_path(horse), class: 'fas fa-trash card-delete', method: :delete, data: { confirm: "Sure?" } %>
           </div>
         </div>
-        <% end %>
       <% end %>
     </div>
+  </div>
 </div>
