@@ -1,0 +1,9 @@
+<div class="container">
+  <div class="row" >
+    <div class="col-xs-8">
+      <% @comms.each do |comm| %>
+      <p> <%= comm.id %> - <%= comm.created_at %> - <%= comm.message %> </p>
+      <% end %>
+    </div>
+  </div>
+</div>

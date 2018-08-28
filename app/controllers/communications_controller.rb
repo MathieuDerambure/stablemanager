@@ -1,7 +1,7 @@
 class CommunicationsController < ApplicationController
 
   def index
-    @comm = Communication.all
+    @comms = Communication.all.order(id: :desc)
   end
 
 end
