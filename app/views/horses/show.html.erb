@@ -1,45 +1,35 @@
+<div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path @horse.photo.url, crop: :fill %>')"></div>
+
 <div class="container">
-  <div class="card">
-    <div class="card-category"><%= @horse.name %></div>
-    <div class="card-description">
-      <h2><%= @horse.user.email %></h2>
+   <div class="horse-name"> <h1><strong><%= @horse.name %></strong></h1>
     </div>
-    <div>
-      <h3 id="horse-box"> <%= @horse.box %> </h3>
-    </div>
-    <div>
-      <h3 id="horse-formula"> <%= @horse.formula %> </h3>
+    <div class="horse-description">
+      <h2><strong>Numéro de box: <%= @horse.box %></h2>
+      <h3><%= @horse.user.email %></h3>
     </div>
 
-    <% if @horse.photo.url.nil? %>
-         <div class="wrapper" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('http://res.cloudinary.com/dk6vsgttl/image/upload/v1534863841/0caeecaab59c4a6bd6d9a36666c361d3.jpg')">
-          <%else %>
-          <div class="wrapper" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path horse.photo, height: 400, width: 600, crop: :fill %>')">
-          <% end %>
-
-    </div>
+    <div class="formula">
+      <i class="fas fa-clipboard-list"></i> horse formula
     </div>
 
-  </div>
+    <div class="horse-food">
+      <i class="fas fa-utensils"></i> horse food
+    </div>
 
+    <div class="horse-medicine">
+      <i class="fas fa-pills"></i> horse medecine
+    </div>
 
+    <div class="horse-activity">
+      <i class="fas fa-compass"></i> horse activity
+    </div>
 
+    <div class="horse-veterinaire">
+      <i class="fas fa-heartbeat"></i> horse veterinaire
+    </div>
 
-
-
-
-    horse food
-    horse medecine
-    horse activity
-
-
-
-
-    horse veterinaire
-    horse forgeron
-
-
-
-
+    <div class="horse-forgeron">
+      <i class="fas fa-cog"></i> horse forgeron
+    </div>
 
 </div>
