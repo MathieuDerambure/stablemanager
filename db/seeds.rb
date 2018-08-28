@@ -6,7 +6,7 @@ p "Je destroy_all de FoodType"
 p "Je destroy_all de Medecine"
 p "Je destroy_all de Vetenary"
 p "Je destroy_all de ShoeMaker"
-p "Je destroy_all de Medecine"
+p "Je destroy_all de Comment"
 p "Je destroy_all de Horse"
 p "Je destroy_all de User"
 
@@ -15,7 +15,7 @@ FoodType.destroy_all
 Medecine.destroy_all
 Vetenary.destroy_all
 ShoeMaker.destroy_all
-Medecine.destroy_all
+Comment.destroy_all
 Horse.destroy_all
 User.destroy_all
 
@@ -49,6 +49,10 @@ chirac = ShoeMaker.create!(name: 'Chirac', email: 'patrick@gmail.com', phone: '5
 gayet = ShoeMaker.create!(name: 'Gayet', email: 'julie@gmail.com', phone: '6666666666')
 aubry = ShoeMaker.create!(name: 'Aubry', email: 'martine@gmail.com', phone: '7777777777')
 pasqua = ShoeMaker.create!(name: 'Pasqua', email: 'charles@gmail.com', phone: '8888888888')
+
+malade = Comment.create!(description: "Cheval malade.")
+boiteux = Comment.create!(description: "Cheval boiteux, téléphoner au vétérinaire.")
+forme = Comment.create!(description: "En pleine forme.")
 
 adrien = User.create!(email: 'adrien@gmail.com', password: '123456')
 yann = User.create!(email: 'yann@gmail.com', password: '123456')
