@@ -1,0 +1,14 @@
+<div class="container">
+  <h1>Nouvelle tache</h1>
+  <%= simple_form_for [@horse, @task] do |f|%>
+  <%= f.input :food_type_id, as: :check_boxes, :collection => ["Granules", "Foin", "Avoine"] %>
+
+  <div class="form-check">
+    <input class="form-check-input boolean optional" type="checkbox" value="1" name="periodicity[monday]" id="periodicity_monday">
+    <label class="form-check-label boolean optional" for="periodicity_monday">
+      Every modnay
+    </label>
+  </div>
+  <%= f.submit %>
+  <% end %>
+</div>
