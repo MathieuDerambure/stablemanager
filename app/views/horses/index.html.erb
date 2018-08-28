@@ -19,13 +19,10 @@
           <% end %>
             <div class="data">r
               <div class="content">
-
                 <h4 class="title">
                    <strong><%= horse.name %></strong>
                 </h4>
-
                 <%= link_to "Éditer", edit_horse_path(horse) %>
-
                 <%= link_to "Supprimer", horse_path(horse),
                 method: :delete,
                 data: {confirm: "Sure?"} %>
