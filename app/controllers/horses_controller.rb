@@ -4,6 +4,9 @@ class HorsesController < ApplicationController
 
   def index
     @horses = Horse.all
+    if params[:query1].present?
+      @horses = @horses.search_horses(params[:query1])
+    end
   end
 
 
@@ -53,7 +56,8 @@ class HorsesController < ApplicationController
   end
 
   def horse_params
-    params.require(:horse).permit(:name, :box, :formula, :user_id)
+    params.require(:horse).permit(:name, :box, :formula, :user_id, :photo)
+
   end
 
   def set_horse
