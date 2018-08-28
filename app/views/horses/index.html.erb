@@ -1,24 +1,20 @@
 <div class="">
-
-  <div class="container">
-    <div class="row">
-      <div class="col-xs-12">
-        <%= link_to new_horse_path, class:"btn btn-primary" do%>
-        <i class="fas fa-plus-circle"></i> &nbsp;Ajouter un cheval
-        <% end %>
-      </div>
-    </div>
-  </div>
-
-  <div class="container">
     <div class="row">
       <div class="col-xs-12">
         <%= render './shared/search' %>
       </div>
     </div>
-  </div>
 
   <div class="container">
+
+    <div class="flex-box">
+      <div class="flex-item">
+        <%= link_to new_horse_path, class:"btn btn-primary" do%>
+        <i class="fas fa-plus-circle"></i>
+        <% end %>
+      </div>
+    </div>
+
     <div class="row">
       <% @horses.each do |horse| %>
         <div class="col-xs-6 col-sm-4">

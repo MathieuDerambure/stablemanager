@@ -6,7 +6,8 @@
   background-color: #808080;
   color: black;
   position: relative;
-  margin: 5px;
+  margin-bottom: 10px;
+  margin-top: 10px;
 }
 
 .card-user {
@@ -73,4 +74,10 @@
 
 .background {
   background-color: black
+}
+
+.flex-box {
+  display: flex;
+  justify-content: flex-end;
+
 }
