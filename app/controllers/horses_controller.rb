@@ -4,6 +4,9 @@ class HorsesController < ApplicationController
 
   def index
     @horses = Horse.all
+    if params[:query1].present?
+      @horses = @horses.search_horses(params[:query1])
+    end
   end
 
 

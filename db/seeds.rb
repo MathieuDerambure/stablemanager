@@ -67,7 +67,6 @@ speedy = Horse.create!(name: "Speedy", box: 9 , formula: 'three', user_id: adrie
 gonzales = Horse.create!(name: "Gonzales", box: 10 , formula: 'four', user_id: yann.id , remote_photo_url: "https://res.cloudinary.com/dk6vsgttl/image/upload/v1534867381/hudada_11.jpg")
 raymonde = Horse.create!(name: "Raymonde", box: 11 , formula: 'four', user_id: mathieu.id , remote_photo_url: "https://res.cloudinary.com/dk6vsgttl/image/upload/v1534867381/hudada_12.jpg")
 antoinette = Horse.create!(name: "Antoinette", box: 12 , formula: 'four', user_id: olivier.id , remote_photo_url: "https://res.cloudinary.com/dk6vsgttl/image/upload/v1534867381/hudada_13.jpg")
-
 eric = Horse.create!(name: "Eric", box: 13 , formula: 'one', user_id: adrien.id , remote_photo_url: "https://res.cloudinary.com/dk6vsgttl/image/upload/v1534867381/hudada_14.jpg")
 rebelle = Horse.create!(name: "Rebelle", box: 14 , formula: 'one', user_id: yann.id , remote_photo_url: "https://res.cloudinary.com/dk6vsgttl/image/upload/v1534867381/hudada_15.jpg")
 halliday = Horse.create!(name: "Halliday", box: 15 , formula: 'one', user_id: mathieu.id , remote_photo_url: "https://res.cloudinary.com/dk6vsgttl/image/upload/v1534867381/hudada_16.jpg")
@@ -77,9 +76,8 @@ harry = Horse.create!(name: "Harry", box: 18 , formula: 'two', user_id: adrien.i
 jeremy = Horse.create!(name: "Jeremy", box: 19 , formula: 'three', user_id: mathieu.id , remote_photo_url: "https://res.cloudinary.com/dk6vsgttl/image/upload/v1534867381/hudada_20.jpg")
 tony = Horse.create!(name: "Tony", box: 20 , formula: 'three', user_id: olivier.id , remote_photo_url: "https://res.cloudinary.com/dk6vsgttl/image/upload/v1534867381/hudada_21.jpg")
 ronny = Horse.create!(name: "Ronny", box: 21 , formula: 'three', user_id: adrien.id , remote_photo_url: "https://res.cloudinary.com/dk6vsgttl/image/upload/v1534867381/hudada_22.jpg")
-blacky = Horse.create!(name: "Blacky", box: 22 , formula: 'four', user_id: yann.id , remote_photo_url: "https://res.cloudinary.com/dk6vsgttl/image/upload/v1534867381/hudada_23.jpg")
-boogy = Horse.create!(name: "Boogy", box: 23 , formula: 'four', user_id: mathieu.id , remote_photo_url: "https://res.cloudinary.com/dk6vsgttl/image/upload/v1534867381/hudada_24.jpg")
-rock = Horse.create!(name: "Rock", box: 24 , formula: 'four', user_id: olivier.id , remote_photo_url: "https://res.cloudinary.com/dk6vsgttl/image/upload/v1534867381/hudada_25.jpg")
+boogy = Horse.create!(name: "Boogy", box: 22 , formula: 'four', user_id: mathieu.id , remote_photo_url: "https://res.cloudinary.com/dk6vsgttl/image/upload/v1534867381/hudada_24.jpg")
+rock = Horse.create!(name: "Rock", box: 23 , formula: 'four', user_id: olivier.id , remote_photo_url: "https://res.cloudinary.com/dk6vsgttl/image/upload/v1534867381/hudada_25.jpg")
 
 
 #réservations de Bob
@@ -96,4 +94,3 @@ p ShoeMaker.all
 p Medecine.all
 p Horse.all
 p User.all
-
