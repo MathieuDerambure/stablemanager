@@ -7,6 +7,4 @@ class Task < ApplicationRecord
   belongs_to :comment
   belongs_to :vetenary
   belongs_to :shoe_maker
-
-  has_many :periodicities
 end
