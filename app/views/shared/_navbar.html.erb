@@ -2,14 +2,6 @@
   <!-- Logo -->
   <a href="/"><i class="fas fa-chess-knight navbar-wagon-item navbar-wagon-link navbar-wagon-brand"></i></a>
 
- <!-- Center Navigation -->
-    <div class="row">
-      <div class="col-xs-12 col-xs-offset-2">
-        search bar searching
-      </div>
-    </div>
-
-
   <!-- Right Navigation -->
   <div class="navbar-wagon-right hidden-xs hidden-sm">
     <% if user_signed_in? %>
@@ -31,7 +23,7 @@
       <img src="https://kitt.lewagon.com/placeholder/users/ssaunier" class="avatar dropdown-toggle" id="navbar-wagon-menu">
       <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
         <li><%= link_to "Chevaux", horses_path, class: "navbar-wagon-item navbar-wagon-link" %></li>
-        <li><%= link_to "Chat", horses_path, class: "navbar-wagon-item navbar-wagon-link" %></li>
+        <li><%= link_to "Messagerie", horses_path, class: "navbar-wagon-item navbar-wagon-link" %></li>
         <li><%= link_to "Déconnexion", destroy_user_session_path, method: :delete, class: "navbar-wagon-item navbar-wagon-link"%></li>
 
       </ul>

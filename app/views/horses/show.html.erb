@@ -1,14 +1,45 @@
+<div class="container">
+  <div class="card">
+    <div class="card-category"><%= @horse.name %></div>
+    <div class="card-description">
+      <h2><%= @horse.user.email %></h2>
+    </div>
+    <div>
+      <h3 id="horse-box"> <%= @horse.box %> </h3>
+    </div>
+    <div>
+      <h3 id="horse-formula"> <%= @horse.formula %> </h3>
+    </div>
 
-<h1> <%= @horse.name %> </h1>
-horse photo
-<h2> <%= @horse.user.email %> </h2>
-<h3> <%= @horse.box %> </h3>
-<h3> <%= @horse.formula %> </h3>
+    <% if @horse.photo.url.nil? %>
+         <div class="wrapper" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('http://res.cloudinary.com/dk6vsgttl/image/upload/v1534863841/0caeecaab59c4a6bd6d9a36666c361d3.jpg')">
+          <%else %>
+          <div class="wrapper" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path horse.photo, height: 400, width: 600, crop: :fill %>')">
+          <% end %>
+
+    </div>
+    </div>
+
+  </div>
 
 
 
-horse food
-horse medecine
-horse activity
-horse veterinaire
-horse forgeron
+
+
+
+
+    horse food
+    horse medecine
+    horse activity
+
+
+
+
+    horse veterinaire
+    horse forgeron
+
+
+
+
+
+</div>
