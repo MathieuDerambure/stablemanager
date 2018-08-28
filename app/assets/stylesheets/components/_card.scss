@@ -3,15 +3,16 @@
   text-shadow: 0 1px 3px rgba(0,0,0,0.6);
   background-size: cover !important;
   background-position: center;
-  color: white;
+  color: black;
   position: relative;
 }
+
 .card-user {
   position: absolute;
-  right: 40px;
-  top: 15px;
-  width: 150px;
-border-radius: 25%;
+  right: 10px;
+  top: 10px;
+  width: 40px;
+  border-radius: 50%;
 }
 .card-category {
   position: absolute;
