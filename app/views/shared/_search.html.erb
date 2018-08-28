@@ -1,0 +1,12 @@
+
+  <%= form_for root_path, :html => {:class => 'search-horses'} , method: :get do %>
+
+    <%= text_field_tag :query1.to_s,
+      @recherche = params[:query1],
+      class: "form-control search_home",
+      placeholder: "Recherche par cheval"
+    %>
+
+    <button type="submit" class="btn btn-primary search_home">Search</button>
+
+  <% end %>
