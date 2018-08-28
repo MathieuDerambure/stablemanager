@@ -8,7 +8,7 @@
     <%= link_to "Chevaux", horses_path, class: "navbar-wagon-item navbar-wagon-link" %>
     | <%= link_to "Messagerie", horses_path, class: "navbar-wagon-item navbar-wagon-link" %>
     | <%= link_to "Déconnexion", destroy_user_session_path, method: :delete, class: "navbar-wagon-item navbar-wagon-link"%>
-    <img src="https://kitt.lewagon.com/placeholder/users/ssaunier" class="avatar dropdown-toggle" id="navbar-wagon-menu">
+    <cl_image_tag("25407-161117143318446-01.jpg") class="avatar dropdown-toggle" id="navbar-wagon-menu">
 
     <% else %>
     <%= link_to "Connexion", new_user_session_path, class: "navbar-wagon-item navbar-wagon-link" %>|
