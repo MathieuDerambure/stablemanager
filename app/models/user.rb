@@ -6,4 +6,7 @@ class User < ApplicationRecord
 
   has_many :horses
   has_many :communications
+
+  mount_uploader :photo, PhotoUploader
+
 end

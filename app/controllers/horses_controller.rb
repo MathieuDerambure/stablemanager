@@ -20,7 +20,6 @@ class HorsesController < ApplicationController
   end
 
   def create
-    raise
     @horse = Horse.new(horse_params)
     @horse.user = current_user
     if @horse.save
@@ -213,6 +212,7 @@ class HorsesController < ApplicationController
   def veto_params
     params.require(:vetenary).permit(:name, :next_date)
   end
+
 
   def antidote1_params
     params.require(:antidote1).permit(:name, :next_date)

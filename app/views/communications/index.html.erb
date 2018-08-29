@@ -1,9 +1,58 @@
+
+
 <div class="container">
-  <div class="row" >
-    <div class="col-xs-8">
+<!--   <div class="row" >
+    <div class="col-xs-offset-2 col-xs-8" > -->
+
       <% @comms.each do |comm| %>
-      <p> <%= comm.id %> - <%= comm.created_at %> - <%= comm.message %> </p>
-      <% end %>
+      <div d-flex p-2>
+        <div class="alert alert-info p-2" role="alert" style="text-align:left; max"> <%= comm.created_at.strftime("%d %b %H:%M") %>| <%= comm.message %>
+        </div>
+        <div class="p-2"> <%= link_to "Supprimer", communication_path(comm.id), method: :delete, data: {confirm: "Effacer votre message ?"} %>
+        </div>
+        <% end %>
+      </div>
+
+      <%= render 'form', comm: @comm %>
+
+
+<!--     </div>
+  </div> -->
+</div>
+<!--
+TEST FLEX
+
+<div class="d-flex flex-row">
+  <div class="p-2">Flex item 1</div>
+  <div class="p-2">Flex item 2</div>
+  <div class="p-2">Flex item 3</div>
+</div>
+<div class="d-flex flex-row-reverse">
+  <div class="p-2">Flex item 1</div>
+  <div class="p-2">Flex item 2</div>
+  <div class="p-2">Flex item 3</div>
+</div>
+
+
+TEST GRID
+
+<div class="container">
+  <div class="row">
+    <div class="col">
+      1 of 3
+    </div>
+    <div class="col-6">
+      2 of 3 (wider)
+    </div>
+    <div class="col">
+      3 of 3
     </div>
   </div>
 </div>
+
+ -->
+
+
+
+
+
