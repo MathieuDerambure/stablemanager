@@ -4,6 +4,16 @@
   margin-top: 15px;
 }
 
+.card-horse-baniere {
+  height: 350px;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.6);
+  background-color: #808080;
+  color: black;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  background-size: cover;
+}
+
 .wrapper {
   background-color: #fff;
   min-height: 450px;
@@ -58,4 +68,18 @@
   color: black;
   margin-bottom: 10px;
   margin-top: 10px;
+}
+
+.card-info {
+  text-align: center;
+}
+
+.bouton {
+  display: flex;
+  justify-content: center;
+  align-items: space-between;
+}
+
+.btn {
+  margin: 7px;
 }
