@@ -4,6 +4,10 @@ before_action :set_comm, only: [:show, :edit, :update, :destroy]
 
   def index
     @comms = Communication.all.order(id: :desc)
+
+    @comm = Communication.new
+
+
   end
 
   def show
@@ -11,18 +15,18 @@ before_action :set_comm, only: [:show, :edit, :update, :destroy]
 
   def new
     @comm = Communication.new
-    # render :index
+
   end
 
   def create
     @comm = Communication.new(comm_params)
+    @comm.user = current_user
 
     respond_to do |format|
       if @comm.save
-        #ormat.html { redirect_to communications_path, notice: 'Message créé.' }
+        format.html { redirect_to communications_path }
       else
-        raise
-        format.html { render :new }
+        format.html { redirect_to communications_path, alert: @comm.errors.full_messages.first }
       end
     end
   end

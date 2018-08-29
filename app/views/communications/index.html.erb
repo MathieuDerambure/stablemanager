@@ -2,14 +2,16 @@
 
 <div class="container">
   <div class="row" >
-    <div class="col-xs-8">
+    <div class="col-xs-offset-2 col-xs-8" >
 
-      <%= link_to new_communication_path, class:"btn btn-primary", style:"margin: 10px 0px" do%>
-        <i class="fas fa-plus-circle"></i> Ajouter un message
-      <% end %>
+      <%= render 'form', comm: @comm %>
 
       <% @comms.each do |comm| %>
-      <p> <%= comm.id %>. <%= comm.created_at.strftime("%d %b %H:%M") %> - <%= comm.message %> </p>
+
+      <div class="alert alert-info " role="alert" style="text-align:left; max"> <%= comm.created_at.strftime("%d %b %H:%M") %>| <%= comm.message %>
+        <%= link_to "Supprimer", communication_path(@comm.id),
+        method: :delete, data: {confirm: "Sure?"} %>
+      </div>
       <% end %>
 
     </div>
