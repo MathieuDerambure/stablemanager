@@ -4,8 +4,6 @@
   <% @users.each do |user| %>
     <% if user.role == "Propriétaire" %>
       <%= link_to user_path(user) do %>
-        <div class="user-card">
-          <img class="avatar-large" src="">
           <div class="message-name">
             <h3><%= user.first_name %> <%= user.sur_name %></h3>
           </div>
@@ -18,10 +16,11 @@
           <div class="message-status">
             <p>Horse avatars</p>
           </div>
-        </div>
       <% end %>
     <% end %>
   <% end %>
+
+
 
 
   <h3>EMPLOYÉS</h3>
@@ -29,7 +28,12 @@
     <% if user.role == "Employée" %>
       <%= link_to user_path(user) do %>
         <div class="user-card">
-          <img class="avatar-large" src="">
+            <% if user.photo.url.nil? %>
+              <% url = 'http://res.cloudinary.com/dk6vsgttl/image/upload/v1534863841/0caeecaab59c4a6bd6d9a36666c361d3.jpg' %>
+            <% else %>
+              <% url = cl_image_path user.photo, width: 40, height: 40, crop: :fill %>
+            <% end %>
+            <%= image_tag url%>
           <div class="message-name">
             <h3><%= user.first_name %> <%= user.sur_name %></h3>
           </div>
@@ -53,7 +57,12 @@
     <% if user.role == "Manager" %>
       <%= link_to user_path(user) do %>
         <div class="user-card">
-          <img class="avatar-large" src="">
+          <% if user.photo.url.nil? %>
+              <% url = 'http://res.cloudinary.com/dk6vsgttl/image/upload/v1534863841/0caeecaab59c4a6bd6d9a36666c361d3.jpg' %>
+            <% else %>
+              <% url = cl_image_path user.photo, width: 40, height: 40, crop: :fill %>
+            <% end %>
+            <%= image_tag url%>
           <div class="message-name">
             <h3><%= user.first_name %> <%= user.sur_name %></h3>
           </div>
