@@ -15,6 +15,18 @@
     <%= f.input :password_confirmation,
                 required: true,
                 input_html: { autocomplete: "new-password" } %>
+    <%= f.input :first_name,
+                required: true,
+                input_html: { autocomplete: "first name" } %>
+    <%= f.input :sur_name,
+                required: true,
+                input_html: { autocomplete: "last name" } %>
+    <%= f.input :role,
+                required: true,
+                input_html: { autocomplete: "role" } %>
+    <%= f.input :phone,
+                required: false,
+                input_html: { autocomplete: "phone" } %>
   </div>
 
   <div class="form-actions">
@@ -23,3 +35,6 @@
 <% end %>
 
 <%= render "devise/shared/links" %>
+
+
+

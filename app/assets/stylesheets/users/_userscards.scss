@@ -1,4 +1,4 @@
-.message {
+.user-card {
   display: flex;
   align-items: center;
   padding: 20px;
@@ -45,12 +45,4 @@
   font-size: 14px;
   font-weight: bold;
 }
-.status.accepted {
-  color: #04A366;
-}
-.status.declined {
-  color: red;
-}
-.status.pending {
-  color: lightgrey;
-}
+
