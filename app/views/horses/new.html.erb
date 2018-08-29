@@ -22,6 +22,7 @@
         <%= label_tag "floconnet_matin_quantite_#{i}", "#{i}L" %>
       <% end %>
     </div>
+
     <p>Winsor</p>
     <div class="better_radio">
       <% (0..5).each do |i| %>
@@ -82,63 +83,66 @@
     </div>
 
   <h3><strong>Activités</strong></h5>
-    <p>Paddock</p>
-    <div class="better_checkbox">
-      <% @week_days.each do |day|  %>
-        <%= check_box_tag "activity[paddock][#{day}]", "1" %>
-        <%= label_tag "activity[paddock][#{day}]", day %>
-      <% end %>
-    </div>
-    <p>Marche</p>
-    <div class="better_checkbox">
-      <% @week_days.each do |day|  %>
-        <%= check_box_tag "activity[marche][#{day}]", "1" %>
-        <%= label_tag "activity[marche][#{day}]", day %>
-      <% end %>
-    </div>
-    <p>Saut</p>
-    <div class="better_checkbox">
-      <% @week_days.each do |day|  %>
-        <%= check_box_tag "activity[saut][#{day}]", "1" %>
-        <%= label_tag "activity[saut][#{day}]", day %>
-      <% end %>
-    </div>
-    <p>Promenade</p>
-    <div class="better_checkbox">
-      <% @week_days.each do |day|  %>
-        <%= check_box_tag "activity[promenade][#{day}]", "1" %>
-        <%= label_tag "activity[promenade][#{day}]", day %>
-      <% end %>
+  <p>Paddock</p>
+  <div class="better_checkbox">
+    <% @week_days.each do |day|  %>
+      <%= check_box_tag "activity[paddock][#{day}]", "1" %>
+      <%= label_tag "activity[paddock][#{day}]", day %>
+    <% end %>
+  </div>
+  <p>Marche</p>
+  <div class="better_checkbox">
+    <% @week_days.each do |day|  %>
+      <%= check_box_tag "activity[marche][#{day}]", "1" %>
+      <%= label_tag "activity[marche][#{day}]", day %>
+    <% end %>
+  </div>
+  <p>Saut</p>
+  <div class="better_checkbox">
+    <% @week_days.each do |day|  %>
+      <%= check_box_tag "activity[saut][#{day}]", "1" %>
+      <%= label_tag "activity[saut][#{day}]", day %>
+    <% end %>
+  </div>
+  <p>Promenade</p>
+  <div class="better_checkbox">
+    <% @week_days.each do |day|  %>
+      <%= check_box_tag "activity[promenade][#{day}]", "1" %>
+      <%= label_tag "activity[promenade][#{day}]", day %>
+    <% end %>
+  </div>
+
+  <h3><strong>Véterinaire</strong></h3>
+  <%= select_tag "vetenary[name]", options_from_collection_for_select(Vetenary.all, "name", "name") %>
+  <div class="form-wrapper">
+      <!-- <div class="col-xs-6 col-md-6"> -->
+        <%#= label_tag "Dernier passage" %>
+        <%#= text_field_tag "vetenary[starts_at]", nil, class: "datepicker" %>
+      <!-- </div> -->
+      <div class="col-xs-12 col-md-12">
+
+        <%= label_tag "Prochain passage" %>
+        <%= text_field_tag "vetenary[next_date]", nil, class: "datepicker" %>
+      </div>
     </div>
 
-    <h3><strong>Véterinaire</strong></h3>
-    <%= select_tag "vetenary[name]" %>
+  <h3><strong>Vaccins / Vermifuges</strong></h3>
+  <% (1..2).each do |i| %>
+  <%= select_tag "antidote#{i}[name]", options_from_collection_for_select(Antidote.all, "name", "name") %>
     <div class="form-wrapper">
-        <div class="col-xs-6 col-md-6">
-          <%= label_tag "Dernier passage" %>
-          <%= text_field_tag "starts_at_veto", nil, class: "datepicker" %>
+        <!-- <div class="col-xs-6 col-md-6"> -->
+          <%#= label_tag "Derniere prise" %>
+          <%#= text_field_tag "starts_at_antidote_#{i}", nil, class: "datepicker" %>
+        <!-- </div> -->
+        <div class="col-xs-12 col-md-12">
+          <%= label_tag "Prochaine prise" %>
+          <%= text_field_tag "antidote#{i}[next_date]", nil, class: "datepicker" %>
         </div>
-        <div class="col-xs-6 col-md-6">
-
-          <%= label_tag "Prochain passage" %>
-          <%= text_field_tag "ends_at_veto", nil, class: "datepicker" %>
-        </div>
-      </div>
-
-    <h3><strong>Vaccins / Vermifuges</strong></h3>
-    <% (1..2).each do |i| %>
-      <div class="form-wrapper">
-          <div class="col-xs-6 col-md-6">
-            <%= label_tag "Derniere prise" %>
-            <%= text_field_tag "starts_at_med_#{i}", nil, class: "datepicker" %>
-          </div>
-          <div class="col-xs-6 col-md-6">
-            <%= label_tag "Prochaine prise" %>
-            <%= text_field_tag "ends_at_med_#{i}", nil, class: "datepicker" %>
-          </div>
-      </div>
-      <br/>
+    </div>
+    <br/>
     <% end %>
   <%= f.submit %>
+  <br/>
+
   <% end %>
 </div>
