@@ -34,8 +34,8 @@ empl3 = User.create!(email: 'empl3@gmail.com', password: '123456')
 empl4 = User.create!(email: 'empl4@gmail.com', password: '123456')
 
 comm1 = Communication.create!(message: "J'aurai 30 minutes de retard ce lundi.", user_id: empl1.id)
-comm2 = Communication.create!(message: "La barierre de la grange est cassée", user_id: empl2.id)
-comm3 = Communication.create!(message: "Merci de ne plus laisser trainer le matériel dans la cours.", user_id: prop1.id)
+comm2 = Communication.create!(message: "La barrière de la grange est cassée.", user_id: empl2.id)
+comm3 = Communication.create!(message: "Merci de ne plus laisser traîner de matériel dans la cours.", user_id: prop1.id)
 
 act1 = Activity.create!(name: "Paddock")
 act2 = Activity.create!(name: "Marche")
@@ -115,5 +115,7 @@ p Medecine.all
 p Vetenary.all
 p ShoeMaker.all
 p Medecine.all
+p Comment.all
+p Communication.all
 p Horse.all
 p User.all

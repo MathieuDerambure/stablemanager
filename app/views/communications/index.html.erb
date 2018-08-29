@@ -2,7 +2,7 @@
   <div class="row" >
     <div class="col-xs-8">
       <% @comms.each do |comm| %>
-      <p> <%= comm.id %> - <%= comm.created_at %> - <%= comm.message %> </p>
+      <p> <%= comm.id %>. <%= comm.created_at.strftime("Le %d %b à %H:%M") %> - <%= comm.message %> </p>
       <% end %>
     </div>
   </div>
