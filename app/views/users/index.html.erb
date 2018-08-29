@@ -1,8 +1,77 @@
+<h3>PROPRIÉTAIRES</h3>
 <% @users.each do |user| %>
-<%= user.first_name %>
-<%= user.sur_name %>
-<%= user.email %>
-<%= user.phone %>
-<%= link_to "show", user_path(user) %>
-
+  <% if user.role == "Propriétaire" %>
+    <%= link_to user_path(user) do %>
+      <div class="message">
+        <img class="avatar-large" src="">
+        <div class="message-name">
+          <h3><%= user.first_name %> <%= user.sur_name %></h3>
+        </div>
+        <div class="message-body">
+          <p><strong><%= user.phone %></strong></p>
+          <p>
+            <%= user.email %>
+          </p>
+        </div>
+        <div class="message-status">
+          <p class="status pending">Horse avatars</p>
+          <p class="price"></p>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
 <% end %>
+
+
+<h3>EMPLOYÉS</h3>
+<% @users.each do |user| %>
+  <% if user.role == "Employée" %>
+    <%= link_to user_path(user) do %>
+      <div class="message">
+        <img class="avatar-large" src="">
+        <div class="message-name">
+          <h3><%= user.first_name %> <%= user.sur_name %></h3>
+        </div>
+        <div class="message-body">
+          <p><strong><%= user.phone %></strong></p>
+          <p>
+            <%= user.email %>
+          </p>
+        </div>
+        <div class="message-status">
+          <p class="status pending">Horse avatars</p>
+          <p class="price"></p>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+<% end %>
+
+
+<h3>MANAGER</h3>
+<% @users.each do |user| %>
+  <% if user.role == "Manager" %>
+    <%= link_to user_path(user) do %>
+      <div class="message">
+        <img class="avatar-large" src="">
+        <div class="message-name">
+          <h3><%= user.first_name %> <%= user.sur_name %></h3>
+        </div>
+        <div class="message-body">
+          <p><strong><%= user.phone %></strong></p>
+          <p>
+          <%= user.email %>
+          </p>
+        </div>
+        <div class="message-status">
+          <p class="status pending">Horse avatars</p>
+          <p class="price"></p>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+<% end %>
+
+
+
+
