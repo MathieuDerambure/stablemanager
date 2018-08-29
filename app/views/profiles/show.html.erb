@@ -27,8 +27,8 @@
       <%= @user.address %>
     </div>
     <div>
-      <%= link_to "modifier", edit_user_path(@user) %>
-      <%= link_to "retour", users_path %>
+      <%= link_to "modifier", edit_profile_path(@user) %>
+      <%= link_to "retour", profiles_path %>
     </div>
 
 
@@ -41,7 +41,7 @@
     </div>
 
     <div>
-      <%= @user.horses.each do |horse| %>
+      <% @user.horses.each do |horse| %>
               <% if horse.photo.url.nil? %>
                 <% url = 'http://res.cloudinary.com/dk6vsgttl/image/upload/v1534863841/s0caeecaab59c4a6bd6d9a36666c361d3.jpg' %>
               <% else %>

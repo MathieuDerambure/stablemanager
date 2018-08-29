@@ -6,7 +6,7 @@
   <div class="navbar-wagon-right hidden-xs hidden-sm">
     <% if user_signed_in? %>
     <%= link_to "Chevaux", horses_path, class: "navbar-wagon-item navbar-wagon-link" %>
-    | <%= link_to "Profils", users_path, class: "navbar-wagon-item navbar-wagon-link" %>
+    | <%= link_to "Profils", profiles_path, class: "navbar-wagon-item navbar-wagon-link" %>
     | <%= link_to "Messagerie", horses_path, class: "navbar-wagon-item navbar-wagon-link" %>
     | <%= link_to "Déconnexion", destroy_user_session_path, method: :delete, class: "navbar-wagon-item navbar-wagon-link"%>
     <cl_image_tag("25407-161117143318446-01.jpg") class="avatar dropdown-toggle" id="navbar-wagon-menu">
@@ -24,7 +24,7 @@
       <img src="https://kitt.lewagon.com/placeholder/users/ssaunier" class="avatar dropdown-toggle" id="navbar-wagon-menu">
       <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
         <li><%= link_to "Chevaux", horses_path, class: "navbar-wagon-item navbar-wagon-link" %></li>
-        <li><%= link_to "Profils", users_path, class: "navbar-wagon-item navbar-wagon-link" %></li>
+        <li><%= link_to "Profils", profiles_path, class: "navbar-wagon-item navbar-wagon-link" %></li>
         <li><%= link_to "Messagerie", horses_path, class: "navbar-wagon-item navbar-wagon-link" %></li>
         <li><%= link_to "Déconnexion", destroy_user_session_path, method: :delete, class: "navbar-wagon-item navbar-wagon-link"%></li>
 

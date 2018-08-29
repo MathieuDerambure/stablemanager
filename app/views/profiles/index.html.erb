@@ -1,21 +1,21 @@
 <div class="container">
 
   <h3>PROPRIÉTAIRES</h3>
-  <% @users.each do |user| %>
-    <% if user.role == "Propriétaire" %>
-      <%= link_to user_path(user) do %>
+  <% @owners.each do |profile| %>
+    <%# if profile.role == "Propriétaire" %>
+      <%= link_to profile_path(profile) do %>
 
           <div class="message-name">
-            <h3><%= user.first_name %> <%= user.sur_name %></h3>
+            <h3><%= profile.first_name %> <%= profile.sur_name %></h3>
           </div>
 
           <div class="message-body">
-            <p><strong><%= user.phone %></strong></p>
-            <p><%= user.email %></p>
+            <p><strong><%= profile.phone %></strong></p>
+            <p><%= profile.email %></p>
           </div>
 
           <div>
-            <%= user.horses.each do |horse| %>
+            <% profile.horses.each do |horse| %>
               <% if horse.photo.url.nil? %>
                 <% url = 'http://res.cloudinary.com/dk6vsgttl/image/upload/v1534863841/s0caeecaab59c4a6bd6d9a36666c361d3.jpg' %>
               <% else %>
@@ -26,30 +26,30 @@
           </div>
 
       <% end %>
-    <% end %>
-  <% end %>
+    <%# end %>
+  <% end if @owners.any? %>
 
 
 
 
   <h3>EMPLOYÉS</h3>
-  <% @users.each do |user| %>
-    <% if user.role == "Employée" %>
-      <%= link_to user_path(user) do %>
-        <div class="user-card">
-            <% if user.photo.url.nil? %>
+  <% @employees.each do |profile| %>
+    <%# if profile.role == "Employée" %>
+      <%= link_to profile_path(profile) do %>
+        <div class="profile-card">
+            <% if profile.photo.url.nil? %>
               <% url = 'http://res.cloudinary.com/dk6vsgttl/image/upload/v1534863841/0caeecaab59c4a6bd6d9a36666c361d3.jpg' %>
             <% else %>
-              <% url = cl_image_path user.photo, width: 40, height: 40, crop: :fill %>
+              <% url = cl_image_path profile.photo, width: 40, height: 40, crop: :fill %>
             <% end %>
             <%= image_tag url%>
           <div class="message-name">
-            <h3><%= user.first_name %> <%= user.sur_name %></h3>
+            <h3><%= profile.first_name %> <%= profile.sur_name %></h3>
           </div>
           <div class="message-body">
-            <p><strong><%= user.phone %></strong></p>
+            <p><strong><%= profile.phone %></strong></p>
             <p>
-              <%= user.email %>
+              <%= profile.email %>
             </p>
           </div>
           <div class="message-status">
@@ -57,28 +57,28 @@
           </div>
         </div>
       <% end %>
-    <% end %>
-  <% end %>
+    <%# end %>
+  <% end if @employees.any? %>
 
 
   <h3>MANAGER</h3>
-  <% @users.each do |user| %>
-    <% if user.role == "Manager" %>
-      <%= link_to user_path(user) do %>
-        <div class="user-card">
-          <% if user.photo.url.nil? %>
+  <% @managers.each do |profile| %>
+    <%# if profile.role == "Manager" %>
+      <%= link_to profile_path(profile) do %>
+        <div class="profile-card">
+          <% if profile.photo.url.nil? %>
               <% url = 'http://res.cloudinary.com/dk6vsgttl/image/upload/v1534863841/0caeecaab59c4a6bd6d9a36666c361d3.jpg' %>
             <% else %>
-              <% url = cl_image_path user.photo, width: 40, height: 40, crop: :fill %>
+              <% url = cl_image_path profile.photo, width: 40, height: 40, crop: :fill %>
             <% end %>
             <%= image_tag url%>
           <div class="message-name">
-            <h3><%= user.first_name %> <%= user.sur_name %></h3>
+            <h3><%= profile.first_name %> <%= profile.sur_name %></h3>
           </div>
           <div class="message-body">
-            <p><strong><%= user.phone %></strong></p>
+            <p><strong><%= profile.phone %></strong></p>
             <p>
-            <%= user.email %>
+            <%= profile.email %>
             </p>
           </div>
           <div class="message-status">
@@ -86,8 +86,8 @@
           </div>
         </div>
       <% end %>
-    <% end %>
-  <% end %>
+    <%# end %>
+  <% end if @managers.any? %>
 
 </div>
 

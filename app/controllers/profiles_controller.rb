@@ -1,9 +1,12 @@
-class UsersController < ApplicationController
+class ProfilesController < ApplicationController
   skip_before_action :authenticate_user!
   before_action :set_user, only: [:show, :edit, :destroy, :update]
 
   def index
-    @users = User.all
+    users ||= User.all
+    @owners = users.map{|user| user if user.role == "Propriétaire"}.compact
+    @employees = users.map{|user| user if user.role == "Employée"}.compact
+    @managers = users.map{|user| user if user.role == "Manager"}.compact
   end
 
 
@@ -15,7 +18,7 @@ class UsersController < ApplicationController
 
   def update
     if @user.update(user_params)
-      redirect_to user_path
+      redirect_to profile_path
     else
       render :edit
     end
