@@ -1,58 +1,64 @@
 <div class="container">
-  <div>
+  <div class="flex-box-profile">
+
+    <div class ="flex-item1">
     <div>
-    <%= @user.role %>
+    <h3> <%= @user.role %></h3>
     </div>
+
     <div>
-      <%= @user.first_name %>
-      <%= @user.sur_name %>
+     <h4> <%= @user.first_name %>
+      <%= @user.sur_name %></h4>
     </div>
-    <div >
+
+    <div>
+     <p> <%= @user.email %> <br>
+      <%= @user.phone %> <br>
+      <%= @user.address %></p>
+    </div>
+  </div>
+
+  <div class ="flex-item2">
+    <div>
       <% if @user.role == "Employée" %>
         <% if @user.photo.url.nil? %>
                 <% url = 'http://res.cloudinary.com/dk6vsgttl/image/upload/v1534863841/0caeecaab59c4a6bd6d9a36666c361d3.jpg' %>
         <% else %>
-          <% url = cl_image_path @user.photo, width: 40, height: 40, crop: :fill %>
+          <% url = cl_image_path @user.photo, width: 10, height: 10, crop: :fill %>
         <% end %>
-        <%= image_tag url%>
+        <%= image_tag url, class:"photo-employee"%>
       <% end %>
     </div>
-    <div>
-      <%= @user.email %>
-    </div>
-    <div>
-      <%= @user.phone %>
-    </div>
-    <div>
-      <%= @user.address %>
-    </div>
-    <div>
+  </div>
+
+  </div>
+
+    <div class ="flex-item3">
       <%= link_to "modifier", edit_profile_path(@user) %>
       <%= link_to "retour", profiles_path %>
     </div>
 
 
-    <div>
-      HORSES
-    </div>
+      <div>
+        <h3> Chevaux </h3>
+      </div>
 
-    <div>
-      <% @user.horses.each do |horse| %>
-      <%= horse.name %>
-      <% end %>
-    </div>
-
-    <div>
-      <% @user.horses.each do |horse| %>
-        <% if horse.photo.url.nil? %>
-          <% url = 'http://res.cloudinary.com/dk6vsgttl/image/upload/v1534863841/s0caeecaab59c4a6bd6d9a36666c361d3.jpg' %>
-        <% else %>
-          <% url = cl_image_path horse.photo, width: 40, height: 40, crop: :fill %>
-        <% end %>
-          <%= image_tag url %>
+    <div class ="flex-item">
+     <div class="flex-box-horse-user">
+    <% @user.horses.each do |horse| %>
+       <p> <%= horse.name %> </p>
+       <% if horse.photo.url.nil? %>
+            <% url = 'http://res.cloudinary.com/dk6vsgttl/image/upload/v1534863841/s0caeecaab59c4a6bd6d9a36666c361d3.jpg' %>
+          <% else %>
+            <% url = cl_image_path horse.photo, width: 40, height: 40, crop: :fill %>
+          <% end %>
+           <p> <%= image_tag url %></p>
         <% end %>
     </div>
+
   </div>
+
+
 </div>
 
 
