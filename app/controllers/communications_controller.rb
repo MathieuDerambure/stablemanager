@@ -3,7 +3,7 @@ class CommunicationsController < ApplicationController
 before_action :set_comm, only: [:show, :edit, :update, :destroy]
 
   def index
-    @comms = Communication.all.order(id: :desc)
+    @comms = Communication.all.order(id: :desc).first(5)
 
     @comm = Communication.new
 
@@ -46,9 +46,11 @@ before_action :set_comm, only: [:show, :edit, :update, :destroy]
 
   def destroy
     @comm.destroy
-    respond_to do |format|
-      format.html { redirect_to communications_path, notice: 'Message effacé.' }
-    end
+    redirect_to communications_path
+
+    # respond_to do |format|
+    #   format.html { redirect_to communications_path, notice: 'Message effacé.' }
+    # end
   end
 
 
