@@ -6,7 +6,6 @@
   <div class="navbar-wagon-right hidden-xs hidden-sm">
     <% if user_signed_in? %>
     <%= link_to "Chevaux", horses_path, class: "navbar-wagon-item navbar-wagon-link" %>
-    | <%= link_to "Messagerie", horses_path, class: "navbar-wagon-item navbar-wagon-link" %>
     | <%= link_to "Profils", users_path, class: "navbar-wagon-item navbar-wagon-link" %>
     | <%= link_to "Messagerie", horses_path, class: "navbar-wagon-item navbar-wagon-link" %>
     | <%= link_to "Déconnexion", destroy_user_session_path, method: :delete, class: "navbar-wagon-item navbar-wagon-link"%>

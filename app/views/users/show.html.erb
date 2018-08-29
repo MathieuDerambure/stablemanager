@@ -1,19 +1,65 @@
-<%=  @user.first_name %>
-<%= @user.sur_name %>
-<%= @user.role %>
-<%= @user.email %>
-<%= @user.phone %>
-<%= @user.address %>
+<div class="container">
+  <div class="show-card">
+    <div class= "show-card-role">
+    <%= @user.role %>
+    </div>
+    <div class= "show-card-name">
+      <%= @user.first_name %>
+      <%= @user.sur_name %>
+    </div>
+    <div>
+      <% if @user.role == "Employée" %>
+        <% if @user.photo.url.nil? %>
+                <% url = 'http://res.cloudinary.com/dk6vsgttl/image/upload/v1534863841/0caeecaab59c4a6bd6d9a36666c361d3.jpg' %>
+        <% else %>
+          <% url = cl_image_path @user.photo, width: 40, height: 40, crop: :fill %>
+        <% end %>
+        <%= image_tag url%>
+      <% end %>
+    </div>
+    <div>
+      <%= @user.email %>
+    </div>
+    <div>
+      <%= @user.phone %>
+    </div>
+    <div>
+      <%= @user.address %>
+    </div>
+    <div>
+      <%= link_to "modifier", edit_user_path(@user) %>
+      <%= link_to "retour", users_path %>
+    </div>
+
+
+    <div>
+      HORSES
+    </div>
+
+    <div>
+      <%= @user.horses.name %>
+    </div>
+
+    <div>
+      <%= @user.horses.each do |horse| %>
+              <% if horse.photo.url.nil? %>
+                <% url = 'http://res.cloudinary.com/dk6vsgttl/image/upload/v1534863841/s0caeecaab59c4a6bd6d9a36666c361d3.jpg' %>
+              <% else %>
+                <% url = cl_image_path horse.photo, width: 40, height: 40, crop: :fill %>
+              <% end %>
+                <%= image_tag url %>
+            <% end %>
+    </div>
+
+
+  </div>
+</div>
 
 
 
 
 
-<%= @user.horses.name %>
 
 
 
 
-
-
-<%= link_to "", edit_user_path(@user), class: 'fas fa-edit card-edit' %>

@@ -4,27 +4,27 @@
   <% @users.each do |user| %>
     <% if user.role == "Propriétaire" %>
       <%= link_to user_path(user) do %>
+
           <div class="message-name">
             <h3><%= user.first_name %> <%= user.sur_name %></h3>
           </div>
+
           <div class="message-body">
             <p><strong><%= user.phone %></strong></p>
-            <p>
-              <%= user.email %>
-            </p>
+            <p><%= user.email %></p>
           </div>
-          <div>
 
+          <div>
             <%= user.horses.each do |horse| %>
               <% if horse.photo.url.nil? %>
-                <% url = 'http://res.cloudinary.com/dk6vsgttl/image/upload/v1534863841/0caeecaab59c4a6bd6d9a36666c361d3.jpg' %>
+                <% url = 'http://res.cloudinary.com/dk6vsgttl/image/upload/v1534863841/s0caeecaab59c4a6bd6d9a36666c361d3.jpg' %>
               <% else %>
                 <% url = cl_image_path horse.photo, width: 40, height: 40, crop: :fill %>
               <% end %>
-              <%= image_tag url %>
+                <%= image_tag url %>
             <% end %>
-
           </div>
+
       <% end %>
     <% end %>
   <% end %>
