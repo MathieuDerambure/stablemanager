@@ -19,7 +19,6 @@ class HorsesController < ApplicationController
   end
 
   def create
-    raise
     @horse = Horse.new(horse_params)
     @horse.user = current_user
     if @horse.save
@@ -56,7 +55,7 @@ class HorsesController < ApplicationController
   end
 
   def horse_params
-    params.require(:horse).permit(:name, :box, :formula, :user_id, :photo)
+    params.require(:horse).permit( :name, :box, :formula, :user_id, :photo)
 
   end
 
