@@ -1,5 +1,71 @@
 .card {
-  height: 300px;
+  float: left;
+  padding: 0 1.7rem;
+  width: 50%;
+  margin-bottom: 15px;
+  margin-top: 15px;
+
+  .wrapper {
+    background-color: #fff;
+    min-height: 450px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    // box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.2);
+  }
+
+
+  .location {
+    font-size: 14px;
+    color: $gray
+
+  }
+
+
+  .title {
+    margin-top: 10px;
+    color: $gray
+  }
+
+  .text {
+    height: 70px;
+    margin: 0;
+  }
+
+
+  .data {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+
+
+    .content {
+      padding: 1em;
+      position: relative;
+      z-index: 1;
+    }
+
+  }
+
+}
+
+.horse .wrapper {
+  // background: url(https://images.unsplash.com/photo-1496979551903-46e46589a88b?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=cda12b505afa1beb06e49d89014cbd65&auto=format&fit=crop&w=634&q=80) 20% 1%/cover no-repeat;
+}
+
+.horse .content {
+  background-color: #fff;
+  box-shadow: 0 5px 30px 10px rgba(0, 0, 0, 0.3);
+}
+.horse .title a {
+  color: gray;
+}
+
+
+
+
+.card-horse {
+  height: 150px;
   text-shadow: 0 1px 3px rgba(0,0,0,0.6);
   background-size: cover !important;
   background-position: center;
@@ -10,75 +76,75 @@
   margin-top: 10px;
 }
 
-.card-user {
-  position: absolute;
-  right: 5px;
-  top: 22px;
-  width: 32px;
-  border-radius: 50%;
-}
+// .card-user {
+//   position: absolute;
+//   right: 5px;
+//   top: 22px;
+//   width: 32px;
+//   border-radius: 50%;
+// }
 
-.card-category {
-  position: absolute;
-  top: 25px;
-  left: 10px;
-  font-size: 18px;
-  text-transform: uppercase;
-}
-.card-description {
-  // position: absolute;
-  // bottom: 10px;
-  // left: 10px;
-}
+// .card-category {
+//   position: absolute;
+//   top: 25px;
+//   left: 10px;
+//   font-size: 18px;
+//   text-transform: uppercase;
+// }
+// .card-description {
+//   // position: absolute;
+//   // bottom: 10px;
+//   // left: 10px;
+// }
 
-.card-description h2 {
-  position: absolute;
-  font-size: 12px;
-  top: 60px;
-  left: 10px;
-}
-.card-description p {
-  position: absolute;
-  font-size: 12px;
-  top: 60px;
-  right: 8px;
-  opacity: 0.7;
-  font-weight: lighter;
-}
+// .card-description h2 {
+//   position: absolute;
+//   font-size: 12px;
+//   top: 60px;
+//   left: 10px;
+// }
+// .card-description p {
+//   position: absolute;
+//   font-size: 12px;
+//   top: 60px;
+//   right: 8px;
+//   opacity: 0.7;
+//   font-weight: lighter;
+// }
 
-.card-edit {
-  position: absolute;
-  bottom: 10px;
-  right: 35px;
-}
+// .card-edit {
+//   position: absolute;
+//   bottom: 10px;
+//   right: 35px;
+// }
 
-.card-delete {
-  position: absolute;
-  bottom: 10px;
-  right: 10px;
-}
+// .card-delete {
+//   position: absolute;
+//   bottom: 10px;
+//   right: 10px;
+// }
 
 
-.card-link {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  right: 0;
-  width: 100%;
-  z-index: 2;
-  background: black;
-  opacity: 0;
-}
-.card-link:hover {
-  opacity: 0.1;
-}
+// .card-link {
+//   position: absolute;
+//   top: 0;
+//   bottom: 0;
+//   right: 0;
+//   width: 100%;
+//   z-index: 2;
+//   background: black;
+//   opacity: 0;
+// }
+// .card-link:hover {
+//   opacity: 0.1;
+// }
 
-.background {
-  background-color: black
-}
+// .background {
+//   background-color: black
+// }
 
-.flex-box {
-  display: flex;
-  justify-content: flex-end;
+// .flex-box {
+//   display: flex;
+//   justify-content: flex-end;
 
-}
+// }

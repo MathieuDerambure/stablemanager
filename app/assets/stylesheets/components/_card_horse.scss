@@ -1,3 +1,75 @@
-.horse-name {
-  text-align: center;
+.card {
+  float: left;
+  padding: 0 1.7rem;
+  width: 50%;
+  margin-bottom: 15px;
+  margin-top: 15px;
+
+  .wrapper {
+    background-color: #fff;
+    min-height: 450px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    // box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.2);
+  }
+  .wrapper:hover .data {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+
+
+  .location {
+    font-size: 14px;
+    color: $gray
+
+  }
+
+
+  .title {
+    margin-top: 10px;
+    color: $gray
+  }
+
+  .text {
+    height: 70px;
+    margin: 0;
+  }
+
+
+  .data {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    -webkit-transform: translateY(calc(30px + 1em));
+            transform: translateY(calc(30px + 1em));
+    transition: -webkit-transform 0.3s;
+    transition: transform 0.3s;
+    transition: transform 0.3s, -webkit-transform 0.3s;
+
+    .content {
+      padding: 1em;
+      position: relative;
+      z-index: 1;
+    }
+
+  }
+
 }
+
+
+
+.horse .wrapper {
+  // background: url(https://images.unsplash.com/photo-1496979551903-46e46589a88b?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=cda12b505afa1beb06e49d89014cbd65&auto=format&fit=crop&w=634&q=80) 20% 1%/cover no-repeat;
+}
+
+.horse .content {
+  background-color: #fff;
+  box-shadow: 0 5px 30px 10px rgba(0, 0, 0, 0.3);
+}
+.horse .title a {
+  color: gray;
+}
+
+
+

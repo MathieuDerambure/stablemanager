@@ -1,13 +1,11 @@
 
 <% if @horse.photo? %>
-  <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path @horse.photo.url, crop: :fill %>')">
+  <div class="card-horse" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path @horse.photo.url, crop: :fill %>')">
   </div>
 <% else %>
-   <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cloudinary_url("pe12ydym9xpycxvwrnv5.jpg", :crop=>"fill") %>')">
+   <div class="card-horse" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cloudinary_url("pe12ydym9xpycxvwrnv5.jpg", :crop=>"fill") %>')">
    </div>
 <% end %>
-
-
 
 <div class="container">
   <div class="card-info">
@@ -46,7 +44,7 @@
   </div>
   <div class="bouton">
     <%= link_to "Edit", edit_horse_path(@horse), class: 'btn btn-success' %>
-    <%= link_to "Delete", horse_path(@horse), class: 'btn btn-danger', method: :delete, data: { confirm: "Sure?" } %>
+    <%= link_to "Delete", horse_path(@horse), class: 'btn btn-danger', method: :delete, data: { confirm: "Sure?" }  %>
   </div>
 </div>
 

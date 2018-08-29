@@ -1,39 +1,85 @@
-<div class="">
     <div class="row">
       <div class="col-xs-12">
         <%= render './shared/search' %>
       </div>
     </div>
 
-  <div class="container">
 
-    <div class="flex-box">
-      <div class="flex-item">
-        <%= link_to new_horse_path, class:"btn btn-primary" do%>
-        <i class="fas fa-plus-circle"></i>
-        <% end %>
+
+
+<div class="row">
+  <%= link_to new_horse_path do%>
+  <div class="horse card" data-aos="fade-up">
+    <div class="content">
+        <div class="wrapper" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('http://res.cloudinary.com/dk6vsgttl/image/upload/v1535536994/add.png')">
+        </div>
+    </div>
+  <% end %>
+  </div>
+  <% @horses.each do |horse| %>
+  <!-- TEST 2 -->
+    <%= link_to horse do %>
+      <div class="horse card" data-aos="fade-up">
+        <% if horse.photo.url.nil?  %>
+         <div class="wrapper" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cloudinary_url("pe12ydym9xpycxvwrnv5.jpg", height: 270, width: 200, :crop=>"fill") %>')">
+          <%else %>
+          <div class="wrapper" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path horse.photo, height: 270, width: 200, crop: :fill %>')">
+          <% end %>
+            <div class="data">
+              <div class="content">
+
+                <h4 class="title">
+                   <strong><%= horse.name %></strong>
+                   <h2><%= horse.user.email %></h2>
+                   <p>Box:<%= horse.box %></p>
+                </h4>
+              </div>
+            </div>
+          </div>
+        </div>
+    <% end %>
+  <% end %>
+</div>
+
+
+   <!--  <div class="row">
+      <div class="col-xs-12">
+        <%= render './shared/search' %>
       </div>
     </div>
 
-    <div class="row">
-      <% @horses.each do |horse| %>
-        <div class="col-xs-6 col-sm-4">
-          <div class="card">
-            <div class="card-category"><%= horse.name %></div>
-            <%= link_to "Click", horse_path(horse), class: 'fas fa-edit card-edit' %>
-            <div class="card-description">
-              <h2><%= horse.user.email %></h2>
-              <p>Box:<%= horse.box %></p>
-            </div>
-            <% if horse.photo.url.nil? %>
-              <% url = 'http://res.cloudinary.com/dk6vsgttl/image/upload/v1534863841/0caeecaab59c4a6bd6d9a36666c361d3.jpg' %>
-            <% else %>
-              <% url = cl_image_path horse.photo, width: 40, height: 40, crop: :fill %>
-            <% end %>
-            <%= image_tag url, class: 'card-user' %>
+<div class="container">
+  <div class="row">
+    <%= link_to new_horse_path do%>
+    <div class="horse card" data-aos="fade-up">
+      <div class="content">
+          <div class="wrapper" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_tag("add.png") %>')">
           </div>
+      </div>
+    <% end %>
+    </div>
+    <% @horses.each do |horse| %>
+    <!-- TEST 2 -->
+<!--       <%= link_to horse do %>
+        <div class="horse card" data-aos="fade-up">
+          <% if horse.photo.url.nil?  %>
+            <div class="wrapper" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cloudinary_url("pe12ydym9xpycxvwrnv5.jpg", height: 270, width: 200, :crop=>"fill") %>')">
+            </div>
+          <%else %>
+            <div class="wrapper" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path horse.photo, height: 270, width: 200, crop: :fill %>')">
+            </div>
+          <% end %>
+            <div class="data">
+              <div class="content">
+                <h4 class="title">
+                <strong><%= horse.name %></strong>
+                <h2><%= horse.user.email %></h2>
+                <p>Box:<%= horse.box %></p>
+                </h4>
+              </div>
+            </div>
         </div>
       <% end %>
-    </div>
+    <% end %>
   </div>
-</div>
+</div> --> -->
