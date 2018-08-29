@@ -1,0 +1,8 @@
+
+
+
+<%= simple_form_for (@comm) do |f| %>
+  <%= f.input :message, label: false, placeholder: '...' %>
+  <%= f.submit "Enregistrer", class: "btn btn-lg btn-primary btn-block" %>
+  <%= link_to "", communications_path, class: "btn btn-lg btn-secondary btn-block"%>
+<% end %>

@@ -1,9 +1,20 @@
+
+
 <div class="container">
   <div class="row" >
     <div class="col-xs-8">
-      <% @comms.each do |comm| %>
-      <p> <%= comm.id %>. <%= comm.created_at.strftime("Le %d %b à %H:%M") %> - <%= comm.message %> </p>
+
+      <%= link_to new_communication_path, class:"btn btn-primary", style:"margin: 10px 0px" do%>
+        <i class="fas fa-plus-circle"></i> Ajouter un message
       <% end %>
+
+      <% @comms.each do |comm| %>
+      <p> <%= comm.id %>. <%= comm.created_at.strftime("%d %b %H:%M") %> - <%= comm.message %> </p>
+      <% end %>
+
     </div>
   </div>
 </div>
+
+
+
