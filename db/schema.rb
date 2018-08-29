@@ -10,12 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_08_28_153333) do
+ActiveRecord::Schema.define(version: 2018_08_29_152207) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "activities", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "antidotes", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -67,10 +73,6 @@ ActiveRecord::Schema.define(version: 2018_08_28_153333) do
   end
 
   create_table "tasks", force: :cascade do |t|
-    t.boolean "doing"
-    t.boolean "done"
-    t.date "start_time"
-    t.date "end_time"
     t.bigint "horse_id"
     t.bigint "user_id"
     t.bigint "food_type_id"
@@ -81,9 +83,18 @@ ActiveRecord::Schema.define(version: 2018_08_28_153333) do
     t.bigint "shoe_maker_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.boolean "weekly"
-    t.boolean "monthly"
+    t.boolean "done", default: false, null: false
+    t.boolean "doing", default: false, null: false
+    t.boolean "daily", default: false, null: false
+    t.boolean "weekly", default: false, null: false
+    t.boolean "monthly", default: false, null: false
+    t.datetime "start_time"
+    t.datetime "end_time"
+    t.integer "food_quantity"
+    t.string "activity_week_day"
+    t.bigint "antidote_id"
     t.index ["activity_id"], name: "index_tasks_on_activity_id"
+    t.index ["antidote_id"], name: "index_tasks_on_antidote_id"
     t.index ["comment_id"], name: "index_tasks_on_comment_id"
     t.index ["food_type_id"], name: "index_tasks_on_food_type_id"
     t.index ["horse_id"], name: "index_tasks_on_horse_id"

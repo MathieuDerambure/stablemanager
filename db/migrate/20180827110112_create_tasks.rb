@@ -13,6 +13,7 @@ class CreateTasks < ActiveRecord::Migration[5.2]
       t.references :comment, foreign_key: true
       t.references :vetenary, foreign_key: true
       t.references :shoe_maker, foreign_key: true
+      t.references :antidote, foreign_key: true
 
       t.timestamps
     end
