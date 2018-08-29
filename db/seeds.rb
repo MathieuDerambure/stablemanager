@@ -8,6 +8,7 @@ p "Je destroy_all de Medecine"
 p "Je destroy_all de Vetenary"
 p "Je destroy_all de ShoeMaker"
 p "Je destroy_all de Comment"
+p "Je destroy_all de Communication"
 p "Je destroy_all de Horse"
 p "Je destroy_all de User"
 
@@ -18,9 +19,23 @@ Medecine.destroy_all
 Vetenary.destroy_all
 ShoeMaker.destroy_all
 Comment.destroy_all
+Communication.destroy_all
 Horse.destroy_all
 User.destroy_all
 
+
+prop1 = User.create!(email: 'adrien@gmail.com', password: '123456')
+prop2 = User.create!(email: 'yann@gmail.com', password: '123456')
+prop3 = User.create!(email: 'mathieu@gmail.com', password: '123456')
+prop4 = User.create!(email: 'olivier@gmail.com', password: '123456')
+empl1 = User.create!(email: 'empl1@gmail.com', password: '123456')
+empl2 = User.create!(email: 'empl2@gmail.com', password: '123456')
+empl3 = User.create!(email: 'empl3@gmail.com', password: '123456')
+empl4 = User.create!(email: 'empl4@gmail.com', password: '123456')
+
+comm1 = Communication.create!(message: "J'aurai 30 minutes de retard ce lundi.", user_id: empl1.id)
+comm2 = Communication.create!(message: "La barierre de la grange est cassée", user_id: empl2.id)
+comm3 = Communication.create!(message: "Merci de ne plus laisser trainer le matériel dans la cours.", user_id: prop1.id)
 
 act1 = Activity.create!(name: "Paddock")
 act2 = Activity.create!(name: "Marche")
@@ -58,6 +73,7 @@ com2 = Comment.create!(description: "Cheval boiteux, téléphoner au vétérinai
 com3 = Comment.create!(description: "En pleine forme.")
 com4 = Comment.create!(description: "Sale.")
 
+
 prop1 = User.create!(email: 'adrien@gmail.com', password: '123456', sur_name: "Johnson", first_name: "John", role: "Propriétaire", phone: "06 03 03 03 33", address: "33 rue Bidule Mesnil 78600")
 prop2 = User.create!(email: 'yann@gmail.com', password: '123456', sur_name: "David", first_name: "Davida", role: "Propriétaire", phone: "06 03 03 03 33", address: "33 rue Bidule Mesnil 78600")
 prop3 = User.create!(email: 'mathieu@gmail.com', password: '123456', sur_name: "Berta", first_name: "Bernadette", role: "Propriétaire", phone: "06 03 03 03 33", address: "33 rue Bidule Mesnil 78600")
@@ -67,6 +83,7 @@ empl2 = User.create!(email: 'empl2@gmail.com', password: '123456', sur_name: "Hu
 empl3 = User.create!(email: 'empl3@gmail.com', password: '123456', sur_name: "Benhad", first_name: "Fatima", role: "Employée", phone: "06 03 03 03 33", address: "33 rue Bidule Mesnil 78600")
 empl4 = User.create!(email: 'empl4@gmail.com', password: '123456', sur_name: "Robert", first_name: "David", role: "Employée", phone: "06 03 03 03 33", address: "33 rue Bidule Mesnil 78600")
 boss1 = User.create!(email: 'boss1@gmail.com', password: '123456', sur_name: "Theboss", first_name: "Bosswoman", role: "Manager", phone: "06 03 03 03 33", address: "33 rue Bidule Mesnil 78600")
+
 
 horse1 = Horse.create!(name: "Frosty", box: 1 , formula: 'one', user_id: prop1.id , remote_photo_url: "https://res.cloudinary.com/dk6vsgttl/image/upload/v1534867381/hudada_01.jpg")
 horse2 = Horse.create!(name: "Belle des Neiges", box: 2 , formula: 'one', user_id: prop2.id , remote_photo_url: "https://res.cloudinary.com/dk6vsgttl/image/upload/v1534867381/hudada_02.jpg")
