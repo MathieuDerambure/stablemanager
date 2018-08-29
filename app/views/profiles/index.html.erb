@@ -1,0 +1,96 @@
+<div class="container">
+
+  <h3>PROPRIÉTAIRES</h3>
+  <% @owners.each do |profile| %>
+    <%# if profile.role == "Propriétaire" %>
+      <%= link_to profile_path(profile) do %>
+
+          <div class="message-name">
+            <h3><%= profile.first_name %> <%= profile.sur_name %></h3>
+          </div>
+
+          <div class="message-body">
+            <p><strong><%= profile.phone %></strong></p>
+            <p><%= profile.email %></p>
+          </div>
+
+          <div>
+            <% profile.horses.each do |horse| %>
+              <% if horse.photo.url.nil? %>
+                <% url = 'http://res.cloudinary.com/dk6vsgttl/image/upload/v1534863841/s0caeecaab59c4a6bd6d9a36666c361d3.jpg' %>
+              <% else %>
+                <% url = cl_image_path horse.photo, width: 40, height: 40, crop: :fill %>
+              <% end %>
+                <%= image_tag url %>
+            <% end %>
+          </div>
+
+      <% end %>
+    <%# end %>
+  <% end if @owners.any? %>
+
+
+
+
+  <h3>EMPLOYÉS</h3>
+  <% @employees.each do |profile| %>
+    <%# if profile.role == "Employée" %>
+      <%= link_to profile_path(profile) do %>
+        <div class="profile-card">
+            <% if profile.photo.url.nil? %>
+              <% url = 'http://res.cloudinary.com/dk6vsgttl/image/upload/v1534863841/0caeecaab59c4a6bd6d9a36666c361d3.jpg' %>
+            <% else %>
+              <% url = cl_image_path profile.photo, width: 40, height: 40, crop: :fill %>
+            <% end %>
+            <%= image_tag url%>
+          <div class="message-name">
+            <h3><%= profile.first_name %> <%= profile.sur_name %></h3>
+          </div>
+          <div class="message-body">
+            <p><strong><%= profile.phone %></strong></p>
+            <p>
+              <%= profile.email %>
+            </p>
+          </div>
+          <div class="message-status">
+            <p>Horse avatars</p>
+          </div>
+        </div>
+      <% end %>
+    <%# end %>
+  <% end if @employees.any? %>
+
+
+  <h3>MANAGER</h3>
+  <% @managers.each do |profile| %>
+    <%# if profile.role == "Manager" %>
+      <%= link_to profile_path(profile) do %>
+        <div class="profile-card">
+          <% if profile.photo.url.nil? %>
+              <% url = 'http://res.cloudinary.com/dk6vsgttl/image/upload/v1534863841/0caeecaab59c4a6bd6d9a36666c361d3.jpg' %>
+            <% else %>
+              <% url = cl_image_path profile.photo, width: 40, height: 40, crop: :fill %>
+            <% end %>
+            <%= image_tag url%>
+          <div class="message-name">
+            <h3><%= profile.first_name %> <%= profile.sur_name %></h3>
+          </div>
+          <div class="message-body">
+            <p><strong><%= profile.phone %></strong></p>
+            <p>
+            <%= profile.email %>
+            </p>
+          </div>
+          <div class="message-status">
+            <p>Horse avatars</p>
+          </div>
+        </div>
+      <% end %>
+    <%# end %>
+  <% end if @managers.any? %>
+
+</div>
+
+
+
+

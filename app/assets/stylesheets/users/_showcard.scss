@@ -1,0 +1,26 @@
+.show-card {
+  height: 100vh;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.6);
+  background-size: cover !important;
+  background-position: center;
+  background-color: #808080;
+  color: black;
+  position: relative;
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+
+.show-card-role {
+  position: absolute;
+  top: 25px;
+  left: 10px;
+  font-size: 18px;
+  text-transform: uppercase;
+}
+
+.show-card-name h2 {
+  position: absolute;
+  font-size: 12px;
+  top: 60px;
+  left: 10px;
+}
