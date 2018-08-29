@@ -1,26 +1,23 @@
-.show-card {
-  height: 100vh;
-  text-shadow: 0 1px 3px rgba(0,0,0,0.6);
-  background-size: cover !important;
-  background-position: center;
-  background-color: #808080;
-  color: black;
-  position: relative;
-  margin-bottom: 10px;
-  margin-top: 10px;
+.flex-box-profile {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center
 }
 
-.show-card-role {
-  position: absolute;
-  top: 25px;
-  left: 10px;
-  font-size: 18px;
-  text-transform: uppercase;
+.flex-item {
+
 }
 
-.show-card-name h2 {
-  position: absolute;
-  font-size: 12px;
-  top: 60px;
-  left: 10px;
+.photo-employee{
+  height: 100px;
+  width: 100px;
+  margin: 20px;
+
 }
+
+.flex-box-horse-user {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
