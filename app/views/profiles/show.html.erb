@@ -1,13 +1,13 @@
 <div class="container">
   <div class="show-card">
-    <div class= "show-card-role">
+    <div class="show-card-role">
     <%= @user.role %>
     </div>
-    <div class= "show-card-name">
+    <div class="show-card-name">
       <%= @user.first_name %>
       <%= @user.sur_name %>
     </div>
-    <div>
+    <div class="show-card-photo">
       <% if @user.role == "Employée" %>
         <% if @user.photo.url.nil? %>
                 <% url = 'http://res.cloudinary.com/dk6vsgttl/image/upload/v1534863841/0caeecaab59c4a6bd6d9a36666c361d3.jpg' %>
@@ -17,30 +17,32 @@
         <%= image_tag url%>
       <% end %>
     </div>
-    <div>
+    <div class="show-card-email">
       <%= @user.email %>
     </div>
-    <div>
+    <div class="show-card-phone">
       <%= @user.phone %>
     </div>
-    <div>
+    <div class="show-card-address">
       <%= @user.address %>
     </div>
-    <div>
+    <div class="show-card-links">
       <%= link_to "modifier", edit_profile_path(@user) %>
       <%= link_to "retour", profiles_path %>
     </div>
 
 
-    <div>
+    <div class="show-card-horse-title">
       HORSES
     </div>
 
-    <div>
-      <%= @user.horses.name %>
+    <div class="show-card-horse-names">
+      <% @user.horses.each do |horse| %>
+      <%= horse.name %>
+      <% end %>
     </div>
 
-    <div>
+    <div class="show-card-horse-pictures">
       <% @user.horses.each do |horse| %>
               <% if horse.photo.url.nil? %>
                 <% url = 'http://res.cloudinary.com/dk6vsgttl/image/upload/v1534863841/s0caeecaab59c4a6bd6d9a36666c361d3.jpg' %>
