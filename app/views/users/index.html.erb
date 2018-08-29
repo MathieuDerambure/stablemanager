@@ -1,0 +1,8 @@
+<% @users.each do |user| %>
+<%= user.first_name %>
+<%= user.sur_name %>
+<%= user.email %>
+<%= user.phone %>
+<%= link_to "show", user_path(user) %>
+
+<% end %>
