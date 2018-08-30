@@ -115,10 +115,6 @@
   <h3><strong>Véterinaire</strong></h3>
   <%= select_tag "vetenary[name]", options_from_collection_for_select(Vetenary.all, "name", "name") %>
   <div class="form-wrapper">
-      <!-- <div class="col-xs-6 col-md-6"> -->
-        <%#= label_tag "Dernier passage" %>
-        <%#= text_field_tag "vetenary[starts_at]", nil, class: "datepicker" %>
-      <!-- </div> -->
       <div class="col-xs-12 col-md-12">
 
         <%= label_tag "Prochain passage" %>
@@ -126,14 +122,20 @@
       </div>
     </div>
 
+  <h3><strong>Maréchal-ferrant</strong></h3>
+  <%= select_tag "shoe_maker[name]", options_from_collection_for_select(ShoeMaker.all, "name", "name") %>
+  <div class="form-wrapper">
+      <div class="col-xs-12 col-md-12">
+
+        <%= label_tag "Prochain passage" %>
+        <%= text_field_tag "shoe_maker[next_date]", nil, class: "datepicker" %>
+      </div>
+    </div>
+
   <h3><strong>Vaccins / Vermifuges</strong></h3>
   <% (1..2).each do |i| %>
   <%= select_tag "antidote#{i}[name]", options_from_collection_for_select(Antidote.all, "name", "name") %>
     <div class="form-wrapper">
-        <!-- <div class="col-xs-6 col-md-6"> -->
-          <%#= label_tag "Derniere prise" %>
-          <%#= text_field_tag "starts_at_antidote_#{i}", nil, class: "datepicker" %>
-        <!-- </div> -->
         <div class="col-xs-12 col-md-12">
           <%= label_tag "Prochaine prise" %>
           <%= text_field_tag "antidote#{i}[next_date]", nil, class: "datepicker" %>

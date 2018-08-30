@@ -24,7 +24,6 @@ class HorsesController < ApplicationController
     @horse.user = current_user
     if @horse.save
       create_tasks
-
       redirect_to horses_path
     else
       render :new
@@ -184,6 +183,16 @@ class HorsesController < ApplicationController
         )
     end
 
+   # MARECHAL-FERRANT
+    if shoe_maker_params[:name] && !shoe_maker_params[:next_date].blank?
+      task = Task.create(
+        horse: @horse,
+        user: current_user,
+        shoe_maker: ShoeMaker.find_by(name: shoe_maker_params[:name]),
+        start_time: DateTime.parse(shoe_maker_params[:next_date])
+        )
+    end
+
     # VACCINS / VERMIFUGES
     if antidote1_params[:name] && !antidote1_params[:next_date].blank?
      Task.create(
@@ -215,6 +224,10 @@ class HorsesController < ApplicationController
 
   def veto_params
     params.require(:vetenary).permit(:name, :next_date)
+  end
+
+  def shoe_maker_params
+    params.require(:shoe_maker).permit(:name, :next_date)
   end
 
 
