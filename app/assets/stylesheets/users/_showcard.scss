@@ -4,21 +4,28 @@
   align-items: center
 }
 
-.flex-item {
-
+.flex-item1 {
+}
+.flex-item2 {
+}
+.flex-item3 {
 }
 
 .photo-employee{
   height: 100px;
   width: 100px;
   margin: 20px;
-
 }
 
-.flex-box-horse-user {
+.flex-box-horse {
   display: flex;
-  justify-content: center;
+  justify-content: space-evenly;
   align-items: center;
+
 }
 
+.flex-box-item-horse-name {
+}
 
+.flex-box-item-horse-photo {
+}
