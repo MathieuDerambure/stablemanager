@@ -24,13 +24,11 @@
                 </div>
               </div>
 
-
               <div class="flex-box-index-item2">
                 <div class="message-body">
                   <p><%= profile.phone %></p>
                 </div>
               </div>
-
 
               <div class="flex-box-index-item2">
                 <div>
@@ -45,8 +43,6 @@
                 </div>
               </div>
 
-
-
               </div>
           <% end %>
       <% end if @owners.any? %>
@@ -59,25 +55,37 @@
       <h3>EMPLOYÉS</h3>
       <% @employees.each do |profile| %>
           <%= link_to profile_path(profile) do %>
-            <div class="profile-card">
-                <% if profile.photo.url.nil? %>
-                  <% url = '' %>
-                <% else %>
-                  <% url = cl_image_path profile.photo, width: 40, height: 40, crop: :fill %>
-                <% end %>
-                <%= image_tag url, class:"horse-avatar"%>
-              <div class="name-index">
-                <h3><%= profile.first_name %> <%= profile.sur_name %></h3>
+            <div class="flex-box-index">
+
+              <div class="flex-box-index-item1">
+                <div class="name-index">
+                  <h3><strong><%= profile.first_name %></strong></h3>
+                  <h3><strong><%= profile.sur_name %></strong></h3>
+                </div>
               </div>
-              <div class="message-body">
-                <p><strong><%= profile.phone %></strong></p>
-                <p>
-                  <%= profile.email %>
-                </p>
+
+              <div class="flex-box-index-item2">
+                <div class="message-body">
+                  <p><%= profile.phone %></p>
+                </div>
               </div>
-            </div>
+
+              <div class="flex-box-index-item2">
+                <div>
+                  <% profile.horses.each do |horse| %>
+                    <% if horse.photo.url.nil? %>
+                      <% url = 'http://res.cloudinary.com/dk6vsgttl/image/upload/v1534863841/s0caeecaab59c4a6bd6d9a36666c361d3.jpg' %>
+                    <% else %>
+                      <% url = cl_image_path horse.photo, width: 40, height: 40, crop: :fill %>
+                    <% end %>
+                      <%= image_tag url, class:"horse-avatar" %>
+                  <% end %>
+                </div>
+              </div>
+
+              </div>
           <% end %>
-      <% end if @employees.any? %>
+      <% end if @owners.any? %>
     </div>
 
 
@@ -85,25 +93,37 @@
       <h3>MANAGER</h3>
       <% @managers.each do |profile| %>
           <%= link_to profile_path(profile) do %>
-            <div class="profile-card">
-              <% if profile.photo.url.nil? %>
-                  <% url = '' %>
-                <% else %>
-                  <% url = cl_image_path profile.photo, width: 40, height: 40, crop: :fill %>
-                <% end %>
-                <%= image_tag url, class:"horse-avatar"%>
-              <div class="name-index">
-                <h3><%= profile.first_name %> <%= profile.sur_name %></h3>
+            <div class="flex-box-index">
+
+              <div class="flex-box-index-item1">
+                <div class="name-index">
+                  <h3><strong><%= profile.first_name %></strong></h3>
+                  <h3><strong><%= profile.sur_name %></strong></h3>
+                </div>
               </div>
-              <div class="message-body">
-                <p><strong><%= profile.phone %></strong></p>
-                <p>
-                <%= profile.email %>
-                </p>
+
+              <div class="flex-box-index-item2">
+                <div class="message-body">
+                  <p><%= profile.phone %></p>
+                </div>
               </div>
-            </div>
+
+              <div class="flex-box-index-item2">
+                <div>
+                  <% profile.horses.each do |horse| %>
+                    <% if horse.photo.url.nil? %>
+                      <% url = 'http://res.cloudinary.com/dk6vsgttl/image/upload/v1534863841/s0caeecaab59c4a6bd6d9a36666c361d3.jpg' %>
+                    <% else %>
+                      <% url = cl_image_path horse.photo, width: 40, height: 40, crop: :fill %>
+                    <% end %>
+                      <%= image_tag url, class:"horse-avatar" %>
+                  <% end %>
+                </div>
+              </div>
+
+              </div>
           <% end %>
-      <% end if @managers.any? %>
+      <% end if @owners.any? %>
     </div>
 
     </div>
