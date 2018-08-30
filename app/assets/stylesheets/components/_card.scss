@@ -9,7 +9,6 @@
   min-height: 450px;
   position: relative;
   overflow: hidden;
-  border-radius: 10px;
 }
 
 .location {
@@ -39,7 +38,7 @@
 
 .horse .content {
   background-color: #fff;
-  box-shadow: 0 5px 30px 10px rgba(0, 0, 0, 0.3);
+  // box-shadow: 0 5px 30px 10px rgba(0, 0, 0, 0.3);
 }
 
 .horse .title a {
@@ -51,11 +50,15 @@
   background-position: center;
 }
 
-.card-horse {
-  height: 150px;
-  text-shadow: 0 1px 3px rgba(0,0,0,0.6);
-  background-color: #808080;
-  color: black;
-  margin-bottom: 10px;
-  margin-top: 10px;
+.add {
+  color: $brand-primary;
 }
+
+// .card-horse {
+//   height: 150px;
+//   text-shadow: 0 1px 3px rgba(0,0,0,0.6);
+//   background-color: #808080;
+//   color: black;
+//   margin-bottom: 10px;
+//   margin-top: 10px;
+// }

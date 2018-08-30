@@ -1,4 +1,4 @@
-<div class="home-banner">
+<!-- <div class="home-banner">
   <div class="container">
     <div class="row">
       <div>
@@ -7,11 +7,43 @@
       </div>
     </div>
   </div>
-</div>
+</div> -->
 
 <div class="container" >
+
   <h3> <strong>  Les tâches du jour </strong> </h3>
-  <ul>
+  <ul class="nav nav-pills">
+    <li role="presentation" class="active"><a href="#">Nourriture</a></li>
+    <li role="presentation"><a href="#">Activité</a></li>
+    <li role="presentation"><a href="#">Médicaments</a></li>
+    <li role="presentation"><a href="#">Vaccins</a></li>
+    <li role="presentation"><a href="#">Visites</a></li>
+  </ul>
+  <% @tasks.each do |task| %>
+  <div class="col-xs-12 col-md-6">
+    <div class="task">
+      <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/331810/profile-sample6.jpg" alt="profile-sample6" />
+      <div class="content">
+
+        <p><strong><%= task.horse.name %></strong></p>
+        <p>
+          <%= task.food_type.name if task.food_type %>
+          <% if task.food_quantity %>
+            |<strong><%= task.food_quantity%> L</strong>
+          <% end %>
+
+          <%= task.activity.name if task.activity %>
+          <%= task.medecine.name if task.medecine%>
+          <%= task.vetenary.name if task.vetenary %>
+          <%= task.antidote.name if task.antidote%>
+        </p>
+      </div>
+    </div>
+  </div>
+  <% end %>
+
+
+  <!-- <ul>
     <div class="matin">
       <li><strong>  Matin </strong> </h3></li>
 
@@ -90,6 +122,6 @@
 
     </div>
   </ul>
-
+ -->
 </div>
 

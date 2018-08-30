@@ -1,0 +1,32 @@
+.task {
+  position: relative;
+  display: inline-block;
+  margin: 20px 0px;
+  min-width: 230px;
+  width: 100%;
+  color: #000;
+  text-align: left;
+  font-size: 16px;
+  background: #fff;
+  border-radius: 5px;
+}
+
+.task img {
+  max-width: 20%;
+  margin-top: -15px;
+  margin-left: 78%;
+  margin-bottom: 15px;
+  vertical-align: top;
+  border-radius: 5px;
+}
+
+.task .content {
+  position: absolute;
+  top: 0;
+  right: 40%;
+  left: 0;
+  bottom: 0;
+  padding: 15px;
+}
+
+
