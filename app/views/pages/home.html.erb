@@ -14,7 +14,7 @@
   <h3> <strong>  Les tâches du jour </strong> </h3>
   <ul class="nav nav-justified nav-pills" role="tablist">
     <li role="presentation" class="active"><a href="#nourriture" aria-controls="nourriture" role="tab" data-toggle="tab">Nourriture</a></li>
-    <li role="presentation"><a href="#activites" aria-controls="activites" role="tab" data-toggle="tab">Activité</a></li>
+    <li role="presentation"><a href="#activites" aria-controls="activites" role="tab" data-toggle="tab">Activités</a></li>
     <li role="presentation"><a href="#medicaments" aria-controls="medicaments" role="tab" data-toggle="tab">Médicaments</a></li>
     <li role="presentation"><a href="#vaccins" aria-controls="vaccins" role="tab" data-toggle="tab">Vaccins</a></li>
     <li role="presentation"><a href="#visites" aria-controls="visites" role="tab" data-toggle="tab">Visites</a></li>
@@ -80,14 +80,15 @@
 
     <div role="tabpanel" class="tab-pane" id="vaccins">
       <% @tasks.each do |task| %>
-        <% if task.vetenary %>
+        <% if task.antidote %>
           <div class="col-xs-12 col-md-6">
             <div class="task">
               <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/331810/profile-sample6.jpg" alt="profile-sample6" />
               <div class="content">
                 <p><strong><%= task.horse.name %></strong></p>
                 <p>
-                  Visite du véterinaire<%= task.vetenary.name %>
+
+                  Vaccin contre la <%= task.antidote.name%>
                 </p>
               </div>
             </div>
@@ -98,15 +99,29 @@
 
     <div role="tabpanel" class="tab-pane" id="visites">
       <% @tasks.each do |task| %>
-        <% if task.antidote %>
+        <% if task.vetenary %>
           <div class="col-xs-12 col-md-6">
             <div class="task">
               <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/331810/profile-sample6.jpg" alt="profile-sample6" />
               <div class="content">
                 <p><strong><%= task.horse.name %></strong></p>
                 <p>
+                  Accueillir le véterinaire <%= task.vetenary.name%>
 
-                  <%= task.antidote.name%>
+                </p>
+              </div>
+            </div>
+          </div>
+        <% end %>
+        <% if task.shoe_maker %>
+          <div class="col-xs-12 col-md-6">
+            <div class="task">
+              <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/331810/profile-sample6.jpg" alt="profile-sample6" />
+              <div class="content">
+                <p><strong><%= task.horse.name %></strong></p>
+                <p>
+                  Accueillir le maréchal-ferrant <%= task.shoe_maker.name %>
+
                 </p>
               </div>
             </div>
@@ -114,6 +129,7 @@
         <% end %>
       <% end %>
     </div>
-  </div>
+
+
 </div>
 
