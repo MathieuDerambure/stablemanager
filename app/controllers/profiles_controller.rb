@@ -9,7 +9,6 @@ class ProfilesController < ApplicationController
     @managers = users.map{|user| user if user.role == "Manager"}.compact
   end
 
-
   def show
   end
 
