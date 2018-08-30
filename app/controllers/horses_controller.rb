@@ -22,7 +22,6 @@ class HorsesController < ApplicationController
   def create
     @horse = Horse.new(horse_params)
     @horse.user = current_user
-    raise
     if @horse.save
       create_tasks
 
