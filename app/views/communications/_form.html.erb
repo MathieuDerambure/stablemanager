@@ -1,5 +1,5 @@
 <%= simple_form_for (@comm) do |f| %>
-  <%= f.input :message, label: false, placeholder: 'message...' %>
-  <%= f.submit "Ajouter un message", class: "btn btn-lg btn-primary btn-block" %>
-  <%= link_to "", communications_path, class: "btn btn-lg btn-secondary btn-block"%>
+  <%= f.input :message, label: false, placeholder: '...' %>
+  <%= f.submit "Ajouter votre message", class: "btn btn-xs btn-primary btn-block" %>
+  <%= link_to "", communications_path, class: "btn btn-xs btn-secondary btn-block"%>
 <% end %>
