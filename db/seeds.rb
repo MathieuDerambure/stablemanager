@@ -39,10 +39,10 @@ comm1 = Communication.create!(message: "J'aurai 30 minutes de retard ce lundi.",
 comm2 = Communication.create!(message: "La barrière de la grange est cassée.", user_id: empl2.id)
 comm3 = Communication.create!(message: "Merci de ne plus laisser traîner de matériel dans la cours.", user_id: prop1.id)
 
-act1 = Activity.create!(name: "paddock")
-act2 = Activity.create!(name: "marche")
-act3 = Activity.create!(name: "promenade")
-act4 = Activity.create!(name: "saut")
+act1 = Activity.create!(name: "Paddock")
+act2 = Activity.create!(name: "Marche")
+act3 = Activity.create!(name: "Promenade")
+act4 = Activity.create!(name: "Saut")
 
 food1 = FoodType.create!(name: "Granulé")
 food2 = FoodType.create!(name: "Floconnet")

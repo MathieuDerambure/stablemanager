@@ -22,7 +22,6 @@ class HorsesController < ApplicationController
   def create
     @horse = Horse.new(horse_params)
     @horse.user = current_user
-    raise
     if @horse.save
       create_tasks
       redirect_to horses_path
@@ -163,12 +162,12 @@ class HorsesController < ApplicationController
       params[:activity].keys.each do |activity|
         params[:activity][activity.to_sym].keys.each do |day|
           Task.create(
-          horse: @horse,
-          user: current_user,
-          weekly: true,
-          activity: Activity.find_by(name: activity),
-          activity_week_day: day,
-          start_time: day_next_week(day)
+            horse: @horse,
+            user: current_user,
+            weekly: true,
+            activity: Activity.find_by(name: activity.capitalize),
+            activity_week_day: day,
+            start_time: day_next_week(day)
           )
         end
       end
