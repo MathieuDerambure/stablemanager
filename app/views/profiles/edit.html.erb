@@ -1,0 +1,19 @@
+<%= simple_form_for @user, url:edit_profile_path do |f| %>
+  <%= f.input :sur_name, label: "Nom", placeholder: 'Hervé' %>
+  <%= f.input :first_name, label: "Prénom", placeholder: 'Mathilde' %>
+
+  <%= f.input :role, label: "Rôle", placeholder: 'Employée, Propriétaire' %>
+
+  <%= f.input :phone, label: "Téléphone", placeholder: '06 03 03 03 33"' %>
+  <%= f.input :address, label: "Adresse", placeholder: '20 ave Bidule Mesnil-le-Roi 78600' %>
+  <%= f.input :photo, label: "Photo" %>
+
+
+  <%= f.submit "Enregistrer", class: "btn btn-lg btn-primary btn-block" %>
+  <%= link_to "Retour", profiles_path, class: "btn btn-lg btn-secondary btn-block"%>
+
+<% end %>
+
+
+
+
