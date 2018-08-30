@@ -3,7 +3,7 @@ class CommunicationsController < ApplicationController
 before_action :set_comm, only: [:show, :edit, :update, :destroy]
 
   def index
-    @comms = Communication.all.order(id: :desc).first(5)
+    @comms = Communication.all.order(id: :asc).last(5)
 
     @comm = Communication.new
 
