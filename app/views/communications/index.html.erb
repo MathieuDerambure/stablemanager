@@ -1,10 +1,11 @@
 <div class="container">
   <div class="messages-container">
-    <% @comms.each do |comm| %>
+    <%= link_to_next_page @comms, 'Load previous messages' %>
+    <% @comms.reverse.each do |comm| %>
 
       <div class="message">
 
-        <div class="alert message-user" role="alert"> <%= comm.user.email.first(4) %>
+        <div class="alert message-user" role="alert"> <%= comm.user.sur_name.first(4) %>
         </div>
 
         <div class="message-content alert" role="alert" style="text-align:left"> <%= comm.message %> <div class="message-time"> <%= comm.created_at.strftime("%d %b %H:%M") %> </div>
@@ -25,8 +26,12 @@
       </div>
 
     <% end %>
+    <%= link_to_prev_page @comms, 'More recent messages' %>
   </div>
   <%= render 'form', comm: @comm %>
+
+
+
 </div>
 
 
