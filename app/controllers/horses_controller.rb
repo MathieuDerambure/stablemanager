@@ -24,6 +24,7 @@ class HorsesController < ApplicationController
     @horse.user = current_user
     if @horse.save
       create_tasks
+      raise
       redirect_to horses_path
     else
       render :new
@@ -55,13 +56,14 @@ class HorsesController < ApplicationController
 
 # FOOD >>> granule
     if params[:granule]
+      food_type_fr = "Granulé"
       if params[:granule][:matin]
         Task.create(
           horse: @horse,
           user: current_user,
           start_time: DateTime.new(today.year, today.month, today.day, 8),
           daily: true,
-          food_type: FoodType.find_by(name: "granule"),
+          food_type: FoodType.find_by(name: food_type_fr),
           food_quantity: params[:granule][:matin][:quantite]
           )
       end
@@ -71,7 +73,7 @@ class HorsesController < ApplicationController
           user: current_user,
           start_time: DateTime.new(today.year, today.month, today.day, 12),
           daily: true,
-          food_type: FoodType.find_by(name: "granule"),
+          food_type: FoodType.find_by(name: food_type_fr),
           food_quantity: params[:granule][:midi][:quantite]
           )
       end
@@ -81,7 +83,7 @@ class HorsesController < ApplicationController
           user: current_user,
           start_time: DateTime.new(today.year, today.month, today.day, 19),
           daily: true,
-          food_type: FoodType.find_by(name: "granule"),
+          food_type: FoodType.find_by(name: food_type_fr),
           food_quantity: params[:granule][:soir][:quantite]
           )
       end
