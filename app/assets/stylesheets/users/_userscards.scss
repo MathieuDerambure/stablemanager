@@ -1,48 +1,41 @@
-.user-card {
-  display: flex;
-  align-items: center;
-  padding: 20px;
-  border-bottom: 1px solid rgba(220,224,244,0.4);
-  text-decoration: none
-}
-.message:last-child {
-  border-bottom: none;
-}
-.message-body {
-  flex-grow: 1;
-}
-.message-name {
-  padding-left: 10px;
-  min-width: 100px;
-}
-.message-name h3 {
+.name-index h3 {
   font-size: 13px;
   margin-bottom: 0px;
 }
-.message-name p {
+.name-index p {
   font-size: 13px;
   font-weight: lighter;
   opacity: 0.6;
-  margin-top: 5px;
 }
 .message-body {
-  padding-left: 10px;
   font-size: 13px;
   color: rgba(0,0,0,0.7);
 }
-.message-body {
-  padding-left: 20px;
-  color: rgba(0,0,0,0.4);
+
+.flex-menu {
+  display: flex;
+  justify-content: space-between;
 }
-.message-body strong{
-  color: rgba(0,0,0,0.9);
-  color: rgba(0,0,0,0.9);
+
+
+.flex-box-index {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  // align-content: center;
+  background-color: white;
+  margin: 10px;
+  padding: 10px;
 }
-.message-body p {
-  margin: 6px 0;
+
+.flex-box-index-item1 {
+
 }
-.message-status {
-  font-size: 14px;
-  font-weight: bold;
+
+.flex-box-index-item2 {
 }
+
+.flex-box-index-item3 {
+}
+
 
