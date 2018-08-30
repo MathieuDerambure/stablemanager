@@ -39,18 +39,18 @@ comm1 = Communication.create!(message: "J'aurai 30 minutes de retard ce lundi.",
 comm2 = Communication.create!(message: "La barrière de la grange est cassée.", user_id: empl2.id)
 comm3 = Communication.create!(message: "Merci de ne plus laisser traîner de matériel dans la cours.", user_id: prop1.id)
 
-act1 = Activity.create!(name: "Paddock")
-act2 = Activity.create!(name: "Marche")
-act3 = Activity.create!(name: "Promenade")
-act4 = Activity.create!(name: "Saut")
+act1 = Activity.create!(name: "paddock")
+act2 = Activity.create!(name: "marche")
+act3 = Activity.create!(name: "promenade")
+act4 = Activity.create!(name: "saut")
 
 food1 = FoodType.create!(name: "Granulé")
 food2 = FoodType.create!(name: "Floconnet")
 food3 = FoodType.create!(name: "Winsor")
 
-medic1 = Medecine.create!(name: "Drainage")
-medic2 = Medecine.create!(name: "Ronaxan")
-medic3 = Medecine.create!(name: "Equipalazone")
+medic1 = Medecine.create!(name: "drainage")
+medic2 = Medecine.create!(name: "ronaxan")
+medic3 = Medecine.create!(name: "equipalazone")
 
 vet1 = Vetenary.create!(name: 'Dupont', email: 'dupont@gmail.com', phone: '1111111111')
 vet2 = Vetenary.create!(name: 'Nollet', email: 'nollet@gmail.com', phone: '2222222222')

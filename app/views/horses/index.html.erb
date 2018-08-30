@@ -1,48 +1,59 @@
-<div class="row">
-  <div class="col-xs-12">
-    <%= render './shared/search' %>
+<div class="container">
+
+  <div class="row">
+    <div class="col-xs-12">
+      <%= render './shared/search' %>
+    </div>
   </div>
-</div>
 
-<div class="row">
+  <div class="row">
 
-  <%= link_to new_horse_path do %>
-    <div class="col-xs-12 col-md-6">
-      <div class="horse card" data-aos="fade-up">
-        <div class="content">
-          <div class="horse-image wrapper" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('http://res.cloudinary.com/dk6vsgttl/image/upload/v1535536994/add.png')">
+    <%= link_to new_horse_path do %>
+      <div class="col-xs-6 col-md-4">
+        <div class="add card" data-aos="fade-up">
+          <div class="content">
+            <div class="title">
+              <i class="fas fa-plus-circle"></i>
+              Ajouter un cheval
+              <br/>
+              (card à paufiner)
+
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  <% end %>
+    <% end %>
 
-  <% @horses.each do |horse| %>
+    <% @horses.each do |horse| %>
 
-    <%= link_to horse do %>
-      <div class="col-xs-12 col-md-6">
-        <div class="horse card" data-aos="fade-up">
-          <% if horse.photo?  %>
-            <div class="horse-image wrapper" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path horse.photo, crop: :fill %>')">
-            </div>
-          <%else %>
-            <div class="horse-image wrapper" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cloudinary_url("pe12ydym9xpycxvwrnv5.jpg", :crop =>"fill") %>')">
-            </div>
-          <% end %>
-          <div class="data">
-            <div class="content">
-              <div class="title">
-                <strong><%= horse.name %></strong>
-                <h2><%= horse.user.email %></h2>
-                <p>Box:<%= horse.box %></p>
+      <%= link_to horse do %>
+        <div class="col-xs-12 col-md-4">
+          <div class="horse card" data-aos="fade-up">
+            <% if horse.photo?  %>
+              <div class="horse-image wrapper" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path horse.photo, crop: :fill %>')">
+              </div>
+            <%else %>
+              <div class="horse-image wrapper" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cloudinary_url("pe12ydym9xpycxvwrnv5.jpg", :crop =>"fill") %>')">
+              </div>
+            <% end %>
+            <div class="data">
+              <div class="content">
+                <div class="title">
+                  <p><strong><%= horse.name %></strong></p>
+                  <p><%= horse.user.first_name %> <%= horse.user.sur_name %></p>
+                  <p>Box n°<%= horse.box %></p>
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-    <!-- End link -->
+
+      <!-- End link -->
+      <% end %>
+    <!-- End each -->
     <% end %>
-  <!-- End each -->
-  <% end %>
-<!-- End row -->
+  <!-- End row -->
+  </div>
 </div>
+
+
