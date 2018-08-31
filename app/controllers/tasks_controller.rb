@@ -1,5 +1,5 @@
 class TasksController < ApplicationController
-  before_action :set_horse, only: [:new, :create]
+  before_action :set_horse, only: [:new, :create, :update]
 
   def tasks_index
     users ||= User.all
@@ -14,6 +14,11 @@ class TasksController < ApplicationController
 
   def new
     @task = Task.new
+  end
+
+  def mark_as_done
+    Task.find(params[:task_id]).update(done: true)
+    redirect_to root_path
   end
 
   def create
