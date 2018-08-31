@@ -53,110 +53,41 @@ class HorsesController < ApplicationController
   end
 
   def create_tasks
-
 # FOOD >>> granule
-    if params[:granule]
-      food_type = "Granulé"
-      if params[:granule][:matin]
+  if params[:food]
+    params[:food].keys.each do |slug|
+      if params[:food][slug][:matin]
         task = Task.create(
           horse: @horse,
           user: current_user,
           start_time: DateTime.new(today.year, today.month, today.day, 8),
           daily: true,
-          food_type: FoodType.find_by(name: food_type),
-          food_quantity: params[:granule][:matin][:quantite]
-          )
+          food_type: FoodType.find_by(slug: slug),
+          food_quantity: params[:food][slug][:matin][:quantite]
+        )
       end
-      if params[:granule][:midi]
+      if params[:food][slug][:midi]
         task = Task.create(
-          horse: @horse,
-          user: current_user,
-          start_time: DateTime.new(today.year, today.month, today.day, 12),
-          daily: true,
-          food_type: FoodType.find_by(name: food_type),
-          food_quantity: params[:granule][:midi][:quantite]
-          )
-      end
-      if params[:granule][:soir]
-        Task.create(
-          horse: @horse,
-          user: current_user,
-          start_time: DateTime.new(today.year, today.month, today.day, 19),
-          daily: true,
-          food_type: FoodType.find_by(name: food_type),
-          food_quantity: params[:granule][:soir][:quantite]
-          )
-      end
-    end
-# FOOD >>> floconnet
-    if params[:floconnet]
-      food_type = "Floconnet"
-      if params[:floconnet][:matin]
-        Task.create(
           horse: @horse,
           user: current_user,
           start_time: DateTime.new(today.year, today.month, today.day, 8),
           daily: true,
-          food_type: FoodType.find_by(name: food_type),
-          food_quantity: params[:floconnet][:matin][:quantite]
-          )
+          food_type: FoodType.find_by(slug: slug),
+          food_quantity: params[:food][slug][:midi][:quantite]
+        )
       end
-      if params[:floconnet][:midi]
+      if params[:food][slug][:soir]
         task = Task.create(
-          horse: @horse,
-          user: current_user,
-          start_time: DateTime.new(today.year, today.month, today.day, 12),
-          daily: true,
-          food_type: FoodType.find_by(name: food_type),
-          food_quantity: params[:floconnet][:midi][:quantite]
-          )
-      end
-      if params[:floconnet][:soir]
-        Task.create(
-          horse: @horse,
-          user: current_user,
-          start_time: DateTime.new(today.year, today.month, today.day, 19),
-          daily: true,
-          food_type: FoodType.find_by(name: food_type),
-          food_quantity: params[:floconnet][:soir][:quantite]
-          )
-      end
-    end
-
-# FOOD >>> winsor
-    if params[:winsor]
-      food_type = 'Winsor'
-      if params[:winsor][:matin]
-        Task.create(
           horse: @horse,
           user: current_user,
           start_time: DateTime.new(today.year, today.month, today.day, 8),
           daily: true,
-          food_type: FoodType.find_by(name: food_type),
-          food_quantity: params[:winsor][:matin][:quantite]
-          )
-      end
-      if params[:winsor][:midi]
-        Task.create(
-          horse: @horse,
-          user: current_user,
-          start_time: DateTime.new(today.year, today.month, today.day, 12),
-          daily: true,
-          food_type: FoodType.find_by(name: food_type),
-          food_quantity: params[:winsor][:midi][:quantite]
-          )
-      end
-      if params[:winsor][:soir]
-        Task.create(
-          horse: @horse,
-          user: current_user,
-          start_time: DateTime.new(today.year, today.month, today.day, 19),
-          daily: true,
-          food_type: FoodType.find_by(name: food_type),
-          food_quantity: params[:winsor][:soir][:quantite]
-          )
+          food_type: FoodType.find_by(slug: slug),
+          food_quantity: params[:food][slug][:soir][:quantite]
+        )
       end
     end
+  end
 
 # ACTIVITY
     if params[:activity]
@@ -166,7 +97,7 @@ class HorsesController < ApplicationController
             horse: @horse,
             user: current_user,
             weekly: true,
-            activity: Activity.find_by(name: activity.capitalize),
+            activity: Activity.find_by(slug: activity),
             activity_week_day: day,
             start_time: day_next_week(day)
           )
@@ -179,17 +110,17 @@ class HorsesController < ApplicationController
       Task.create(
         horse: @horse,
         user: current_user,
-        vetenary: Vetenary.find_by(name: veto_params[:name]),
+        vetenary: Vetenary.find_by(slug: veto_params[:name]),
         start_time: DateTime.parse(veto_params[:next_date])
         )
     end
 
    # MARECHAL-FERRANT
     if shoe_maker_params[:name] && !shoe_maker_params[:next_date].blank?
-      task = Task.create(
+      Task.create(
         horse: @horse,
         user: current_user,
-        shoe_maker: ShoeMaker.find_by(name: shoe_maker_params[:name]),
+        shoe_maker: ShoeMaker.find_by(slug: shoe_maker_params[:name]),
         start_time: DateTime.parse(shoe_maker_params[:next_date])
         )
     end
@@ -199,7 +130,7 @@ class HorsesController < ApplicationController
      Task.create(
         horse: @horse,
         user: current_user,
-        antidote: Antidote.find_by(name: antidote1_params[:name]),
+        antidote: Antidote.find_by(slug: antidote1_params[:name]),
         start_time: DateTime.parse(antidote1_params[:next_date])
         )
     end
@@ -209,7 +140,7 @@ class HorsesController < ApplicationController
       Task.create(
         horse: @horse,
         user: current_user,
-        antidote: Antidote.find_by(name: antidote2_params[:name]),
+        antidote: Antidote.find_by(slug: antidote2_params[:name]),
         start_time: DateTime.parse(antidote2_params[:next_date])
         )
     end

@@ -46,7 +46,7 @@ class TasksController < ApplicationController
                                   :shoe_maker_id,
                                   :vetenary_id,
                                   :comment_id,
-                                  :antidote,
+                                  :antidote_id,
                                   :doing,
                                   :done,
                                   :start_time,

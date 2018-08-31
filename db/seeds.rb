@@ -39,32 +39,32 @@ comm1 = Communication.create!(message: "J'aurai 30 minutes de retard ce lundi.",
 comm2 = Communication.create!(message: "La barrière de la grange est cassée.", user_id: empl2.id)
 comm3 = Communication.create!(message: "Merci de ne plus laisser traîner de matériel dans la cours.", user_id: prop1.id)
 
-act1 = Activity.create!(name: "Paddock")
-act2 = Activity.create!(name: "Marche")
-act3 = Activity.create!(name: "Promenade")
-act4 = Activity.create!(name: "Saut")
+act1 = Activity.create!(name: "Paddock", slug: "paddock")
+act2 = Activity.create!(name: "Marche", slug: "marche")
+act3 = Activity.create!(name: "Promenade", slug: "promenade")
+act4 = Activity.create!(name: "Saut", slug: "saut")
 
-food1 = FoodType.create!(name: "Granulé")
-food2 = FoodType.create!(name: "Floconnet")
-food3 = FoodType.create!(name: "Winsor")
+food1 = FoodType.create!(name: "Granulé", slug: "granule")
+food2 = FoodType.create!(name: "Floconnet", slug: "floconnet")
+food3 = FoodType.create!(name: "Winsor", slug: "winsor")
 
-medic1 = Medecine.create!(name: "drainage")
-medic2 = Medecine.create!(name: "ronaxan")
-medic3 = Medecine.create!(name: "equipalazone")
+medic1 = Medecine.create!(name: "Drainage", slug: "drainage")
+medic2 = Medecine.create!(name: "Ronaxan", slug: "ronaxan")
+medic3 = Medecine.create!(name: "Equipalazone", slug: "equipalazone")
 
-vet1 = Vetenary.create!(name: 'Dupont', email: 'dupont@gmail.com', phone: '1111111111')
-vet2 = Vetenary.create!(name: 'Nollet', email: 'nollet@gmail.com', phone: '2222222222')
-vet3 = Vetenary.create!(name: 'Rocky', email: 'rocky@gmail.com', phone: '3333333333')
-vet4 = Vetenary.create!(name: 'Salmon', email: 'salmon@gmail.com', phone: '4444444444')
+vet1 = Vetenary.create!(name: 'Dupont', email: 'dupont@gmail.com', phone: '1111111111', slug: "dupont")
+vet2 = Vetenary.create!(name: 'Nollet', email: 'nollet@gmail.com', phone: '2222222222', slug: "nollet")
+vet3 = Vetenary.create!(name: 'Rocky', email: 'rocky@gmail.com', phone: '3333333333', slug: "rocky")
+vet4 = Vetenary.create!(name: 'Salmon', email: 'salmon@gmail.com', phone: '4444444444', slug: "salmon")
 # vet5 = Vetenary.create!(name: 'Derambure', email: 'derambure@gmail.com', phone: '5555555555')
 # vet6 = Vetenary.create!(name: 'Chazal', email: 'claire@gmail.com', phone: '6666666666')
 # vet7 = Vetenary.create!(name: 'Saunier', email: 'saunier@gmail.com', phone: '7777777777')
 # vet8 = Vetenary.create!(name: 'Papillard', email: 'papillard@gmail.com', phone: '8888888888')
 
-shoe1 = ShoeMaker.create!(name: 'Trump', email: 'trump@gmail.com', phone: '1111111111')
-shoe2 = ShoeMaker.create!(name: 'Kim', email: 'little_rocket_man@gmail.com', phone: '2222222222')
-shoe3 = ShoeMaker.create!(name: 'Pence', email: 'pence@gmail.com', phone: '3333333333')
-shoe4 = ShoeMaker.create!(name: 'Balladur', email: 'balladur@gmail.com', phone: '4444444444')
+shoe1 = ShoeMaker.create!(name: 'Trump', email: 'trump@gmail.com', phone: '1111111111', slug: 'trump')
+shoe2 = ShoeMaker.create!(name: 'Kim', email: 'little_rocket_man@gmail.com', phone: '2222222222', slug: 'kim')
+shoe3 = ShoeMaker.create!(name: 'Pence', email: 'pence@gmail.com', phone: '3333333333', slug: 'pence')
+shoe4 = ShoeMaker.create!(name: 'Balladur', email: 'balladur@gmail.com', phone: '4444444444', slug: 'balladur')
 # shoe5 = ShoeMaker.create!(name: 'Chirac', email: 'patrick@gmail.com', phone: '5555555555')
 # shoe6 = ShoeMaker.create!(name: 'Gayet', email: 'julie@gmail.com', phone: '6666666666')
 # shoe7 = ShoeMaker.create!(name: 'Aubry', email: 'martine@gmail.com', phone: '7777777777')
@@ -111,6 +111,8 @@ task6 = Task.create!(doing: false, done: true, start_time: Date.today, end_time:
 task7 = Task.create!(doing: false, done: true, start_time: Date.today, end_time: Date.today, horse_id: horse4.id, shoe_maker_id: shoe1.id, weekly: false, monthly: true)
 task8 = Task.create!(doing: false, done: false, start_time: Date.today, end_time: Date.today, horse_id: horse5.id, activity_id: act4.id, weekly: true, monthly: false)
 
+
+Antidote.create(name: "Grippe", slug: "grippe")
 
 p "C'est uploadé !"
 p Activity.all
