@@ -24,6 +24,7 @@ class HorsesController < ApplicationController
     @horse.user = current_user
     if @horse.save
       create_tasks
+      raise
       redirect_to horses_path
     else
       render :new
