@@ -116,7 +116,6 @@
   <%= select_tag "vetenary[name]", options_from_collection_for_select(Vetenary.all, "name", "name") %>
   <div class="form-wrapper">
       <div class="col-xs-12 col-md-12">
-
         <%= label_tag "Prochain passage" %>
         <%= text_field_tag "vetenary[next_date]", nil, class: "datepicker" %>
       </div>
@@ -126,7 +125,6 @@
   <%= select_tag "shoe_maker[name]", options_from_collection_for_select(ShoeMaker.all, "name", "name") %>
   <div class="form-wrapper">
       <div class="col-xs-12 col-md-12">
-
         <%= label_tag "Prochain passage" %>
         <%= text_field_tag "shoe_maker[next_date]", nil, class: "datepicker" %>
       </div>
@@ -143,6 +141,7 @@
     </div>
     <br/>
     <% end %>
+    <br>
   <%= f.submit %>
   <br/>
 
