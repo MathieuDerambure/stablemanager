@@ -43,6 +43,7 @@ class HorsesController < ApplicationController
 
   def destroy
     @horse.destroy
+    redirect_to horses_path
   end
 
   private
