@@ -1,11 +1,14 @@
 <div class="container">
-  <%= simple_form_for @horse do |f| %>
-  <%= f.input :name %>
-  <%= f.input :box %>
-  <%= f.input :formula %>
 
-  <h3><strong>Food</strong></h5>
-  <h5>Matin</h5>
+  <br/>
+  <br/>
+  <%= simple_form_for @horse do |f| %>
+  <%= f.input :name, label: "Nom" %>
+  <%= f.input :box, label: "Numéro du box" %>
+  <%= f.input :formula, label: "Formule" %>
+
+  <h3><strong>Nourriture</strong></h3>
+  <h4><strong>Matin</strong></h4>
   <div>
     <p>Granule</p>
     <div class="better_radio">
@@ -32,7 +35,7 @@
     </div>
   </div>
 
-  <h5>Midi</h5>
+  <h4><strong>Midi</strong></h4>
     <div>
       <p>Granule</p>
       <div class="better_radio">
@@ -57,7 +60,7 @@
       </div>
     </div>
 
-  <h5>Soir</h5>
+  <h4><strong>Soir</strong></h4>
     <div>
       <p>Granule</p>
       <div class="better_radio">
@@ -82,7 +85,7 @@
       </div>
     </div>
 
-  <h3><strong>Activités</strong></h5>
+  <h3><strong>Activités</strong></h3>
   <p>Paddock</p>
   <div class="better_checkbox">
     <% @week_days.each do |day|  %>
@@ -113,37 +116,43 @@
   </div>
 
   <h3><strong>Véterinaire</strong></h3>
-  <%= select_tag "vetenary[name]", options_from_collection_for_select(Vetenary.all, "slug", "name") %>
-  <div class="form-wrapper">
-      <div class="col-xs-12 col-md-12">
 
-        <%= label_tag "Prochain passage" %>
-        <%= text_field_tag "vetenary[next_date]", nil, class: "datepicker" %>
-      </div>
+  <%= select_tag "vetenary[name]", options_from_collection_for_select(Vetenary.all, "slug", "name"), class: "col-xs-12 col-md-4" %>
+<br/>
+  <br/>
+
+  <div class="form-wrapper">
+        <div><%= label_tag "Prochain passage" %></div>
+          <%= text_field_tag "vetenary[next_date]", nil, class: "datepicker" %>
     </div>
 
   <h3><strong>Maréchal-ferrant</strong></h3>
-  <%= select_tag "shoe_maker[name]", options_from_collection_for_select(ShoeMaker.all, "slug", "name") %>
-  <div class="form-wrapper">
-      <div class="col-xs-12 col-md-12">
 
-        <%= label_tag "Prochain passage" %>
+  <%= select_tag "shoe_maker[name]", options_from_collection_for_select(ShoeMaker.all, "slug", "name"), class: "col-xs-12 col-md-4" %>
+  <br/>
+  <br/>
+    <div class="form-wrapper">
+        <div><%= label_tag "Prochain passage" %></div>
         <%= text_field_tag "shoe_maker[next_date]", nil, class: "datepicker" %>
-      </div>
     </div>
 
   <h3><strong>Vaccins / Vermifuges</strong></h3>
   <% (1..2).each do |i| %>
-  <%= select_tag "antidote#{i}[name]", options_from_collection_for_select(Antidote.all, "slug", "name") %>
+
+  <%= select_tag "antidote#{i}[name]", options_from_collection_for_select(Antidote.all, "slug", "name"), class: "col-xs-12 col-md-4" %>
+  <br/>
+  <br/>
     <div class="form-wrapper">
-        <div class="col-xs-12 col-md-12">
-          <%= label_tag "Prochaine prise" %>
+        <div><%= label_tag "Prochaine prise" %>
+    </div>
           <%= text_field_tag "antidote#{i}[next_date]", nil, class: "datepicker" %>
-        </div>
     </div>
     <br/>
     <% end %>
-  <%= f.submit %>
+    <br>
+  <%= f.submit "Créer mon cheval", class: "btn btn-primary btn-lg col-xs-12 col-md-4"%>
+  <br/>
+  <br/>
   <br/>
 
   <% end %>
