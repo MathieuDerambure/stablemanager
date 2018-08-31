@@ -9,16 +9,10 @@
   <div class="row">
 
     <%= link_to new_horse_path do %>
-      <div class="col-xs-6 col-md-4">
-        <div class="add card" data-aos="fade-up">
-          <div class="content">
-            <div class="title">
-              <i class="fas fa-plus-circle"></i>
-              Ajouter un cheval
-              <br/>
-              (card à paufiner)
-
-            </div>
+      <div class="col-xs-12 col-md-4">
+        <div class="horse card" >
+          <div class="horse-image add wrapper">
+            <i class="fas fa-plus-circle fa-2x  "></i>
           </div>
         </div>
       </div>
@@ -28,7 +22,7 @@
 
       <%= link_to horse do %>
         <div class="col-xs-12 col-md-4">
-          <div class="horse card" data-aos="fade-up">
+          <div class="horse card" >
             <% if horse.photo?  %>
               <div class="horse-image wrapper" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path horse.photo, crop: :fill %>')">
               </div>
