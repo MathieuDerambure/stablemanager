@@ -20,7 +20,7 @@ class TasksController < ApplicationController
 
   def mark_as_done
     Task.find(params[:task_id]).update(done: true)
-    redirect_to root_path
+    redirect_to tasks_index_path
   end
 
   def create
