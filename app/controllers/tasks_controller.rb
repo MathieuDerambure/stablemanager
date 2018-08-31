@@ -2,6 +2,8 @@ class TasksController < ApplicationController
   before_action :set_horse, only: [:new, :create, :update]
 
   def tasks_index
+    @tasks = Task.all
+
     users ||= User.all
     @owners = users.map{|user| user if user.role == "Propriétaire"}.compact
     @employees = users.map{|user| user if user.role == "Employée"}.compact
