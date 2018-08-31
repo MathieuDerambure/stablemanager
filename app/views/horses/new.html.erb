@@ -10,24 +10,24 @@
     <p>Granule</p>
     <div class="better_radio">
       <% (0..5).each do |i| %>
-        <%= radio_button_tag "granule[matin][quantite]", "#{i}" %>
-        <%= label_tag "granule_matin_quantite_#{i}", "#{i}L" %>
+        <%= radio_button_tag "food[granule][matin][quantite]", "#{i}" %>
+        <%= label_tag "food_granule_matin_quantite_#{i}", "#{i}L" %>
       <% end %>
     </div>
 
     <p>Floconnet</p>
     <div class="better_radio">
       <% (0..5).each do |i| %>
-        <%= radio_button_tag "floconnet[matin][quantite]", "#{i}" %>
-        <%= label_tag "floconnet_matin_quantite_#{i}", "#{i}L" %>
+        <%= radio_button_tag "food[floconnet][matin][quantite]", "#{i}" %>
+        <%= label_tag "food_floconnet_matin_quantite_#{i}", "#{i}L" %>
       <% end %>
     </div>
 
     <p>Winsor</p>
     <div class="better_radio">
       <% (0..5).each do |i| %>
-        <%= radio_button_tag "winsor[matin][quantite]", "#{i}" %>
-        <%= label_tag "winsor_matin_quantite_#{i}", "#{i}L" %>
+        <%= radio_button_tag "food[winsor][matin][quantite]", "#{i}" %>
+        <%= label_tag "food_winsor_matin_quantite_#{i}", "#{i}L" %>
       <% end %>
     </div>
   </div>
@@ -37,22 +37,22 @@
       <p>Granule</p>
       <div class="better_radio">
         <% (0..5).each do |i| %>
-          <%= radio_button_tag "granule[midi][quantite]", "#{i}" %>
-          <%= label_tag "granule_midi_quantite_#{i}", "#{i}L" %>
+          <%= radio_button_tag "food[granule][midi][quantite]", "#{i}" %>
+          <%= label_tag "food_granule_midi_quantite_#{i}", "#{i}L" %>
         <% end %>
       </div>
       <p>Floconnet</p>
       <div class="better_radio">
         <% (0..5).each do |i| %>
-          <%= radio_button_tag "floconnet[midi][quantite]", "#{i}" %>
-          <%= label_tag "floconnet_midi_quantite_#{i}", "#{i}L" %>
+          <%= radio_button_tag "food[floconnet][midi][quantite]", "#{i}" %>
+          <%= label_tag "food_floconnet_midi_quantite_#{i}", "#{i}L" %>
         <% end %>
       </div>
       <p>Winsor</p>
       <div class="better_radio">
         <% (0..5).each do |i| %>
-          <%= radio_button_tag "winsor[midi][quantite]", "#{i}" %>
-          <%= label_tag "winsor_midi_quantite_#{i}", "#{i}L" %>
+          <%= radio_button_tag "food[winsor][midi][quantite]", "#{i}" %>
+          <%= label_tag "food_winsor_midi_quantite_#{i}", "#{i}L" %>
         <% end %>
       </div>
     </div>
@@ -62,22 +62,22 @@
       <p>Granule</p>
       <div class="better_radio">
         <% (0..5).each do |i| %>
-          <%= radio_button_tag "granule[soir][quantite]", "#{i}" %>
-          <%= label_tag "granule_soir_quantite_#{i}", "#{i}L" %>
+          <%= radio_button_tag "food[granule][soir][quantite]", "#{i}" %>
+          <%= label_tag "food_granule_soir_quantite_#{i}", "#{i}L" %>
         <% end %>
       </div>
       <p>Floconnet</p>
       <div class="better_radio">
         <% (0..5).each do |i| %>
-          <%= radio_button_tag "floconnet[soir][quantite]", "#{i}" %>
-          <%= label_tag "floconnet_soir_quantite_#{i}", "#{i}L" %>
+          <%= radio_button_tag "food[floconnet][soir][quantite]", "#{i}" %>
+          <%= label_tag "food_floconnet_soir_quantite_#{i}", "#{i}L" %>
         <% end %>
       </div>
       <p>Winsor</p>
       <div class="better_radio">
         <% (0..5).each do |i| %>
-          <%= radio_button_tag "winsor[soir][quantite]", "#{i}" %>
-          <%= label_tag "winsor_soir_quantite_#{i}", "#{i}L" %>
+          <%= radio_button_tag "food[winsor][soir][quantite]", "#{i}" %>
+          <%= label_tag "food_winsor_soir_quantite_#{i}", "#{i}L" %>
         <% end %>
       </div>
     </div>
@@ -113,7 +113,7 @@
   </div>
 
   <h3><strong>Véterinaire</strong></h3>
-  <%= select_tag "vetenary[name]", options_from_collection_for_select(Vetenary.all, "name", "name") %>
+  <%= select_tag "vetenary[name]", options_from_collection_for_select(Vetenary.all, "slug", "name") %>
   <div class="form-wrapper">
       <div class="col-xs-12 col-md-12">
 
@@ -123,7 +123,7 @@
     </div>
 
   <h3><strong>Maréchal-ferrant</strong></h3>
-  <%= select_tag "shoe_maker[name]", options_from_collection_for_select(ShoeMaker.all, "name", "name") %>
+  <%= select_tag "shoe_maker[name]", options_from_collection_for_select(ShoeMaker.all, "slug", "name") %>
   <div class="form-wrapper">
       <div class="col-xs-12 col-md-12">
 
@@ -134,7 +134,7 @@
 
   <h3><strong>Vaccins / Vermifuges</strong></h3>
   <% (1..2).each do |i| %>
-  <%= select_tag "antidote#{i}[name]", options_from_collection_for_select(Antidote.all, "name", "name") %>
+  <%= select_tag "antidote#{i}[name]", options_from_collection_for_select(Antidote.all, "slug", "name") %>
     <div class="form-wrapper">
         <div class="col-xs-12 col-md-12">
           <%= label_tag "Prochaine prise" %>

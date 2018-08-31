@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_08_29_152207) do
+ActiveRecord::Schema.define(version: 2018_08_31_131335) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,12 +19,14 @@ ActiveRecord::Schema.define(version: 2018_08_29_152207) do
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "slug"
   end
 
   create_table "antidotes", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "slug"
   end
 
   create_table "comments", force: :cascade do |t|
@@ -45,6 +47,7 @@ ActiveRecord::Schema.define(version: 2018_08_29_152207) do
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "slug"
   end
 
   create_table "horses", force: :cascade do |t|
@@ -62,6 +65,7 @@ ActiveRecord::Schema.define(version: 2018_08_29_152207) do
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "slug"
   end
 
   create_table "shoe_makers", force: :cascade do |t|
@@ -70,6 +74,7 @@ ActiveRecord::Schema.define(version: 2018_08_29_152207) do
     t.string "phone"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "slug"
   end
 
   create_table "tasks", force: :cascade do |t|
@@ -128,6 +133,7 @@ ActiveRecord::Schema.define(version: 2018_08_29_152207) do
     t.string "phone"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "slug"
   end
 
   add_foreign_key "communications", "users"

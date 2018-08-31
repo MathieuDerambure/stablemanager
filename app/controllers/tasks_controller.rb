@@ -12,8 +12,6 @@ class TasksController < ApplicationController
 
   def index
     @tasks = Task.all
-    @tasks.where(done: 'false')
-
   end
 
   def new
@@ -48,8 +46,7 @@ class TasksController < ApplicationController
                                   :shoe_maker_id,
                                   :vetenary_id,
                                   :comment_id,
-                                  :antidote1_id,
-                                  :antidote2_id,
+                                  :antidote_id,
                                   :doing,
                                   :done,
                                   :start_time,
