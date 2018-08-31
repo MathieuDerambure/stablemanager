@@ -1,5 +1,5 @@
 .card {
-  padding: 0 1.7rem;
+  // padding: 0 1.7rem;
   margin-bottom: 15px;
   margin-top: 15px;
 }
@@ -51,7 +51,14 @@
 }
 
 .add {
-  color: $brand-primary;
+  border: 1px solid $mid-gray;
+  color: $mid-gray;
+  background: transparent;
+  height: 608px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
 }
 
 // .card-horse {
