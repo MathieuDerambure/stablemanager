@@ -84,7 +84,7 @@ ActiveRecord::Schema.define(version: 2018_08_31_131335) do
     t.bigint "activity_id"
     t.bigint "medecine_id"
     t.bigint "comment_id"
-    t.bigint "vetenary_id"
+    t.bigint "Task.where("vetenary_id |= nil")vetenary_id"
     t.bigint "shoe_maker_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

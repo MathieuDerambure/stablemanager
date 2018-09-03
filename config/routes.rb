@@ -13,4 +13,6 @@ Rails.application.routes.draw do
   resources :profiles
   resources :communications
 
+  get "create_alert_vaccin", to: "communications#create_alert_vaccin"
+
 end
