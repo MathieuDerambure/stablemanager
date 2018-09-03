@@ -1,14 +1,14 @@
 <div class="container">
-  <div class="messages-container">
+  <div class="com-messages-container">
     <%= link_to_next_page @comms, 'Load previous messages' %>
     <% @comms.reverse.each do |comm| %>
 
-      <div class="message">
+      <div class="com-message">
 
-        <div class="alert message-user" role="alert"> <%= comm.user.sur_name.first(4) %>
+        <div class="alert com-message-user" role="alert"> <%= comm.user.sur_name.first(4) %>
         </div>
 
-        <div class="message-content alert" role="alert" style="text-align:left"> <%= comm.message %> <div class="message-time"> <%= comm.created_at.strftime("%d %b %H:%M") %> </div>
+        <div class="com-message-content alert" role="alert" style="text-align:left"> <%= comm.message %> <div class="com-message-time"> <%= comm.created_at.strftime("%d %b %H:%M") %> </div>
         </div>
 
       <!-- LINK DELETE OPTION 1 ############# -->

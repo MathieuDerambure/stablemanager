@@ -1,131 +1,160 @@
 <div class="container" >
 
-  <h3> <strong>  Les tâches du jour </strong> </h3>
-  <ul class="nav nav-pills flex-menu" role="tablist">
-    <li role="presentation" ><a href="#nourriture" aria-controls="nourriture" role="tab" data-toggle="tab"><i class="active fas fa-utensils"></i></a></li>
-    <li role="presentation" ><a href="#activites" aria-controls="activites" role="tab" data-toggle="tab"><i class="fas fa-shoe-prints"></i></a></li>
-    <li role="presentation"><a href="#medicaments" aria-controls="medicaments" role="tab" data-toggle="tab"><i class="fas fa-capsules"></i></a></li>
-    <li role="presentation"><a href="#vaccins" aria-controls="vaccins" role="tab" data-toggle="tab"><i class="fas fa-syringe"></i></a></li>
-    <li role="presentation" ><a href="#visites" aria-controls="visites" role="tab" data-toggle="tab"><i class="fas fa-user-plus"></i></a></li>
-  </ul>
+  <h3> <strong>Tâches du jour </strong> </h3>
+
+    <ul class="nav nav-tasks flex-menu navbar-fixed-bottom" role="tablist">
+      <li role="presentation">
+        <a href="#nourriture" aria-controls="nourriture" role="tab" data-toggle="tab">
+          <i class="active fas fa-utensils"></i>
+          <% if @tasks_food_type %>
+            <span class="badge brand-success"><%= @tasks_food_type.count %></span>
+          <% end %>
+        </a>
+      </li>
+      <li role="presentation">
+        <a href="#activites" aria-controls="activites" role="tab" data-toggle="tab">
+          <i class="fas fa-shoe-prints"></i>
+          <% if @tasks_activity %>
+            <span class="badge"><%= @tasks_activity.count %></span>
+          <% end %>
+        </a>
+      </li>
+      <li role="presentation">
+        <a href="#medicaments" aria-controls="medicaments" role="tab" data-toggle="tab">
+          <i class="fas fa-capsules"></i>
+          <% if @tasks_medecine %>
+            <span class="badge"><%= @tasks_medecine.count %></span>
+          <% end %>
+        </a>
+      </li>
+    </ul>
+
 
   <div class="tab-content">
+
+
     <div role="tabpanel" class="tab-pane active" id="nourriture">
+
+      <% @horses.each do |horse| %>
+          <% if horse.has_food_tasks? %>
+            <div class="col-xs-12 col-md-6">
+              <div class="task">
+                <div class="content">
+                  <p><strong><%= horse.name %></strong></p>
+
+                    <%= render "task_list", horse: horse, tasks: horse.morning_tasks.not_done, time: "morning" %>
+
+                    <%= render "task_list", horse: horse, tasks: horse.midday_tasks.not_done, time: "midday" %>
+
+                    <%= render "task_list", horse: horse, tasks: horse.evening_tasks.not_done, time: "evening" %>
+
+                </div>
+              </div>
+            </div>
+          <% end %>
+      <% end %>
+    </div>
+
+
+
+
+    <div role="tabpanel" class="tab-pane" id="activites">
       <% @tasks.each do |task| %>
+
         <% if task.done == false %>
-          <%= link_to mark_as_done_path(task_id: task.id) do %>
-            <% if task.food_type %>
-              <div class="col-xs-12 col-md-6">
-                <div class="task">
-                  <img src="https://source.unsplash.com/random/?headshot" />
-                  <div class="content">
+
+          <% if task.doing == false %>
+            <% if !task.activity.nil? %>
+              <%= link_to mark_as_doing_path(task_id: task.id) do %>
+                <div class="col-xs-12">
+                  <div class="task-message">
+                    <img class="avatar-large" src="https://kitt.lewagon.com/placeholder/users/gabriel-dehan">
+                    <div class="task-message-body">
                     <p><strong><%= task.horse.name %></strong></p>
                     <p>
-                      <%= task.food_type.name %>
-                      <% if task.food_quantity %>
-                        |<strong><%= task.food_quantity%> L</strong>
-                      <% end %>
+                      <%= task.activity&.name %>
                     </p>
+                    </div>
+                  </div>
+                </div>
+              <% end %>
+            <% end %>
+          <% end %>
+
+
+          <% if task.doing == true %>
+            <% if !task.activity.nil? %>
+              <div class="col-xs-12">
+                <div class="task-message">
+                  <img class="avatar-large" src="https://kitt.lewagon.com/placeholder/users/gabriel-dehan">
+                  <div class="task-message-body">
+                    <p><strong><%= task.horse.name %></strong></p>
+                      <p>
+                        <%= task.activity&.name %>
+                        <%= link_to "Done", mark_as_done_path(task_id: task.id), class: 'btn btn-success' %>
+                      </p>
+                      <% image_link = task.user_doing&.picture || "https://res.cloudinary.com/dk6vsgttl/image/upload/v1535978381/pomme.png" %>
+                    <%= image_tag image_link, class: "avatar-large-empty" %>
                   </div>
                 </div>
               </div>
             <% end %>
           <% end %>
-          <% end %>
+
+        <% end %>
+
       <% end %>
     </div>
 
-    <div role="tabpanel" class="tab-pane" id="activites">
-      <% @tasks.each do |task| %>
-      <% if task.done == false %>
-          <%= link_to mark_as_done_path(task_id: task.id) do %>
-        <% if task.activity %>
-          <div class="col-xs-12 col-md-6">
-            <div class="task">
-              <img src="https://source.unsplash.com/random/?face" />
-              <div class="content">
-                <p><strong><%= task.horse.name %></strong></p>
-                <p>
-                  <%= task.activity.name %>
-                </p>
-              </div>
-            </div>
-          </div>
-        <% end %>
-        <% end %>
-        <% end %>
-      <% end %>
-    </div>
+
 
     <div role="tabpanel" class="tab-pane" id="medicaments">
       <% @tasks.each do |task| %>
-        <% if task.medecine %>
-          <div class="col-xs-12 col-md-6">
-            <div class="task">
-              <img src="https://source.unsplash.com/random/?portait" />
-              <div class="content">
-                <p><strong><%= task.horse.name %></strong></p>
-                <p>
-                  <%= task.medecine.name %>
-                </p>
+
+        <% if task.done == false %>
+
+          <% if task.doing == false %>
+            <% if !task.medecine.nil? %>
+              <%= link_to mark_as_doing_path(task_id: task.id) do %>
+                <div class="col-xs-12">
+                  <div class="task-message">
+                    <img class="avatar-large" src="https://kitt.lewagon.com/placeholder/users/gabriel-dehan">
+                    <div class="task-message-body">
+                      <p><strong><%= task.horse.name %></strong></p>
+                      <p>
+                        <%= task.medecine&.name %>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              <% end %>
+            <% end %>
+          <% end %>
+
+          <% if task.doing == true %>
+            <% if !task.medecine.nil? %>
+              <div class="col-xs-12">
+                <div class="task-message">
+                  <img class="avatar-large" src="https://kitt.lewagon.com/placeholder/users/gabriel-dehan">
+                  <div class="task-message-body">
+                    <p><strong><%= task.horse.name %></strong></p>
+                    <p>
+                      <%= task.medecine&.name %>
+                      <%= link_to "Done", mark_as_done_path(task_id: task.id), class: 'btn btn-success' %>
+                    </p>
+                    <% image_link = task.user_doing&.picture || "https://res.cloudinary.com/dk6vsgttl/image/upload/v1535978381/pomme.png" %>
+                    <%= image_tag image_link, class: "avatar-large-empty" %>
+                  </div>
+                </div>
               </div>
-            </div>
-          </div>
+            <% end %>
+          <% end %>
+
         <% end %>
+
       <% end %>
     </div>
 
-    <div role="tabpanel" class="tab-pane" id="vaccins">
-      <% @tasks.each do |task| %>
-        <% if task.antidote %>
-          <div class="col-xs-12 col-md-6">
-            <div class="task">
-              <img src="https://source.unsplash.com/random/?people,face" />
-              <div class="content">
-                <p><strong><%= task.horse.name %></strong></p>
-                <p>
 
-                  Vaccin contre la <%= task.antidote.name%>
-                </p>
-              </div>
-            </div>
-          </div>
-        <% end %>
-      <% end %>
-    </div>
-
-    <div role="tabpanel" class="tab-pane" id="visites">
-      <% @tasks.each do |task| %>
-        <% if task.vetenary %>
-          <div class="col-xs-12 col-md-6">
-            <div class="task">
-              <img src="https://source.unsplash.com/random/?people,portrait" />
-              <div class="content">
-                <p><strong><%= task.horse.name %></strong></p>
-                <p>
-                  Accueillir le véterinaire <%= task.vetenary.name%>
-
-                </p>
-              </div>
-            </div>
-          </div>
-        <% end %>
-        <% if task.shoe_maker %>
-          <div class="col-xs-12 col-md-6">
-            <div class="task">
-              <img src="https://source.unsplash.com/random/?headshot" />
-              <div class="content">
-                <p><strong><%= task.horse.name %></strong></p>
-                <p>
-                  Accueillir le maréchal-ferrant <%= task.shoe_maker.name %>
-
-                </p>
-              </div>
-            </div>
-          </div>
-        <% end %>
-      <% end %>
-    </div>
+  </div>
 </div>
-
-

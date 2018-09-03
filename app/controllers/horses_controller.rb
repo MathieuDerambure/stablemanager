@@ -70,7 +70,7 @@ class HorsesController < ApplicationController
         task = Task.create(
           horse: @horse,
           user: current_user,
-          start_time: DateTime.new(today.year, today.month, today.day, 8),
+          start_time: DateTime.new(today.year, today.month, today.day, 12),
           daily: true,
           food_type: FoodType.find_by(slug: slug),
           food_quantity: params[:food][slug][:midi][:quantite]
@@ -80,7 +80,7 @@ class HorsesController < ApplicationController
         task = Task.create(
           horse: @horse,
           user: current_user,
-          start_time: DateTime.new(today.year, today.month, today.day, 8),
+          start_time: DateTime.new(today.year, today.month, today.day, 18),
           daily: true,
           food_type: FoodType.find_by(slug: slug),
           food_quantity: params[:food][slug][:soir][:quantite]
