@@ -9,30 +9,67 @@
 
   <div class="tab-content">
 
-    <div role="tabpanel" class="tab-pane active" id="nourriture">
-      <% @tasks.each do |task| %>
-        <% if task.done == false %>
-          <%= link_to mark_as_done_path(task_id: task.id) do %>
-            <% if task.food_type %>
-              <div class="col-xs-12 col-md-6">
-                <div class="task">
-                  <%= image_tag current_user.picture, class: "avatar" %>
-                    <div class="content">
-                      <p><strong><%= task.horse.name %></strong></p>
-                      <p>
-                      <%= task.food_type.name %>
-                      <% if task.food_quantity %>
-                        |<strong><%= task.food_quantity%> L</strong>
-                      <% end %>
-                    </p>
-                  </div>
-                </div>
-              </div>
-            <% end %>
-          <% end %>
+
+<div role="tabpanel" class="tab-pane active" id="nourriture">
+  <% @tasks.each do |task| %>
+  <% if task.done == false %>
+
+
+    <% if task.doing == false %>
+      <% if !task.food_type.nil? %>
+        <%= link_to mark_as_doing_path(task_id: task.id) do %>
+          <div class="col-xs-12 col-md-6">
+            <div class="task">
+              <p><strong><%= task.horse.name %></strong></p>
+              <p>
+                <%= task.food_type&.name %>
+                <% if task.food_quantity %>
+                  |<strong><%= task.food_quantity%> L</strong>
+                <% end %>
+              </p>
+            </div>
+          </div>
         <% end %>
       <% end %>
-    </div>
+    <% end %>
+
+
+    <% if task.doing == true %>
+        <div class="col-xs-12 col-md-6">
+          <div class="task">
+            <% image_link = task.user_doing&.picture || "https://res.cloudinary.com/dk6vsgttl/image/upload/v1535967303/image.png" %>
+            <%= image_tag image_link, class: "avatar" %>
+            <p><strong><%= task.horse.name %></strong></p>
+              <p>
+                <%= task.food_type.name %>
+                <% if task.food_quantity %>
+                  |<strong><%= task.food_quantity%> L</strong>
+                <% end %>
+              </p>
+
+          </div>
+        </div>
+    <% end %>
+
+
+    <% end %>
+  <% end %>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     <div role="tabpanel" class="tab-pane" id="activites">
       <% @tasks.each do |task| %>

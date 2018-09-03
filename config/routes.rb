@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   devise_for :users
 
   get "mark_as_done", to: "tasks#mark_as_done"
+  get "mark_as_doing", to: "tasks#mark_as_doing"
 
   root to: 'pages#home'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

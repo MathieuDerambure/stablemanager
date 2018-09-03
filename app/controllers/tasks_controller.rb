@@ -23,6 +23,11 @@ class TasksController < ApplicationController
     redirect_to tasks_index_path
   end
 
+  def mark_as_doing
+    Task.find(params[:task_id]).update(doing: true, user_doing: current_user)
+    redirect_to tasks_index_path
+  end
+
   def create
     @task = Task.new(task_params)
 
