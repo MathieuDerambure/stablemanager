@@ -26,11 +26,11 @@
       </div>
 
     <% end %>
-    <%= link_to_prev_page @comms, 'More recent messages' %>
+    <%= link_to_prev_page @comms, 'Load more recent messages' %>
   </div>
   <%= render 'form', comm: @comm %>
 
-
+  <%= link_to 'create alert vaccins',create_alert_vaccin_path %>
 
 </div>
 

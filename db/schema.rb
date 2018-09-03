@@ -10,7 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_08_31_131335) do
+
+ActiveRecord::Schema.define(version: 2018_09_03_134551) do
+
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -98,6 +100,7 @@ ActiveRecord::Schema.define(version: 2018_08_31_131335) do
     t.integer "food_quantity"
     t.string "activity_week_day"
     t.bigint "antidote_id"
+    t.bigint "user_doing_id"
     t.index ["activity_id"], name: "index_tasks_on_activity_id"
     t.index ["antidote_id"], name: "index_tasks_on_antidote_id"
     t.index ["comment_id"], name: "index_tasks_on_comment_id"
@@ -105,6 +108,7 @@ ActiveRecord::Schema.define(version: 2018_08_31_131335) do
     t.index ["horse_id"], name: "index_tasks_on_horse_id"
     t.index ["medecine_id"], name: "index_tasks_on_medecine_id"
     t.index ["shoe_maker_id"], name: "index_tasks_on_shoe_maker_id"
+    t.index ["user_doing_id"], name: "index_tasks_on_user_doing_id"
     t.index ["user_id"], name: "index_tasks_on_user_id"
     t.index ["vetenary_id"], name: "index_tasks_on_vetenary_id"
   end
@@ -123,6 +127,7 @@ ActiveRecord::Schema.define(version: 2018_08_31_131335) do
     t.string "sur_name"
     t.string "first_name"
     t.string "photo"
+    t.boolean "admin", default: false, null: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
@@ -145,5 +150,6 @@ ActiveRecord::Schema.define(version: 2018_08_31_131335) do
   add_foreign_key "tasks", "medecines"
   add_foreign_key "tasks", "shoe_makers"
   add_foreign_key "tasks", "users"
+  add_foreign_key "tasks", "users", column: "user_doing_id"
   add_foreign_key "tasks", "vetenaries"
 end

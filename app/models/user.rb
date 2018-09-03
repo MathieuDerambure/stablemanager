@@ -6,6 +6,8 @@ class User < ApplicationRecord
 
   has_many :horses
   has_many :communications
+  has_many :tasks
+  has_many :task_doing, foreign_key: "user_doing", class_name: "Task"
 
   mount_uploader :photo, PhotoUploader
 

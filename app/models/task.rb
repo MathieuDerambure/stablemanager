@@ -8,4 +8,7 @@ class Task < ApplicationRecord
   belongs_to :vetenary, optional: true
   belongs_to :shoe_maker, optional: true
   belongs_to :antidote, optional: true
+  belongs_to :user_doing, class_name: "User", optional: true
+
+  scope :not_done, -> { where.not(done: true) }
 end
