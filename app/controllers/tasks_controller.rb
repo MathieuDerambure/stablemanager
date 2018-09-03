@@ -6,6 +6,13 @@ class TasksController < ApplicationController
     @horses = Horse.all
 
 
+    # Permet de compter les tasks de différents type pour affiche le nombre
+    #dans la bulle rouge de la navbar
+    @tasks_food_type = @tasks.map{|task| task if task.food_type}.compact
+    @tasks_activity = @tasks.map{|task| task if task.activity}.compact
+    @tasks_medecine = @tasks.map{|task| task if task.medecine}.compact
+
+
     users ||= User.all
     @owners = users.map{|user| user if user.role == "Propriétaire"}.compact
     @employees = users.map{|user| user if user.role == "Employée"}.compact
@@ -22,6 +29,11 @@ class TasksController < ApplicationController
 
   def mark_as_done
     Task.find(params[:task_id]).update(done: true)
+    redirect_to tasks_index_path
+  end
+
+  def mark_as_doing
+    Task.find(params[:task_id]).update(doing: true, user_doing: current_user)
     redirect_to tasks_index_path
   end
 

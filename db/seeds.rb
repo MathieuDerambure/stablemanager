@@ -18,6 +18,7 @@ FoodType.destroy_all
 Medecine.destroy_all
 Vetenary.destroy_all
 ShoeMaker.destroy_all
+Antidote.destroy_all
 Comment.destroy_all
 Communication.destroy_all
 Horse.destroy_all
@@ -28,10 +29,11 @@ prop1 = User.create!(email: 'adrien@gmail.com', password: '123456', sur_name: "J
 prop2 = User.create!(email: 'yann@gmail.com', password: '123456', sur_name: "David", first_name: "Davida", role: "Propriétaire", phone: "06 03 03 03 33", address: "33 rue Bidule Mesnil 78600")
 prop3 = User.create!(email: 'mathieu@gmail.com', password: '123456', sur_name: "Berta", first_name: "Bernadette", role: "Propriétaire", phone: "06 03 03 03 33", address: "33 rue Bidule Mesnil 78600")
 prop4 = User.create!(email: 'olivier@gmail.com', password: '123456', sur_name: "Smith", first_name: "Alexa", role: "Propriétaire", phone: "06 03 03 03 33", address: "33 rue Bidule Mesnil 78600")
-empl1 = User.create!(email: 'empl1@gmail.com', password: '123456', sur_name: "Ghost", first_name: "Mathilde", role: "Employée", phone: "06 03 03 03 33", address: "33 rue Bidule Mesnil 78600")
-empl2 = User.create!(email: 'empl2@gmail.com', password: '123456', sur_name: "Hubby", first_name: "Britney", role: "Employée", phone: "06 03 03 03 33", address: "33 rue Bidule Mesnil 78600")
-empl3 = User.create!(email: 'empl3@gmail.com', password: '123456', sur_name: "Benhad", first_name: "Fatima", role: "Employée", phone: "06 03 03 03 33", address: "33 rue Bidule Mesnil 78600")
-empl4 = User.create!(email: 'empl4@gmail.com', password: '123456', sur_name: "Robert", first_name: "David", role: "Employée", phone: "06 03 03 03 33", address: "33 rue Bidule Mesnil 78600")
+
+empl1 = User.create!(email: 'empl1@gmail.com', password: '123456', sur_name: "Ghost", first_name: "Mathilde", role: "Employée", phone: "06 03 03 03 33", address: "33 rue Bidule Mesnil 78600", remote_photo_url: "https://res.cloudinary.com/dk6vsgttl/image/upload/v1535965874/yann.jpg")
+empl2 = User.create!(email: 'empl2@gmail.com', password: '123456', sur_name: "Hubby", first_name: "Britney", role: "Employée", phone: "06 03 03 03 33", address: "33 rue Bidule Mesnil 78600", remote_photo_url: "https://res.cloudinary.com/dk6vsgttl/image/upload/v1535965808/mat.jpg")
+empl3 = User.create!(email: 'empl3@gmail.com', password: '123456', sur_name: "Benhad", first_name: "Fatima", role: "Employée", phone: "06 03 03 03 33", address: "33 rue Bidule Mesnil 78600", remote_photo_url: "https://res.cloudinary.com/dk6vsgttl/image/upload/v1535965803/tronche.jpg")
+empl4 = User.create!(email: 'empl4@gmail.com', password: '123456', sur_name: "Robert", first_name: "David", role: "Employée", phone: "06 03 03 03 33", address: "33 rue Bidule Mesnil 78600", remote_photo_url: "https://res.cloudinary.com/dk6vsgttl/image/upload/v1535967303/image.png")
 boss1 = User.create!(email: 'boss1@gmail.com', password: '123456', sur_name: "Theboss", first_name: "Bosswoman", role: "Manager", phone: "06 03 03 03 33", address: "33 rue Bidule Mesnil 78600")
 
 
@@ -106,7 +108,7 @@ task2 = Task.create!(doing: false, done: false, start_time: Date.today, end_time
 task3 = Task.create!(doing: true, done: false, start_time: Date.today, end_time: Date.today, horse_id: horse2.id, activity_id: act2.id, weekly: true, monthly: false)
 task4 = Task.create!(doing: false, done: false, start_time: Date.today, end_time: Date.today, horse_id: horse2.id, activity_id: act3.id, weekly: true, monthly: false)
 task5 = Task.create!(doing: true, done: true, start_time: Date.today, end_time: Date.today, horse_id: horse2.id, vetenary_id: vet1.id, comment_id: com1.id, weekly: false, monthly: false)
-task6 = Task.create!(doing: false, done: true, start_time: Date.today, end_time: Date.today, horse_id: horse3.id, medecine_id: medic2.id, weekly: false, monthly: true)
+task6 = Task.create!(doing: false, done: true, start_time: Date.today, end_time: Date.today, horse_id: horse6.id, medecine_id: medic2.id, weekly: false, monthly: true)
 task7 = Task.create!(doing: false, done: true, start_time: Date.today, end_time: Date.today, horse_id: horse4.id, shoe_maker_id: shoe1.id, weekly: false, monthly: true)
 task8 = Task.create!(doing: false, done: false, start_time: Date.today, end_time: Date.today, horse_id: horse5.id, activity_id: act4.id, weekly: true, monthly: false)
 
@@ -120,6 +122,7 @@ p Medecine.all
 p Vetenary.all
 p ShoeMaker.all
 p Medecine.all
+p Antidote.all
 p Comment.all
 p Communication.all
 p Horse.all
