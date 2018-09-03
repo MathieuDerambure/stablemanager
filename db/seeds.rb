@@ -58,62 +58,89 @@ vet1 = Vetenary.create!(name: 'Dupont', email: 'dupont@gmail.com', phone: '11111
 vet2 = Vetenary.create!(name: 'Nollet', email: 'nollet@gmail.com', phone: '2222222222', slug: "nollet")
 vet3 = Vetenary.create!(name: 'Rocky', email: 'rocky@gmail.com', phone: '3333333333', slug: "rocky")
 vet4 = Vetenary.create!(name: 'Salmon', email: 'salmon@gmail.com', phone: '4444444444', slug: "salmon")
-# vet5 = Vetenary.create!(name: 'Derambure', email: 'derambure@gmail.com', phone: '5555555555')
-# vet6 = Vetenary.create!(name: 'Chazal', email: 'claire@gmail.com', phone: '6666666666')
-# vet7 = Vetenary.create!(name: 'Saunier', email: 'saunier@gmail.com', phone: '7777777777')
-# vet8 = Vetenary.create!(name: 'Papillard', email: 'papillard@gmail.com', phone: '8888888888')
 
 shoe1 = ShoeMaker.create!(name: 'Trump', email: 'trump@gmail.com', phone: '1111111111', slug: 'trump')
 shoe2 = ShoeMaker.create!(name: 'Kim', email: 'little_rocket_man@gmail.com', phone: '2222222222', slug: 'kim')
 shoe3 = ShoeMaker.create!(name: 'Pence', email: 'pence@gmail.com', phone: '3333333333', slug: 'pence')
 shoe4 = ShoeMaker.create!(name: 'Balladur', email: 'balladur@gmail.com', phone: '4444444444', slug: 'balladur')
-# shoe5 = ShoeMaker.create!(name: 'Chirac', email: 'patrick@gmail.com', phone: '5555555555')
-# shoe6 = ShoeMaker.create!(name: 'Gayet', email: 'julie@gmail.com', phone: '6666666666')
-# shoe7 = ShoeMaker.create!(name: 'Aubry', email: 'martine@gmail.com', phone: '7777777777')
-# shoe8 = ShoeMaker.create!(name: 'Pasqua', email: 'charles@gmail.com', phone: '8888888888')
 
 com1 = Comment.create!(description: "Cheval malade.")
 com2 = Comment.create!(description: "Cheval boiteux, téléphoner au vétérinaire.")
 com3 = Comment.create!(description: "En pleine forme.")
 com4 = Comment.create!(description: "Sale.")
 
-
+Antidote.create(name: "Grippe", slug: "grippe")
 
 
 horse1 = Horse.create!(name: "Frosty", box: 1 , formula: 'one', user_id: prop1.id , remote_photo_url: "https://res.cloudinary.com/dk6vsgttl/image/upload/v1534867381/hudada_01.jpg")
 horse2 = Horse.create!(name: "Belle des Neiges", box: 2 , formula: 'one', user_id: prop2.id , remote_photo_url: "https://res.cloudinary.com/dk6vsgttl/image/upload/v1534867381/hudada_02.jpg")
-horse4 = Horse.create!(name: "Sophie", box: 4 , formula: 'two', user_id: prop4.id , remote_photo_url: "https://res.cloudinary.com/dk6vsgttl/image/upload/v1534867381/hudada_04.jpg")
-horse5 = Horse.create!(name: "Bobby", box: 5 , formula: 'two', user_id: prop2.id , remote_photo_url: "https://res.cloudinary.com/dk6vsgttl/image/upload/v1534867381/hudada_05.jpg")
-horse6 = Horse.create!(name: "Tony", box: 6 , formula: 'two', user_id: prop1.id , remote_photo_url: "https://res.cloudinary.com/dk6vsgttl/image/upload/v1534867381/hudada_06.jpg")
-horse7 = Horse.create!(name: "Tom", box: 7 , formula: 'three', user_id: prop3.id , remote_photo_url: "https://res.cloudinary.com/dk6vsgttl/image/upload/v1534867381/hudada_07.jpg")
-horse8 = Horse.create!(name: "Capuccin", box: 8 , formula: 'three', user_id: prop4.id , remote_photo_url: "https://res.cloudinary.com/dk6vsgttl/image/upload/v1534867381/hudada_09.jpg")
-# horse9 = Horse.create!(name: "Speedy", box: 9 , formula: 'three', user_id: prop1.id , remote_photo_url: "https://res.cloudinary.com/dk6vsgttl/image/upload/v1534867381/hudada_10.jpg")
-# horse10 = Horse.create!(name: "Gonzales", box: 10 , formula: 'four', user_id: prop2.id , remote_photo_url: "https://res.cloudinary.com/dk6vsgttl/image/upload/v1534867381/hudada_11.jpg")
-# horse11 = Horse.create!(name: "Raymonde", box: 11 , formula: 'four', user_id: prop3.id , remote_photo_url: "https://res.cloudinary.com/dk6vsgttl/image/upload/v1534867381/hudada_12.jpg")
-# horse12 = Horse.create!(name: "Antoinette", box: 12 , formula: 'four', user_id: prop4.id , remote_photo_url: "https://res.cloudinary.com/dk6vsgttl/image/upload/v1534867381/hudada_13.jpg")
-# horse13 = Horse.create!(name: "Eric", box: 13 , formula: 'one', user_id: prop1.id , remote_photo_url: "https://res.cloudinary.com/dk6vsgttl/image/upload/v1534867381/hudada_14.jpg")
-# horse14 = Horse.create!(name: "Rebelle", box: 14 , formula: 'one', user_id: prop2.id , remote_photo_url: "https://res.cloudinary.com/dk6vsgttl/image/upload/v1534867381/hudada_15.jpg")
-# horse15 = Horse.create!(name: "Halliday", box: 15 , formula: 'one', user_id: prop3.id , remote_photo_url: "https://res.cloudinary.com/dk6vsgttl/image/upload/v1534867381/hudada_16.jpg")
-# horse16 = Horse.create!(name: "Madonna", box: 16 , formula: 'two', user_id: prop4.id , remote_photo_url: "https://res.cloudinary.com/dk6vsgttl/image/upload/v1534867381/hudada_17.jpg")
-# horse17 = Horse.create!(name: "Prince", box: 17 , formula: 'two', user_id: prop2.id , remote_photo_url: "https://res.cloudinary.com/dk6vsgttl/image/upload/v1534867381/hudada_18.jpg")
-# horse18 = Horse.create!(name: "Harry", box: 18 , formula: 'two', user_id: prop1.id , remote_photo_url: "https://res.cloudinary.com/dk6vsgttl/image/upload/v1534867381/hudada_19.jpg")
-# horse19 = Horse.create!(name: "Jeremy", box: 19 , formula: 'three', user_id: prop3.id , remote_photo_url: "https://res.cloudinary.com/dk6vsgttl/image/upload/v1534867381/hudada_20.jpg")
-# horse20 = Horse.create!(name: "Tony", box: 20 , formula: 'three', user_id: prop4.id , remote_photo_url: "https://res.cloudinary.com/dk6vsgttl/image/upload/v1534867381/hudada_21.jpg")
-# horse21 = Horse.create!(name: "Ronny", box: 21 , formula: 'three', user_id: prop1.id , remote_photo_url: "https://res.cloudinary.com/dk6vsgttl/image/upload/v1534867381/hudada_22.jpg")
-# horse22 = Horse.create!(name: "Boogy", box: 22 , formula: 'four', user_id: prop3.id , remote_photo_url: "https://res.cloudinary.com/dk6vsgttl/image/upload/v1534867381/hudada_24.jpg")
-# horse23 = Horse.create!(name: "Rock", box: 23 , formula: 'four', user_id: prop4.id , remote_photo_url: "https://res.cloudinary.com/dk6vsgttl/image/upload/v1534867381/hudada_25.jpg")
+horse3 = Horse.create!(name: "Sophie", box: 4 , formula: 'two', user_id: prop4.id , remote_photo_url: "https://res.cloudinary.com/dk6vsgttl/image/upload/v1534867381/hudada_04.jpg")
+horse4 = Horse.create!(name: "Bobby", box: 5 , formula: 'two', user_id: prop2.id , remote_photo_url: "https://res.cloudinary.com/dk6vsgttl/image/upload/v1534867381/hudada_05.jpg")
+horse5 = Horse.create!(name: "Tony", box: 6 , formula: 'two', user_id: prop1.id , remote_photo_url: "https://res.cloudinary.com/dk6vsgttl/image/upload/v1534867381/hudada_06.jpg")
+horse6 = Horse.create!(name: "Tom", box: 7 , formula: 'three', user_id: prop3.id , remote_photo_url: "https://res.cloudinary.com/dk6vsgttl/image/upload/v1534867381/hudada_07.jpg")
+horse7 = Horse.create!(name: "Capuccin", box: 8 , formula: 'three', user_id: prop4.id , remote_photo_url: "https://res.cloudinary.com/dk6vsgttl/image/upload/v1534867381/hudada_09.jpg")
 
+#TASKS
+#horse 1
+#food
 task1 = Task.create!(doing: false, done: false, start_time: Date.today, end_time: Date.today, horse_id: horse1.id, food_type_id: food1.id, weekly: true, monthly: false)
-task2 = Task.create!(doing: false, done: false, start_time: Date.today, end_time: Date.today, horse_id: horse1.id, activity_id: act1.id, weekly: true, monthly: false)
-task3 = Task.create!(doing: true, done: false, start_time: Date.today, end_time: Date.today, horse_id: horse2.id, activity_id: act2.id, weekly: true, monthly: false)
-task4 = Task.create!(doing: false, done: false, start_time: Date.today, end_time: Date.today, horse_id: horse2.id, activity_id: act3.id, weekly: true, monthly: false)
-task5 = Task.create!(doing: true, done: true, start_time: Date.today, end_time: Date.today, horse_id: horse2.id, vetenary_id: vet1.id, comment_id: com1.id, weekly: false, monthly: false)
-task6 = Task.create!(doing: false, done: true, start_time: Date.today, end_time: Date.today, horse_id: horse6.id, medecine_id: medic2.id, weekly: false, monthly: true)
-task7 = Task.create!(doing: false, done: true, start_time: Date.today, end_time: Date.today, horse_id: horse4.id, shoe_maker_id: shoe1.id, weekly: false, monthly: true)
-task8 = Task.create!(doing: false, done: false, start_time: Date.today, end_time: Date.today, horse_id: horse5.id, activity_id: act4.id, weekly: true, monthly: false)
+task2 = Task.create!(doing: false, done: false, start_time: Date.today, end_time: Date.today, horse_id: horse1.id, food_type_id: food2.id, weekly: true, monthly: false)
+task3 = Task.create!(doing: false, done: false, start_time: Date.today, end_time: Date.today, horse_id: horse1.id, food_type_id: food3.id, weekly: true, monthly: false)
+#activity
+task10 = Task.create!(doing: false, done: false, start_time: Date.today, end_time: Date.today, horse_id: horse1.id, activity_id: act1.id, weekly: true, monthly: false)
+task11 = Task.create!(doing: false, done: false, start_time: Date.today, end_time: Date.today, horse_id: horse1.id, activity_id: act2.id, weekly: true, monthly: false)
+task12 = Task.create!(doing: false, done: false, start_time: Date.today, end_time: Date.today, horse_id: horse1.id, activity_id: act3.id, weekly: true, monthly: false)
+#medecine
+task19 = Task.create!(doing: false, done: false, start_time: Date.today, end_time: Date.today, horse_id: horse1.id, medecine_id: medic1.id, weekly: true, monthly: false)
+task20 = Task.create!(doing: false, done: false, start_time: Date.today, end_time: Date.today, horse_id: horse1.id, medecine_id: medic2.id, weekly: true, monthly: false)
+task21 = Task.create!(doing: false, done: false, start_time: Date.today, end_time: Date.today, horse_id: horse1.id, medecine_id: medic3.id, weekly: true, monthly: false)
+#vet
+task28 = Task.create!(doing: false, done: false, start_time: Date.today, end_time: Date.today, horse_id: horse1.id, vetenary_id: vet1.id, weekly: false, monthly: false)
+#shoe
+task29 = Task.create!(doing: false, done: false, start_time: Date.today, end_time: Date.today, horse_id: horse1.id, shoe_maker_id: shoe1.id, weekly: false, monthly: false)
 
 
-Antidote.create(name: "Grippe", slug: "grippe")
+#horse 2
+#food
+task4 = Task.create!(doing: false, done: false, start_time: Date.today, end_time: Date.today, horse_id: horse2.id, food_type_id: food1.id, weekly: true, monthly: false)
+task5 = Task.create!(doing: false, done: false, start_time: Date.today, end_time: Date.today, horse_id: horse2.id, food_type_id: food2.id, weekly: true, monthly: false)
+task6 = Task.create!(doing: false, done: false, start_time: Date.today, end_time: Date.today, horse_id: horse2.id, food_type_id: food3.id, weekly: true, monthly: false)
+#activity
+task13 = Task.create!(doing: false, done: false, start_time: Date.today, end_time: Date.today, horse_id: horse2.id, activity_id: act1.id, weekly: true, monthly: false)
+task14 = Task.create!(doing: false, done: false, start_time: Date.today, end_time: Date.today, horse_id: horse2.id, activity_id: act2.id, weekly: true, monthly: false)
+task15 = Task.create!(doing: false, done: false, start_time: Date.today, end_time: Date.today, horse_id: horse2.id, activity_id: act3.id, weekly: true, monthly: false)
+#medecine
+task22 = Task.create!(doing: false, done: false, start_time: Date.today, end_time: Date.today, horse_id: horse2.id, medecine_id: medic1.id, weekly: true, monthly: false)
+task23 = Task.create!(doing: false, done: false, start_time: Date.today, end_time: Date.today, horse_id: horse2.id, medecine_id: medic2.id, weekly: true, monthly: false)
+task24 = Task.create!(doing: false, done: false, start_time: Date.today, end_time: Date.today, horse_id: horse2.id, medecine_id: medic3.id, weekly: true, monthly: false)
+#vet
+task30 = Task.create!(doing: false, done: false, start_time: Date.today, end_time: Date.today, horse_id: horse2.id, vetenary_id: vet1.id, weekly: false, monthly: false)
+#shoe
+task31 = Task.create!(doing: false, done: false, start_time: Date.today, end_time: Date.today, horse_id: horse2.id, shoe_maker_id: shoe1.id, weekly: false, monthly: false)
+
+
+#horse 3
+#food
+task7 = Task.create!(doing: false, done: false, start_time: Date.today, end_time: Date.today, horse_id: horse3.id, food_type_id: food1.id, weekly: true, monthly: false)
+task8 = Task.create!(doing: false, done: false, start_time: Date.today, end_time: Date.today, horse_id: horse3.id, food_type_id: food2.id, weekly: true, monthly: false)
+task9 = Task.create!(doing: false, done: false, start_time: Date.today, end_time: Date.today, horse_id: horse3.id, food_type_id: food3.id, weekly: true, monthly: false)
+#activity
+task16 = Task.create!(doing: false, done: false, start_time: Date.today, end_time: Date.today, horse_id: horse3.id, activity_id: act1.id, weekly: true, monthly: false)
+task17 = Task.create!(doing: false, done: false, start_time: Date.today, end_time: Date.today, horse_id: horse3.id, activity_id: act2.id, weekly: true, monthly: false)
+task18 = Task.create!(doing: false, done: false, start_time: Date.today, end_time: Date.today, horse_id: horse3.id, activity_id: act3.id, weekly: true, monthly: false)
+#medecine
+task25 = Task.create!(doing: false, done: false, start_time: Date.today, end_time: Date.today, horse_id: horse3.id, medecine_id: medic1.id, weekly: true, monthly: false)
+task26 = Task.create!(doing: false, done: false, start_time: Date.today, end_time: Date.today, horse_id: horse3.id, medecine_id: medic2.id, weekly: true, monthly: false)
+task27 = Task.create!(doing: false, done: false, start_time: Date.today, end_time: Date.today, horse_id: horse3.id, medecine_id: medic3.id, weekly: true, monthly: false)
+#vet
+task32 = Task.create!(doing: false, done: false, start_time: Date.today, end_time: Date.today, horse_id: horse3.id, vetenary_id: vet1.id, weekly: false, monthly: false)
+#shoe
+task33 = Task.create!(doing: false, done: false, start_time: Date.today, end_time: Date.today, horse_id: horse3.id, shoe_maker_id: shoe1.id, weekly: false, monthly: false)
+
+
+
+
+
 
 p "C'est uploadé !"
 p Activity.all
