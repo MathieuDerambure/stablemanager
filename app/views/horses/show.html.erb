@@ -1,4 +1,4 @@
-
+3
 <% if @horse.photo? %>
   <div class="card-horse" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path @horse.photo.url, crop: :fill %>')">
   </div>
@@ -28,41 +28,41 @@
     <div class="horse-food">
       <h3><i class="fas fa-utensils"></i> <strong>Food</strong></h3>
       <h4>Matin</h4>
-        <% if @horse.tasks.select{|t| t.food_type && t.food_type.name == "Granulé" && t.start_time < DateTime.new(2018,8,31,10)}.any? %>
-          <p>Granule: <%= @horse.tasks.select{|t| t.food_type && t.food_type.name == "Granulé" && t.start_time < DateTime.new(2018,8,31,10)}.first.food_quantity %></p>
+        <% if @horse.tasks.select{|t| t.food_type && t.food_type.name == "Granulé" && t.start_time < DateTime.new(2018,9,3,10)}.any? %>
+          <p>Granule: <%= @horse.tasks.select{|t| t.food_type && t.food_type.name == "Granulé" && t.start_time < DateTime.new(2018,9,3,10)}.first.food_quantity %></p>
         <% end %>
 
-        <% if @horse.tasks.select{|t| t.food_type && t.food_type.name == "Floconnet" && t.start_time < DateTime.new(2018,8,31,10)}.any? %>
-          <p>Floconnet: <%= @horse.tasks.select{|t| t.food_type && t.food_type.name == "Floconnet" && t.start_time < DateTime.new(2018,8,31,10)}.first.food_quantity %></p>
+        <% if @horse.tasks.select{|t| t.food_type && t.food_type.name == "Floconnet" && t.start_time < DateTime.new(2018,9,3,10)}.any? %>
+          <p>Floconnet: <%= @horse.tasks.select{|t| t.food_type && t.food_type.name == "Floconnet" && t.start_time < DateTime.new(2018,9,3,10)}.first.food_quantity %></p>
         <% end %>
 
-        <% if @horse.tasks.select{|t| t.food_type && t.food_type.name == "Winsor" && t.start_time < DateTime.new(2018,8,31,10)}.any? %>
-          <p>Winsor: <%= @horse.tasks.select{|t| t.food_type && t.food_type.name == "Winsor" && t.start_time < DateTime.new(2018,8,31,10)}.first.food_quantity %></p>
+        <% if @horse.tasks.select{|t| t.food_type && t.food_type.name == "Winsor" && t.start_time < DateTime.new(2018,9,3,10)}.any? %>
+          <p>Winsor: <%= @horse.tasks.select{|t| t.food_type && t.food_type.name == "Winsor" && t.start_time < DateTime.new(2018,9,3,10)}.first.food_quantity %></p>
         <% end %>
 
       <h4>Midi</h4>
-        <% if @horse.tasks.select{|t| t.food_type && t.food_type.name == "Granulé" && t.start_time < DateTime.new(2018,8,31,15)}.any? %>
-          <p>Granule: <%= @horse.tasks.select{|t| t.food_type && t.food_type.name == "Granulé" && t.start_time < DateTime.new(2018,8,31,15)}.first.food_quantity %></p>
+        <% if @horse.tasks.select{|t| t.food_type && t.food_type.name == "Granulé" && t.start_time < DateTime.new(2018,9,3,15)}.any? %>
+          <p>Granule: <%= @horse.tasks.select{|t| t.food_type && t.food_type.name == "Granulé" && t.start_time < DateTime.new(2018,9,3,15)}.first.food_quantity %></p>
         <% end %>
 
-        <% if @horse.tasks.select{|t| t.food_type && t.food_type.name == "Floconnet" && t.start_time < DateTime.new(2018,8,31,15)}.any? %>
-          <p>Floconnet: <%= @horse.tasks.select{|t| t.food_type && t.food_type.name == "Floconnet" && t.start_time < DateTime.new(2018,8,31,15)}.first.food_quantity %></p>
+        <% if @horse.tasks.select{|t| t.food_type && t.food_type.name == "Floconnet" && t.start_time < DateTime.new(2018,9,3,15)}.any? %>
+          <p>Floconnet: <%= @horse.tasks.select{|t| t.food_type && t.food_type.name == "Floconnet" && t.start_time < DateTime.new(2018,9,3,15)}.first.food_quantity %></p>
         <% end %>
 
-        <% if @horse.tasks.select{|t| t.food_type && t.food_type.name == "Winsor" && t.start_time < DateTime.new(2018,8,31,15)}.any? %>
-          <p>Winsor: <%= @horse.tasks.select{|t| t.food_type && t.food_type.name == "Winsor" && t.start_time < DateTime.new(2018,8,31,15)}.first.food_quantity %></p>
+        <% if @horse.tasks.select{|t| t.food_type && t.food_type.name == "Winsor" && t.start_time < DateTime.new(2018,9,3,15)}.any? %>
+          <p>Winsor: <%= @horse.tasks.select{|t| t.food_type && t.food_type.name == "Winsor" && t.start_time < DateTime.new(2018,9,3,15)}.first.food_quantity %></p>
         <% end %>
       <h4>Soir</h4>
-        <% if @horse.tasks.select{|t| t.food_type && t.food_type.name == "Granulé" && t.start_time < DateTime.new(2018,8,31,20)}.any? %>
-          <p>Granule: <%= @horse.tasks.select{|t| t.food_type && t.food_type.name == "Granulé" && t.start_time < DateTime.new(2018,8,31,20)}.first.food_quantity %></p>
+        <% if @horse.tasks.select{|t| t.food_type && t.food_type.name == "Granulé" && t.start_time < DateTime.new(2018,9,3,20)}.any? %>
+          <p>Granule: <%= @horse.tasks.select{|t| t.food_type && t.food_type.name == "Granulé" && t.start_time < DateTime.new(2018,9,3,20)}.first.food_quantity %></p>
         <% end %>
 
-        <% if @horse.tasks.select{|t| t.food_type && t.food_type.name == "Floconnet" && t.start_time < DateTime.new(2018,8,31,20)}.any? %>
-          <p>Floconnet: <%= @horse.tasks.select{|t| t.food_type && t.food_type.name == "Floconnet" && t.start_time < DateTime.new(2018,8,31,20)}.first.food_quantity %></p>
+        <% if @horse.tasks.select{|t| t.food_type && t.food_type.name == "Floconnet" && t.start_time < DateTime.new(2018,9,3,20)}.any? %>
+          <p>Floconnet: <%= @horse.tasks.select{|t| t.food_type && t.food_type.name == "Floconnet" && t.start_time < DateTime.new(2018,9,3,20)}.first.food_quantity %></p>
         <% end %>
 
-        <% if @horse.tasks.select{|t| t.food_type && t.food_type.name == "Winsor" && t.start_time < DateTime.new(2018,8,31,20)}.any? %>
-          <p>Winsor: <%= @horse.tasks.select{|t| t.food_type && t.food_type.name == "Winsor" && t.start_time < DateTime.new(2018,8,31,20)}.first.food_quantity %></p>
+        <% if @horse.tasks.select{|t| t.food_type && t.food_type.name == "Winsor" && t.start_time < DateTime.new(2018,9,3,20)}.any? %>
+          <p>Winsor: <%= @horse.tasks.select{|t| t.food_type && t.food_type.name == "Winsor" && t.start_time < DateTime.new(2018,9,3,20)}.first.food_quantity %></p>
         <% end %>
     </div>
 
