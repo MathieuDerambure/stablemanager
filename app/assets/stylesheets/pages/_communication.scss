@@ -1,17 +1,17 @@
-.messages-container {
+.com-messages-container {
   display: flex ;
   flex-direction: column;
   margin: 16px 0px;
 }
 
-.message {
+.com-message {
   display: flex ;
   justify-content: space-between;
   padding: 3px 0;
   border-bottom: none;
 }
 
-.message-user {
+.com-message-user {
   border-radius: $border-radius-small;
   background-color: #cdd5e0;
   color: #393e46;
@@ -23,7 +23,7 @@
   padding-left: 4px;
 }
 
-.message-content {
+.com-message-content {
   position: relative;
   flex: 1 1 auto;
   border-radius: $border-radius-small;
@@ -36,7 +36,7 @@
   padding-left: 4px;
 }
 
-.message-time {
+.com-message-time {
   position: absolute;
   bottom: 3px;
   right: 2px;

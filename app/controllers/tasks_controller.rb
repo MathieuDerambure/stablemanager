@@ -4,6 +4,13 @@ class TasksController < ApplicationController
   def tasks_index
     @tasks = Task.all
 
+    # Permet de compter les tasks de différents type pour affiche le nombre
+    #dans la bulle rouge de la navbar
+    @tasks_food_type = @tasks.map{|task| task if task.food_type}.compact
+    @tasks_activity = @tasks.map{|task| task if task.activity}.compact
+    @tasks_medecine = @tasks.map{|task| task if task.medecine}.compact
+
+
     users ||= User.all
     @owners = users.map{|user| user if user.role == "Propriétaire"}.compact
     @employees = users.map{|user| user if user.role == "Employée"}.compact

@@ -81,3 +81,21 @@
   border-left: 1px solid #E6E6E6;
   border-top: 1px solid #E6E6E6;
 }
+
+.nav-tasks{
+  background: $light-gray;
+  padding: 3px 0px;
+  border-top:1px solid $lighter-gray;
+  a{
+    color : #999999;
+    display:flex;
+    align-items: flex-start;
+    .badge{
+      background-color: $brand-primary;
+      font-size: 10px;
+    }
+  }
+  .active a{
+      color: $brand-primary;
+    }
+}
