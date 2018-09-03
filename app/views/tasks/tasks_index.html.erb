@@ -37,6 +37,8 @@
 
     <div role="tabpanel" class="tab-pane" id="activites">
       <% @tasks.each do |task| %>
+      <% if task.done == false %>
+          <%= link_to mark_as_done_path(task_id: task.id) do %>
         <% if task.activity %>
           <div class="col-xs-12 col-md-6">
             <div class="task">
@@ -49,6 +51,8 @@
               </div>
             </div>
           </div>
+        <% end %>
+        <% end %>
         <% end %>
       <% end %>
     </div>
