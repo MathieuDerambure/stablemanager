@@ -62,13 +62,15 @@ before_action :set_comm, only: [:show, :edit, :update, :destroy]
     @vaccins_next = @vaccins.where("start_time >= ? AND start_time <= ?", (Date.today + 1), (Date.today + 3))
 
     @vaccins_next.each do |vaccin|
-      @comm = Communication.new(message: "Rappel vaccin: #{vaccin.horse.name} ce #{vaccin.start_time}")
-      @comm.user = User.last
+      @comm = Communication.new(message: "VACCIN: #{vaccin.horse.name} le #{vaccin.start_time.strftime("%d %b %y")}")
+      #@comm.user = User.last
+      @comm.user = User.find_by(admin: true)
       @comm.save
     end
 
     redirect_to communications_path
   end
+
 
   #######################################################
 

@@ -8,7 +8,7 @@ class CreateAlertVaccinJob < ApplicationJob
 
     @vaccins_next.each do |vaccin|
       @comm = Communication.new(message: "Rappel vaccin: #{vaccin.horse.name} ce #{vaccin.start_time}")
-      @comm.user = User.last
+      @comm.user = User.find_by(name: "admin")
       @comm.save
 
     end
