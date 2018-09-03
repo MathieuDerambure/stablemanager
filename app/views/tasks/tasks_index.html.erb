@@ -5,11 +5,10 @@
     <li role="presentation" ><a href="#nourriture" aria-controls="nourriture" role="tab" data-toggle="tab"><i class="active fas fa-utensils"></i></a></li>
     <li role="presentation" ><a href="#activites" aria-controls="activites" role="tab" data-toggle="tab"><i class="fas fa-shoe-prints"></i></a></li>
     <li role="presentation"><a href="#medicaments" aria-controls="medicaments" role="tab" data-toggle="tab"><i class="fas fa-capsules"></i></a></li>
-    <li role="presentation"><a href="#vaccins" aria-controls="vaccins" role="tab" data-toggle="tab"><i class="fas fa-syringe"></i></a></li>
-    <li role="presentation" ><a href="#visites" aria-controls="visites" role="tab" data-toggle="tab"><i class="fas fa-user-plus"></i></a></li>
   </ul>
 
   <div class="tab-content">
+
     <div role="tabpanel" class="tab-pane active" id="nourriture">
       <% @tasks.each do |task| %>
         <% if task.done == false %>
@@ -17,10 +16,10 @@
             <% if task.food_type %>
               <div class="col-xs-12 col-md-6">
                 <div class="task">
-                  <img src="https://source.unsplash.com/random/?headshot" />
-                  <div class="content">
-                    <p><strong><%= task.horse.name %></strong></p>
-                    <p>
+                  <%= image_tag current_user.picture, class: "avatar" %>
+                    <div class="content">
+                      <p><strong><%= task.horse.name %></strong></p>
+                      <p>
                       <%= task.food_type.name %>
                       <% if task.food_quantity %>
                         |<strong><%= task.food_quantity%> L</strong>
@@ -31,97 +30,55 @@
               </div>
             <% end %>
           <% end %>
-          <% end %>
+        <% end %>
       <% end %>
     </div>
 
     <div role="tabpanel" class="tab-pane" id="activites">
       <% @tasks.each do |task| %>
-        <% if task.activity %>
-          <div class="col-xs-12 col-md-6">
-            <div class="task">
-              <img src="https://source.unsplash.com/random/?face" />
-              <div class="content">
-                <p><strong><%= task.horse.name %></strong></p>
-                <p>
-                  <%= task.activity.name %>
-                </p>
+        <% if task.done == false %>
+          <%= link_to mark_as_done_path(task_id: task.id) do %>
+            <% if task.activity %>
+              <div class="col-xs-12 col-md-6">
+                <div class="task">
+                <%= image_tag current_user.picture, class: "avatar" %>
+                  <div class="content">
+                    <p><strong><%= task.horse.name %></strong></p>
+                    <p>
+                     <%= task.activity.name %>
+                    </p>
+                  </div>
+                </div>
               </div>
-            </div>
-          </div>
+            <% end %>
+          <% end %>
         <% end %>
       <% end %>
     </div>
 
     <div role="tabpanel" class="tab-pane" id="medicaments">
       <% @tasks.each do |task| %>
-        <% if task.medecine %>
-          <div class="col-xs-12 col-md-6">
-            <div class="task">
-              <img src="https://source.unsplash.com/random/?portait" />
-              <div class="content">
-                <p><strong><%= task.horse.name %></strong></p>
-                <p>
-                  <%= task.medecine.name %>
-                </p>
+        <% if task.done == false %>
+          <%= link_to mark_as_done_path(task_id: task.id) do %>
+            <% if task.medecine %>
+              <div class="col-xs-12 col-md-6">
+                <div class="task">
+                  <%= image_tag current_user.picture, class: "avatar" %>
+                  <div class="content">
+                    <p><strong><%= task.horse.name %></strong></p>
+                   <p>
+                   <%= task.medecine.name %>
+                   </p>
+                  </div>
+                </div>
               </div>
-            </div>
-          </div>
+            <% end %>
+          <% end %>
         <% end %>
       <% end %>
     </div>
 
-    <div role="tabpanel" class="tab-pane" id="vaccins">
-      <% @tasks.each do |task| %>
-        <% if task.antidote %>
-          <div class="col-xs-12 col-md-6">
-            <div class="task">
-              <img src="https://source.unsplash.com/random/?people,face" />
-              <div class="content">
-                <p><strong><%= task.horse.name %></strong></p>
-                <p>
-
-                  Vaccin contre la <%= task.antidote.name%>
-                </p>
-              </div>
-            </div>
-          </div>
-        <% end %>
-      <% end %>
-    </div>
-
-    <div role="tabpanel" class="tab-pane" id="visites">
-      <% @tasks.each do |task| %>
-        <% if task.vetenary %>
-          <div class="col-xs-12 col-md-6">
-            <div class="task">
-              <img src="https://source.unsplash.com/random/?people,portrait" />
-              <div class="content">
-                <p><strong><%= task.horse.name %></strong></p>
-                <p>
-                  Accueillir le véterinaire <%= task.vetenary.name%>
-
-                </p>
-              </div>
-            </div>
-          </div>
-        <% end %>
-        <% if task.shoe_maker %>
-          <div class="col-xs-12 col-md-6">
-            <div class="task">
-              <img src="https://source.unsplash.com/random/?headshot" />
-              <div class="content">
-                <p><strong><%= task.horse.name %></strong></p>
-                <p>
-                  Accueillir le maréchal-ferrant <%= task.shoe_maker.name %>
-
-                </p>
-              </div>
-            </div>
-          </div>
-        <% end %>
-      <% end %>
-    </div>
+  </div>
 </div>
 
 
