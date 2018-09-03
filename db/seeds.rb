@@ -18,6 +18,7 @@ FoodType.destroy_all
 Medecine.destroy_all
 Vetenary.destroy_all
 ShoeMaker.destroy_all
+Antidote.destroy_all
 Comment.destroy_all
 Communication.destroy_all
 Horse.destroy_all
@@ -106,7 +107,7 @@ task2 = Task.create!(doing: false, done: false, start_time: Date.today, end_time
 task3 = Task.create!(doing: true, done: false, start_time: Date.today, end_time: Date.today, horse_id: horse2.id, activity_id: act2.id, weekly: true, monthly: false)
 task4 = Task.create!(doing: false, done: false, start_time: Date.today, end_time: Date.today, horse_id: horse2.id, activity_id: act3.id, weekly: true, monthly: false)
 task5 = Task.create!(doing: true, done: true, start_time: Date.today, end_time: Date.today, horse_id: horse2.id, vetenary_id: vet1.id, comment_id: com1.id, weekly: false, monthly: false)
-task6 = Task.create!(doing: false, done: true, start_time: Date.today, end_time: Date.today, horse_id: horse3.id, medecine_id: medic2.id, weekly: false, monthly: true)
+task6 = Task.create!(doing: false, done: true, start_time: Date.today, end_time: Date.today, horse_id: horse6.id, medecine_id: medic2.id, weekly: false, monthly: true)
 task7 = Task.create!(doing: false, done: true, start_time: Date.today, end_time: Date.today, horse_id: horse4.id, shoe_maker_id: shoe1.id, weekly: false, monthly: true)
 task8 = Task.create!(doing: false, done: false, start_time: Date.today, end_time: Date.today, horse_id: horse5.id, activity_id: act4.id, weekly: true, monthly: false)
 
@@ -120,6 +121,7 @@ p Medecine.all
 p Vetenary.all
 p ShoeMaker.all
 p Medecine.all
+p Antidote.all
 p Comment.all
 p Communication.all
 p Horse.all
