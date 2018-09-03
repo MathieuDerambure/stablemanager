@@ -14,4 +14,17 @@ class Horse < ApplicationRecord
         tsearch: { prefix: true }
       }
 
+  def morning_tasks
+    tasks.where('extract(hour from start_time) = 8 AND food_type_id IS NOT null')
+  end
+
+  def midday_tasks
+    tasks.where('extract(hour from start_time) = 12 AND food_type_id IS NOT null')
+  end
+
+  def evening_tasks
+    tasks.where('extract(hour from start_time) = 18 AND food_type_id IS NOT null')
+  end
+
 end
+
