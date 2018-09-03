@@ -26,5 +26,9 @@ class Horse < ApplicationRecord
     tasks.where('extract(hour from start_time) = 18 AND food_type_id IS NOT null')
   end
 
+  def has_food_tasks?
+    tasks.where('food_type_id IS NOT null').any?
+  end
+
 end
 
