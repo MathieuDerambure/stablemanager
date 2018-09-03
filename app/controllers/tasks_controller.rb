@@ -3,6 +3,8 @@ class TasksController < ApplicationController
 
   def tasks_index
     @tasks = Task.all
+    @horses = Horse.all
+
 
     users ||= User.all
     @owners = users.map{|user| user if user.role == "Propriétaire"}.compact
@@ -25,7 +27,6 @@ class TasksController < ApplicationController
 
   def create
     @task = Task.new(task_params)
-
     if @task.save
       redirect_to horse_tasks_path
     else

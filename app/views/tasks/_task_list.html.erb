@@ -1,0 +1,13 @@
+<p><%= time.capitalize %></p>
+<% tasks.each do |task| %>
+  <% if task.done == false %>
+    <%= link_to mark_as_done_path(task_id: task.id) do %>
+      <p>
+        <%= task.food_type.name %>
+          <% if task.food_quantity %>
+            |<strong><%= task.food_quantity%> L</strong>
+          <% end %>
+      </p>
+    <% end %>
+  <% end %>
+<% end %>
