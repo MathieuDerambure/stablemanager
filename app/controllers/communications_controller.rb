@@ -16,7 +16,6 @@ before_action :set_comm, only: [:show, :edit, :update, :destroy]
 
   def new
     @comm = Communication.new
-
   end
 
   def create
@@ -54,6 +53,26 @@ before_action :set_comm, only: [:show, :edit, :update, :destroy]
     # end
   end
 
+  #######################################################
+
+  ### DO NOT DELETE ###
+
+  def create_alert_vaccin
+    @vaccins = Task.where.not(antidote_id: nil)
+    @vaccins_next = @vaccins.where("start_time >= ? AND start_time <= ?", (Date.today + 1), (Date.today + 3))
+
+    @vaccins_next.each do |vaccin|
+      @comm = Communication.new(message: "VACCIN: #{vaccin.horse.name} le #{vaccin.start_time.strftime("%d %b %y")}")
+      #@comm.user = User.last
+      @comm.user = User.find_by(admin: true)
+      @comm.save
+    end
+
+    redirect_to communications_path
+  end
+
+
+  #######################################################
 
   private
 
