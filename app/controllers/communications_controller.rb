@@ -55,6 +55,8 @@ before_action :set_comm, only: [:show, :edit, :update, :destroy]
 
   #######################################################
 
+  ### DO NOT DELETE ###
+
   def create_alert_vaccin
     @vaccins = Task.where.not(antidote_id: nil)
     @vaccins_next = @vaccins.where("start_time >= ? AND start_time <= ?", (Date.today + 1), (Date.today + 3))
