@@ -42,11 +42,11 @@
                 <div class="content">
                   <p><strong><%= horse.name %></strong></p>
 
-                    <%= render "task_list", tasks: horse.morning_tasks, time: "morning" %>
+                    <%= render "task_list", horse: horse, tasks: horse.morning_tasks.not_done, time: "morning" %>
 
-                    <%= render "task_list", tasks: horse.midday_tasks,  time: "midday" %>
+                    <%= render "task_list", horse: horse, tasks: horse.midday_tasks.not_done, time: "midday" %>
 
-                    <%= render "task_list", tasks: horse.evening_tasks, time: "evening" %>
+                    <%= render "task_list", horse: horse, tasks: horse.evening_tasks.not_done, time: "evening" %>
 
                 </div>
               </div>
