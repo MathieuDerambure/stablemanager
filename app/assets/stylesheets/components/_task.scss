@@ -35,12 +35,16 @@
   align-items: center;
   margin: 10px 0px;
   padding: 20px;
-  border-bottom: 1px solid rgba(220,224,244,0.4);
+  // border-bottom: 1px solid rgba(220,224,244,0.4);
   background-color: white;
   border-radius : $border-radius-base;
+  // border : 1px solid $lighter-gray;
+  box-shadow: 0 4px 6px rgba(50,50,93,.11), 0 1px 3px rgba(0,0,0,.08);
+  // box-shadow: 0 5px 15px 0 rgba(127,127,127,0.50);
+
 }
 .task-message:last-child {
-  border-bottom: none;
+  // border-bottom: none;
 }
 .task-message-body {
   flex-grow: 1;

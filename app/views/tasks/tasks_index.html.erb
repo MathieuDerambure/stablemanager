@@ -1,13 +1,15 @@
 <div class="container" >
+<!--   <div class="col-xs-12">
+    <h3> <strong>Tâches du jour 💪</strong> </h3>
+    <div class="line"></div>
+  </div> -->
 
-  <h3> <strong>Tâches du jour </strong> </h3>
-
-    <ul class="nav nav-tasks flex-menu navbar-fixed-bottom" role="tablist">
+  <ul class="nav nav-tasks flex-menu navbar-fixed-bottom" role="tablist">
       <li role="presentation">
         <a href="#nourriture" aria-controls="nourriture" role="tab" data-toggle="tab">
           <i class="active fas fa-utensils"></i>
           <% if @tasks_food_type %>
-            <span class="badge brand-success"><%= @tasks_food_type.count %></span>
+             <span class="badge brand-success"><%= @tasks_food_type.count %></span>
           <% end %>
         </a>
       </li>
@@ -27,13 +29,18 @@
           <% end %>
         </a>
       </li>
-    </ul>
+  </ul>
 
 
   <div class="tab-content">
 
 
     <div role="tabpanel" class="tab-pane active" id="nourriture">
+      <div class="col-xs-12">
+        <h3> <strong>🥣 Nourriture </strong> </h3>
+        <div class="line"></div>
+      </div>
+
 
       <% @horses.each do |horse| %>
           <% if horse.has_food_tasks? %>
@@ -59,6 +66,11 @@
 
 
     <div role="tabpanel" class="tab-pane" id="activites">
+      <div class="col-xs-12">
+        <h3> <strong>🐎 Activités </strong> </h3>
+        <div class="line"></div>
+      </div>
+
       <% @tasks.each do |task| %>
 
         <% if task.done == false %>
@@ -67,7 +79,7 @@
             <% if !task.activity.nil? %>
               <%= link_to mark_as_doing_path(task_id: task.id) do %>
                 <div class="col-xs-12">
-                  <div class="task-message">
+                  <div class="task-message" data-aos="fade-up">
                     <img class="avatar-large" src="https://kitt.lewagon.com/placeholder/users/gabriel-dehan">
                     <div class="task-message-body">
                     <p><strong><%= task.horse.name %></strong></p>
@@ -85,7 +97,7 @@
           <% if task.doing == true %>
             <% if !task.activity.nil? %>
               <div class="col-xs-12">
-                <div class="task-message">
+                <div class="task-message" data-aos="fade-up">
                   <img class="avatar-large" src="https://kitt.lewagon.com/placeholder/users/gabriel-dehan">
                   <div class="task-message-body">
                     <p><strong><%= task.horse.name %></strong></p>
@@ -96,6 +108,8 @@
                       <% image_link = task.user_doing&.picture || "https://res.cloudinary.com/dk6vsgttl/image/upload/v1535978381/pomme.png" %>
                     <%= image_tag image_link, class: "avatar-large-empty" %>
                   </div>
+                  <img class="avatar-large-empty">
+
                 </div>
               </div>
             <% end %>
@@ -109,6 +123,10 @@
 
 
     <div role="tabpanel" class="tab-pane" id="medicaments">
+      <div class="col-xs-12">
+        <h3> <strong>💊 Médicaments </strong> </h3>
+        <div class="line"></div>
+      </div>
       <% @tasks.each do |task| %>
 
         <% if task.done == false %>
