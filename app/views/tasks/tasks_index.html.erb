@@ -43,19 +43,22 @@
 
 
       <% @horses.each do |horse| %>
-          <% if horse.has_food_tasks? %>
-            <div class="col-xs-12 col-md-6">
-              <div class="task">
-                <div class="content">
-                  <p><strong><%= horse.name %></strong></p>
+          <% if horse.has_food_tasks_not_done? %>
+            <div class="col-xs-12">
+              <div class="task-message" data-aos="fade-up">
+                <img class="avatar-large" src="https://kitt.lewagon.com/placeholder/users/gabriel-dehan">
+                <div class="task-message-body">
+                <p><strong><%= horse.name %></strong></p>
+                <p>
+                  <%= render "task_list", horse: horse, tasks: horse.morning_tasks.not_done, time: "morning" %>
 
-                    <%= render "task_list", horse: horse, tasks: horse.morning_tasks.not_done, time: "morning" %>
+                  <%= render "task_list", horse: horse, tasks: horse.midday_tasks.not_done, time: "midday" %>
 
-                    <%= render "task_list", horse: horse, tasks: horse.midday_tasks.not_done, time: "midday" %>
+                  <%= render "task_list", horse: horse, tasks: horse.evening_tasks.not_done, time: "evening" %>
 
-                    <%= render "task_list", horse: horse, tasks: horse.evening_tasks.not_done, time: "evening" %>
-
+                </p>
                 </div>
+                <img class="avatar-large">
               </div>
             </div>
           <% end %>
@@ -77,7 +80,6 @@
 
           <% if task.doing == false %>
             <% if !task.activity.nil? %>
-              <%= link_to mark_as_doing_path(task_id: task.id) do %>
                 <div class="col-xs-12">
                   <div class="task-message" data-aos="fade-up">
                     <img class="avatar-large" src="https://kitt.lewagon.com/placeholder/users/gabriel-dehan">
@@ -87,9 +89,9 @@
                       <%= task.activity&.name %>
                     </p>
                     </div>
+              <%= link_to "Je prends !", mark_as_doing_path(task_id: task.id), class: "btn btn-default" %>
                   </div>
                 </div>
-              <% end %>
             <% end %>
           <% end %>
 
@@ -103,13 +105,12 @@
                     <p><strong><%= task.horse.name %></strong></p>
                       <p>
                         <%= task.activity&.name %>
-                        <%= link_to "Done", mark_as_done_path(task_id: task.id), class: 'btn btn-success' %>
                       </p>
                       <% image_link = task.user_doing&.picture || "https://res.cloudinary.com/dk6vsgttl/image/upload/v1535978381/pomme.png" %>
-                    <%= image_tag image_link, class: "avatar-large-empty" %>
                   </div>
-                  <img class="avatar-large-empty">
-
+                  <%= link_to mark_as_done_path(task_id: task.id) do %>
+                    <%= image_tag image_link, class: "avatar-large" %>
+                  <% end %>
                 </div>
               </div>
             <% end %>
@@ -133,7 +134,6 @@
 
           <% if task.doing == false %>
             <% if !task.medecine.nil? %>
-              <%= link_to mark_as_doing_path(task_id: task.id) do %>
                 <div class="col-xs-12">
                   <div class="task-message">
                     <img class="avatar-large" src="https://kitt.lewagon.com/placeholder/users/gabriel-dehan">
@@ -142,10 +142,11 @@
                       <p>
                         <%= task.medecine&.name %>
                       </p>
+
                     </div>
+                    <%= link_to "Je prends !", mark_as_doing_path(task_id: task.id), class: "btn btn-default" %>
                   </div>
                 </div>
-              <% end %>
             <% end %>
           <% end %>
 
@@ -158,10 +159,10 @@
                     <p><strong><%= task.horse.name %></strong></p>
                     <p>
                       <%= task.medecine&.name %>
-                      <%= link_to "Done", mark_as_done_path(task_id: task.id), class: 'btn btn-success' %>
                     </p>
-                    <% image_link = task.user_doing&.picture || "https://res.cloudinary.com/dk6vsgttl/image/upload/v1535978381/pomme.png" %>
-                    <%= image_tag image_link, class: "avatar-large-empty" %>
+                    <%= link_to mark_as_done_path(task_id: task.id), class: 'btn btn-primary' do%>
+                      <% image_link = task.user_doing&.picture || "https://res.cloudinary.com/dk6vsgttl/image/upload/v1535978381/pomme.png" %>
+                    <% end %>
                   </div>
                 </div>
               </div>
@@ -173,6 +174,6 @@
       <% end %>
     </div>
 
-
   </div>
 </div>
+<div class="espace-footer-tasks"></div>
