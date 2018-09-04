@@ -1,23 +1,8 @@
 <div class="container">
-  <div class="flex-box-profile">
 
-    <div class ="flex-item1">
-      <div>
-        <h3>
-          <%= @user.first_name %>
-          <%= @user.sur_name %>
-        </h3>
-      </div>
-      <div>
-       <h4> <%= @user.role %></h4>
-      </div>
-      <div>
-        <p> <%= @user.email %> <br>
-        <%= @user.phone %> <br>
-        <%= @user.address %></p>
-      </div>
-    </div>
-    <div class ="flex-item2">
+  <div class="card-info">
+    <div class="horse-name">
+      <h1> <%= @user.first_name %> <%= @user.sur_name %></h3>
       <div>
         <% if @user.photo.url.nil? %>
           <% url = 'http://res.cloudinary.com/dk6vsgttl/image/upload/v1535559148/stock-vector-silhouette-girl-kid-head-with-ponytail-vector-illustration-of-a-young-girl-head-shadow-isolated-on-786469627.jpg' %>
@@ -26,19 +11,33 @@
         <% end %>
         <%= image_tag url, class:"photo-employee"%>
       </div>
+        <p class="text-muted"> <%= @user.role %> </p>
+    </div>
+
+    <div class="line"></div>
+
+    <div class="horse-description">
+      <p> <%= @user.email %> <br>
+      <%= @user.phone %> <br>
+      <%= @user.address %></p>
     </div>
   </div>
+
+
+
   <div class ="flex-item3">
     <%= link_to "modifier", edit_profile_path(@user) %>
     <%= link_to "retour", profiles_path %>
   </div>
+
   <div>
     <h3> Chevaux </h3>
   </div>
+
   <div class ="flex-box-horse">
     <% @user.horses.each do |horse| %>
       <div class ="flex-box-item-horse-name">
-       <p> <%= horse.name %> </p>
+        <p> <%= horse.name %> </p>
         <% if horse.photo.url.nil? %>
           <% url = 'http://res.cloudinary.com/dk6vsgttl/image/upload/v1534863841/s0caeecaab59c4a6bd6d9a36666c361d3.jpg' %>
         <% else %>
@@ -48,6 +47,9 @@
       </div>
     <% end %>
   </div>
+
+
+
 </div>
 
 
