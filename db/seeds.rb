@@ -30,11 +30,12 @@ prop2 = User.create!(email: 'yann@gmail.com', password: '123456', sur_name: "Dav
 prop3 = User.create!(email: 'mathieu@gmail.com', password: '123456', sur_name: "Berta", first_name: "Bernadette", role: "Propriétaire", phone: "06 03 03 03 33", address: "33 rue Bidule Mesnil 78600")
 prop4 = User.create!(email: 'olivier@gmail.com', password: '123456', sur_name: "Smith", first_name: "Alexa", role: "Propriétaire", phone: "06 03 03 03 33", address: "33 rue Bidule Mesnil 78600")
 
+
 empl1 = User.create!(email: 'empl1@gmail.com', password: '123456', sur_name: "Ghost", first_name: "Mathilde", role: "Employée", phone: "06 03 03 03 33", address: "33 rue Bidule Mesnil 78600", remote_photo_url: "https://res.cloudinary.com/dk6vsgttl/image/upload/v1535965874/yann.jpg")
 empl2 = User.create!(email: 'empl2@gmail.com', password: '123456', sur_name: "Hubby", first_name: "Britney", role: "Employée", phone: "06 03 03 03 33", address: "33 rue Bidule Mesnil 78600", remote_photo_url: "https://res.cloudinary.com/dk6vsgttl/image/upload/v1535965808/mat.jpg")
 empl3 = User.create!(email: 'empl3@gmail.com', password: '123456', sur_name: "Benhad", first_name: "Fatima", role: "Employée", phone: "06 03 03 03 33", address: "33 rue Bidule Mesnil 78600", remote_photo_url: "https://res.cloudinary.com/dk6vsgttl/image/upload/v1535965803/tronche.jpg")
 empl4 = User.create!(email: 'empl4@gmail.com', password: '123456', sur_name: "Robert", first_name: "David", role: "Employée", phone: "06 03 03 03 33", address: "33 rue Bidule Mesnil 78600", remote_photo_url: "https://res.cloudinary.com/dk6vsgttl/image/upload/v1535967303/image.png")
-boss1 = User.create!(email: 'boss1@gmail.com', password: '123456', sur_name: "Theboss", first_name: "Bosswoman", role: "Manager", phone: "06 03 03 03 33", address: "33 rue Bidule Mesnil 78600")
+boss1 = User.create!(email: 'boss1@gmail.com', password: '123456', sur_name: "Theboss", first_name: "Bosswoman", role: "Manager", phone: "06 03 03 03 33", address: "33 rue Bidule Mesnil 78600", admin: true)
 
 
 comm1 = Communication.create!(message: "J'aurai 30 minutes de retard ce lundi.", user_id: empl1.id)
@@ -68,6 +69,7 @@ com1 = Comment.create!(description: "Cheval malade.")
 com2 = Comment.create!(description: "Cheval boiteux, téléphoner au vétérinaire.")
 com3 = Comment.create!(description: "En pleine forme.")
 com4 = Comment.create!(description: "Sale.")
+
 
 Antidote.create(name: "Grippe", slug: "grippe")
 
@@ -154,7 +156,6 @@ task49 = Task.create!(doing: false, done: false, start_time: DateTime.parse('4th
 task50 = Task.create!(doing: false, done: false, start_time: DateTime.parse('15th Sept 2018 08:00:00'), end_time: DateTime.parse('15rd Sept 2018 09:00:00'), horse_id: horse3.id, vetenary_id: vet1.id, weekly: false, monthly: false)
 #shoe
 task51 = Task.create!(doing: false, done: false, start_time: DateTime.parse('15th Sept 2018 08:00:00'), end_time: DateTime.parse('15rd Sept 2018 09:00:00'), horse_id: horse3.id, shoe_maker_id: shoe1.id, weekly: false, monthly: false)
-
 
 
 

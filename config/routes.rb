@@ -20,4 +20,16 @@ Rails.application.routes.draw do
 
   resources :profiles
   resources :communications
+
+
+  ###### Sidekiq Web UI, only for admins ######
+  require "sidekiq/web"
+  authenticate :user, lambda { |u| u.admin } do
+    mount Sidekiq::Web => '/sidekiq'
+  end
+  #############################################
+
+  get "create_alert_vaccin", to: "communications#create_alert_vaccin"
+
+
 end

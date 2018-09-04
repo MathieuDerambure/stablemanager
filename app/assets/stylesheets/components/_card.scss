@@ -2,6 +2,8 @@
   // padding: 0 1.7rem;
   margin-bottom: 15px;
   margin-top: 15px;
+  box-shadow: 0 4px 6px rgba(50,50,93,.11), 0 1px 3px rgba(0,0,0,.08);
+
 }
 
 .wrapper {
@@ -9,6 +11,7 @@
   min-height: 450px;
   position: relative;
   overflow: hidden;
+  border-radius:$border-radius-base $border-radius-base 0 0;
 }
 
 .location {
@@ -34,6 +37,9 @@
 .content {
   padding: 1em;
   position: relative;
+  border-radius:0 0 $border-radius-base $border-radius-base;
+  // border: 1px solid $mid-gray;
+
 }
 
 .horse .content {
@@ -52,6 +58,7 @@
 
 .add {
   border: 1px solid $mid-gray;
+  border-radius: $border-radius-base;
   color: $mid-gray;
   background: transparent;
   height: 608px;
