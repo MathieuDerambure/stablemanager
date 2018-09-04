@@ -46,9 +46,9 @@
           <% if horse.has_food_tasks_not_done? %>
             <div class="col-xs-12">
               <div class="task-message" data-aos="fade-up">
-                <img class="avatar-large" src="https://kitt.lewagon.com/placeholder/users/gabriel-dehan">
+                <img class="horse-avatar" src="https://kitt.lewagon.com/placeholder/users/gabriel-dehan">
                 <div class="task-message-body">
-                <p><strong><%= horse.name %></strong></p>
+                <p><strong><%= horse.name %> - Box n°<%= horse.box %></strong></p>
                 <p>
                   <%= render "task_list", horse: horse, tasks: horse.morning_tasks.not_done, time: "morning" %>
 
@@ -82,14 +82,14 @@
             <% if !task.activity.nil? %>
                 <div class="col-xs-12">
                   <div class="task-message" data-aos="fade-up">
-                    <img class="avatar-large" src="https://kitt.lewagon.com/placeholder/users/gabriel-dehan">
+                    <img class="horse-avatar" src="https://kitt.lewagon.com/placeholder/users/gabriel-dehan">
                     <div class="task-message-body">
                     <p><strong><%= task.horse.name %></strong></p>
                     <p>
                       <%= task.activity&.name %>
                     </p>
                     </div>
-              <%= link_to "Je prends !", mark_as_doing_path(task_id: task.id), class: "btn btn-default" %>
+                    <%= link_to "Je prends !", mark_as_doing_path(task_id: task.id), class: "btn btn-default" %>
                   </div>
                 </div>
             <% end %>
@@ -100,7 +100,7 @@
             <% if !task.activity.nil? %>
               <div class="col-xs-12">
                 <div class="task-message" data-aos="fade-up">
-                  <img class="avatar-large" src="https://kitt.lewagon.com/placeholder/users/gabriel-dehan">
+                  <img class="horse-avatar" src="https://kitt.lewagon.com/placeholder/users/gabriel-dehan">
                   <div class="task-message-body">
                     <p><strong><%= task.horse.name %></strong></p>
                       <p>
@@ -136,7 +136,7 @@
             <% if !task.medecine.nil? %>
                 <div class="col-xs-12">
                   <div class="task-message">
-                    <img class="avatar-large" src="https://kitt.lewagon.com/placeholder/users/gabriel-dehan">
+                    <img class="horse-avatar" src="https://kitt.lewagon.com/placeholder/users/gabriel-dehan">
                     <div class="task-message-body">
                       <p><strong><%= task.horse.name %></strong></p>
                       <p>
@@ -154,7 +154,7 @@
             <% if !task.medecine.nil? %>
               <div class="col-xs-12">
                 <div class="task-message">
-                  <img class="avatar-large" src="https://kitt.lewagon.com/placeholder/users/gabriel-dehan">
+                  <img class="horse-avatar" src="https://kitt.lewagon.com/placeholder/users/gabriel-dehan">
                   <div class="task-message-body">
                     <p><strong><%= task.horse.name %></strong></p>
                     <p>
