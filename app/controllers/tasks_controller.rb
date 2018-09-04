@@ -3,8 +3,7 @@ class TasksController < ApplicationController
   before_action :load_food_tasks, only: [:mark_as_doing_food, :mark_as_done_food]
 
   def tasks_index
-
-      @tasks = Task.all
+      @tasks = Task.select{|t| t.start_time == Date.today}
       @horses = Horse.all
 
       # Permet de compter les tasks de différents type pour affiche le nombre
@@ -21,16 +20,10 @@ class TasksController < ApplicationController
 
   end
 
-  def today_tasks
-
-    @tasks.select{|t| t.start_time == Date.today}
-
-  end
 
   def index
     @tasks = Task.all
   end
-
 
   def new
     @task = Task.new

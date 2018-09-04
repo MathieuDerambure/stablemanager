@@ -65,6 +65,19 @@ class HorsesController < ApplicationController
           food_type: FoodType.find_by(slug: slug),
           food_quantity: params[:food][slug][:matin][:quantite]
         )
+        counter = (Date.today.end_of_month - Date.today).round
+        counter.times do |day|
+          task = Task.create(
+            horse: @horse,
+            user: current_user,
+            start_time: DateTime.new(today.year, today.month, today.day, 8 )+day,
+            daily: true,
+            food_type: FoodType.find_by(slug: slug),
+            food_quantity: params[:food][slug][:matin][:quantite]
+          )
+
+
+        end
       end
       if params[:food][slug][:midi]
         task = Task.create(
@@ -75,6 +88,17 @@ class HorsesController < ApplicationController
           food_type: FoodType.find_by(slug: slug),
           food_quantity: params[:food][slug][:midi][:quantite]
         )
+        counter = (Date.today.end_of_month - Date.today).round
+        counter.times do |day|
+          task = Task.create(
+            horse: @horse,
+            user: current_user,
+            start_time: DateTime.new(today.year, today.month, today.day, 8 )+day,
+            daily: true,
+            food_type: FoodType.find_by(slug: slug),
+            food_quantity: params[:food][slug][:matin][:quantite]
+          )
+        end
       end
       if params[:food][slug][:soir]
         task = Task.create(
@@ -85,6 +109,17 @@ class HorsesController < ApplicationController
           food_type: FoodType.find_by(slug: slug),
           food_quantity: params[:food][slug][:soir][:quantite]
         )
+        counter = (Date.today.end_of_month - Date.today).round
+        counter.times do |day|
+          task = Task.create(
+            horse: @horse,
+            user: current_user,
+            start_time: DateTime.new(today.year, today.month, today.day, 8 )+day,
+            daily: true,
+            food_type: FoodType.find_by(slug: slug),
+            food_quantity: params[:food][slug][:matin][:quantite]
+          )
+        end
       end
     end
   end
@@ -99,8 +134,17 @@ class HorsesController < ApplicationController
             weekly: true,
             activity: Activity.find_by(slug: activity),
             activity_week_day: day,
-            start_time: day_next_week(day)
+            start_time: DateTime.new(today.year, today.month, today.day)
           )
+          counter = (Date.today.end_of_month - Date.today).round/7
+          counter.times do |week|
+            task = Task.create(
+              horse: @horse,
+              user: current_user,
+              start_time: DateTime.new(today.year, today.month, today.day, 8 )+1.week,
+              daily: true,
+            )
+          end
         end
       end
     end
