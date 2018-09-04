@@ -11,4 +11,5 @@ class Task < ApplicationRecord
   belongs_to :user_doing, class_name: "User", optional: true
 
   scope :not_done, -> { where.not(done: true) }
+  scope :due_today, -> { where("date(start_time) = ?", Date.today) }
 end

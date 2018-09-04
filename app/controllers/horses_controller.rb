@@ -53,96 +53,55 @@ class HorsesController < ApplicationController
   end
 
   def create_tasks
-# FOOD >>> granule
-  if params[:food]
-    params[:food].keys.each do |slug|
-      if params[:food][slug][:matin]
-        task = Task.create(
-          horse: @horse,
-          user: current_user,
-          start_time: DateTime.new(today.year, today.month, today.day, 8),
-          daily: true,
-          food_type: FoodType.find_by(slug: slug),
-          food_quantity: params[:food][slug][:matin][:quantite]
-        )
-        counter = (Date.today.end_of_month - Date.today).round
-        counter.times do |day|
-          task = Task.create(
-            horse: @horse,
-            user: current_user,
-            start_time: DateTime.new(today.year, today.month, today.day, 8 )+day,
-            daily: true,
-            food_type: FoodType.find_by(slug: slug),
-            food_quantity: params[:food][slug][:matin][:quantite]
-          )
+    # FOOD
+    if params[:food]
+      # for each food type (granule, floconet or winsor)
+      params[:food].each do |type, times|
+        food_type = FoodType.find_by(slug: type)
 
+        # and for each day from today until the end of the month (included)
+        (Date.today..Date.today.end_of_month).each do |date|
+          # and finally for each time (morning, midday, evening)
+          times.each do |time, food_details|
+            hours = {
+              "matin" => 8,
+              "midi"  => 12,
+              "soir"  => 18
+            }
 
-        end
-      end
-      if params[:food][slug][:midi]
-        task = Task.create(
-          horse: @horse,
-          user: current_user,
-          start_time: DateTime.new(today.year, today.month, today.day, 12),
-          daily: true,
-          food_type: FoodType.find_by(slug: slug),
-          food_quantity: params[:food][slug][:midi][:quantite]
-        )
-        counter = (Date.today.end_of_month - Date.today).round
-        counter.times do |day|
-          task = Task.create(
-            horse: @horse,
-            user: current_user,
-            start_time: DateTime.new(today.year, today.month, today.day, 8 )+day,
-            daily: true,
-            food_type: FoodType.find_by(slug: slug),
-            food_quantity: params[:food][slug][:matin][:quantite]
-          )
-        end
-      end
-      if params[:food][slug][:soir]
-        task = Task.create(
-          horse: @horse,
-          user: current_user,
-          start_time: DateTime.new(today.year, today.month, today.day, 18),
-          daily: true,
-          food_type: FoodType.find_by(slug: slug),
-          food_quantity: params[:food][slug][:soir][:quantite]
-        )
-        counter = (Date.today.end_of_month - Date.today).round
-        counter.times do |day|
-          task = Task.create(
-            horse: @horse,
-            user: current_user,
-            start_time: DateTime.new(today.year, today.month, today.day, 8 )+day,
-            daily: true,
-            food_type: FoodType.find_by(slug: slug),
-            food_quantity: params[:food][slug][:matin][:quantite]
-          )
+            # we create a task
+            Task.create(
+              horse: @horse,
+              user: current_user,
+              start_time: DateTime.new(date.year, date.month, date.day, hours[time]),
+              daily: true,
+              food_type: food_type,
+              food_quantity: food_details[:quantite]
+            )
+          end
         end
       end
     end
-  end
 
-# ACTIVITY
+    # ACTIVITY
     if params[:activity]
-      params[:activity].keys.each do |activity|
-        params[:activity][activity.to_sym].keys.each do |day|
-          Task.create(
-            horse: @horse,
-            user: current_user,
-            weekly: true,
-            activity: Activity.find_by(slug: activity),
-            activity_week_day: day,
-            start_time: DateTime.new(today.year, today.month, today.day)
-          )
-          counter = (Date.today.end_of_month - Date.today).round/7
-          counter.times do |week|
-            task = Task.create(
+      # for each day from today until the end of the month (included)
+      (Date.today..Date.today.end_of_month).each do |date|
+        # and for each activity type (paddock, marche, saut, promenade)
+        params[:activity].each do |type, days|
+          activity = Activity.find_by(slug: type)
+
+          # and for each selected day (between "monday" and "sunday")
+          days.keys.each do |day_name|
+            next unless date.strftime("%A").downcase == day_name
+
+            Task.create(
               horse: @horse,
               user: current_user,
-              start_time: DateTime.new(today.year, today.month, today.day, 8 )+1.week,
-              daily: true,
+              weekly: true,
+              activity: activity,
+              activity_week_day: day_name,
+              start_time: DateTime.new(date.year, date.month, date.day)
             )
           end
         end
@@ -188,11 +147,7 @@ class HorsesController < ApplicationController
         start_time: DateTime.parse(antidote2_params[:next_date])
         )
     end
-
-
   end
-
-
 
   def horse_params
     params.require(:horse).permit(:name, :box, :formula, :user_id, :photo)
