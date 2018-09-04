@@ -8,7 +8,7 @@ class VisitesController < ApplicationController
   def index
     @alertes_vaccins=[]
     @vaccins_next.each do |vaccin|
-      @comms = Communication.new(message: "#{vaccin.horse.name} le #{vaccin.start_time.strftime("%d %b %y")}")
+      @comms = Communication.new(message: "#{vaccin.horse.name} le #{vaccin.start_time.strftime("%d %b %y")} - #{vaccin.antidote.name}")
       @alertes_vaccins<<@comms
     end
 
