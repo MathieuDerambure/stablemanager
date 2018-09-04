@@ -1,6 +1,5 @@
 <div class="container" >
 
-
   <ul class="nav nav-tasks flex-menu navbar-fixed-bottom" role="tablist">
       <li role="presentation">
         <a href="#nourriture" aria-controls="nourriture" role="tab" data-toggle="tab">
@@ -35,33 +34,72 @@
         <h3> <strong>🥣 Nourriture </strong> </h3>
         <div class="line"></div>
       </div>
-
-
-      <% @horses.each do |horse| %>
-          <% if horse.has_food_tasks_not_done? %>
-            <div class="col-xs-12">
-              <div class="task-message" data-aos="fade-up">
-                <img class="horse-avatar" src="https://kitt.lewagon.com/placeholder/users/gabriel-dehan">
-                <div class="task-message-body">
-                <p><strong><%= horse.name %> - Box n°<%= horse.box %></strong></p>
-                <p>
-                  <%= render "task_list", horse: horse, tasks: horse.morning_tasks.not_done, time: "morning" %>
-
-                  <%= render "task_list", horse: horse, tasks: horse.midday_tasks.not_done, time: "midday" %>
-
-                  <%= render "task_list", horse: horse, tasks: horse.evening_tasks.not_done, time: "evening" %>
-
-                </p>
+      <div>
+        <!-- Nav tabs -->
+        <ul class="nav nav-tabs" role="tablist">
+          <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Matin</a></li>
+          <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Midi</a></li>
+          <li role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">Soir</a></li>
+        </ul>
+        <!-- Tab panes -->
+        <div class="tab-content">
+          <div role="tabpanel" class="tab-pane active" id="home">
+            <% @horses.each do |horse| %>
+              <% if horse.has_food_tasks_not_done? %>
+                <div class="col-xs-12">
+                  <div class="task-message" data-aos="fade-up">
+                    <img class="horse-avatar" src="https://kitt.lewagon.com/placeholder/users/gabriel-dehan">
+                    <div class="task-message-body">
+                    <p><strong><%= horse.name %> - Box n°<%= horse.box %></strong></p>
+                    <p>
+                      <%= render "task_list", horse: horse, tasks: horse.morning_tasks.not_done, time: "morning" %>
+                    </p>
+                    </div>
+                    <img class="avatar-large">
+                  </div>
                 </div>
-                <img class="avatar-large">
-              </div>
-            </div>
-          <% end %>
-      <% end %>
+              <% end %>
+            <% end %>
+          </div>
+          <div role="tabpanel" class="tab-pane" id="profile">
+            <% @horses.each do |horse| %>
+              <% if horse.has_food_tasks_not_done? %>
+                <div class="col-xs-12">
+                  <div class="task-message" data-aos="fade-up">
+                    <img class="horse-avatar" src="https://kitt.lewagon.com/placeholder/users/gabriel-dehan">
+                      <div class="task-message-body">
+                      <p><strong><%= horse.name %> - Box n°<%= horse.box %></strong></p>
+                      <p>
+                        <%= render "task_list", horse: horse, tasks: horse.midday_tasks.not_done, time: "midday" %>
+                      </p>
+                      </div>
+                      <img class="avatar-large">
+                  </div>
+                </div>
+              <% end %>
+            <% end %>
+          </div>
+          <div role="tabpanel" class="tab-pane" id="messages">
+            <% @horses.each do |horse| %>
+              <% if horse.has_food_tasks_not_done? %>
+                <div class="col-xs-12">
+                  <div class="task-message" data-aos="fade-up">
+                    <img class="horse-avatar" src="https://kitt.lewagon.com/placeholder/users/gabriel-dehan">
+                    <div class="task-message-body">
+                    <p><strong><%= horse.name %> - Box n°<%= horse.box %></strong></p>
+                    <p>
+                      <%= render "task_list", horse: horse, tasks: horse.evening_tasks.not_done, time: "evening" %>
+                    </p>
+                    </div>
+                    <img class="avatar-large">
+                  </div>
+                </div>
+              <% end %>
+            <% end %>
+          </div>
+        </div>
+      </div>
     </div>
-
-
-
 
     <div role="tabpanel" class="tab-pane" id="activites">
 
