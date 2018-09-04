@@ -30,6 +30,9 @@ Rails.application.routes.draw do
   #############################################
 
   get "create_alert_vaccin", to: "communications#create_alert_vaccin"
+  get "create_alert_vet", to: "communications#create_alert_vet"
+  get "create_alert_shoe", to: "communications#create_alert_shoe"
 
+  resources :visites, only: [:index]
 
 end

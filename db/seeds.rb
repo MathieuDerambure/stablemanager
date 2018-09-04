@@ -110,12 +110,12 @@ task2 = Task.create!(doing: false, done: false, start_time: Date.today, end_time
 task3 = Task.create!(doing: true, done: false, start_time: Date.today, end_time: Date.today, horse_id: horse2.id, activity_id: act2.id, weekly: true, monthly: false)
 task4 = Task.create!(doing: false, done: false, start_time: Date.today, end_time: Date.today, horse_id: horse2.id, activity_id: act3.id, weekly: true, monthly: false)
 task6 = Task.create!(doing: false, done: true, start_time: Date.today, end_time: Date.today, horse_id: horse6.id, medecine_id: medic2.id, weekly: false, monthly: true)
-task7 = Task.create!(doing: false, done: true, start_time: Date.today, end_time: Date.today, horse_id: horse4.id, shoe_maker_id: shoe1.id, weekly: false, monthly: true)
+task7 = Task.create!(doing: false, done: true, start_time: Date.today + 2, end_time: Date.today + 2 , horse_id: horse4.id, shoe_maker_id: shoe1.id, weekly: false, monthly: true)
 task8 = Task.create!(doing: false, done: false, start_time: Date.today, end_time: Date.today, horse_id: horse5.id, activity_id: act4.id, weekly: true, monthly: false)
 task5 = Task.create!(doing: false, done: false, start_time: Date.today + 1, end_time: Date.today + 1, horse_id: horse1.id, antidote_id: ant1.id, weekly: false, monthly: false)
-task9 = Task.create!(doing: false, done: false, start_time: Date.today + 2, end_time: Date.today + 1, horse_id: horse4.id, antidote_id: ant2.id, weekly: false, monthly: false)
-task10 = Task.create!(doing: false, done: false, start_time: Date.today + 2, end_time: Date.today + 1, horse_id: horse6.id, antidote_id: ant3.id, weekly: false, monthly: false)
-task11 = Task.create!(doing: false, done: false, start_time: Date.today + 5, end_time: Date.today + 1, horse_id: horse2.id, vetenary_id: vet1.id, weekly: false, monthly: false)
+task9 = Task.create!(doing: false, done: false, start_time: Date.today + 2, end_time: Date.today + 2, horse_id: horse4.id, antidote_id: ant2.id, weekly: false, monthly: false)
+task10 = Task.create!(doing: false, done: false, start_time: Date.today + 3, end_time: Date.today + 3, horse_id: horse6.id, antidote_id: ant3.id, weekly: false, monthly: false)
+task11 = Task.create!(doing: false, done: false, start_time: Date.today + 2, end_time: Date.today + 2, horse_id: horse2.id, vetenary_id: vet1.id, weekly: false, monthly: false)
 
 
 p "C'est uploadé !"

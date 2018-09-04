@@ -1,4 +1,6 @@
 <div class="container">
+  <h3> <strong>Messagerie</strong></h3>
+  <div class="line"></div>
   <div class="com-messages-container">
     <%= link_to_next_page @comms, 'Load previous messages' %>
     <% @comms.reverse.each do |comm| %>
@@ -30,7 +32,11 @@
   </div>
   <%= render 'form', comm: @comm %>
 
-  <%= link_to 'create alert vaccins',create_alert_vaccin_path %>
+<!--   <%= link_to 'Créer les alèrtes Vaccin',create_alert_vaccin_path %> |
+
+    <%= link_to 'Créer les alèrtes Vétérinaire',create_alert_vet_path %> |
+
+    <%= link_to 'Créer les alèrtes Mar.Ferrant',create_alert_shoe_path %> -->
 
 </div>
 
