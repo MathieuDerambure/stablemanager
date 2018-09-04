@@ -1,7 +1,6 @@
-<div>
 <div class="container">
   <!-- Nav tabs -->
-  <ul class="nav nav-tab nav-justify flex-menu" role="tablist">
+  <ul class="nav nav-tasks nav-tab nav-justify flex-menu navbar-fixed-bottom" role="tablist">
     <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Propriétaire</a></li>
     <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Employée</a></li>
     <li role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">Manager</a></li>
@@ -10,21 +9,23 @@
   <!-- Tab panes -->
   <div class="tab-content">
 
-
     <div role="tabpanel" class="tab-pane active" id="home">
-      <h3>PROPRIÉTAIRES</h3>
-      <% @owners.each do |profile| %>
-          <%= link_to profile_path(profile) do %>
-            <div class="flex-box-index">
+      <div class="col-xs-12">
+        <h3> <strong>Propriétaires</strong> </h3>
+        <div class="line"></div>
+      </div>
 
-              <div class="flex-box-index-item1">
-                <div class="name-index">
-                  <h3><strong><%= profile.first_name %></strong></h3>
-                  <h3><strong><%= profile.sur_name %></strong></h3>
+      <% @owners.each do |profile| %>
+        <%= link_to profile_path(profile) do %>
+          <div class="flex-box-index">
+            <div class="task-message">
+              <div class="task">
+                <div class="content">
+                  <p><%= profile.first_name %> <%= profile.sur_name %></p>
                 </div>
               </div>
 
-              <div class="flex-box-index-item2">
+              <div class="task">
                 <div class="message-body">
                   <p><%= profile.phone %></p>
                 </div>
@@ -38,71 +39,76 @@
                     <% else %>
                       <% url = cl_image_path horse.photo, width: 40, height: 40, crop: :fill %>
                     <% end %>
-                      <%= image_tag url, class:"horse-avatar" %>
+                      <%= image_tag url, class:"avatar-large" %>
                   <% end %>
                 </div>
               </div>
 
-              </div>
-          <% end %>
+            </div>
+          </div>
+        <% end %>
       <% end if @owners.any? %>
-
 
     </div>
 
 
     <div role="tabpanel" class="tab-pane" id="profile">
-      <h3>EMPLOYÉS</h3>
+      <div class="col-xs-12">
+        <h3> <strong>Employés</strong> </h3>
+        <div class="line"></div>
+      </div>
+
       <% @employees.each do |profile| %>
           <%= link_to profile_path(profile) do %>
             <div class="flex-box-index">
-
-              <div class="flex-box-index-item1">
-                <div class="name-index">
-                  <h3><strong><%= profile.first_name %></strong></h3>
-                  <h3><strong><%= profile.sur_name %></strong></h3>
+              <div class="task-message">
+                <div class="task">
+                  <div class="content">
+                    <p><%= profile.first_name %> <%= profile.sur_name %></p>
+                  </div>
                 </div>
-              </div>
 
-              <div class="flex-box-index-item2">
-                <div class="message-body">
-                  <p><%= profile.phone %></p>
+                <div class="task">
+                  <div class="message-body">
+                    <p><%= profile.phone %></p>
+                  </div>
                 </div>
-              </div>
 
-              <div class="flex-box-index-item2">
-                <div>
-                  <% profile.horses.each do |horse| %>
-                    <% if horse.photo.url.nil? %>
-                      <% url = 'http://res.cloudinary.com/dk6vsgttl/image/upload/v1534863841/s0caeecaab59c4a6bd6d9a36666c361d3.jpg' %>
-                    <% else %>
-                      <% url = cl_image_path horse.photo, width: 40, height: 40, crop: :fill %>
+                <div class="flex-box-index-item2">
+                  <div>
+                    <% profile.horses.each do |horse| %>
+                      <% if horse.photo.url.nil? %>
+                        <% url = 'http://res.cloudinary.com/dk6vsgttl/image/upload/v1534863841/s0caeecaab59c4a6bd6d9a36666c361d3.jpg' %>
+                      <% else %>
+                        <% url = cl_image_path horse.photo, width: 40, height: 40, crop: :fill %>
+                      <% end %>
+                        <%= image_tag url, class:"avatar-large" %>
                     <% end %>
-                      <%= image_tag url, class:"horse-avatar" %>
-                  <% end %>
+                  </div>
                 </div>
               </div>
-
-              </div>
+            </div>
           <% end %>
       <% end if @owners.any? %>
     </div>
 
 
     <div role="tabpanel" class="tab-pane" id="messages">
-      <h3>MANAGER</h3>
+      <div class="col-xs-12">
+        <h3> <strong>Manager</strong> </h3>
+        <div class="line"></div>
+      </div>
       <% @managers.each do |profile| %>
-          <%= link_to profile_path(profile) do %>
-            <div class="flex-box-index">
-
-              <div class="flex-box-index-item1">
-                <div class="name-index">
-                  <h3><strong><%= profile.first_name %></strong></h3>
-                  <h3><strong><%= profile.sur_name %></strong></h3>
+        <%= link_to profile_path(profile) do %>
+          <div class="flex-box-index">
+            <div class="task-message">
+              <div class="task">
+                <div class="content">
+                  <p><%= profile.first_name %> <%= profile.sur_name %></p>
                 </div>
               </div>
 
-              <div class="flex-box-index-item2">
+              <div class="task">
                 <div class="message-body">
                   <p><%= profile.phone %></p>
                 </div>
@@ -116,17 +122,17 @@
                     <% else %>
                       <% url = cl_image_path horse.photo, width: 40, height: 40, crop: :fill %>
                     <% end %>
-                      <%= image_tag url, class:"horse-avatar" %>
+                      <%= image_tag url, class:"avatar-large" %>
                   <% end %>
                 </div>
               </div>
-
-              </div>
-          <% end %>
+            </div>
+          </div>
+        <% end %>
       <% end if @owners.any? %>
     </div>
 
-    </div>
-  </div>
 
+  </div>
 </div>
+
