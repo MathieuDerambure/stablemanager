@@ -157,10 +157,6 @@ task50 = Task.create!(doing: false, done: false, start_time: DateTime.parse('15t
 #shoe
 task51 = Task.create!(doing: false, done: false, start_time: DateTime.parse('15th Sept 2018 08:00:00'), end_time: DateTime.parse('15rd Sept 2018 09:00:00'), horse_id: horse3.id, shoe_maker_id: shoe1.id, weekly: false, monthly: false)
 
-
-
-
-
 p "C'est uploadé !"
 p Activity.all
 p FoodType.all
