@@ -15,6 +15,9 @@
   <% tasks.each do |task| %>
     <p>
       <%= task.food_type&.name %>
+
+      <%= task.id %>
+      <%= task.start_time %>
       <% if task.food_quantity %>
         |<strong><%= task.food_quantity%> L</strong>
       <% end %>
