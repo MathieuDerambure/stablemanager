@@ -77,15 +77,15 @@
           <% if task.doing == false %>
             <% if !task.activity.nil? %>
                 <div class="col-xs-12">
-                  <div class="task-message" data-aos="fade-up">
+                  <div class="task-message" data-task-id="<%= task.id %>" data-aos="fade-up">
                     <img class="horse-avatar" src="https://kitt.lewagon.com/placeholder/users/gabriel-dehan">
                     <div class="task-message-body">
-                    <p><strong><%= task.horse.name %> - <%= task.horse.box %></strong></p>
-                    <p>
-                      <%= task.activity&.name %>
-                    </p>
+                      <p><strong><%= task.horse.name %> - <%= task.horse.box %></strong></p>
+                      <p>
+                        <%= task.activity&.name %>
+                      </p>
                     </div>
-                    <%= link_to "Je prends !", mark_as_doing_path(task_id: task.id), class: "btn btn-default" %>
+                    <%= link_to "Je prends !", mark_as_doing_path(task_id: task.id), remote: true, class: "btn btn-default" %>
                   </div>
                 </div>
             <% end %>
@@ -95,7 +95,7 @@
           <% if task.doing == true %>
             <% if !task.activity.nil? %>
               <div class="col-xs-12">
-                <div class="task-message" data-aos="fade-up">
+                <div class="task-message" data-task-id="<%= task.id %>" data-aos="fade-up">
                   <img class="horse-avatar" src="https://kitt.lewagon.com/placeholder/users/gabriel-dehan">
                   <div class="task-message-body">
                     <p><strong><%= task.horse.name %></strong></p>
@@ -124,13 +124,14 @@
         <div class="line"></div>
       </div>
       <% @tasks.each do |task| %>
+      task.count
 
         <% if task.done == false %>
 
           <% if task.doing == false %>
             <% if !task.medecine.nil? %>
                 <div class="col-xs-12">
-                  <div class="task-message">
+                  <div class="task-message" data-task-id="<%= task.id %>">
                     <img class="horse-avatar" src="https://kitt.lewagon.com/placeholder/users/gabriel-dehan">
                     <div class="task-message-body">
                       <p><strong><%= task.horse.name %></strong></p>
@@ -139,7 +140,7 @@
                       </p>
 
                     </div>
-                    <%= link_to "Je prends !", mark_as_doing_path(task_id: task.id), class: "btn btn-default" %>
+                    <%= link_to "Je prends !", mark_as_doing_path(task_id: task.id), remote: true, class: "btn btn-default" %>
                   </div>
                 </div>
             <% end %>
@@ -148,7 +149,7 @@
           <% if task.doing == true %>
             <% if !task.medecine.nil? %>
               <div class="col-xs-12">
-                <div class="task-message">
+                <div class="task-message" data-task-id="<%= task.id %>">
                   <img class="horse-avatar" src="https://kitt.lewagon.com/placeholder/users/gabriel-dehan">
                   <div class="task-message-body">
                     <p><strong><%= task.horse.name %></strong></p>
@@ -169,7 +170,5 @@
       <% end %>
     </div>
   </div>
-
-
 </div>
 <div class="espace-footer"></div>

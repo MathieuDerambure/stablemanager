@@ -29,8 +29,12 @@ class TasksController < ApplicationController
   end
 
   def mark_as_doing
-    Task.find(params[:task_id]).update(doing: true, user_doing: current_user)
-    redirect_to tasks_index_path
+    @task = Task.find(params[:task_id])
+    @task.update(doing: true, user_doing: current_user)
+    respond_to do |format|
+      format.html {redirect_to tasks_index_path}
+      format.js
+    end
   end
 
   def mark_as_done

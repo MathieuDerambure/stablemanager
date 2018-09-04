@@ -1,0 +1,13 @@
+<div class="task-message" data-task-id="<%= task.id %>" data-aos="fade-up">
+  <img class="horse-avatar" src="https://kitt.lewagon.com/placeholder/users/gabriel-dehan">
+  <div class="task-message-body">
+    <p><strong><%= task.horse.name %></strong></p>
+      <p>
+        <%= task.activity&.name %>
+      </p>
+      <% image_link = task.user_doing&.picture || "https://res.cloudinary.com/dk6vsgttl/image/upload/v1535978381/pomme.png" %>
+  </div>
+  <%= link_to mark_as_done_path(task_id: task.id) do %>
+    <%= image_tag image_link, class: "avatar-large" %>
+  <% end %>
+</div>
