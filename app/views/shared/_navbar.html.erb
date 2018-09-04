@@ -10,6 +10,7 @@
     <div class="navbar-wagon-right ">
       <% if user_signed_in? %>
         <%= link_to "Tâches", tasks_index_path, class: "navbar-wagon-item navbar-wagon-link" %>
+        <%= link_to "Visites", visites_path, class: "navbar-wagon-item navbar-wagon-link" %>
         <%= link_to "Chevaux", horses_path, class: "navbar-wagon-item navbar-wagon-link" %>
         <%= link_to communications_path, class: "navbar-wagon-item navbar-wagon-link" do%>
         <i class="fas fa-comment fa-lg"></i>

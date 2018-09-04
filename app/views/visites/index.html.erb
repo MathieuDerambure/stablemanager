@@ -1,0 +1,35 @@
+
+<div class="container">
+  <h3> <strong>Visites</strong></h3>
+  <div class="line"></div>
+  <div class="com-messages-container">
+    <h6> <strong>Vétérinaires</strong> - semaine à venir</h6>
+    <% @alertes_vets.each do |alerte| %>
+    <div class="com-message">
+      <div class="com-message-content alert"  style="text-align:left"> <%= alerte.message %>
+      </div>
+    </div>
+    <% end %>
+  </div>
+
+  <div class="com-messages-container">
+    <h6><strong>Maréchal Ferrant</strong> - semaine à venir </h6>
+    <% @alertes_shoes.each do |alerte| %>
+    <div class="com-message">
+      <div class="com-message-content alert"  style="text-align:left"> <%= alerte.message %>
+      </div>
+    </div>
+    <% end %>
+  </div>
+
+  <div class="com-messages-container">
+    <h6> <strong>Vaccins</strong> - mois à venir</h6>
+    <% @alertes_vaccins.each do |alerte| %>
+      <div class="com-message">
+        <div class="com-message-content alert"  style="text-align:left"> <%= alerte.message %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+</div>

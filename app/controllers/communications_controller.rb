@@ -71,6 +71,32 @@ before_action :set_comm, only: [:show, :edit, :update, :destroy]
     redirect_to communications_path
   end
 
+  def create_alert_vet
+    @vets = Task.where.not(vetenary_id: nil)
+    @vets_next = @vets.where("start_time >= ? AND start_time <= ?", (Date.today + 1), (Date.today + 3))
+
+    @vets_next.each do |vet|
+      @comm = Communication.new(message: "VETERINAIRE: #{vet.horse.name} le #{vet.start_time.strftime("%d %b %y")}")
+      #@comm.user = User.last
+      @comm.user = User.find_by(admin: true)
+      @comm.save
+    end
+
+    redirect_to communications_path
+  end
+
+  def create_alert_shoe
+    @shoes = Task.where.not(shoe_maker_id: nil)
+    @shoes_next = @shoes.where("start_time >= ? AND start_time <= ?", (Date.today + 1), (Date.today + 3))
+
+    @shoes_next.each do |shoe|
+      @comm = Communication.new(message: "MAR.FERRANT: #{shoe.horse.name} le #{shoe.start_time.strftime("%d %b %y")}")
+      @comm.user = User.find_by(admin: true)
+      @comm.save
+    end
+
+    redirect_to communications_path
+  end
 
   #######################################################
 
