@@ -3,8 +3,14 @@ class TasksController < ApplicationController
   before_action :load_food_tasks, only: [:mark_as_doing_food, :mark_as_done_food]
 
   def tasks_index
-    @tasks = Task.all
-    @horses = Horse.all
+      @tasks = Task.select{|t| t.start_time == Date.today}
+      @horses = Horse.all
+
+      # Permet de compter les tasks de différents type pour affiche le nombre
+      #dans la bulle rouge de la navbar
+      @tasks_food_type = @tasks.map{|task| task if task.food_type}.compact
+      @tasks_activity = @tasks.map{|task| task if task.activity}.compact
+      @tasks_medecine = @tasks.map{|task| task if task.medecine}.compact
 
 
     # Permet de compter les tasks de différents type pour affiche le nombre
@@ -14,11 +20,13 @@ class TasksController < ApplicationController
     @tasks_medecine = Task.where.not(medecine_id: nil, doing: true, done: true)
 
 
-    users ||= User.all
-    @owners = users.map{|user| user if user.role == "Propriétaire"}.compact
-    @employees = users.map{|user| user if user.role == "Employée"}.compact
-    @managers = users.map{|user| user if user.role == "Manager"}.compact
+      users ||= User.all
+      @owners = users.map{|user| user if user.role == "Propriétaire"}.compact
+      @employees = users.map{|user| user if user.role == "Employée"}.compact
+      @managers = users.map{|user| user if user.role == "Manager"}.compact
+
   end
+
 
   def index
     @tasks = Task.all

@@ -4,6 +4,7 @@
     <div class="line"></div>
   </div> -->
 
+
   <ul class="nav nav-tasks flex-menu navbar-fixed-bottom" role="tablist">
       <li role="presentation">
         <a href="#nourriture" aria-controls="nourriture" role="tab" data-toggle="tab">
@@ -33,8 +34,6 @@
 
 
   <div class="tab-content">
-
-
     <div role="tabpanel" class="tab-pane active" id="nourriture">
       <div class="col-xs-12">
         <h3> <strong>🥣 Nourriture </strong> </h3>
@@ -69,6 +68,7 @@
 
 
     <div role="tabpanel" class="tab-pane" id="activites">
+
       <div class="col-xs-12">
         <h3> <strong>🐎 Activités </strong> </h3>
         <div class="line"></div>
@@ -117,7 +117,6 @@
           <% end %>
 
         <% end %>
-
       <% end %>
     </div>
 
@@ -129,6 +128,7 @@
         <div class="line"></div>
       </div>
       <% @tasks.each do |task| %>
+      task.count
 
         <% if task.done == false %>
 
@@ -173,7 +173,6 @@
 
       <% end %>
     </div>
-
   </div>
 </div>
 <div class="espace-footer-tasks"></div>
