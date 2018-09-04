@@ -8,47 +8,35 @@
 
   <!-- Tab panes -->
   <div class="tab-content">
-
     <div role="tabpanel" class="tab-pane active" id="home">
       <div class="col-xs-12">
         <h3> <strong>Propriétaires</strong> </h3>
         <div class="line"></div>
       </div>
-
       <% @owners.each do |profile| %>
         <%= link_to profile_path(profile) do %>
-          <div class="flex-box-index">
+          <div class="col-xs-12">
             <div class="task-message">
-              <div class="task">
-                <div class="content">
-                  <p><%= profile.first_name %> <%=profile.sur_name %></p>
-                </div>
+              <div class="task-message-body">
+                <p><strong><%= profile.first_name %> <%=profile.sur_name %></strong></p>
+                <p><%= profile.phone %></p>
               </div>
-
-              <div class="task">
-                <div class="message-body">
-                  <p><%= profile.phone %></p>
-                </div>
-              </div>
-
               <div class="flex-box-index-item2">
                 <div>
                   <% profile.horses.each do |horse| %>
                     <% if horse.photo.url.nil? %>
                       <% url = 'http://res.cloudinary.com/dk6vsgttl/image/upload/v1534863841/s0caeecaab59c4a6bd6d9a36666c361d3.jpg' %>
                     <% else %>
-                      <% url = cl_image_path horse.photo, width: 40, height: 40, crop: :fill %>
+                      <% url = cl_image_path horse.photo, crop: :fill %>
                     <% end %>
-                      <%= image_tag url, class:"avatar-large" %>
+                      <%= image_tag url, class:"avatar-large horse-avatar" %>
                   <% end %>
                 </div>
               </div>
-
             </div>
           </div>
         <% end %>
       <% end if @owners.any? %>
-
     </div>
 
 
@@ -57,23 +45,14 @@
         <h3> <strong>Employés</strong> </h3>
         <div class="line"></div>
       </div>
-
       <% @employees.each do |profile| %>
           <%= link_to profile_path(profile) do %>
-            <div class="flex-box-index">
+            <div class="col-xs-12">
               <div class="task-message">
-                <div class="task">
-                  <div class="content">
-                    <p><%= profile.first_name %> <%=profile.sur_name %></p>
-                  </div>
+                <div class="task-message-body">
+                  <p><strong><%= profile.first_name %> <%=profile.sur_name %></strong></p>
+                  <p><%= profile.phone %></p>
                 </div>
-
-                <div class="task">
-                  <div class="message-body">
-                    <p><%= profile.phone %></p>
-                  </div>
-                </div>
-
                 <div class="flex-box-index-item2">
                   <div>
                     <% profile.horses.each do |horse| %>
@@ -100,20 +79,12 @@
       </div>
       <% @managers.each do |profile| %>
         <%= link_to profile_path(profile) do %>
-          <div class="flex-box-index">
+          <div class="col-xs-12">
             <div class="task-message">
-              <div class="task">
-                <div class="content">
-                  <p><%= profile.first_name %> <%=profile.sur_name %></p>
-                </div>
+              <div class="task-message-body">
+                <p><strong><%= profile.first_name %> <%=profile.sur_name %></strong></p>
+                <p><%= profile.phone %></p>
               </div>
-
-              <div class="task">
-                <div class="message-body">
-                  <p><%= profile.phone %></p>
-                </div>
-              </div>
-
               <div class="flex-box-index-item2">
                 <div>
                   <% profile.horses.each do |horse| %>
