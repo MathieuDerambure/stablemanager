@@ -1,53 +1,41 @@
 <div class="container">
-  <div class="flex-box-profile">
 
-    <div class ="flex-item1">
-      <div>
-        <h3>
-          <%= @user.first_name %>
-          <%= @user.sur_name %>
-        </h3>
-      </div>
-      <div>
-       <h4> <%= @user.role %></h4>
-      </div>
-      <div>
-        <p> <%= @user.email %> <br>
-        <%= @user.phone %> <br>
-        <%= @user.address %></p>
-      </div>
+  <div class="card-info">
+    <div class="horse-name">
+      <h1> <%= @user.first_name %> <%= @user.sur_name %></h3>
+        <p class="text-muted"> <strong> <%= @user.role %></strong> </p>
     </div>
-    <div class ="flex-item2">
-      <div>
-        <% if @user.photo.url.nil? %>
-          <% url = 'http://res.cloudinary.com/dk6vsgttl/image/upload/v1535559148/stock-vector-silhouette-girl-kid-head-with-ponytail-vector-illustration-of-a-young-girl-head-shadow-isolated-on-786469627.jpg' %>
-        <% else %>
-          <% url = cl_image_path @user.photo, width: 10, height: 10, crop: :fill %>
-        <% end %>
-        <%= image_tag url, class:"photo-employee"%>
-      </div>
+
+    <div class="line"></div>
+
+    <div class="horse-description">
+      <p> <%= @user.email %> <br>
+      <%= @user.phone %> <br>
+      <%= @user.address %></p>
     </div>
   </div>
-  <div class ="flex-item3">
-    <%= link_to "modifier", edit_profile_path(@user) %>
-    <%= link_to "retour", profiles_path %>
-  </div>
-  <div>
-    <h3> Chevaux </h3>
-  </div>
-  <div class ="flex-box-horse">
+
+  <hr color="blue">
+  <div class="horse-description">
     <% @user.horses.each do |horse| %>
       <div class ="flex-box-item-horse-name">
-       <p> <%= horse.name %> </p>
+        <p> <%= horse.name %> </p>
         <% if horse.photo.url.nil? %>
           <% url = 'http://res.cloudinary.com/dk6vsgttl/image/upload/v1534863841/s0caeecaab59c4a6bd6d9a36666c361d3.jpg' %>
         <% else %>
-          <% url = cl_image_path horse.photo, width: 40, height: 40, crop: :fill %>
+          <% url = cl_image_path horse.photo, crop: :fill %>
         <% end %>
         <p> <%= image_tag url, class:"big-horse-avatar" %></p>
       </div>
     <% end %>
   </div>
+
+  <hr color="blue">
+    <div class ="flex-item3">
+      <%= link_to "modifier", edit_profile_path(@user), class:"btn-red-small" %>
+      <%= link_to "retour", profiles_path, class:"btn-red-small" %>
+    </div>
+
 </div>
 
 
