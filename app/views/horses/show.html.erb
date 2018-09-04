@@ -1,4 +1,3 @@
-3
 <% if @horse.photo? %>
   <div class="card-horse" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path @horse.photo.url, crop: :fill %>')">
   </div>
@@ -11,16 +10,17 @@
   <div class="card-info">
     <div class="horse-name">
       <h1><%= @horse.name %></h1>
-      <p class="text-muted"><strong><%= @horse.user.first_name %> <%=  @horse.user.sur_name %></strong></p>
+      <p class="text-muted"><strong><%= @horse.user.first_name %> <%= @horse.user.sur_name %></strong></p>
     </div>
     <div class="line"></div>
     <div class="horse-description">
       <h4>Box n°<%= @horse.box %>
       </h4>
     </div>
+
+    <hr color="blue">
   </div>
 
-  <hr color="blue">
   <div class="card-plus">
     <div class="formula">
       <h4><strong>📋</i> Formule</strong></h4>
@@ -33,131 +33,127 @@
 
       <h4><strong>🥣 Nourriture</strong></h4>
       <p><strong>Matin</strong></p>
-        <% if @horse.tasks.select{|t| t.food_type && t.food_type.name == "Granulé" && t.start_time < DateTime.new(2018,8,31,10)}.any? %>
-          <p>Granule: <%= @horse.tasks.select{|t| t.food_type && t.food_type.name == "Granulé" && t.start_time < DateTime.new(2018,8,31,10)}.first.food_quantity %></p>
+        <% if @horse.tasks.select{|t| t.food_type && t.food_type.name == "Granulé" && t.start_time < DateTime.new(2018,9,4,10)}.any? %>
+          <p>Granulé : <%= @horse.tasks.select{|t| t.food_type && t.food_type.name == "Granulé" && t.start_time < DateTime.new(2018,9,4,10)}.first.food_quantity %></p>
 
         <% end %>
 
-        <% if @horse.tasks.select{|t| t.food_type && t.food_type.name == "Floconnet" && t.start_time < DateTime.new(2018,9,3,10)}.any? %>
-          <p>Floconnet: <%= @horse.tasks.select{|t| t.food_type && t.food_type.name == "Floconnet" && t.start_time < DateTime.new(2018,9,3,10)}.first.food_quantity %></p>
+        <% if @horse.tasks.select{|t| t.food_type && t.food_type.name == "Floconnet" && t.start_time < DateTime.new(2018,9,4,10)}.any? %>
+          <p>Floconnet : <%= @horse.tasks.select{|t| t.food_type && t.food_type.name == "Floconnet" && t.start_time < DateTime.new(2018,9,4,10)}.first.food_quantity %></p>
         <% end %>
 
-        <% if @horse.tasks.select{|t| t.food_type && t.food_type.name == "Winsor" && t.start_time < DateTime.new(2018,9,3,10)}.any? %>
-          <p>Winsor: <%= @horse.tasks.select{|t| t.food_type && t.food_type.name == "Winsor" && t.start_time < DateTime.new(2018,9,3,10)}.first.food_quantity %></p>
+        <% if @horse.tasks.select{|t| t.food_type && t.food_type.name == "Winsor" && t.start_time < DateTime.new(2018,9,4,10)}.any? %>
+          <p>Winsor : <%= @horse.tasks.select{|t| t.food_type && t.food_type.name == "Winsor" && t.start_time < DateTime.new(2018,9,4,10)}.first.food_quantity %></p>
         <% end %>
 
 
       <p><strong>Midi</strong></p>
-        <% if @horse.tasks.select{|t| t.food_type && t.food_type.name == "Granulé" && t.start_time < DateTime.new(2018,8,31,15)}.any? %>
-          <p>Granule: <%= @horse.tasks.select{|t| t.food_type && t.food_type.name == "Granulé" && t.start_time < DateTime.new(2018,8,31,15)}.first.food_quantity %></p>
+        <% if @horse.tasks.select{|t| t.food_type && t.food_type.name == "Granulé" && t.start_time < DateTime.new(2018,9,4,15)}.any? %>
+          <p>Granulé : <%= @horse.tasks.select{|t| t.food_type && t.food_type.name == "Granulé" && t.start_time < DateTime.new(2018,9,4,15)}.first.food_quantity %></p>
         <% end %>
 
-        <% if @horse.tasks.select{|t| t.food_type && t.food_type.name == "Floconnet" && t.start_time < DateTime.new(2018,9,3,15)}.any? %>
-          <p>Floconnet: <%= @horse.tasks.select{|t| t.food_type && t.food_type.name == "Floconnet" && t.start_time < DateTime.new(2018,9,3,15)}.first.food_quantity %></p>
+        <% if @horse.tasks.select{|t| t.food_type && t.food_type.name == "Floconnet" && t.start_time < DateTime.new(2018,9,4,15)}.any? %>
+          <p>Floconnet : <%= @horse.tasks.select{|t| t.food_type && t.food_type.name == "Floconnet" && t.start_time < DateTime.new(2018,9,4,15)}.first.food_quantity %></p>
         <% end %>
 
-        <% if @horse.tasks.select{|t| t.food_type && t.food_type.name == "Winsor" && t.start_time < DateTime.new(2018,9,3,15)}.any? %>
-          <p>Winsor: <%= @horse.tasks.select{|t| t.food_type && t.food_type.name == "Winsor" && t.start_time < DateTime.new(2018,9,3,15)}.first.food_quantity %></p>
+        <% if @horse.tasks.select{|t| t.food_type && t.food_type.name == "Winsor" && t.start_time < DateTime.new(2018,9,4,15)}.any? %>
+          <p>Winsor : <%= @horse.tasks.select{|t| t.food_type && t.food_type.name == "Winsor" && t.start_time < DateTime.new(2018,9,4,15)}.first.food_quantity %></p>
         <% end %>
 
       <p><strong>Soir</strong></p>
-        <% if @horse.tasks.select{|t| t.food_type && t.food_type.name == "Granulé" && t.start_time < DateTime.new(2018,8,31,20)}.any? %>
-          <p>Granule: <%= @horse.tasks.select{|t| t.food_type && t.food_type.name == "Granulé" && t.start_time < DateTime.new(2018,8,31,20)}.first.food_quantity %></p>
+        <% if @horse.tasks.select{|t| t.food_type && t.food_type.name == "Granulé" && t.start_time < DateTime.new(2018,9,4,20)}.any? %>
+          <p>Granulé : <%= @horse.tasks.select{|t| t.food_type && t.food_type.name == "Granulé" && t.start_time < DateTime.new(2018,9,4,20)}.first.food_quantity %></p>
         <% end %>
 
-        <% if @horse.tasks.select{|t| t.food_type && t.food_type.name == "Floconnet" && t.start_time < DateTime.new(2018,9,3,20)}.any? %>
-          <p>Floconnet: <%= @horse.tasks.select{|t| t.food_type && t.food_type.name == "Floconnet" && t.start_time < DateTime.new(2018,9,3,20)}.first.food_quantity %></p>
+        <% if @horse.tasks.select{|t| t.food_type && t.food_type.name == "Floconnet" && t.start_time < DateTime.new(2018,9,4,20)}.any? %>
+          <p>Floconnet : <%= @horse.tasks.select{|t| t.food_type && t.food_type.name == "Floconnet" && t.start_time < DateTime.new(2018,9,4,20)}.first.food_quantity %></p>
         <% end %>
 
-        <% if @horse.tasks.select{|t| t.food_type && t.food_type.name == "Winsor" && t.start_time < DateTime.new(2018,9,3,20)}.any? %>
-          <p>Winsor: <%= @horse.tasks.select{|t| t.food_type && t.food_type.name == "Winsor" && t.start_time < DateTime.new(2018,9,3,20)}.first.food_quantity %></p>
+        <% if @horse.tasks.select{|t| t.food_type && t.food_type.name == "Winsor" && t.start_time < DateTime.new(2018,9,4,20)}.any? %>
+          <p>Winsor : <%= @horse.tasks.select{|t| t.food_type && t.food_type.name == "Winsor" && t.start_time < DateTime.new(2018,9,4,20)}.first.food_quantity %></p>
         <% end %>
+
+      <hr color="blue">
     </div>
 
-    <hr color="blue">
 
     <div class="horse-activity">
       <h4><strong>🐎 Activités</strong></h4>
-          <p><strong>Paddock</strong></p>
-          <% @horse.tasks.select{|t| t.activity&.name == "Paddock"}.each do |task| %>
-            <%= task.start_time.strftime("%A") %>
-          <% end %>
 
-        <p><strong>Marche</strong></p>
-          <% @horse.tasks.select{|t| t.activity&.name == "Marche"}.each do |task| %>
-            <%= task.start_time.strftime("%A") %>
-          <% end %>
+        <% @horse.tasks.select{|t| t.activity&.name == "Paddock"}.each do |task| %>
+        <p><strong>Paddock :</strong> <%= task.start_time.strftime("%A") %></p>
+        <% end %>
 
-        <p><strong>Saut</strong></p>
-          <% @horse.tasks.select{|t| t.activity&.name == "Saut"}.each do |task| %>
-            <%= task.start_time.strftime("%A") %>
-          <% end %>
+        <% @horse.tasks.select{|t| t.activity&.name == "Marche"}.each do |task| %>
+        <p><strong>Marche : </strong><%= task.start_time.strftime("%A") %> </p>
+        <% end %>
 
-        <p><strong>Promenade</strong></p>
-          <% @horse.tasks.select{|t| t.activity&.name == "Marche"}.each do |task| %>
-            <%= task.start_time.strftime("%A") %>
-          <% end %>
+        <% @horse.tasks.select{|t| t.activity&.name == "Saut"}.each do |task| %>
+        <p><strong>Saut : </strong><%= task.start_time.strftime("%A") %></p>
+        <% end %>
+
+        <% @horse.tasks.select{|t| t.activity&.name == "Marche"}.each do |task| %>
+        <p><strong>Promenade : </strong><%= task.start_time.strftime("%A") %></p>
+
+        <% end %>
+
+      <hr color="blue">
     </div>
 
-    <hr color="blue">
 
     <% if @horse.tasks.select{|t| t.medecine}.any? %>
       <div class="horse-medicine">
        <h4>💊 <strong>Médicaments</strong></h4>
-        <p>Medicament: </p>
+        <p><strong>Medicament:</strong> <%= @horse.tasks.select{|t| t.medecine}.first.medecine.name %></p>
+        <p><strong>Prochain passage : </strong><%= @horse.tasks.select{|t| t.vetenary}.first.start_time.strftime('%A') %> </p>
+        <hr color="blue">
       </div>
     <% end %>
 
-
-
-    <hr color="blue">
 
     <% if @horse.tasks.select{|t| t.vetenary}.any? %>
       <div class="horse-veterinaire">
         <h4>👩‍⚕️ <strong>Vétérinaire</strong></h4>
-        <p>Name: </p><%= @horse.tasks.select{|t| t.vetenary}.first.vetenary.name %>
-        <p>Prochain passage: </p> <%= @horse.tasks.select{|t| t.vetenary}.first.start_time %>
+        <p><strong>Nom : </strong><%= @horse.tasks.select{|t| t.vetenary}.first.vetenary.name %> </p>
+        <p><strong>Prochain passage :</strong> <%= @horse.tasks.select{|t| t.vetenary}.first.start_time.strftime('%Y-%m-%d') %> </p>
+        <hr color="blue">
       </div>
     <% end %>
 
-    <hr color="blue">
 
     <% if @horse.tasks.select{|t| t.shoe_maker}.any? %>
       <div class="horse-forgeron">
         <h4>⚒️ <strong>Maréchal-ferrant</strong></h4>
-        <p><strong>Name</strong></p>
-        <%= @horse.tasks.select{|t| t.shoe_maker}.first.shoe_maker.name %>
-        <br/>
-        <p><strong>Prochain passage</strong></p>
-        <%= @horse.tasks.select{|t| t.shoe_maker}.first.start_time %>
+        <p> <strong>Nom : </strong><%= @horse.tasks.select{|t| t.shoe_maker}.first.shoe_maker.name %> </p>
+        <p> <strong>Prochain passage :</strong> <%= @horse.tasks.select{|t| t.shoe_maker}.first.start_time.strftime('%Y-%m-%d') %> </p>
+        <hr color="blue">
       </div>
     <% end %>
 
-    <hr color="blue">
 
     <% if @horse.tasks.select{|t| t.antidote}.any? %>
       <div class="horse-medicine">
        <h4>💉 <strong>Vaccins / Vermifuges</strong></h4>
         <p><strong>Vaccins</strong></p>
         <%= @horse.tasks.select{|t| t.antidote}.first.antidote.name %>
-        <br/>
+        <br>
         <p><strong>Prochaine prise</strong>
           <%= @horse.tasks.select{|t| t.antidote}.first.start_time %> </p>
         <% if @horse.tasks.select{|t| t.antidote}.second %>
         <p><strong>Vaccins</strong></p> <%= @horse.tasks.select{|t| t.antidote}.second.antidote.name %>
-        <br/>
+        <br>
         <p><strong>Prochaine prise</strong></p> <%= @horse.tasks.select{|t| t.antidote}.second.start_time %>
 
         <% end %>
+        <hr color="blue">
       </div>
     <% end %>
 
-    <hr color="blue">
 
   </div>
   <div class="bouton">
-    <%= link_to "Éditer ce cheval", edit_horse_path(@horse), class: 'btn btn-primary btn-block' %>
-    <%= link_to "Supprimer ce cheval", horse_path(@horse), class: 'text-center', method: :delete, data: { confirm: "Sure?" }  %>
+    <%= link_to "Éditer ce cheval", edit_horse_path(@horse), class: 'btn btn-red btn-block' %>
+    <%= link_to "Supprimer ce cheval", horse_path(@horse), class: 'btn btn-red-small btn-block', method: :delete, data: { confirm: "Sure?" }  %>
   </div>
   <br/>
   <br/>
