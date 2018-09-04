@@ -103,7 +103,7 @@ horse8 = Horse.create!(name: "Capuccin", box: 8 , formula: 'three', user_id: pro
 # horse22 = Horse.create!(name: "Boogy", box: 22 , formula: 'four', user_id: prop3.id , remote_photo_url: "https://res.cloudinary.com/dk6vsgttl/image/upload/v1534867381/hudada_24.jpg")
 # horse23 = Horse.create!(name: "Rock", box: 23 , formula: 'four', user_id: prop4.id , remote_photo_url: "https://res.cloudinary.com/dk6vsgttl/image/upload/v1534867381/hudada_25.jpg")
 
-task1 = Task.create!(doing: false, done: false, start_time: Date.today, end_time: Date.today, horse_id: horse1.id, food_type_id: food1.id, weekly: true, monthly: false)
+task1 = Task.create!(doing: false, done: false, start_time: Date.today, end_time: Date.today, horse_id: horse1.id, food_type_id: food1, weekly: true, monthly: false)
 task2 = Task.create!(doing: false, done: false, start_time: Date.today, end_time: Date.today, horse_id: horse1.id, activity_id: act1.id, weekly: true, monthly: false)
 task3 = Task.create!(doing: true, done: false, start_time: Date.today, end_time: Date.today, horse_id: horse2.id, activity_id: act2.id, weekly: true, monthly: false)
 task4 = Task.create!(doing: false, done: false, start_time: Date.today, end_time: Date.today, horse_id: horse2.id, activity_id: act3.id, weekly: true, monthly: false)

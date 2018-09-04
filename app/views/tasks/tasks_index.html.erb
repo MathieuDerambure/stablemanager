@@ -1,7 +1,6 @@
 <div class="container" >
 
   <h3> <strong>Tâches du jour </strong> </h3>
-
     <ul class="nav nav-tasks flex-menu navbar-fixed-bottom" role="tablist">
       <li role="presentation">
         <a href="#nourriture" aria-controls="nourriture" role="tab" data-toggle="tab">
@@ -31,8 +30,6 @@
 
 
   <div class="tab-content">
-
-
     <div role="tabpanel" class="tab-pane active" id="nourriture">
 
       <% @horses.each do |horse| %>
@@ -59,6 +56,7 @@
 
 
     <div role="tabpanel" class="tab-pane" id="activites">
+<% if @tasks.select{|t| t.start_time == Date.today} %>
       <% @tasks.each do |task| %>
 
         <% if task.done == false %>
@@ -81,6 +79,7 @@
             <% end %>
           <% end %>
 
+
           <% if task.doing == true %>
             <% if !task.activity.nil? %>
               <div class="col-xs-12">
@@ -101,7 +100,6 @@
           <% end %>
 
         <% end %>
-
       <% end %>
     </div>
 
@@ -109,6 +107,7 @@
 
     <div role="tabpanel" class="tab-pane" id="medicaments">
       <% @tasks.each do |task| %>
+      task.count
 
         <% if task.done == false %>
 
@@ -154,6 +153,6 @@
       <% end %>
     </div>
 
-
+<% end %>
   </div>
 </div>
