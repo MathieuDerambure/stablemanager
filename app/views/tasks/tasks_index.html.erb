@@ -1,8 +1,4 @@
 <div class="container" >
-<!--   <div class="col-xs-12">
-    <h3> <strong>Tâches du jour 💪</strong> </h3>
-    <div class="line"></div>
-  </div> -->
 
   <ul class="nav nav-tasks flex-menu navbar-fixed-bottom" role="tablist">
       <li role="presentation">
@@ -82,7 +78,7 @@
                   <div class="task-message" data-aos="fade-up">
                     <img class="avatar-large" src="https://kitt.lewagon.com/placeholder/users/gabriel-dehan">
                     <div class="task-message-body">
-                    <p><strong><%= task.horse.name %></strong></p>
+                    <p><strong><%= task.horse.name %> - <%= task.horse.box %></strong></p>
                     <p>
                       <%= task.activity&.name %>
                     </p>
