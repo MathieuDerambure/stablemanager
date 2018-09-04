@@ -13,6 +13,13 @@ class TasksController < ApplicationController
       @tasks_medecine = @tasks.map{|task| task if task.medecine}.compact
 
 
+    # Permet de compter les tasks de différents type pour affiche le nombre
+    #dans la bulle rouge de la navbar
+    @tasks_food_type = Task.where.not(food_type_id: nil, doing: true, done: true)
+    @tasks_activity = Task.where.not(activity_id: nil, done: true)
+    @tasks_medecine = Task.where.not(medecine_id: nil, doing: true, done: true)
+
+
       users ||= User.all
       @owners = users.map{|user| user if user.role == "Propriétaire"}.compact
       @employees = users.map{|user| user if user.role == "Employée"}.compact
