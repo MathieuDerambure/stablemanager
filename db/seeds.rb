@@ -158,6 +158,13 @@ task50 = Task.create!(doing: false, done: false, start_time: DateTime.parse('15t
 #shoe
 task51 = Task.create!(doing: false, done: false, start_time: DateTime.parse('15th Sept 2018 08:00:00'), end_time: DateTime.parse('15rd Sept 2018 09:00:00'), horse_id: horse3.id, shoe_maker_id: shoe1.id, weekly: false, monthly: false)
 
+task52 = Task.create!(doing: false, done: false, start_time: Date.today, end_time: Date.today, horse_id: horse5.id, activity_id: act4.id, weekly: true, monthly: false)
+task53 = Task.create!(doing: false, done: false, start_time: Date.today + 1, end_time: Date.today + 1, horse_id: horse1.id, antidote_id: ant1.id, weekly: false, monthly: false)
+task54 = Task.create!(doing: false, done: false, start_time: Date.today + 2, end_time: Date.today + 2, horse_id: horse2.id, antidote_id: ant2.id, weekly: false, monthly: false)
+task55 = Task.create!(doing: false, done: false, start_time: Date.today + 3, end_time: Date.today + 3, horse_id: horse3.id, shoe_maker_id: shoe1.id, weekly: false, monthly: false)
+task56 = Task.create!(doing: false, done: false, start_time: Date.today + 2, end_time: Date.today + 2, horse_id: horse4.id, vetenary_id: vet1.id, weekly: false, monthly: false)
+
+
 p "C'est uploadé !"
 p Activity.all
 p FoodType.all
