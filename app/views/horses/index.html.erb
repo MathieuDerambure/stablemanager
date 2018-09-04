@@ -1,22 +1,33 @@
 <div class="container">
 
   <div class="row">
-    <div class="col-xs-12 col-md-6">
+
+    <div class="col-xs-12">
+      <h3> <strong>🐴 Vos chevaux</strong> </h3>
       <%= render './shared/search' %>
+      <div class="line"></div>
+    </div>
+
+    <div class="col-xs-12 col-md-6">
+      <%= link_to new_horse_path do%>
+        <i class="fas fa-plus-circle"></i> Ajouter un cheval
+
+
+      <% end %>
     </div>
   </div>
 
   <div class="row">
 
-    <%= link_to new_horse_path do %>
-      <div class="col-xs-12 col-md-4">
+    <%#= link_to new_horse_path do %>
+      <!-- <div class="col-xs-12 col-md-4">
         <div class="horse card" >
           <div class="horse-image add wrapper">
             <i class="fas fa-plus-circle fa-2x"></i>
           </div>
         </div>
-      </div>
-    <% end %>
+      </div> -->
+    <%# end %>
 
     <% @horses.each do |horse| %>
 
@@ -34,7 +45,7 @@
               <div class="content">
                 <div class="title">
                   <p><strong><%= horse.name %></strong></p>
-                  <p><%= horse.user.first_name %> <%= horse.user.sur_name %></p>
+                  <p>Appartient à <%= horse.user.first_name %> <%= horse.user.sur_name %></p>
                   <p>Box n°<%= horse.box %></p>
                 </div>
               </div>
@@ -49,5 +60,7 @@
   <!-- End row -->
   </div>
 </div>
+<div class="espace-footer"></div>
+
 
 
