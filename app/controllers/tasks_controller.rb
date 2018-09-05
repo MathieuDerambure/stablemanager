@@ -3,7 +3,7 @@ class TasksController < ApplicationController
   before_action :load_food_tasks, only: [:mark_as_doing_food, :mark_as_done_food]
 
   def tasks_index
-      @tasks = Task.where(start_time: Date.today)
+      @tasks = Task.due_today
       @horses = Horse.all
       # Permet de compter les tasks de différents type pour affiche le nombre
       #dans la bulle rouge de la navbar
