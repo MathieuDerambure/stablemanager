@@ -4,9 +4,7 @@
       <li role="presentation">
         <a href="#nourriture" aria-controls="nourriture" role="tab" data-toggle="tab">
           <i class="active fas fa-utensils"></i>
-          <% if @tasks_food_type %>
-            <span class="badge"><%= raise morning_food_number + midday_food_number + evening_food_number %></span>
-          <% end %>
+            <span class="badge"><%= @horses.map {|horse| horse.morning_tasks_count}.delete_if {|number| number == 0}.count+@horses.map {|horse| horse.midday_tasks_count}.delete_if {|number| number == 0}.count+@horses.map {|horse| horse.evening_tasks_count}.delete_if {|number| number == 0}.count %></span>
         </a>
       </li>
       <li role="presentation">

@@ -6,13 +6,13 @@
   <!-- Nav tabs -->
   <ul class="nav nav-tabs" role="tablist">
     <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Matin
-       <span class="badge brand-success"><%= moning_food_number = @horses.map {|horse| horse.morning_tasks_count}.delete_if {|number| number == 0}.count  %></span>
+       <span class="badge brand-success"><%= @horses.map {|horse| horse.morning_tasks_count}.delete_if {|number| number == 0}.count  %></span>
       </a></li>
     <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Midi
-       <span class="badge brand-success"><%= midday_food_number = @horses.map {|horse| horse.midday_tasks_count}.delete_if {|number| number == 0}.count  %></span>
+       <span class="badge brand-success"><%= @horses.map {|horse| horse.midday_tasks_count}.delete_if {|number| number == 0}.count  %></span>
       </a></li>
     <li role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">Soir
-       <span class="badge brand-success"><%= evening_food_number = @horses.map {|horse| horse.evening_tasks_count}.delete_if {|number| number == 0}.count  %></span>
+       <span class="badge brand-success"><%= @horses.map {|horse| horse.evening_tasks_count}.delete_if {|number| number == 0}.count  %></span>
       </a></li>
     </a></li>
   </ul>
