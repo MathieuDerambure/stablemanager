@@ -1,0 +1,10 @@
+<div class="task-message" data-task-id="<%= task.id %>" data-aos="fade-up">
+  <img class="horse-avatar" src="https://kitt.lewagon.com/placeholder/users/gabriel-dehan">
+  <div class="task-message-body">
+    <p><strong><%= task.horse.name %>  - Box n° <%= task.horse.box %></strong></p>
+    <p>
+      <%= task.activity&.name %>
+    </p>
+  </div>
+  <%= link_to "S'assigner", mark_as_doing_path(task_id: task.id), remote: true, class: "btn btn-default" %>
+</div>
