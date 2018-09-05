@@ -67,6 +67,16 @@
 
 }
 
+.food-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.show-horse-medicine {
+  padding: 500px;
+}
+
 // .card-horse {
 //   height: 150px;
 //   text-shadow: 0 1px 3px rgba(0,0,0,0.6);

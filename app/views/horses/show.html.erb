@@ -1,13 +1,13 @@
-<% if @horse.photo? %>
-  <div class="card-horse" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path @horse.photo.url, crop: :fill %>')">
-  </div>
-<% else %>
-   <div class="card-horse" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cloudinary_url("pe12ydym9xpycxvwrnv5.jpg", :crop=>"fill") %>')">
-   </div>
-<% end %>
+  <% if @horse.photo? %>
+    <div class="horse-show-picture" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path @horse.photo, width: 300, crop: :fill %>')">
+    </div>
+  <%else %>
+    <div class="horse-show-picture" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= image_path("default-horse.jpg")  %>')">
+    </div>
+  <% end %>
 
 <div class="container">
-  <%= cl_image_tag @horse.photo, crop: :fill, width: 100, height: 100, class: "avatar-large horse-avatar" %>
+
 
   <div class="card-info">
     <div class="horse-name">
@@ -34,20 +34,27 @@
     <div class="horse-food">
 
       <h4><strong>🥣 Nourriture</strong></h4>
-      <p><strong>Matin</strong></p>
-      <% @horse.morning_tasks.each do |task| %>
-        <p><%= task.food_type.name %> : <%= task.food_quantity %>L</p>
-      <% end %>
+      <div class="food-card">
+        <div class="food-matin">
+          <p><strong>Matin</strong></p>
+          <% @horse.morning_tasks.each do |task| %>
+            <p><%= task.food_type.name %> : <%= task.food_quantity %>L</p>
+          <% end %>
+        </div>
+        <div class="food-midi">
+          <p><strong>Midi</strong></p>
+          <% @horse.midday_tasks.each do |task| %>
+            <p><%= task.food_type.name %> : <%= task.food_quantity %>L</p>
+          <% end %>
+        </div>
 
-      <p><strong>Midi</strong></p>
-      <% @horse.midday_tasks.each do |task| %>
-        <p><%= task.food_type.name %> : <%= task.food_quantity %>L</p>
-      <% end %>
-
-      <p><strong>Soir</strong></p>
-      <% @horse.evening_tasks.each do |task| %>
-        <p><%= task.food_type.name %> : <%= task.food_quantity %>L</p>
-      <% end %>
+        <div class="food-soir">
+          <p><strong>Soir</strong></p>
+          <% @horse.evening_tasks.each do |task| %>
+            <p><%= task.food_type.name %> : <%= task.food_quantity %>L</p>
+          <% end %>
+        </div>
+      </div>
 
       <hr color="blue">
     </div>
@@ -72,13 +79,15 @@
       <div class="horse-medicine">
         <h4>💊 <strong>Médicaments</strong></h4>
         <% @horse.tasks.medecine.this_week.group_by(&:medecine).each do |medecine, tasks| %>
-          <p><strong>Médicament :</strong> <%= medecine.name %></p>
-          <p>
-            <strong>Prochain passage : </strong>
-            <% tasks.each do |task| %>
-              <%= l(task.start_time.to_date, format: "%A") %>
-            <% end %>
-          </p>
+          <div class="show-horse-medicine">
+            <p><strong>Médicament :</strong> <%= medecine.name %></p>
+            <p>
+              <strong>Traitement: </strong>
+              <% tasks.each do |task| %>
+                <%= l(task.start_time.to_date, format: "%A") %>
+              <% end %>
+            </p>
+          </div>
         <% end %>
 
         <hr color="blue">

@@ -79,11 +79,9 @@ ant4 = Antidote.create(name: "Rage", slug: "rage")
 
 horse1 = Horse.create!(name: "Frosty", box: 1 , formula: 'one', user_id: prop1.id , remote_photo_url: "https://res.cloudinary.com/dk6vsgttl/image/upload/v1534867381/hudada_01.jpg")
 horse2 = Horse.create!(name: "Belle des Neiges", box: 2 , formula: 'one', user_id: prop2.id , remote_photo_url: "https://res.cloudinary.com/dk6vsgttl/image/upload/v1534867381/hudada_02.jpg")
-
 horse3 = Horse.create!(name: "Sophie", box: 3 , formula: 'two', user_id: prop4.id , remote_photo_url: "https://res.cloudinary.com/dk6vsgttl/image/upload/v1534867381/hudada_04.jpg")
 # horse4 = Horse.create!(name: "Bobby", box: 4 , formula: 'two', user_id: prop1.id , remote_photo_url: "https://res.cloudinary.com/dk6vsgttl/image/upload/v1534867381/hudada_05.jpg")
 # horse5 = Horse.create!(name: "Tony", box: 5 , formula: 'two', user_id: prop1.id , remote_photo_url: "https://res.cloudinary.com/dk6vsgttl/image/upload/v1534867381/hudada_06.jpg")
-
 # horse6 = Horse.create!(name: "Tom", box: 7 , formula: 'three', user_id: prop3.id , remote_photo_url: "https://res.cloudinary.com/dk6vsgttl/image/upload/v1534867381/hudada_07.jpg")
 # horse7 = Horse.create!(name: "Capuccin", box: 8 , formula: 'three', user_id: prop4.id , remote_photo_url: "https://res.cloudinary.com/dk6vsgttl/image/upload/v1534867381/hudada_09.jpg")
 
@@ -227,7 +225,6 @@ task95 = Task.create!(doing: false, done: false, start_time: DateTime.parse('8th
 task96 = Task.create!(doing: false, done: false, start_time: DateTime.parse('8th Sept 2018 18:00:00'), end_time: DateTime.parse('8th Sept 2018 20:00:00'), food_quantity: 3, horse_id: horse2.id, food_type_id: food3.id, daily: true, weekly: true, monthly: false)
 
 
-
 #activity
 
 ##Paddock (lundi, mardi, mercredi, jeudi, vendredi)
@@ -276,13 +273,6 @@ task119 = Task.create!(doing: false, done: false, start_time: DateTime.parse('15
 
 #shoe
 task120 = Task.create!(doing: false, done: false, start_time: DateTime.parse('16th Sept 2018 08:00:00'), end_time: DateTime.parse('16th Sept 2018 09:00:00'), horse_id: horse2.id, shoe_maker_id: shoe1.id, weekly: false, monthly: false)
-
-
-
-
-
-
-
 
 
 # #horse 3
@@ -378,6 +368,16 @@ task189 = Task.create!(doing: false, done: false, start_time: DateTime.parse('15
 
 #shoe
 task190 = Task.create!(doing: false, done: false, start_time: DateTime.parse('16th Sept 2018 08:00:00'), end_time: DateTime.parse('16th Sept 2018 09:00:00'), horse_id: horse3.id, shoe_maker_id: shoe1.id, weekly: false, monthly: false)
+
+
+
+########## DO NOT REMOVE ##########
+task500 = Task.create!(doing: false, done: false, start_time: Date.today + 2, end_time: Date.today + 2 , horse_id: horse1.id, shoe_maker_id: shoe1.id, weekly: false, monthly: true)
+task501 = Task.create!(doing: false, done: false, start_time: Date.today + 1, end_time: Date.today + 1, horse_id: horse1.id, antidote_id: ant1.id, weekly: false, monthly: false)
+task502 = Task.create!(doing: false, done: false, start_time: Date.today + 2, end_time: Date.today + 2, horse_id: horse2.id, antidote_id: ant2.id, weekly: false, monthly: false)
+task503 = Task.create!(doing: false, done: false, start_time: Date.today + 20, end_time: Date.today + 20, horse_id: horse3.id, antidote_id: ant3.id, weekly: false, monthly: false)
+task504 = Task.create!(doing: false, done: false, start_time: Date.today + 2, end_time: Date.today + 2, horse_id: horse2.id, vetenary_id: vet1.id, weekly: false, monthly: true)
+
 
 
 p "C'est uploadé !"
