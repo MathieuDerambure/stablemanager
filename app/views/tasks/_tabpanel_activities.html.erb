@@ -1,0 +1,51 @@
+<div class="col-xs-12">
+  <h3> <strong>🐎 Activités </strong> </h3>
+  <div class="line"></div>
+</div>
+
+<% @tasks.each do |task| %>
+
+  <% if task.done == false %>
+
+    <% if task.doing == false %>
+      <% if !task.activity.nil? %>
+          <div class="col-xs-12">
+          <%#= render "task_todo", task: task %>
+            <div class="task-message" data-task-id="<%= task.id %>" data-aos="fade-up">
+              <img class="horse-avatar" src="https://kitt.lewagon.com/placeholder/users/gabriel-dehan">
+              <div class="task-message-body">
+                <p><strong><%= task.horse.name %>  - Box n° <%= task.horse.box %></strong></p>
+                <p>
+                  <%= task.activity&.name %>
+                </p>
+              </div>
+              <%= link_to "Je prends !", mark_as_doing_path(task_id: task.id), remote: true, class: "btn btn-default" %>
+            </div>
+          </div>
+      <% end %>
+    <% end %>
+
+
+    <% if task.doing == true %>
+      <% if !task.activity.nil? %>
+        <div class="col-xs-12">
+          <div class="task-message" data-task-id="<%= task.id %>" data-aos="fade-up">
+            <img class="horse-avatar" src="https://kitt.lewagon.com/placeholder/users/gabriel-dehan">
+            <div class="task-message-body">
+              <p><strong><%= task.horse.name %>  - Box n° <%= task.horse.box %></strong></p>
+                <p>
+                  <%= task.activity&.name %>
+                </p>
+                <% image_link = task.user_doing&.picture  || "https://www.viawater.nl/files/default-user.png" %>
+            </div>
+            <%#= link_to mark_as_done_path(task_id: task.id), remote: true do %>
+              <%#= image_tag image_link, class: "avatar-large", remote: true %>
+            <%# end %>
+            <%= link_to "Terminé !", mark_as_done_path(task_id: task.id), remote: true, class: "btn btn-default" %>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+
+  <% end %>
+<% end %>
