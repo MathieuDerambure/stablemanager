@@ -3,9 +3,11 @@
   <div class="line"></div>
 </div>
 
+
 <% @tasks.each do |task| %>
 
   <% if task.done == false %>
+
 
     <% if task.doing == false %>
       <% if !task.activity.nil? %>
@@ -49,3 +51,4 @@
 
   <% end %>
 <% end %>
+
