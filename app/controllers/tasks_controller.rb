@@ -10,7 +10,7 @@ class TasksController < ApplicationController
       #dans la bulle rouge de la navbar
       @tasks_food_type = @tasks.where.not(food_type_id: nil, doing: true, done: true)
       @tasks_activity = @tasks.where.not(activity_id: nil, done: true)
-      @tasks_medecine = @tasks.where.not(medecine_id: nil, doing: true, done: true)
+      @tasks_medecine = @tasks.where.not(medecine_id: nil, done: true)
 
       users ||= User.all
       @owners = users.map{|user| user if user.role == "Propriétaire"}.compact
