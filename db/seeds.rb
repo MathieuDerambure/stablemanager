@@ -25,17 +25,17 @@ Horse.destroy_all
 User.destroy_all
 
 
-prop1 = User.create!(email: 'adrien@gmail.com', password: '123456', sur_name: "Johnson", first_name: "John", role: "Propriétaire", phone: "06 03 03 03 33", address: "33 rue Bidule Mesnil 78600")
-prop2 = User.create!(email: 'yann@gmail.com', password: '123456', sur_name: "David", first_name: "Davida", role: "Propriétaire", phone: "06 03 03 03 33", address: "33 rue Bidule Mesnil 78600")
-prop3 = User.create!(email: 'mathieu@gmail.com', password: '123456', sur_name: "Berta", first_name: "Bernadette", role: "Propriétaire", phone: "06 03 03 03 33", address: "33 rue Bidule Mesnil 78600")
-prop4 = User.create!(email: 'olivier@gmail.com', password: '123456', sur_name: "Smith", first_name: "Alexa", role: "Propriétaire", phone: "06 03 03 03 33", address: "33 rue Bidule Mesnil 78600")
+prop1 = User.create!(email: 'adrien@gmail.com', password: '123456', sur_name: "Adrien", first_name: "Lemoine", role: "Propriétaire", phone: "06 03 03 03 33", address: "33 rue du Grand Mesnil 78600")
+prop2 = User.create!(email: 'yann@gmail.com', password: '123456', sur_name: "Yann", first_name: "Genart", role: "Propriétaire", phone: "06 03 03 03 33", address: "12 rue Henry de Verneuil 75019")
+prop3 = User.create!(email: 'mathieu@gmail.com', password: '123456', sur_name: "Mathieu", first_name: "Dupont", role: "Propriétaire", phone: "06 03 03 03 33", address: "106 avenue de Mons 95600")
+prop4 = User.create!(email: 'henry@gmail.com', password: '123456', sur_name: "Henry", first_name: "Lepôtre", role: "Propriétaire", phone: "06 03 03 03 33", address: "4 place de Bornant 94400")
 
 
-empl1 = User.create!(email: 'empl1@gmail.com', password: '123456', sur_name: "Ghost", first_name: "Mathilde", role: "Employée", phone: "06 03 03 03 33", address: "33 rue Bidule Mesnil 78600", remote_photo_url: "https://res.cloudinary.com/dk6vsgttl/image/upload/v1535965874/yann.jpg")
-empl2 = User.create!(email: 'empl2@gmail.com', password: '123456', sur_name: "Hubby", first_name: "Britney", role: "Employée", phone: "06 03 03 03 33", address: "33 rue Bidule Mesnil 78600", remote_photo_url: "https://res.cloudinary.com/dk6vsgttl/image/upload/v1535965808/mat.jpg")
-empl3 = User.create!(email: 'empl3@gmail.com', password: '123456', sur_name: "Benhad", first_name: "Fatima", role: "Employée", phone: "06 03 03 03 33", address: "33 rue Bidule Mesnil 78600", remote_photo_url: "https://res.cloudinary.com/dk6vsgttl/image/upload/v1535965803/tronche.jpg")
+empl1 = User.create!(email: 'empl1@gmail.com', password: '123456', sur_name: "Legros", first_name: "Mathilde", role: "Employée", phone: "06 03 03 03 33", address: "33 rue Bidule Mesnil 78600", remote_photo_url: "https://res.cloudinary.com/dk6vsgttl/image/upload/v1535965874/yann.jpg")
+empl2 = User.create!(email: 'empl2@gmail.com', password: '123456', sur_name: "Perrin", first_name: "Thierry", role: "Employée", phone: "06 03 03 03 33", address: "33 rue Bidule Mesnil 78600", remote_photo_url: "https://res.cloudinary.com/dk6vsgttl/image/upload/v1535965808/mat.jpg")
+empl3 = User.create!(email: 'empl3@gmail.com', password: '123456', sur_name: "Legrand", first_name: "Eric", role: "Employée", phone: "06 03 03 03 33", address: "33 rue Bidule Mesnil 78600", remote_photo_url: "https://res.cloudinary.com/dk6vsgttl/image/upload/v1535965803/tronche.jpg")
 empl4 = User.create!(email: 'empl4@gmail.com', password: '123456', sur_name: "Robert", first_name: "David", role: "Employée", phone: "06 03 03 03 33", address: "33 rue Bidule Mesnil 78600", remote_photo_url: "https://res.cloudinary.com/dk6vsgttl/image/upload/v1535967303/image.png")
-boss1 = User.create!(email: 'boss1@gmail.com', password: '123456', sur_name: "Theboss", first_name: "Bosswoman", role: "Manager", phone: "06 03 03 03 33", address: "33 rue Bidule Mesnil 78600", admin: true)
+boss1 = User.create!(email: 'boss1@gmail.com', password: '123456', sur_name: "Ceysens", first_name: "Violette", role: "Manager", phone: "06 03 03 03 33", address: "33 rue Bidule Mesnil 78600", admin: true)
 
 
 comm1 = Communication.create!(message: "J'aurai 30 minutes de retard ce lundi.", user_id: empl1.id)
@@ -62,8 +62,8 @@ vet4 = Vetenary.create!(name: 'Salmon', email: 'salmon@gmail.com', phone: '44444
 
 shoe1 = ShoeMaker.create!(name: 'Trump', email: 'trump@gmail.com', phone: '1111111111', slug: 'trump')
 shoe2 = ShoeMaker.create!(name: 'Kim', email: 'little_rocket_man@gmail.com', phone: '2222222222', slug: 'kim')
-shoe3 = ShoeMaker.create!(name: 'Pence', email: 'pence@gmail.com', phone: '3333333333', slug: 'pence')
-shoe4 = ShoeMaker.create!(name: 'Balladur', email: 'balladur@gmail.com', phone: '4444444444', slug: 'balladur')
+shoe3 = ShoeMaker.create!(name: 'Macron', email: 'Marcon@gmail.com', phone: '3333333333', slug: 'pence')
+shoe4 = ShoeMaker.create!(name: 'Merkel', email: 'Merkel@gmail.com', phone: '4444444444', slug: 'balladur')
 
 com1 = Comment.create!(description: "Cheval malade.")
 com2 = Comment.create!(description: "Cheval boiteux, téléphoner au vétérinaire.")
@@ -80,9 +80,9 @@ ant4 = Antidote.create(name: "Rage", slug: "rage")
 horse1 = Horse.create!(name: "Frosty", box: 1 , formula: 'one', user_id: prop1.id , remote_photo_url: "https://res.cloudinary.com/dk6vsgttl/image/upload/v1534867381/hudada_01.jpg")
 horse2 = Horse.create!(name: "Belle des Neiges", box: 2 , formula: 'one', user_id: prop2.id , remote_photo_url: "https://res.cloudinary.com/dk6vsgttl/image/upload/v1534867381/hudada_02.jpg")
 
-horse3 = Horse.create!(name: "Sophie", box: 4 , formula: 'two', user_id: prop4.id , remote_photo_url: "https://res.cloudinary.com/dk6vsgttl/image/upload/v1534867381/hudada_04.jpg")
+horse3 = Horse.create!(name: "Jumper", box: 4 , formula: 'two', user_id: prop4.id , remote_photo_url: "https://res.cloudinary.com/dk6vsgttl/image/upload/v1534867381/hudada_04.jpg")
 horse4 = Horse.create!(name: "Bobby", box: 5 , formula: 'two', user_id: prop1.id , remote_photo_url: "https://res.cloudinary.com/dk6vsgttl/image/upload/v1534867381/hudada_05.jpg")
-horse5 = Horse.create!(name: "Tony", box: 6 , formula: 'two', user_id: prop1.id , remote_photo_url: "https://res.cloudinary.com/dk6vsgttl/image/upload/v1534867381/hudada_06.jpg")
+horse5 = Horse.create!(name: "Jolly", box: 6 , formula: 'two', user_id: prop1.id , remote_photo_url: "https://res.cloudinary.com/dk6vsgttl/image/upload/v1534867381/hudada_06.jpg")
 # horse6 = Horse.create!(name: "Tom", box: 7 , formula: 'three', user_id: prop3.id , remote_photo_url: "https://res.cloudinary.com/dk6vsgttl/image/upload/v1534867381/hudada_07.jpg")
 # horse7 = Horse.create!(name: "Capuccin", box: 8 , formula: 'three', user_id: prop4.id , remote_photo_url: "https://res.cloudinary.com/dk6vsgttl/image/upload/v1534867381/hudada_09.jpg")
 
