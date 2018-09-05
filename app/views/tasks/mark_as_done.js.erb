@@ -1,5 +1,10 @@
-function updateTaskToDone(newTask){
+function updateTaskToDone(partial){
   const task = document.querySelector("[data-task-id='<%= @task.id %>']");
-  task.remove();
+  task.outerHTML = partial;
+  const message = document.getElementById('task-done-<%= @task.id %>')
+  setInterval(function(){
+   message.remove();
+  }, 1000);
 }
-updateTaskToDone();
+updateTaskToDone("<%= j render 'task_done', task: @task %>");
+

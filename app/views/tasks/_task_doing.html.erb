@@ -7,8 +7,8 @@
       </p>
       <% image_link = task.user_doing&.picture || "https://www.viawater.nl/files/default-user.png" %>
   </div>
-  <%#= link_to mark_as_done_path(task_id: task.id), remote: true do %>
-    <%#= image_tag image_link, class: "avatar-large" %>
-  <%# end %>
-  <%= link_to "Terminé !", mark_as_done_path(task_id: task.id), remote: true, class: "btn btn-default" %>
+  <%= link_to mark_as_done_path(task_id: task.id), remote: true do %>
+    <%= image_tag image_link, class: "avatar-large" %>
+  <% end %>
+<!--   <%= link_to "Finir", mark_as_done_path(task_id: task.id), remote: true, class: "btn btn-default" %> -->
 </div>
