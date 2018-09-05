@@ -4,9 +4,9 @@
       <li role="presentation">
         <a href="#nourriture" aria-controls="nourriture" role="tab" data-toggle="tab">
           <i class="active fas fa-utensils"></i>
-          <% if @tasks_food_type %>
-             <span class="badge brand-success"><%= @tasks_food_type.count %></span>
-          <% end %>
+
+            <span class="badge"><%= @horses.map {|horse| horse.morning_tasks_count}.delete_if {|number| number == 0}.count+@horses.map {|horse| horse.midday_tasks_count}.delete_if {|number| number == 0}.count+@horses.map {|horse| horse.evening_tasks_count}.delete_if {|number| number == 0}.count %></span>
+
         </a>
       </li>
       <li role="presentation">
@@ -30,182 +30,16 @@
 
   <div class="tab-content">
     <div role="tabpanel" class="tab-pane active" id="nourriture">
-      <div class="col-xs-12">
-        <h3> <strong>🥣 Nourriture </strong> </h3>
-        <div class="line"></div>
-      </div>
-      <div>
-        <!-- Nav tabs -->
-        <ul class="nav nav-tabs" role="tablist">
-          <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Matin</a></li>
-          <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Midi</a></li>
-          <li role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">Soir</a></li>
-        </ul>
-        <!-- Tab panes -->
-        <div class="tab-content">
-          <div role="tabpanel" class="tab-pane active" id="home">
-            <% @horses.each do |horse| %>
-              <% if horse.has_food_tasks_not_done? %>
-                <div class="col-xs-12">
-                  <div class="task-message" data-aos="fade-up">
-                    <img class="horse-avatar" src="https://kitt.lewagon.com/placeholder/users/gabriel-dehan">
-                    <div class="task-message-body">
-                    <p><strong><%= horse.name %> - Box n°<%= horse.box %></strong></p>
-                    <p>
-                      <%= render "task_list", horse: horse, tasks: horse.morning_tasks.not_done, time: "morning" %>
-                    </p>
-                    </div>
-                    <img class="avatar-large">
-                  </div>
-                </div>
-              <% end %>
-            <% end %>
-          </div>
-          <div role="tabpanel" class="tab-pane" id="profile">
-            <% @horses.each do |horse| %>
-              <% if horse.has_food_tasks_not_done? %>
-                <div class="col-xs-12">
-                  <div class="task-message" data-aos="fade-up">
-                    <img class="horse-avatar" src="https://kitt.lewagon.com/placeholder/users/gabriel-dehan">
-                      <div class="task-message-body">
-                      <p><strong><%= horse.name %> - Box n°<%= horse.box %></strong></p>
-                      <p>
-                        <%= render "task_list", horse: horse, tasks: horse.midday_tasks.not_done, time: "midday" %>
-                      </p>
-                      </div>
-                      <img class="avatar-large">
-                  </div>
-                </div>
-              <% end %>
-            <% end %>
-          </div>
-          <div role="tabpanel" class="tab-pane" id="messages">
-            <% @horses.each do |horse| %>
-              <% if horse.has_food_tasks_not_done? %>
-                <div class="col-xs-12">
-                  <div class="task-message" data-aos="fade-up">
-                    <img class="horse-avatar" src="https://kitt.lewagon.com/placeholder/users/gabriel-dehan">
-                    <div class="task-message-body">
-                    <p><strong><%= horse.name %> - Box n°<%= horse.box %></strong></p>
-                    <p>
-                      <%= render "task_list", horse: horse, tasks: horse.evening_tasks.not_done, time: "evening" %>
-                    </p>
-                    </div>
-                    <img class="avatar-large">
-                  </div>
-                </div>
-              <% end %>
-            <% end %>
-          </div>
-        </div>
-      </div>
+      <%= render "tabpanel_food" %>
     </div>
 
     <div role="tabpanel" class="tab-pane" id="activites">
-
-      <div class="col-xs-12">
-        <h3> <strong>🐎 Activités </strong> </h3>
-        <div class="line"></div>
-      </div>
-
-      <% @tasks.each do |task| %>
-
-        <% if task.done == false %>
-
-          <% if task.doing == false %>
-            <% if !task.activity.nil? %>
-                <div class="col-xs-12">
-                  <div class="task-message" data-task-id="<%= task.id %>" data-aos="fade-up">
-                    <img class="horse-avatar" src="https://kitt.lewagon.com/placeholder/users/gabriel-dehan">
-                    <div class="task-message-body">
-                      <p><strong><%= task.horse.name %> - <%= task.horse.box %></strong></p>
-                      <p>
-                        <%= task.activity&.name %>
-                      </p>
-                    </div>
-                    <%= link_to "Je prends !", mark_as_doing_path(task_id: task.id), remote: true, class: "btn btn-default" %>
-                  </div>
-                </div>
-            <% end %>
-          <% end %>
-
-
-          <% if task.doing == true %>
-            <% if !task.activity.nil? %>
-              <div class="col-xs-12">
-                <div class="task-message" data-task-id="<%= task.id %>" data-aos="fade-up">
-                  <img class="horse-avatar" src="https://kitt.lewagon.com/placeholder/users/gabriel-dehan">
-                  <div class="task-message-body">
-                    <p><strong><%= task.horse.name %></strong></p>
-                      <p>
-                        <%= task.activity&.name %>
-                      </p>
-                      <% image_link = task.user_doing&.picture || "https://res.cloudinary.com/dk6vsgttl/image/upload/v1535978381/pomme.png" %>
-                  </div>
-                  <%= link_to mark_as_done_path(task_id: task.id) do %>
-                    <%= image_tag image_link, class: "avatar-large" %>
-                  <% end %>
-                </div>
-              </div>
-            <% end %>
-          <% end %>
-
-        <% end %>
-      <% end %>
+      <%= render "tabpanel_activities" %>
     </div>
 
 
-
     <div role="tabpanel" class="tab-pane" id="medicaments">
-      <div class="col-xs-12">
-        <h3> <strong>💊 Médicaments </strong> </h3>
-        <div class="line"></div>
-      </div>
-      <% @tasks.each do |task| %>
-      task.count
-
-        <% if task.done == false %>
-
-          <% if task.doing == false %>
-            <% if !task.medecine.nil? %>
-                <div class="col-xs-12">
-                  <div class="task-message" data-task-id="<%= task.id %>">
-                    <img class="horse-avatar" src="https://kitt.lewagon.com/placeholder/users/gabriel-dehan">
-                    <div class="task-message-body">
-                      <p><strong><%= task.horse.name %></strong></p>
-                      <p>
-                        <%= task.medecine&.name %>
-                      </p>
-
-                    </div>
-                    <%= link_to "Je prends !", mark_as_doing_path(task_id: task.id), remote: true, class: "btn btn-default" %>
-                  </div>
-                </div>
-            <% end %>
-          <% end %>
-
-          <% if task.doing == true %>
-            <% if !task.medecine.nil? %>
-              <div class="col-xs-12">
-                <div class="task-message" data-task-id="<%= task.id %>">
-                  <img class="horse-avatar" src="https://kitt.lewagon.com/placeholder/users/gabriel-dehan">
-                  <div class="task-message-body">
-                    <p><strong><%= task.horse.name %></strong></p>
-                    <p>
-                      <%= task.medecine&.name %>
-                    </p>
-                    <%= link_to mark_as_done_path(task_id: task.id), class: 'btn btn-primary' do%>
-                      <% image_link = task.user_doing&.picture || "https://res.cloudinary.com/dk6vsgttl/image/upload/v1535978381/pomme.png" %>
-                    <% end %>
-                  </div>
-                </div>
-              </div>
-            <% end %>
-          <% end %>
-
-        <% end %>
-
-      <% end %>
+      <%= render "tabpanel_medecine" %>
     </div>
   </div>
 </div>

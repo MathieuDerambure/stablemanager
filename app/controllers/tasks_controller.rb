@@ -3,12 +3,10 @@ class TasksController < ApplicationController
   before_action :load_food_tasks, only: [:mark_as_doing_food, :mark_as_done_food]
 
   def tasks_index
-      @tasks = Task.where(start_time: Date.today)
+      @tasks = Task.due_today
       @horses = Horse.all
-
       # Permet de compter les tasks de différents type pour affiche le nombre
       #dans la bulle rouge de la navbar
-      @tasks_food_type = @tasks.where.not(food_type_id: nil, doing: true, done: true)
       @tasks_activity = @tasks.where.not(activity_id: nil, done: true)
       @tasks_medecine = @tasks.where.not(medecine_id: nil, done: true)
 
@@ -16,9 +14,7 @@ class TasksController < ApplicationController
       @owners = users.map{|user| user if user.role == "Propriétaire"}.compact
       @employees = users.map{|user| user if user.role == "Employée"}.compact
       @managers = users.map{|user| user if user.role == "Manager"}.compact
-
   end
-
 
   def index
     @tasks = Task.all
@@ -38,8 +34,12 @@ class TasksController < ApplicationController
   end
 
   def mark_as_done
-    Task.find(params[:task_id]).update(done: true)
-    redirect_to tasks_index_path
+    @task = Task.find(params[:task_id])
+    @task.update(done: true)
+    respond_to do |format|
+      format.html {redirect_to tasks_index_path}
+      format.js
+    end
   end
 
   # Multi update of FOOD tasks per time range: morning, midday or evening
