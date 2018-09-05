@@ -1,0 +1,5 @@
+meta_product_name: "Product Name"
+meta_title: "Stable Manager - Application des tâches quotidiennes en écurie"
+meta_description: "Relevant description"
+meta_image: "logotype_HDB.png"                       # should exist in `app/assets/images/`
+twitter_account: "@product_twitter_account"
