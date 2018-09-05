@@ -79,104 +79,172 @@ ant4 = Antidote.create(name: "Rage", slug: "rage")
 
 horse1 = Horse.create!(name: "Frosty", box: 1 , formula: 'one', user_id: prop1.id , remote_photo_url: "https://res.cloudinary.com/dk6vsgttl/image/upload/v1534867381/hudada_01.jpg")
 horse2 = Horse.create!(name: "Belle des Neiges", box: 2 , formula: 'one', user_id: prop2.id , remote_photo_url: "https://res.cloudinary.com/dk6vsgttl/image/upload/v1534867381/hudada_02.jpg")
-
-horse3 = Horse.create!(name: "Sophie", box: 4 , formula: 'two', user_id: prop4.id , remote_photo_url: "https://res.cloudinary.com/dk6vsgttl/image/upload/v1534867381/hudada_04.jpg")
-horse4 = Horse.create!(name: "Bobby", box: 5 , formula: 'two', user_id: prop1.id , remote_photo_url: "https://res.cloudinary.com/dk6vsgttl/image/upload/v1534867381/hudada_05.jpg")
-horse5 = Horse.create!(name: "Tony", box: 6 , formula: 'two', user_id: prop1.id , remote_photo_url: "https://res.cloudinary.com/dk6vsgttl/image/upload/v1534867381/hudada_06.jpg")
+horse3 = Horse.create!(name: "Sophie", box: 3 , formula: 'two', user_id: prop4.id , remote_photo_url: "https://res.cloudinary.com/dk6vsgttl/image/upload/v1534867381/hudada_04.jpg")
+# horse4 = Horse.create!(name: "Bobby", box: 4 , formula: 'two', user_id: prop1.id , remote_photo_url: "https://res.cloudinary.com/dk6vsgttl/image/upload/v1534867381/hudada_05.jpg")
+# horse5 = Horse.create!(name: "Tony", box: 5 , formula: 'two', user_id: prop1.id , remote_photo_url: "https://res.cloudinary.com/dk6vsgttl/image/upload/v1534867381/hudada_06.jpg")
 # horse6 = Horse.create!(name: "Tom", box: 7 , formula: 'three', user_id: prop3.id , remote_photo_url: "https://res.cloudinary.com/dk6vsgttl/image/upload/v1534867381/hudada_07.jpg")
 # horse7 = Horse.create!(name: "Capuccin", box: 8 , formula: 'three', user_id: prop4.id , remote_photo_url: "https://res.cloudinary.com/dk6vsgttl/image/upload/v1534867381/hudada_09.jpg")
 
 #TASKS
 #horse 1
 #food
-task1 = Task.create!(doing: false, done: false, start_time: DateTime.parse('4th Sept 2018 08:00:00'), end_time: DateTime.parse('4rd Sept 2018 09:00:00'), food_quantity: 1, horse_id: horse1.id, food_type_id: food1.id, daily: true, weekly: true, monthly: false)
-task2 = Task.create!(doing: false, done: false, start_time: DateTime.parse('4th Sept 2018 12:00:00'), end_time: DateTime.parse('4rd Sept 2018 13:00:00'), food_quantity: 1, horse_id: horse1.id, food_type_id: food1.id, daily: true, weekly: true, monthly: false)
-task3 = Task.create!(doing: false, done: false, start_time: DateTime.parse('4th Sept 2018 18:00:00'), end_time: DateTime.parse('4rd Sept 2018 20:00:00'), food_quantity: 1, horse_id: horse1.id, food_type_id: food1.id, daily: true, weekly: true, monthly: false)
-task4 = Task.create!(doing: false, done: false, start_time: DateTime.parse('4th Sept 2018 08:00:00'), end_time: DateTime.parse('4rd Sept 2018 09:00:00'), food_quantity: 2, horse_id: horse1.id, food_type_id: food2.id, daily: true, weekly: true, monthly: false)
-task5 = Task.create!(doing: false, done: false, start_time: DateTime.parse('4th Sept 2018 12:00:00'), end_time: DateTime.parse('4rd Sept 2018 13:00:00'), food_quantity: 2, horse_id: horse1.id, food_type_id: food2.id, daily: true, weekly: true, monthly: false)
-task6 = Task.create!(doing: false, done: false, start_time: DateTime.parse('4th Sept 2018 18:00:00'), end_time: DateTime.parse('4rd Sept 2018 20:00:00'), food_quantity: 2, horse_id: horse1.id, food_type_id: food2.id, daily: true, weekly: true, monthly: false)
-task7 = Task.create!(doing: false, done: false, start_time: DateTime.parse('4th Sept 2018 08:00:00'), end_time: DateTime.parse('4rd Sept 2018 09:00:00'), food_quantity: 3, horse_id: horse1.id, food_type_id: food3.id, daily: true, weekly: true, monthly: false)
-task8 = Task.create!(doing: false, done: false, start_time: DateTime.parse('4th Sept 2018 12:00:00'), end_time: DateTime.parse('4rd Sept 2018 13:00:00'), food_quantity: 3, horse_id: horse1.id, food_type_id: food3.id, daily: true, weekly: true, monthly: false)
-task9 = Task.create!(doing: false, done: false, start_time: DateTime.parse('4th Sept 2018 18:00:00'), end_time: DateTime.parse('4rd Sept 2018 20:00:00'), food_quantity: 3, horse_id: horse1.id, food_type_id: food3.id, daily: true, weekly: true, monthly: false)
+task1 = Task.create!(doing: false, done: false, start_time: DateTime.parse('5th Sept 2018 08:00:00'), end_time: DateTime.parse('5th Sept 2018 09:00:00'), food_quantity: 1, horse_id: horse1.id, food_type_id: food1.id, daily: true, weekly: true, monthly: false)
+task2 = Task.create!(doing: false, done: false, start_time: DateTime.parse('5th Sept 2018 12:00:00'), end_time: DateTime.parse('5th Sept 2018 13:00:00'), food_quantity: 1, horse_id: horse1.id, food_type_id: food1.id, daily: true, weekly: true, monthly: false)
+task3 = Task.create!(doing: false, done: false, start_time: DateTime.parse('5th Sept 2018 18:00:00'), end_time: DateTime.parse('5th Sept 2018 20:00:00'), food_quantity: 1, horse_id: horse1.id, food_type_id: food1.id, daily: true, weekly: true, monthly: false)
+task4 = Task.create!(doing: false, done: false, start_time: DateTime.parse('5th Sept 2018 08:00:00'), end_time: DateTime.parse('5th Sept 2018 09:00:00'), food_quantity: 2, horse_id: horse1.id, food_type_id: food2.id, daily: true, weekly: true, monthly: false)
+task5 = Task.create!(doing: false, done: false, start_time: DateTime.parse('5th Sept 2018 12:00:00'), end_time: DateTime.parse('5th Sept 2018 13:00:00'), food_quantity: 2, horse_id: horse1.id, food_type_id: food2.id, daily: true, weekly: true, monthly: false)
+task6 = Task.create!(doing: false, done: false, start_time: DateTime.parse('5th Sept 2018 18:00:00'), end_time: DateTime.parse('5th Sept 2018 20:00:00'), food_quantity: 2, horse_id: horse1.id, food_type_id: food2.id, daily: true, weekly: true, monthly: false)
+task7 = Task.create!(doing: false, done: false, start_time: DateTime.parse('5th Sept 2018 08:00:00'), end_time: DateTime.parse('5th Sept 2018 09:00:00'), food_quantity: 3, horse_id: horse1.id, food_type_id: food3.id, daily: true, weekly: true, monthly: false)
+task8 = Task.create!(doing: false, done: false, start_time: DateTime.parse('5th Sept 2018 12:00:00'), end_time: DateTime.parse('5th Sept 2018 13:00:00'), food_quantity: 3, horse_id: horse1.id, food_type_id: food3.id, daily: true, weekly: true, monthly: false)
+task9 = Task.create!(doing: false, done: false, start_time: DateTime.parse('5th Sept 2018 18:00:00'), end_time: DateTime.parse('5th Sept 2018 20:00:00'), food_quantity: 3, horse_id: horse1.id, food_type_id: food3.id, daily: true, weekly: true, monthly: false)
+
+task10 = Task.create!(doing: false, done: false, start_time: DateTime.parse('6th Sept 2018 08:00:00'), end_time: DateTime.parse('6th Sept 2018 09:00:00'), food_quantity: 1, horse_id: horse1.id, food_type_id: food1.id, daily: true, weekly: true, monthly: false)
+task11 = Task.create!(doing: false, done: false, start_time: DateTime.parse('6th Sept 2018 12:00:00'), end_time: DateTime.parse('6th Sept 2018 13:00:00'), food_quantity: 1, horse_id: horse1.id, food_type_id: food1.id, daily: true, weekly: true, monthly: false)
+task12 = Task.create!(doing: false, done: false, start_time: DateTime.parse('6th Sept 2018 18:00:00'), end_time: DateTime.parse('6th Sept 2018 20:00:00'), food_quantity: 1, horse_id: horse1.id, food_type_id: food1.id, daily: true, weekly: true, monthly: false)
+task13 = Task.create!(doing: false, done: false, start_time: DateTime.parse('6th Sept 2018 08:00:00'), end_time: DateTime.parse('6th Sept 2018 09:00:00'), food_quantity: 2, horse_id: horse1.id, food_type_id: food2.id, daily: true, weekly: true, monthly: false)
+task14 = Task.create!(doing: false, done: false, start_time: DateTime.parse('6th Sept 2018 12:00:00'), end_time: DateTime.parse('6th Sept 2018 13:00:00'), food_quantity: 2, horse_id: horse1.id, food_type_id: food2.id, daily: true, weekly: true, monthly: false)
+task15 = Task.create!(doing: false, done: false, start_time: DateTime.parse('6th Sept 2018 18:00:00'), end_time: DateTime.parse('6th Sept 2018 20:00:00'), food_quantity: 2, horse_id: horse1.id, food_type_id: food2.id, daily: true, weekly: true, monthly: false)
+task16 = Task.create!(doing: false, done: false, start_time: DateTime.parse('6th Sept 2018 08:00:00'), end_time: DateTime.parse('6th Sept 2018 09:00:00'), food_quantity: 3, horse_id: horse1.id, food_type_id: food3.id, daily: true, weekly: true, monthly: false)
+task17 = Task.create!(doing: false, done: false, start_time: DateTime.parse('6th Sept 2018 12:00:00'), end_time: DateTime.parse('6th Sept 2018 13:00:00'), food_quantity: 3, horse_id: horse1.id, food_type_id: food3.id, daily: true, weekly: true, monthly: false)
+task18 = Task.create!(doing: false, done: false, start_time: DateTime.parse('6th Sept 2018 18:00:00'), end_time: DateTime.parse('6th Sept 2018 20:00:00'), food_quantity: 3, horse_id: horse1.id, food_type_id: food3.id, daily: true, weekly: true, monthly: false)
+
+task19 = Task.create!(doing: false, done: false, start_time: DateTime.parse('7th Sept 2018 08:00:00'), end_time: DateTime.parse('7th Sept 2018 09:00:00'), food_quantity: 1, horse_id: horse1.id, food_type_id: food1.id, daily: true, weekly: true, monthly: false)
+task20 = Task.create!(doing: false, done: false, start_time: DateTime.parse('7th Sept 2018 12:00:00'), end_time: DateTime.parse('7th Sept 2018 13:00:00'), food_quantity: 1, horse_id: horse1.id, food_type_id: food1.id, daily: true, weekly: true, monthly: false)
+task21 = Task.create!(doing: false, done: false, start_time: DateTime.parse('7th Sept 2018 18:00:00'), end_time: DateTime.parse('7th Sept 2018 20:00:00'), food_quantity: 1, horse_id: horse1.id, food_type_id: food1.id, daily: true, weekly: true, monthly: false)
+task22 = Task.create!(doing: false, done: false, start_time: DateTime.parse('7th Sept 2018 08:00:00'), end_time: DateTime.parse('7th Sept 2018 09:00:00'), food_quantity: 2, horse_id: horse1.id, food_type_id: food2.id, daily: true, weekly: true, monthly: false)
+task23 = Task.create!(doing: false, done: false, start_time: DateTime.parse('7th Sept 2018 12:00:00'), end_time: DateTime.parse('7th Sept 2018 13:00:00'), food_quantity: 2, horse_id: horse1.id, food_type_id: food2.id, daily: true, weekly: true, monthly: false)
+task24 = Task.create!(doing: false, done: false, start_time: DateTime.parse('7th Sept 2018 18:00:00'), end_time: DateTime.parse('7th Sept 2018 20:00:00'), food_quantity: 2, horse_id: horse1.id, food_type_id: food2.id, daily: true, weekly: true, monthly: false)
+task25 = Task.create!(doing: false, done: false, start_time: DateTime.parse('7th Sept 2018 08:00:00'), end_time: DateTime.parse('7th Sept 2018 09:00:00'), food_quantity: 3, horse_id: horse1.id, food_type_id: food3.id, daily: true, weekly: true, monthly: false)
+task26 = Task.create!(doing: false, done: false, start_time: DateTime.parse('7th Sept 2018 12:00:00'), end_time: DateTime.parse('7th Sept 2018 13:00:00'), food_quantity: 3, horse_id: horse1.id, food_type_id: food3.id, daily: true, weekly: true, monthly: false)
+task27 = Task.create!(doing: false, done: false, start_time: DateTime.parse('7th Sept 2018 18:00:00'), end_time: DateTime.parse('7th Sept 2018 20:00:00'), food_quantity: 3, horse_id: horse1.id, food_type_id: food3.id, daily: true, weekly: true, monthly: false)
+
+task28 = Task.create!(doing: false, done: false, start_time: DateTime.parse('8th Sept 2018 08:00:00'), end_time: DateTime.parse('8th Sept 2018 09:00:00'), food_quantity: 1, horse_id: horse1.id, food_type_id: food1.id, daily: true, weekly: true, monthly: false)
+task29 = Task.create!(doing: false, done: false, start_time: DateTime.parse('8th Sept 2018 12:00:00'), end_time: DateTime.parse('8th Sept 2018 13:00:00'), food_quantity: 1, horse_id: horse1.id, food_type_id: food1.id, daily: true, weekly: true, monthly: false)
+task30 = Task.create!(doing: false, done: false, start_time: DateTime.parse('8th Sept 2018 18:00:00'), end_time: DateTime.parse('8th Sept 2018 20:00:00'), food_quantity: 1, horse_id: horse1.id, food_type_id: food1.id, daily: true, weekly: true, monthly: false)
+task31 = Task.create!(doing: false, done: false, start_time: DateTime.parse('8th Sept 2018 08:00:00'), end_time: DateTime.parse('8th Sept 2018 09:00:00'), food_quantity: 2, horse_id: horse1.id, food_type_id: food2.id, daily: true, weekly: true, monthly: false)
+task32 = Task.create!(doing: false, done: false, start_time: DateTime.parse('8th Sept 2018 12:00:00'), end_time: DateTime.parse('8th Sept 2018 13:00:00'), food_quantity: 2, horse_id: horse1.id, food_type_id: food2.id, daily: true, weekly: true, monthly: false)
+task33 = Task.create!(doing: false, done: false, start_time: DateTime.parse('8th Sept 2018 18:00:00'), end_time: DateTime.parse('8th Sept 2018 20:00:00'), food_quantity: 2, horse_id: horse1.id, food_type_id: food2.id, daily: true, weekly: true, monthly: false)
+task34 = Task.create!(doing: false, done: false, start_time: DateTime.parse('8th Sept 2018 08:00:00'), end_time: DateTime.parse('8th Sept 2018 09:00:00'), food_quantity: 3, horse_id: horse1.id, food_type_id: food3.id, daily: true, weekly: true, monthly: false)
+task35 = Task.create!(doing: false, done: false, start_time: DateTime.parse('8th Sept 2018 12:00:00'), end_time: DateTime.parse('8th Sept 2018 13:00:00'), food_quantity: 3, horse_id: horse1.id, food_type_id: food3.id, daily: true, weekly: true, monthly: false)
+task36 = Task.create!(doing: false, done: false, start_time: DateTime.parse('8th Sept 2018 18:00:00'), end_time: DateTime.parse('8th Sept 2018 20:00:00'), food_quantity: 3, horse_id: horse1.id, food_type_id: food3.id, daily: true, weekly: true, monthly: false)
+
+
+
 #activity
-task10 = Task.create!(doing: false, done: false, start_time: DateTime.parse('2th Sept 2018 08:00:00'), end_time: DateTime.parse('2rd Sept 2018 09:00:00'), horse_id: horse1.id, activity_id: act1.id, weekly: true, monthly: false)
-task11 = Task.create!(doing: false, done: false, start_time: DateTime.parse('3th Sept 2018 08:00:00'), end_time: DateTime.parse('3rd Sept 2018 09:00:00'), horse_id: horse1.id, activity_id: act2.id, weekly: true, monthly: false)
-task12 = Task.create!(doing: false, done: false, start_time: DateTime.parse('4th Sept 2018 08:00:00'), end_time: DateTime.parse('4rd Sept 2018 09:00:00'), horse_id: horse1.id, activity_id: act3.id, weekly: true, monthly: false)
+
+##Paddock (lundi, mardi, mercredi, jeudi, vendredi)
+task37 = Task.create!(doing: false, done: false, start_time: DateTime.parse('3rd Sept 2018 08:00:00'), end_time: DateTime.parse('3rd Sept 2018 09:00:00'), horse_id: horse1.id, activity_id: act1.id, weekly: true, monthly: false)
+task38 = Task.create!(doing: false, done: false, start_time: DateTime.parse('4th Sept 2018 08:00:00'), end_time: DateTime.parse('4th Sept 2018 09:00:00'), horse_id: horse1.id, activity_id: act1.id, weekly: true, monthly: false)
+task39 = Task.create!(doing: false, done: false, start_time: DateTime.parse('5th Sept 2018 08:00:00'), end_time: DateTime.parse('5th Sept 2018 09:00:00'), horse_id: horse1.id, activity_id: act1.id, weekly: true, monthly: false)
+task40 = Task.create!(doing: false, done: false, start_time: DateTime.parse('6th Sept 2018 08:00:00'), end_time: DateTime.parse('6th Sept 2018 09:00:00'), horse_id: horse1.id, activity_id: act1.id, weekly: true, monthly: false)
+task41 = Task.create!(doing: false, done: false, start_time: DateTime.parse('7th Sept 2018 08:00:00'), end_time: DateTime.parse('5th Sept 2018 09:00:00'), horse_id: horse1.id, activity_id: act1.id, weekly: true, monthly: false)
+
+##Marche (lundi, mercredi, vendredi, samedi)
+task42 = Task.create!(doing: false, done: false, start_time: DateTime.parse('3rd Sept 2018 08:00:00'), end_time: DateTime.parse('3rd Sept 2018 09:00:00'), horse_id: horse1.id, activity_id: act2.id, weekly: true, monthly: false)
+task43 = Task.create!(doing: false, done: false, start_time: DateTime.parse('5th Sept 2018 08:00:00'), end_time: DateTime.parse('5th Sept 2018 09:00:00'), horse_id: horse1.id, activity_id: act2.id, weekly: true, monthly: false)
+task44 = Task.create!(doing: false, done: false, start_time: DateTime.parse('7th Sept 2018 08:00:00'), end_time: DateTime.parse('7th Sept 2018 09:00:00'), horse_id: horse1.id, activity_id: act2.id, weekly: true, monthly: false)
+task45 = Task.create!(doing: false, done: false, start_time: DateTime.parse('8th Sept 2018 08:00:00'), end_time: DateTime.parse('8th Sept 2018 09:00:00'), horse_id: horse1.id, activity_id: act2.id, weekly: true, monthly: false)
+
+
+##Promenade (mardi, jeudi, dimanche)
+task46 = Task.create!(doing: false, done: false, start_time: DateTime.parse('4th Sept 2018 08:00:00'), end_time: DateTime.parse('4th Sept 2018 09:00:00'), horse_id: horse1.id, activity_id: act3.id, weekly: true, monthly: false)
+task47 = Task.create!(doing: false, done: false, start_time: DateTime.parse('6th Sept 2018 08:00:00'), end_time: DateTime.parse('6th Sept 2018 09:00:00'), horse_id: horse1.id, activity_id: act3.id, weekly: true, monthly: false)
+task48 = Task.create!(doing: false, done: false, start_time: DateTime.parse('9th Sept 2018 08:00:00'), end_time: DateTime.parse('9th Sept 2018 09:00:00'), horse_id: horse1.id, activity_id: act3.id, weekly: true, monthly: false)
+
+
+##Saut (mercredi, vendredi, samedi)
+task49 = Task.create!(doing: false, done: false, start_time: DateTime.parse('5th Sept 2018 08:00:00'), end_time: DateTime.parse('5th Sept 2018 09:00:00'), horse_id: horse1.id, activity_id: act4.id, weekly: true, monthly: false)
+task50 = Task.create!(doing: false, done: false, start_time: DateTime.parse('7th Sept 2018 08:00:00'), end_time: DateTime.parse('7th Sept 2018 09:00:00'), horse_id: horse1.id, activity_id: act4.id, weekly: true, monthly: false)
+task51 = Task.create!(doing: false, done: false, start_time: DateTime.parse('8th Sept 2018 08:00:00'), end_time: DateTime.parse('8th Sept 2018 09:00:00'), horse_id: horse1.id, activity_id: act4.id, weekly: true, monthly: false)
+
+
 #medecine
-task13 = Task.create!(doing: false, done: false, start_time: DateTime.parse('2th Sept 2018 08:00:00'), end_time: DateTime.parse('2rd Sept 2018 09:00:00'), horse_id: horse1.id, medecine_id: medic1.id, weekly: true, monthly: false)
-task14 = Task.create!(doing: false, done: false, start_time: DateTime.parse('3th Sept 2018 08:00:00'), end_time: DateTime.parse('3rd Sept 2018 09:00:00'), horse_id: horse1.id, medecine_id: medic2.id, weekly: true, monthly: false)
-task15 = Task.create!(doing: false, done: false, start_time: DateTime.parse('4th Sept 2018 08:00:00'), end_time: DateTime.parse('4rd Sept 2018 09:00:00'), horse_id: horse1.id, medecine_id: medic3.id, weekly: true, monthly: false)
+##med 1 (lundi, mercredi, samedi)
+task52 = Task.create!(doing: false, done: false, start_time: DateTime.parse('3rd Sept 2018 08:00:00'), end_time: DateTime.parse('3rd Sept 2018 09:00:00'), horse_id: horse1.id, medecine_id: medic1.id, weekly: true, monthly: false)
+task53 = Task.create!(doing: false, done: false, start_time: DateTime.parse('5th Sept 2018 08:00:00'), end_time: DateTime.parse('5th Sept 2018 09:00:00'), horse_id: horse1.id, medecine_id: medic1.id, weekly: true, monthly: false)
+task54 = Task.create!(doing: false, done: false, start_time: DateTime.parse('8th Sept 2018 08:00:00'), end_time: DateTime.parse('8th Sept 2018 09:00:00'), horse_id: horse1.id, medecine_id: medic1.id, weekly: true, monthly: false)
+
+##med 2 (mardi, mercredi, vendredi)
+task55 = Task.create!(doing: false, done: false, start_time: DateTime.parse('4th Sept 2018 08:00:00'), end_time: DateTime.parse('5th Sept 2018 09:00:00'), horse_id: horse1.id, medecine_id: medic2.id, weekly: true, monthly: false)
+task56 = Task.create!(doing: false, done: false, start_time: DateTime.parse('5th Sept 2018 08:00:00'), end_time: DateTime.parse('5th Sept 2018 09:00:00'), horse_id: horse1.id, medecine_id: medic2.id, weekly: true, monthly: false)
+task57 = Task.create!(doing: false, done: false, start_time: DateTime.parse('7th Sept 2018 08:00:00'), end_time: DateTime.parse('7th Sept 2018 09:00:00'), horse_id: horse1.id, medecine_id: medic2.id, weekly: true, monthly: false)
+
+##med3 (vendredi)
+task58 = Task.create!(doing: false, done: false, start_time: DateTime.parse('7th Sept 2018 08:00:00'), end_time: DateTime.parse('7th Sept 2018 09:00:00'), horse_id: horse1.id, medecine_id: medic3.id, weekly: true, monthly: false)
+
+
 #vet
-task16 = Task.create!(doing: false, done: false, start_time: DateTime.parse('15th Sept 2018 08:00:00'), end_time: DateTime.parse('15rd Sept 2018 09:00:00'), horse_id: horse1.id, vetenary_id: vet1.id, weekly: false, monthly: false)
+task59 = Task.create!(doing: false, done: false, start_time: DateTime.parse('15th Sept 2018 08:00:00'), end_time: DateTime.parse('15th Sept 2018 09:00:00'), horse_id: horse1.id, vetenary_id: vet1.id, weekly: false, monthly: false)
+
 #shoe
-task17 = Task.create!(doing: false, done: false, start_time: DateTime.parse('15th Sept 2018 08:00:00'), end_time: DateTime.parse('15rd Sept 2018 09:00:00'), horse_id: horse1.id, shoe_maker_id: shoe1.id, weekly: false, monthly: false)
+task60 = Task.create!(doing: false, done: false, start_time: DateTime.parse('16th Sept 2018 08:00:00'), end_time: DateTime.parse('16th Sept 2018 09:00:00'), horse_id: horse1.id, shoe_maker_id: shoe1.id, weekly: false, monthly: false)
 
 
-#horse 2
-#food
-task18 = Task.create!(doing: false, done: false, start_time: DateTime.parse('4th Sept 2018 08:00:00'), end_time: DateTime.parse('4rd Sept 2018 09:00:00'), food_quantity: 1, horse_id: horse2.id, food_type_id: food1.id, daily: true, weekly: true, monthly: false)
-task19 = Task.create!(doing: false, done: false, start_time: DateTime.parse('4th Sept 2018 12:00:00'), end_time: DateTime.parse('4rd Sept 2018 13:00:00'), food_quantity: 1, horse_id: horse2.id, food_type_id: food1.id, daily: true, weekly: true, monthly: false)
-task20 = Task.create!(doing: false, done: false, start_time: DateTime.parse('4th Sept 2018 18:00:00'), end_time: DateTime.parse('4rd Sept 2018 20:00:00'), food_quantity: 1, horse_id: horse2.id, food_type_id: food1.id, daily: true, weekly: true, monthly: false)
-task21 = Task.create!(doing: false, done: false, start_time: DateTime.parse('4th Sept 2018 08:00:00'), end_time: DateTime.parse('4rd Sept 2018 09:00:00'), food_quantity: 2, horse_id: horse2.id, food_type_id: food2.id, daily: true, weekly: true, monthly: false)
-task22 = Task.create!(doing: false, done: false, start_time: DateTime.parse('4th Sept 2018 12:00:00'), end_time: DateTime.parse('4rd Sept 2018 13:00:00'), food_quantity: 2, horse_id: horse2.id, food_type_id: food2.id, daily: true, weekly: true, monthly: false)
-task23 = Task.create!(doing: false, done: false, start_time: DateTime.parse('4th Sept 2018 18:00:00'), end_time: DateTime.parse('4rd Sept 2018 20:00:00'), food_quantity: 2, horse_id: horse2.id, food_type_id: food2.id, daily: true, weekly: true, monthly: false)
-task24 = Task.create!(doing: false, done: false, start_time: DateTime.parse('4th Sept 2018 08:00:00'), end_time: DateTime.parse('4rd Sept 2018 09:00:00'), food_quantity: 3, horse_id: horse2.id, food_type_id: food3.id, daily: true, weekly: true, monthly: false)
-task25 = Task.create!(doing: false, done: false, start_time: DateTime.parse('4th Sept 2018 12:00:00'), end_time: DateTime.parse('4rd Sept 2018 13:00:00'), food_quantity: 3, horse_id: horse2.id, food_type_id: food3.id, daily: true, weekly: true, monthly: false)
-task26 = Task.create!(doing: false, done: false, start_time: DateTime.parse('4th Sept 2018 18:00:00'), end_time: DateTime.parse('4rd Sept 2018 20:00:00'), food_quantity: 3, horse_id: horse2.id, food_type_id: food3.id, daily: true, weekly: true, monthly: false)
-#activity
-task27 = Task.create!(doing: false, done: false, start_time: DateTime.parse('2th Sept 2018 08:00:00'), end_time: DateTime.parse('2rd Sept 2018 09:00:00'), horse_id: horse2.id, activity_id: act1.id, weekly: true, monthly: false)
-task28 = Task.create!(doing: false, done: false, start_time: DateTime.parse('3th Sept 2018 08:00:00'), end_time: DateTime.parse('3rd Sept 2018 09:00:00'), horse_id: horse2.id, activity_id: act2.id, weekly: true, monthly: false)
-task29 = Task.create!(doing: false, done: false, start_time: DateTime.parse('4th Sept 2018 08:00:00'), end_time: DateTime.parse('4rd Sept 2018 09:00:00'), horse_id: horse2.id, activity_id: act3.id, weekly: true, monthly: false)
-#medecine
-task30 = Task.create!(doing: false, done: false, start_time: DateTime.parse('2th Sept 2018 08:00:00'), end_time: DateTime.parse('2rd Sept 2018 09:00:00'), horse_id: horse2.id, medecine_id: medic1.id, weekly: true, monthly: false)
-task31 = Task.create!(doing: false, done: false, start_time: DateTime.parse('3th Sept 2018 08:00:00'), end_time: DateTime.parse('3rd Sept 2018 09:00:00'), horse_id: horse2.id, medecine_id: medic2.id, weekly: true, monthly: false)
-task32 = Task.create!(doing: false, done: false, start_time: DateTime.parse('4th Sept 2018 08:00:00'), end_time: DateTime.parse('4rd Sept 2018 09:00:00'), horse_id: horse2.id, medecine_id: medic3.id, weekly: true, monthly: false)
-#vet
-task33 = Task.create!(doing: false, done: false, start_time: DateTime.parse('15th Sept 2018 08:00:00'), end_time: DateTime.parse('15rd Sept 2018 09:00:00'), horse_id: horse2.id, vetenary_id: vet1.id, weekly: false, monthly: false)
-#shoe
-task34 = Task.create!(doing: false, done: false, start_time: DateTime.parse('15th Sept 2018 08:00:00'), end_time: DateTime.parse('15rd Sept 2018 09:00:00'), horse_id: horse2.id, shoe_maker_id: shoe1.id, weekly: false, monthly: false)
+# #horse 2
+# #food
+# task18 = Task.create!(doing: false, done: false, start_time: DateTime.parse('4th Sept 2018 08:00:00'), end_time: DateTime.parse('4rd Sept 2018 09:00:00'), food_quantity: 1, horse_id: horse2.id, food_type_id: food1.id, daily: true, weekly: true, monthly: false)
+# task19 = Task.create!(doing: false, done: false, start_time: DateTime.parse('4th Sept 2018 12:00:00'), end_time: DateTime.parse('4rd Sept 2018 13:00:00'), food_quantity: 1, horse_id: horse2.id, food_type_id: food1.id, daily: true, weekly: true, monthly: false)
+# task20 = Task.create!(doing: false, done: false, start_time: DateTime.parse('4th Sept 2018 18:00:00'), end_time: DateTime.parse('4rd Sept 2018 20:00:00'), food_quantity: 1, horse_id: horse2.id, food_type_id: food1.id, daily: true, weekly: true, monthly: false)
+# task21 = Task.create!(doing: false, done: false, start_time: DateTime.parse('4th Sept 2018 08:00:00'), end_time: DateTime.parse('4rd Sept 2018 09:00:00'), food_quantity: 2, horse_id: horse2.id, food_type_id: food2.id, daily: true, weekly: true, monthly: false)
+# task22 = Task.create!(doing: false, done: false, start_time: DateTime.parse('4th Sept 2018 12:00:00'), end_time: DateTime.parse('4rd Sept 2018 13:00:00'), food_quantity: 2, horse_id: horse2.id, food_type_id: food2.id, daily: true, weekly: true, monthly: false)
+# task23 = Task.create!(doing: false, done: false, start_time: DateTime.parse('4th Sept 2018 18:00:00'), end_time: DateTime.parse('4rd Sept 2018 20:00:00'), food_quantity: 2, horse_id: horse2.id, food_type_id: food2.id, daily: true, weekly: true, monthly: false)
+# task24 = Task.create!(doing: false, done: false, start_time: DateTime.parse('4th Sept 2018 08:00:00'), end_time: DateTime.parse('4rd Sept 2018 09:00:00'), food_quantity: 3, horse_id: horse2.id, food_type_id: food3.id, daily: true, weekly: true, monthly: false)
+# task25 = Task.create!(doing: false, done: false, start_time: DateTime.parse('4th Sept 2018 12:00:00'), end_time: DateTime.parse('4rd Sept 2018 13:00:00'), food_quantity: 3, horse_id: horse2.id, food_type_id: food3.id, daily: true, weekly: true, monthly: false)
+# task26 = Task.create!(doing: false, done: false, start_time: DateTime.parse('4th Sept 2018 18:00:00'), end_time: DateTime.parse('4rd Sept 2018 20:00:00'), food_quantity: 3, horse_id: horse2.id, food_type_id: food3.id, daily: true, weekly: true, monthly: false)
+# #activity
+# task27 = Task.create!(doing: false, done: false, start_time: DateTime.parse('2th Sept 2018 08:00:00'), end_time: DateTime.parse('2rd Sept 2018 09:00:00'), horse_id: horse2.id, activity_id: act1.id, weekly: true, monthly: false)
+# task28 = Task.create!(doing: false, done: false, start_time: DateTime.parse('3th Sept 2018 08:00:00'), end_time: DateTime.parse('3rd Sept 2018 09:00:00'), horse_id: horse2.id, activity_id: act2.id, weekly: true, monthly: false)
+# task29 = Task.create!(doing: false, done: false, start_time: DateTime.parse('4th Sept 2018 08:00:00'), end_time: DateTime.parse('4rd Sept 2018 09:00:00'), horse_id: horse2.id, activity_id: act3.id, weekly: true, monthly: false)
+# #medecine
+# task30 = Task.create!(doing: false, done: false, start_time: DateTime.parse('2th Sept 2018 08:00:00'), end_time: DateTime.parse('2rd Sept 2018 09:00:00'), horse_id: horse2.id, medecine_id: medic1.id, weekly: true, monthly: false)
+# task31 = Task.create!(doing: false, done: false, start_time: DateTime.parse('3th Sept 2018 08:00:00'), end_time: DateTime.parse('3rd Sept 2018 09:00:00'), horse_id: horse2.id, medecine_id: medic2.id, weekly: true, monthly: false)
+# task32 = Task.create!(doing: false, done: false, start_time: DateTime.parse('4th Sept 2018 08:00:00'), end_time: DateTime.parse('4rd Sept 2018 09:00:00'), horse_id: horse2.id, medecine_id: medic3.id, weekly: true, monthly: false)
+# #vet
+# task33 = Task.create!(doing: false, done: false, start_time: DateTime.parse('15th Sept 2018 08:00:00'), end_time: DateTime.parse('15rd Sept 2018 09:00:00'), horse_id: horse2.id, vetenary_id: vet1.id, weekly: false, monthly: false)
+# #shoe
+# task34 = Task.create!(doing: false, done: false, start_time: DateTime.parse('15th Sept 2018 08:00:00'), end_time: DateTime.parse('15rd Sept 2018 09:00:00'), horse_id: horse2.id, shoe_maker_id: shoe1.id, weekly: false, monthly: false)
 
 
-#horse 3
-#food
-task35 = Task.create!(doing: false, done: false, start_time: DateTime.parse('4th Sept 2018 08:00:00'), end_time: DateTime.parse('4rd Sept 2018 09:00:00'), food_quantity: 1, horse_id: horse3.id, food_type_id: food1.id, daily: true, weekly: true, monthly: false)
-task36 = Task.create!(doing: false, done: false, start_time: DateTime.parse('4th Sept 2018 12:00:00'), end_time: DateTime.parse('4rd Sept 2018 13:00:00'), food_quantity: 1, horse_id: horse3.id, food_type_id: food1.id, daily: true, weekly: true, monthly: false)
-task37 = Task.create!(doing: false, done: false, start_time: DateTime.parse('4th Sept 2018 18:00:00'), end_time: DateTime.parse('4rd Sept 2018 20:00:00'), food_quantity: 1, horse_id: horse3.id, food_type_id: food1.id, daily: true, weekly: true, monthly: false)
-task38 = Task.create!(doing: false, done: false, start_time: DateTime.parse('4th Sept 2018 08:00:00'), end_time: DateTime.parse('4rd Sept 2018 09:00:00'), food_quantity: 2, horse_id: horse3.id, food_type_id: food2.id, daily: true, weekly: true, monthly: false)
-task39 = Task.create!(doing: false, done: false, start_time: DateTime.parse('4th Sept 2018 12:00:00'), end_time: DateTime.parse('4rd Sept 2018 13:00:00'), food_quantity: 2, horse_id: horse3.id, food_type_id: food2.id, daily: true, weekly: true, monthly: false)
-task40 = Task.create!(doing: false, done: false, start_time: DateTime.parse('4th Sept 2018 18:00:00'), end_time: DateTime.parse('4rd Sept 2018 20:00:00'), food_quantity: 2, horse_id: horse3.id, food_type_id: food2.id, daily: true, weekly: true, monthly: false)
-task41 = Task.create!(doing: false, done: false, start_time: DateTime.parse('4th Sept 2018 08:00:00'), end_time: DateTime.parse('4rd Sept 2018 09:00:00'), food_quantity: 3, horse_id: horse3.id, food_type_id: food3.id, daily: true, weekly: true, monthly: false)
-task42 = Task.create!(doing: false, done: false, start_time: DateTime.parse('4th Sept 2018 12:00:00'), end_time: DateTime.parse('4rd Sept 2018 13:00:00'), food_quantity: 3, horse_id: horse3.id, food_type_id: food3.id, daily: true, weekly: true, monthly: false)
-task43 = Task.create!(doing: false, done: false, start_time: DateTime.parse('4th Sept 2018 18:00:00'), end_time: DateTime.parse('4rd Sept 2018 20:00:00'), food_quantity: 3, horse_id: horse3.id, food_type_id: food3.id, daily: true, weekly: true, monthly: false)
-#activity
-task44 = Task.create!(doing: false, done: false, start_time: DateTime.parse('2th Sept 2018 08:00:00'), end_time: DateTime.parse('2rd Sept 2018 09:00:00'), horse_id: horse3.id, activity_id: act1.id, weekly: true, monthly: false)
-task45 = Task.create!(doing: false, done: false, start_time: DateTime.parse('3th Sept 2018 08:00:00'), end_time: DateTime.parse('3rd Sept 2018 09:00:00'), horse_id: horse3.id, activity_id: act2.id, weekly: true, monthly: false)
-task46 = Task.create!(doing: false, done: false, start_time: DateTime.parse('4th Sept 2018 08:00:00'), end_time: DateTime.parse('4rd Sept 2018 09:00:00'), horse_id: horse3.id, activity_id: act3.id, weekly: true, monthly: false)
-#medecine
-task47 = Task.create!(doing: false, done: false, start_time: DateTime.parse('2th Sept 2018 08:00:00'), end_time: DateTime.parse('2rd Sept 2018 09:00:00'), horse_id: horse3.id, medecine_id: medic1.id, weekly: true, monthly: false)
-task48 = Task.create!(doing: false, done: false, start_time: DateTime.parse('3th Sept 2018 08:00:00'), end_time: DateTime.parse('3rd Sept 2018 09:00:00'), horse_id: horse3.id, medecine_id: medic2.id, weekly: true, monthly: false)
-task49 = Task.create!(doing: false, done: false, start_time: DateTime.parse('4th Sept 2018 08:00:00'), end_time: DateTime.parse('4rd Sept 2018 09:00:00'), horse_id: horse3.id, medecine_id: medic3.id, weekly: true, monthly: false)
-#vet
-task50 = Task.create!(doing: false, done: false, start_time: DateTime.parse('15th Sept 2018 08:00:00'), end_time: DateTime.parse('15rd Sept 2018 09:00:00'), horse_id: horse3.id, vetenary_id: vet1.id, weekly: false, monthly: false)
-#shoe
-task51 = Task.create!(doing: false, done: false, start_time: DateTime.parse('15th Sept 2018 08:00:00'), end_time: DateTime.parse('15rd Sept 2018 09:00:00'), horse_id: horse3.id, shoe_maker_id: shoe1.id, weekly: false, monthly: false)
+# #horse 3
+# #food
+# task35 = Task.create!(doing: false, done: false, start_time: DateTime.parse('4th Sept 2018 08:00:00'), end_time: DateTime.parse('4rd Sept 2018 09:00:00'), food_quantity: 1, horse_id: horse3.id, food_type_id: food1.id, daily: true, weekly: true, monthly: false)
+# task36 = Task.create!(doing: false, done: false, start_time: DateTime.parse('4th Sept 2018 12:00:00'), end_time: DateTime.parse('4rd Sept 2018 13:00:00'), food_quantity: 1, horse_id: horse3.id, food_type_id: food1.id, daily: true, weekly: true, monthly: false)
+# task37 = Task.create!(doing: false, done: false, start_time: DateTime.parse('4th Sept 2018 18:00:00'), end_time: DateTime.parse('4rd Sept 2018 20:00:00'), food_quantity: 1, horse_id: horse3.id, food_type_id: food1.id, daily: true, weekly: true, monthly: false)
+# task38 = Task.create!(doing: false, done: false, start_time: DateTime.parse('4th Sept 2018 08:00:00'), end_time: DateTime.parse('4rd Sept 2018 09:00:00'), food_quantity: 2, horse_id: horse3.id, food_type_id: food2.id, daily: true, weekly: true, monthly: false)
+# task39 = Task.create!(doing: false, done: false, start_time: DateTime.parse('4th Sept 2018 12:00:00'), end_time: DateTime.parse('4rd Sept 2018 13:00:00'), food_quantity: 2, horse_id: horse3.id, food_type_id: food2.id, daily: true, weekly: true, monthly: false)
+# task40 = Task.create!(doing: false, done: false, start_time: DateTime.parse('4th Sept 2018 18:00:00'), end_time: DateTime.parse('4rd Sept 2018 20:00:00'), food_quantity: 2, horse_id: horse3.id, food_type_id: food2.id, daily: true, weekly: true, monthly: false)
+# task41 = Task.create!(doing: false, done: false, start_time: DateTime.parse('4th Sept 2018 08:00:00'), end_time: DateTime.parse('4rd Sept 2018 09:00:00'), food_quantity: 3, horse_id: horse3.id, food_type_id: food3.id, daily: true, weekly: true, monthly: false)
+# task42 = Task.create!(doing: false, done: false, start_time: DateTime.parse('4th Sept 2018 12:00:00'), end_time: DateTime.parse('4rd Sept 2018 13:00:00'), food_quantity: 3, horse_id: horse3.id, food_type_id: food3.id, daily: true, weekly: true, monthly: false)
+# task43 = Task.create!(doing: false, done: false, start_time: DateTime.parse('4th Sept 2018 18:00:00'), end_time: DateTime.parse('4rd Sept 2018 20:00:00'), food_quantity: 3, horse_id: horse3.id, food_type_id: food3.id, daily: true, weekly: true, monthly: false)
+# #activity
+# task44 = Task.create!(doing: false, done: false, start_time: DateTime.parse('2th Sept 2018 08:00:00'), end_time: DateTime.parse('2rd Sept 2018 09:00:00'), horse_id: horse3.id, activity_id: act1.id, weekly: true, monthly: false)
+# task45 = Task.create!(doing: false, done: false, start_time: DateTime.parse('3th Sept 2018 08:00:00'), end_time: DateTime.parse('3rd Sept 2018 09:00:00'), horse_id: horse3.id, activity_id: act2.id, weekly: true, monthly: false)
+# task46 = Task.create!(doing: false, done: false, start_time: DateTime.parse('4th Sept 2018 08:00:00'), end_time: DateTime.parse('4rd Sept 2018 09:00:00'), horse_id: horse3.id, activity_id: act3.id, weekly: true, monthly: false)
+# #medecine
+# task47 = Task.create!(doing: false, done: false, start_time: DateTime.parse('2th Sept 2018 08:00:00'), end_time: DateTime.parse('2rd Sept 2018 09:00:00'), horse_id: horse3.id, medecine_id: medic1.id, weekly: true, monthly: false)
+# task48 = Task.create!(doing: false, done: false, start_time: DateTime.parse('3th Sept 2018 08:00:00'), end_time: DateTime.parse('3rd Sept 2018 09:00:00'), horse_id: horse3.id, medecine_id: medic2.id, weekly: true, monthly: false)
+# task49 = Task.create!(doing: false, done: false, start_time: DateTime.parse('4th Sept 2018 08:00:00'), end_time: DateTime.parse('4rd Sept 2018 09:00:00'), horse_id: horse3.id, medecine_id: medic3.id, weekly: true, monthly: false)
+# #vet
+# task50 = Task.create!(doing: false, done: false, start_time: DateTime.parse('15th Sept 2018 08:00:00'), end_time: DateTime.parse('15rd Sept 2018 09:00:00'), horse_id: horse3.id, vetenary_id: vet1.id, weekly: false, monthly: false)
+# #shoe
+# task51 = Task.create!(doing: false, done: false, start_time: DateTime.parse('15th Sept 2018 08:00:00'), end_time: DateTime.parse('15rd Sept 2018 09:00:00'), horse_id: horse3.id, shoe_maker_id: shoe1.id, weekly: false, monthly: false)
 
-task52 = Task.create!(doing: false, done: false, start_time: Date.today, end_time: Date.today, horse_id: horse5.id, activity_id: act4.id, weekly: true, monthly: false)
-task53 = Task.create!(doing: false, done: false, start_time: Date.today + 1, end_time: Date.today + 1, horse_id: horse1.id, antidote_id: ant1.id, weekly: false, monthly: false)
-task54 = Task.create!(doing: false, done: false, start_time: Date.today + 20, end_time: Date.today + 20, horse_id: horse3.id, antidote_id: ant3.id, weekly: false, monthly: false)
-task55 = Task.create!(doing: false, done: false, start_time: Date.today + 3, end_time: Date.today + 3, horse_id: horse3.id, shoe_maker_id: shoe1.id, weekly: false, monthly: false)
-task56 = Task.create!(doing: false, done: false, start_time: Date.today + 2, end_time: Date.today + 2, horse_id: horse4.id, vetenary_id: vet1.id, weekly: false, monthly: false)
+# task52 = Task.create!(doing: false, done: false, start_time: Date.today, end_time: Date.today, horse_id: horse5.id, activity_id: act4.id, weekly: true, monthly: false)
+# task53 = Task.create!(doing: false, done: false, start_time: Date.today + 1, end_time: Date.today + 1, horse_id: horse1.id, antidote_id: ant1.id, weekly: false, monthly: false)
+# task54 = Task.create!(doing: false, done: false, start_time: Date.today + 20, end_time: Date.today + 20, horse_id: horse3.id, antidote_id: ant3.id, weekly: false, monthly: false)
+# task55 = Task.create!(doing: false, done: false, start_time: Date.today + 3, end_time: Date.today + 3, horse_id: horse3.id, shoe_maker_id: shoe1.id, weekly: false, monthly: false)
+# task56 = Task.create!(doing: false, done: false, start_time: Date.today + 2, end_time: Date.today + 2, horse_id: horse4.id, vetenary_id: vet1.id, weekly: false, monthly: false)
 
 
 p "C'est uploadé !"
-p Activity.all
-p FoodType.all
-p Medecine.all
-p Vetenary.all
-p ShoeMaker.all
-p Medecine.all
-p Antidote.all
-p Comment.all
-p Communication.all
-p Horse.all
-p User.all
+# p Activity.all
+# p FoodType.all
+# p Medecine.all
+# p Vetenary.all
+# p ShoeMaker.all
+# p Medecine.all
+# p Antidote.all
+# p Comment.all
+# p Communication.all
+# p Horse.all
+# p User.all
