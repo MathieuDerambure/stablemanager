@@ -372,7 +372,11 @@ task190 = Task.create!(doing: false, done: false, start_time: DateTime.parse('16
 
 
 ########## DO NOT REMOVE ##########
-
+task500 = Task.create!(doing: false, done: false, start_time: Date.today + 2, end_time: Date.today + 2 , horse_id: horse1.id, shoe_maker_id: shoe1.id, weekly: false, monthly: true)
+task501 = Task.create!(doing: false, done: false, start_time: Date.today + 1, end_time: Date.today + 1, horse_id: horse1.id, antidote_id: ant1.id, weekly: false, monthly: false)
+task502 = Task.create!(doing: false, done: false, start_time: Date.today + 2, end_time: Date.today + 2, horse_id: horse2.id, antidote_id: ant2.id, weekly: false, monthly: false)
+task503 = Task.create!(doing: false, done: false, start_time: Date.today + 20, end_time: Date.today + 20, horse_id: horse3.id, antidote_id: ant3.id, weekly: false, monthly: false)
+task504 = Task.create!(doing: false, done: false, start_time: Date.today + 2, end_time: Date.today + 2, horse_id: horse2.id, vetenary_id: vet1.id, weekly: false, monthly: true)
 
 
 
