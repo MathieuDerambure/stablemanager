@@ -5,55 +5,42 @@
 <div>
   <!-- Nav tabs -->
   <ul class="nav nav-tabs" role="tablist">
-    <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Matin
+    <li role="presentation" class="active"><a href="#matin" aria-controls="matin" role="tab" data-toggle="tab">Matin
 
        <span class="badge brand-success"><%= @horses.map {|horse| horse.morning_tasks_count}.delete_if {|number| number == 0}.count  %></span>
 
       </a></li>
-    <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Midi
+    <li role="presentation"><a href="#midi" aria-controls="midi" role="tab" data-toggle="tab">Midi
        <span class="badge brand-success"><%= @horses.map {|horse| horse.midday_tasks_count}.delete_if {|number| number == 0}.count  %></span>
       </a></li>
-    <li role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">Soir
+    <li role="presentation"><a href="#soir" aria-controls="soir" role="tab" data-toggle="tab">Soir
        <span class="badge brand-success"><%= @horses.map {|horse| horse.evening_tasks_count}.delete_if {|number| number == 0}.count  %></span>
       </a></li>
     </a></li>
   </ul>
+
   <!-- Tab panes -->
   <div class="tab-content">
-    <div role="tabpanel" class="tab-pane active" id="home">
+    <div role="tabpanel" class="tab-pane active" id="matin">
       <% @horses.each do |horse| %>
         <% if horse.has_food_tasks_not_done? %>
           <div class="col-xs-12">
-            <div class="task-message"  data-aos="fade-up">
-              <% if horse.photo? %>
-                <div class="horse-avatar" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path horse.photo, width: 300, crop: :fill %>')">
-                </div>
-              <%else %>
-                <div class="horse-avatar" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= image_path("default-horse.jpg")  %>')">
-                </div>
-              <% end %>
-              <div class="task-message-body">
-              <p><strong><%= horse.name %> - Box n°<%= horse.box %></strong></p>
-              <p>
-                <%= render "task_list", horse: horse, tasks: horse.morning_tasks.not_done, time: "morning" %>
-              </p>
-              </div>
-              <img class="avatar-large">
-            </div>
+
+            <%= render "task_todo_food", horse: horse %>
           </div>
         <% end %>
       <% end %>
     </div>
-    <div role="tabpanel" class="tab-pane" id="profile">
+    <div role="tabpanel" class="tab-pane" id="midi">
       <% @horses.each do |horse| %>
         <% if horse.has_food_tasks_not_done? %>
           <div class="col-xs-12">
             <div class="task-message" data-aos="fade-up">
               <% if horse.photo? %>
-                <div class="horse-avatar" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path horse.photo, width: 300, crop: :fill %>')">
+                <div class="horse-avatar" style="background-image: url('<%= cl_image_path horse.photo, width: 300, crop: :fill %>')">
                 </div>
               <%else %>
-                <div class="horse-avatar" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= image_path("default-horse.jpg")  %>')">
+                <div class="horse-avatar" style="background-image: url('<%= image_path("default-horse.jpg")  %>')">
                 </div>
               <% end %>
                 <div class="task-message-body">
@@ -68,16 +55,16 @@
         <% end %>
       <% end %>
     </div>
-    <div role="tabpanel" class="tab-pane" id="messages">
+    <div role="tabpanel" class="tab-pane" id="soir">
       <% @horses.each do |horse| %>
         <% if horse.has_food_tasks_not_done? %>
           <div class="col-xs-12">
             <div class="task-message" data-aos="fade-up">
               <% if horse.photo? %>
-                <div class="horse-avatar" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path horse.photo, width: 300, crop: :fill %>')">
+                <div class="horse-avatar" style="background-image: url('<%= cl_image_path horse.photo, width: 300, crop: :fill %>')">
                 </div>
               <%else %>
-                <div class="horse-avatar" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= image_path("default-horse.jpg")  %>')">
+                <div class="horse-avatar" style="background-image: url('<%= image_path("default-horse.jpg")  %>')">
                 </div>
               <% end %>
               <div class="task-message-body">

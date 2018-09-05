@@ -8,15 +8,13 @@
 
   <% if task.done == false %>
 
-
     <% if task.doing == false %>
       <% if !task.activity.nil? %>
         <div class="col-xs-12">
-          <%= render "task_todo", task: task %>
+          <%= render "task_todo_activity", task: task %>
         </div>
       <% end %>
     <% end %>
-
 
     <% if task.doing == true %>
       <% if !task.activity.nil? %>

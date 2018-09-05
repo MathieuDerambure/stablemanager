@@ -1,28 +1,32 @@
 <% if tasks.any? %>
-  <p><%= time.capitalize %></p>
+  <div class="task-message-body">
+    <p>
+      <strong><%= horse.name %> - Box n°<%= horse.box %></strong>
+    </p>
+      <% tasks.each do |task| %>
+        <p>
+          <%= task.food_type&.name %>
+          <% if task.food_quantity %>
+            |<strong><%= task.food_quantity%> L</strong>
+          <% end %>
+        </p>
 
+      <% end %>
+
+  </div>
   <!-- TODO tasks -->
   <% if tasks.where(doing: false, done: false).any? %>
-    <%= link_to "Je fais !", mark_as_doing_food_horse_tasks_path(horse, time: time), method: :patch, class: 'btn btn-success' %>
+    <%= link_to "S'assigner", mark_as_doing_food_horse_tasks_path(horse, time: time), method: :patch, class: 'btn btn-default' %>
   <!-- ON GOING tasks -->
   <% elsif tasks.where(doing: true, done: false).any? %>
-    <%= link_to "C'est fini !", mark_as_done_food_horse_tasks_path(horse, time: time), method: :patch, class: 'btn btn-success' %>
 
-    <% image_link = tasks.first.user_doing&.picture || "https://res.cloudinary.com/dk6vsgttl/image/upload/v1535978381/pomme.png" %>
-      <%= image_tag image_link, class: "avatar-large-empty" %>
-  <% end %>
-
-  <% tasks.each do |task| %>
-    <p>
-      <%= task.food_type&.name %>
-
-      <% task.id %>
-      <% task.start_time() %>
-      <% if task.food_quantity %>
-        |<strong><%= task.food_quantity%> L</strong>
-      <% end %>
-    </p>
-
+    <%= link_to mark_as_done_food_horse_tasks_path(horse, time: time), method: :patch do%>
+      <% image_link = tasks.first.user_doing&.picture || "https://res.cloudinary.com/dk6vsgttl/image/upload/v1535978381/pomme.png" %>
+      <%= image_tag image_link, class: "avatar-large" %>
+    <% end %>
   <% end %>
 <% end %>
+<%#= time.capitalize %>
+<%#= task.id %>
+<%#= task.start_time %>
 
