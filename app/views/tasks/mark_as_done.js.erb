@@ -1,0 +1,5 @@
+function updateTaskToDone(newTask){
+  const task = document.querySelector("[data-task-id='<%= @task.id %>']");
+  task.remove();
+}
+updateTaskToDone();

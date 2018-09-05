@@ -38,8 +38,12 @@ class TasksController < ApplicationController
   end
 
   def mark_as_done
-    Task.find(params[:task_id]).update(done: true)
-    redirect_to tasks_index_path
+    @task = Task.find(params[:task_id])
+    @task.update(done: true)
+    respond_to do |format|
+      format.html {redirect_to tasks_index_path}
+      format.js
+    end
   end
 
   # Multi update of FOOD tasks per time range: morning, midday or evening
