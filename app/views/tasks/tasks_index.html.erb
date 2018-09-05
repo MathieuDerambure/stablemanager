@@ -54,7 +54,7 @@
             <% @horses.each do |horse| %>
               <% if horse.has_food_tasks_not_done? %>
                 <div class="col-xs-12">
-                  <div class="task-message" data-aos="fade-up">
+                  <div class="task-message"  data-aos="fade-up">
                     <img class="horse-avatar" src="https://kitt.lewagon.com/placeholder/users/gabriel-dehan">
                     <div class="task-message-body">
                     <p><strong><%= horse.name %> - Box n°<%= horse.box %></strong></p>
@@ -122,10 +122,11 @@
           <% if task.doing == false %>
             <% if !task.activity.nil? %>
                 <div class="col-xs-12">
+                <%#= render "task_todo", task: task %>
                   <div class="task-message" data-task-id="<%= task.id %>" data-aos="fade-up">
                     <img class="horse-avatar" src="https://kitt.lewagon.com/placeholder/users/gabriel-dehan">
                     <div class="task-message-body">
-                      <p><strong><%= task.horse.name %> - <%= task.horse.box %></strong></p>
+                      <p><strong><%= task.horse.name %>  - Box n° <%= task.horse.box %></strong></p>
                       <p>
                         <%= task.activity&.name %>
                       </p>
@@ -143,15 +144,16 @@
                 <div class="task-message" data-task-id="<%= task.id %>" data-aos="fade-up">
                   <img class="horse-avatar" src="https://kitt.lewagon.com/placeholder/users/gabriel-dehan">
                   <div class="task-message-body">
-                    <p><strong><%= task.horse.name %></strong></p>
+                    <p><strong><%= task.horse.name %>  - Box n° <%= task.horse.box %></strong></p>
                       <p>
                         <%= task.activity&.name %>
                       </p>
-                      <% image_link = task.user_doing&.picture || "https://res.cloudinary.com/dk6vsgttl/image/upload/v1535978381/pomme.png" %>
+                      <% image_link = task.user_doing&.picture  || "https://www.viawater.nl/files/default-user.png" %>
                   </div>
-                  <%= link_to mark_as_done_path(task_id: task.id) do %>
-                    <%= image_tag image_link, class: "avatar-large" %>
-                  <% end %>
+                  <%#= link_to mark_as_done_path(task_id: task.id), remote: true do %>
+                    <%#= image_tag image_link, class: "avatar-large", remote: true %>
+                  <%# end %>
+                  <%= link_to "Terminé !", mark_as_done_path(task_id: task.id), remote: true, class: "btn btn-default" %>
                 </div>
               </div>
             <% end %>
@@ -179,7 +181,7 @@
                   <div class="task-message" data-task-id="<%= task.id %>">
                     <img class="horse-avatar" src="https://kitt.lewagon.com/placeholder/users/gabriel-dehan">
                     <div class="task-message-body">
-                      <p><strong><%= task.horse.name %></strong></p>
+                      <p><strong><%= task.horse.name %>  - Box n° <%= task.horse.box %></strong></p>
                       <p>
                         <%= task.medecine&.name %>
                       </p>
@@ -197,13 +199,14 @@
                 <div class="task-message" data-task-id="<%= task.id %>">
                   <img class="horse-avatar" src="https://kitt.lewagon.com/placeholder/users/gabriel-dehan">
                   <div class="task-message-body">
-                    <p><strong><%= task.horse.name %></strong></p>
+                    <p><strong><%= task.horse.name %>  - Box n° <%= task.horse.box %></strong></p>
                     <p>
                       <%= task.medecine&.name %>
                     </p>
-                    <%= link_to mark_as_done_path(task_id: task.id), class: 'btn btn-primary' do%>
-                      <% image_link = task.user_doing&.picture || "https://res.cloudinary.com/dk6vsgttl/image/upload/v1535978381/pomme.png" %>
-                    <% end %>
+                    <%#= link_to mark_as_done_path(task_id: task.id), remote: true do%>
+                      <%# image_link = task.user_doing&.picture || "https://www.viawater.nl/files/default-user.png" %>
+                    <%# end %>
+                    <%= link_to "Terminé !", mark_as_done_path(task_id: task.id), remote: true, class: "btn btn-default" %>
                   </div>
                 </div>
               </div>
