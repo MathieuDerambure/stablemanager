@@ -227,7 +227,6 @@ task95 = Task.create!(doing: false, done: false, start_time: DateTime.parse('8th
 task96 = Task.create!(doing: false, done: false, start_time: DateTime.parse('8th Sept 2018 18:00:00'), end_time: DateTime.parse('8th Sept 2018 20:00:00'), food_quantity: 3, horse_id: horse2.id, food_type_id: food3.id, daily: true, weekly: true, monthly: false)
 
 
-
 #activity
 
 ##Paddock (lundi, mardi, mercredi, jeudi, vendredi)
@@ -276,13 +275,6 @@ task119 = Task.create!(doing: false, done: false, start_time: DateTime.parse('15
 
 #shoe
 task120 = Task.create!(doing: false, done: false, start_time: DateTime.parse('16th Sept 2018 08:00:00'), end_time: DateTime.parse('16th Sept 2018 09:00:00'), horse_id: horse2.id, shoe_maker_id: shoe1.id, weekly: false, monthly: false)
-
-
-
-
-
-
-
 
 
 # #horse 3
@@ -378,6 +370,12 @@ task189 = Task.create!(doing: false, done: false, start_time: DateTime.parse('15
 
 #shoe
 task190 = Task.create!(doing: false, done: false, start_time: DateTime.parse('16th Sept 2018 08:00:00'), end_time: DateTime.parse('16th Sept 2018 09:00:00'), horse_id: horse3.id, shoe_maker_id: shoe1.id, weekly: false, monthly: false)
+
+
+
+########## DO NOT REMOVE ##########
+
+
 
 
 p "C'est uploadé !"
