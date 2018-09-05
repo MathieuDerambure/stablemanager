@@ -8,7 +8,7 @@ class TasksController < ApplicationController
       # Permet de compter les tasks de différents type pour affiche le nombre
       #dans la bulle rouge de la navbar
       @tasks_activity = @tasks.where.not(activity_id: nil, done: true)
-      @tasks_medecine = @tasks.where.not(medecine_id: nil, doing: true, done: true)
+      @tasks_medecine = @tasks.where.not(medecine_id: nil, done: true)
 
       users ||= User.all
       @owners = users.map{|user| user if user.role == "Propriétaire"}.compact
