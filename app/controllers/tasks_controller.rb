@@ -5,10 +5,8 @@ class TasksController < ApplicationController
   def tasks_index
       @tasks = Task.where(start_time: Date.today)
       @horses = Horse.all
-
       # Permet de compter les tasks de différents type pour affiche le nombre
       #dans la bulle rouge de la navbar
-      @tasks_food_type = @tasks.where.not(food_type_id: nil, doing: true, done: true)
       @tasks_activity = @tasks.where.not(activity_id: nil, done: true)
       @tasks_medecine = @tasks.where.not(medecine_id: nil, doing: true, done: true)
 
@@ -16,9 +14,7 @@ class TasksController < ApplicationController
       @owners = users.map{|user| user if user.role == "Propriétaire"}.compact
       @employees = users.map{|user| user if user.role == "Employée"}.compact
       @managers = users.map{|user| user if user.role == "Manager"}.compact
-
   end
-
 
   def index
     @tasks = Task.all

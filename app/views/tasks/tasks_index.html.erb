@@ -5,7 +5,7 @@
         <a href="#nourriture" aria-controls="nourriture" role="tab" data-toggle="tab">
           <i class="active fas fa-utensils"></i>
           <% if @tasks_food_type %>
-             <span class="badge brand-success"><%= @tasks_food_type.count %></span>
+            <span class="badge"><%= raise morning_food_number + midday_food_number + evening_food_number %></span>
           <% end %>
         </a>
       </li>
@@ -37,9 +37,16 @@
       <div>
         <!-- Nav tabs -->
         <ul class="nav nav-tabs" role="tablist">
-          <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Matin</a></li>
-          <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Midi</a></li>
-          <li role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">Soir</a></li>
+          <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Matin
+             <span class="badge brand-success"><%= moning_food_number = @horses.map {|horse| horse.morning_tasks_count}.delete_if {|number| number == 0}.count  %></span>
+            </a></li>
+          <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Midi
+             <span class="badge brand-success"><%= midday_food_number = @horses.map {|horse| horse.midday_tasks_count}.delete_if {|number| number == 0}.count  %></span>
+            </a></li>
+          <li role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">Soir
+             <span class="badge brand-success"><%= evening_food_number = @horses.map {|horse| horse.evening_tasks_count}.delete_if {|number| number == 0}.count  %></span>
+            </a></li>
+          </a></li>
         </ul>
         <!-- Tab panes -->
         <div class="tab-content">
