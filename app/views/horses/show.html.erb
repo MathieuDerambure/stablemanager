@@ -68,10 +68,7 @@
       <% @horse.tasks.activity.this_week.group_by(&:activity).each do |activity, tasks| %>
         <p>
           <strong><%= activity.name %> :</strong>
-          <% tasks.each do |task| %>
-            <%#= task.start_time.strftime("%A") %>
-            <%= l(task.start_time.to_date, format: "%A").capitalize %>
-          <% end %>
+          <%= tasks.map {|task| l(task.start_time.to_date, format: "%A,").capitalize }.join(" ").chop %>
         </p>
       <% end %>
 
