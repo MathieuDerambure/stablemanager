@@ -5,7 +5,28 @@
   <%= simple_form_for @horse do |f| %>
   <%= f.input :name, label: "Nom" %>
   <%= f.input :box, label: "Numéro du box" %>
+
+  <select name="carlist" form="carform">
+    <%= f.input :formula, label: "Formule" %>
+    <option value="volvo">Compléte</option>
+    <option value="saab">demi-pension</option>
+    <option value="opel">Opel</option>
+    <option value="audi">Audi</option>
+  </select>
+
+
+
+
   <%= f.input :formula, label: "Formule" %>
+
+
+
+
+
+
+
+
+
 
   <h3><strong>Nourriture</strong></h3>
   <h4><strong>Matin</strong></h4>
