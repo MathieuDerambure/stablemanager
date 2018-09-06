@@ -11,15 +11,13 @@
 
   <div class="card-info">
     <div class="horse-name">
-        <h1><%= @horse.name %></h1>
-        <p class="text-muted"><strong><%= @horse.user.first_name %> <%= @horse.user.sur_name %></strong></p>
-    <div class="line"></div>
-    <div class="horse-description">
-      <h4>Box n°<%= @horse.box %>
-      </h4>
-    </div>
-
-    <hr color="blue">
+      <h1><%= @horse.name %></h1>
+      <p class="text-muted"><strong><%= @horse.user.first_name %> <%= @horse.user.sur_name %></strong></p>
+      <div class="line"></div>
+      <div class="horse-description">
+        <h4>Box n°<%= @horse.box %></h4>
+      </div>
+      <hr color="blue">
   </div>
 
   <div class="card-plus">
@@ -27,14 +25,13 @@
       <h4><strong>📋</i> Formule</strong></h4>
       <p><%= @horse.formula %></p>
     </div>
-
     <hr color="blue">
-    <div class="horse-food">
 
+    <div class="horse-food">
       <h4><strong>🥣 Nourriture</strong></h4>
       <div class="food-card">
         <div class="food-type">
-          <p> Food/L</p>
+          <p style="min-height: 1em; margin-top: 10px;"></p>
             <% @horse.morning_tasks.each do |task| %>
             <p><strong> <%= task.food_type.name %></strong></p>
           <% end %>
@@ -65,59 +62,56 @@
 
     <div class="horse-activity">
       <h4><strong>🐎 Activités</strong></h4>
-      <% @horse.tasks.activity.this_week.group_by(&:activity).each do |activity, tasks| %>
+
+      <% @horse.tasks.activity.next_week.group_by(&:activity).each do |activity, tasks| %>
         <p>
           <strong><%= activity.name %> :</strong>
           <%= tasks.map {|task| l(task.start_time.to_date, format: "%A,").capitalize }.join(" ").chop %>
         </p>
       <% end %>
-
-      <hr color="blue">
     </div>
 
     <% if @horse.tasks.medecine.this_week.any? %>
       <div class="horse-medicine">
+        <hr color="blue">
         <h4>💊 <strong>Médicaments</strong></h4>
         <% @horse.tasks.medecine.this_week.group_by(&:medecine).each do |medecine, tasks| %>
           <div class="show-horse-medicine">
             <p><strong>Médicament :</strong> <%= medecine.name %></p>
             <p>
               <strong>Traitement: </strong>
-              <% tasks.each do |task| %>
-                <%= l(task.start_time.to_date, format: "%A") %>
-              <% end %>
+              <%= tasks.map {|task| l(task.start_time.to_date, format: "%A,").capitalize }.join(" ").chop %>
             </p>
           </div>
         <% end %>
-
-        <hr color="blue">
       </div>
     <% end %>
 
     <% if @horse.tasks.vetenary.to_come.any? %>
       <div class="horse-veterinaire">
+        <hr color="blue">
         <h4>👩‍⚕️ <strong>Vétérinaire</strong></h4>
         <% @horse.tasks.vetenary.to_come.each do |task| %>
           <p><strong>Nom : </strong><%= task.vetenary.name %> </p>
           <p><strong>Prochain passage :</strong> <%= l(task.start_time.to_date) %> </p>
         <% end %>
-        <hr color="blue">
       </div>
     <% end %>
 
     <% if @horse.tasks.shoe_maker.to_come.any? %>
       <div class="horse-forgeron">
+        <hr color="blue">
         <h4>⚒️ <strong>Maréchal-ferrant</strong></h4>
         <% @horse.tasks.shoe_maker.to_come.each do |task| %>
           <p><strong>Nom : </strong><%= task.shoe_maker.name %> </p>
           <p><strong>Prochain passage :</strong> <%= l(task.start_time.to_date) %> </p>
         <% end %>
-        <hr color="blue">
       </div>
     <% end %>
 
     <% if @horse.tasks.antidote.to_come.any? %>
       <div class="horse-medicine">
+        <hr color="blue">
         <h4>💉 <strong>Vaccins</strong></h4>
 
         <% @horse.tasks.antidote.to_come.group_by(&:antidote).each do |antidote, tasks| %>
@@ -129,14 +123,13 @@
             <% end %>
           </p>
         <% end %>
-        <hr color="blue">
       </div>
     <% end %>
 
   </div>
   <div class="bouton">
     <%= link_to "Éditer ce cheval", edit_horse_path(@horse), class: 'btn btn-red btn-block' %>
-    <%= link_to "Supprimer ce cheval", horse_path(@horse), class: 'btn btn-red-small btn-block', method: :delete, data: { confirm: "Sure?" }  %>
+    <%= link_to "Supprimer ce cheval", horse_path(@horse), class: 'btn btn-red-small btn-block btn-red-reverse', method: :delete, data: { confirm: "Sure?" }  %>
   </div>
   <br/>
   <br/>

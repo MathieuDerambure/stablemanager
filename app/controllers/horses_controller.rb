@@ -4,7 +4,8 @@ class HorsesController < ApplicationController
   before_action :set_week_days, only: [:new]
 
   def index
-    @horses = Horse.all
+    @horses = Horse.all.order(:name)
+
     if params[:query1].present?
       @horses = @horses.search_horses(params[:query1])
     end
@@ -84,16 +85,19 @@ class HorsesController < ApplicationController
     end
 
     # ACTIVITY
+
     if params[:activity]
       # for each day from today until the end of the month (included)
-      (Date.today..Date.today.end_of_month).each do |date|
+      ((Date.today)..Date.today.end_of_month).each do |date|
         # and for each activity type (paddock, marche, saut, promenade)
         params[:activity].each do |type, days|
           activity = Activity.find_by(slug: type)
-
           # and for each selected day (between "monday" and "sunday")
           days.keys.each do |day_name|
-            next unless date.strftime("%A").downcase == day_name
+
+            next unless set_week_days[date.strftime("%u").to_i - 1] == day_name
+
+
 
             Task.create(
               horse: @horse,

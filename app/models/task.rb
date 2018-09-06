@@ -34,6 +34,15 @@ class Task < ApplicationRecord
     order(:start_time)
   end
 
+  scope :next_week,  -> do
+    where(
+      "date(start_time) BETWEEN :monday AND :sunday",
+      monday: Date.today.beginning_of_week + 7.days,
+      sunday: Date.today.end_of_week + 7.days
+    ).
+    order(:start_time)
+  end
+
   def morning?
     start_time.hour == 8
   end
