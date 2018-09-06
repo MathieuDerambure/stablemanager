@@ -5,7 +5,7 @@
   <%= simple_form_for @horse do |f| %>
   <%= f.input :name, label: "Nom" %>
   <%= f.input :box, label: "Numéro du box" %>
-  <%= f.input :formula, label: "Formule" %>
+  <%= f.input :formula, as: :select, collection: ["pension complète", "pension allégée"], label: "Formule" %>
 
   <h3><strong>Nourriture</strong></h3>
   <h4><strong>Matin</strong></h4>

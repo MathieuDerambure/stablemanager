@@ -22,3 +22,13 @@
   background: #990000;
   transition: background 0.3s ease;
 }
+
+.btn-red-reverse {
+  color: #990000;
+  border: 1px solid #990000;
+  background: transparent;
+}
+
+.btn-block + .btn-block.btn-red-reverse {
+  margin-top: 0.8em;
+}
