@@ -40,7 +40,8 @@ boss1 = User.create!(email: 'boss1@gmail.com', password: '123456', sur_name: "De
 
 comm1 = Communication.create!(message: "J'aurai 30 minutes de retard ce lundi.", user_id: empl1.id)
 comm2 = Communication.create!(message: "La barrière de la grange est cassée.", user_id: empl2.id)
-comm3 = Communication.create!(message: "Merci de ne plus laisser traîner de matériel dans la cours.", user_id: prop1.id)
+comm3 = Communication.create!(message: "-->Ok je m'en occupe!.", user_id: empl1.id)
+comm4 = Communication.create!(message: "Merci de ne plus laisser traîner de matériel dans la cours.", user_id: prop1.id)
 
 act1 = Activity.create!(name: "Paddock", slug: "paddock")
 act2 = Activity.create!(name: "Marche", slug: "marche")
@@ -77,9 +78,9 @@ ant3 = Antidote.create(name: "Tétanos", slug: "tétanos")
 ant4 = Antidote.create(name: "Rage", slug: "rage")
 
 
-horse1 = Horse.create!(name: "Frosty", box: 1 , formula: 'one', user_id: prop1.id , remote_photo_url: "https://res.cloudinary.com/dk6vsgttl/image/upload/v1534867381/hudada_01.jpg")
-horse2 = Horse.create!(name: "Belle des Neiges", box: 2 , formula: 'one', user_id: prop2.id , remote_photo_url: "https://res.cloudinary.com/dk6vsgttl/image/upload/v1534867381/hudada_02.jpg")
-horse3 = Horse.create!(name: "Sophie", box: 3 , formula: 'two', user_id: prop4.id , remote_photo_url: "https://res.cloudinary.com/dk6vsgttl/image/upload/v1534867381/hudada_04.jpg")
+horse1 = Horse.create!(name: "Frosty", box: 1 , formula: 'compléte', user_id: prop1.id , remote_photo_url: "https://res.cloudinary.com/dk6vsgttl/image/upload/v1534867381/hudada_01.jpg")
+horse2 = Horse.create!(name: "Belle des Neiges", box: 2 , formula: 'allégée', user_id: prop2.id , remote_photo_url: "https://res.cloudinary.com/dk6vsgttl/image/upload/v1534867381/hudada_02.jpg")
+horse3 = Horse.create!(name: "Sophie", box: 3 , formula: 'compléte', user_id: prop4.id , remote_photo_url: "https://res.cloudinary.com/dk6vsgttl/image/upload/v1534867381/hudada_04.jpg")
 #horse4 = Horse.create!(name: "Bobby", box: 4 , formula: 'two', user_id: prop1.id , remote_photo_url: "https://res.cloudinary.com/dk6vsgttl/image/upload/v1534867381/hudada_05.jpg")
 #horse5 = Horse.create!(name: "Tony", box: 5 , formula: 'two', user_id: prop1.id , remote_photo_url: "https://res.cloudinary.com/dk6vsgttl/image/upload/v1534867381/hudada_06.jpg")
 #horse6 = Horse.create!(name: "Tom", box: 7 , formula: 'three', user_id: prop3.id , remote_photo_url: "https://res.cloudinary.com/dk6vsgttl/image/upload/v1534867381/hudada_07.jpg")
