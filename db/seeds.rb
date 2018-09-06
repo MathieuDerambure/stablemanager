@@ -79,9 +79,9 @@ ant3 = Antidote.create(name: "Tétanos", slug: "tétanos")
 ant4 = Antidote.create(name: "Rage", slug: "rage")
 
 
-horse1 = Horse.create!(name: "Frosty", box: 1 , formula: 'Compléte', user_id: prop1.id , remote_photo_url: "https://res.cloudinary.com/dk6vsgttl/image/upload/v1534867381/hudada_01.jpg")
+horse1 = Horse.create!(name: "Frosty", box: 1 , formula: 'Complète', user_id: prop1.id , remote_photo_url: "https://res.cloudinary.com/dk6vsgttl/image/upload/v1534867381/hudada_01.jpg")
 horse2 = Horse.create!(name: "Bella", box: 2 , formula: 'Allégée', user_id: prop2.id , remote_photo_url: "https://res.cloudinary.com/dk6vsgttl/image/upload/v1534867381/hudada_02.jpg")
-horse3 = Horse.create!(name: "Athena", box: 3 , formula: 'Compléte', user_id: prop4.id , remote_photo_url: "https://res.cloudinary.com/dk6vsgttl/image/upload/v1534867381/hudada_04.jpg")
+horse3 = Horse.create!(name: "Athena", box: 3 , formula: 'Complète', user_id: prop4.id , remote_photo_url: "https://res.cloudinary.com/dk6vsgttl/image/upload/v1534867381/hudada_04.jpg")
 #horse4 = Horse.create!(name: "Bobby", box: 4 , formula: 'two', user_id: prop1.id , remote_photo_url: "https://res.cloudinary.com/dk6vsgttl/image/upload/v1534867381/hudada_05.jpg")
 #horse5 = Horse.create!(name: "Tony", box: 5 , formula: 'two', user_id: prop1.id , remote_photo_url: "https://res.cloudinary.com/dk6vsgttl/image/upload/v1534867381/hudada_06.jpg")
 #horse6 = Horse.create!(name: "Tom", box: 7 , formula: 'three', user_id: prop3.id , remote_photo_url: "https://res.cloudinary.com/dk6vsgttl/image/upload/v1534867381/hudada_07.jpg")
