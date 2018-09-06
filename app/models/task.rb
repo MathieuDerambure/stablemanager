@@ -33,4 +33,26 @@ class Task < ApplicationRecord
     ).
     order(:start_time)
   end
+
+  def morning?
+    start_time.hour == 8
+  end
+
+  def midday?
+    start_time.hour == 12
+  end
+
+  def evening?
+    start_time.hour == 18
+  end
+
+  def daytime
+    if morning?
+      "morning"
+    elsif midday?
+      "midday"
+    elsif evening?
+      "midday"
+    end
+  end
 end

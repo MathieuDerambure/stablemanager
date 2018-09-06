@@ -1,0 +1,28 @@
+function updateFoodMiddayTaskToDoing(task_food_midday){
+  const task = document.querySelector("[data-task-food-midday-id='<%= @horse.id %>'");
+  task.outerHTML = task_food_midday;
+}
+
+const daytime = "<%= @daytime %>"
+
+if (daytime == "morning") {
+
+} else if (daytime == "midday") {
+  updateFoodMiddayTaskToDoing("<%= j render 'task_doing_food_midday', horse: @horse %>");
+} else if (daytime == "evening") {
+
+}
+
+// function updateFoodMorningTaskToDoing(task_food_midday){
+//   const task = document.querySelector("[data-task-food-morning-id='<%= @horse.id %>'");
+//   console.log(task_food_morning);
+//   task.outerHTML = task_food_morning;
+// }
+// updateTaskToDoing("<%= j render 'task_doing_food_morning', horse: @horse %>");
+
+// function updateFoodEveningTaskToDoing(task_food_midday){
+//   const task = document.querySelector("[data-task-food-evening-id='<%= @horse.id %>'");
+//   console.log(task_food_evening);
+//   task.outerHTML = task_food_evening;
+// }
+// updateTaskToDoing("<%= j render 'task_doing_food_evening', horse: @horse %>");
