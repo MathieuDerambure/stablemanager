@@ -54,7 +54,11 @@ class TasksController < ApplicationController
 
   def mark_as_done_food
     @tasks.update_all(done: true)
-    redirect_to tasks_index_path
+    @horse = @tasks.first.horse
+    respond_to do |format|
+      format.html {redirect_to tasks_index_path}
+      format.js
+    end
   end
 
   def create
