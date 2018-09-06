@@ -4,7 +4,7 @@
   <ul class="nav nav-tasks flex-menu navbar-fixed-bottom" role="tablist">
       <li role="presentation">
         <a href="#nourriture" aria-controls="nourriture" role="tab" data-toggle="tab">
-          <i class="active fas fa-utensils"></i>
+          <i class="fas fa-utensils"></i>
             <span class="badge"><%= @horses.map {|horse| horse.morning_tasks_count}.delete_if {|number| number == 0}.count+@horses.map {|horse| horse.midday_tasks_count}.delete_if {|number| number == 0}.count+@horses.map {|horse| horse.evening_tasks_count}.delete_if {|number| number == 0}.count %></span>
         </a>
       </li>
@@ -35,7 +35,6 @@
     <div role="tabpanel" class="tab-pane" id="activites">
       <%= render "tabpanel_activities" %>
     </div>
-
 
     <div role="tabpanel" class="tab-pane" id="medicaments">
       <%= render "tabpanel_medecine" %>
