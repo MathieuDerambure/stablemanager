@@ -1,0 +1,6 @@
+function updateTaskToDoing(task_food_midday){
+  const task = document.querySelector("[data-task-food-midday-id='<%= @horse.id %>'");
+  console.log(task_food_midday);
+  task.outerHTML = task_food_midday;
+}
+updateTaskToDoing("<%= j render 'task_doing_food_midday', horse: @horse %>");

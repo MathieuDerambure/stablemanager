@@ -26,7 +26,7 @@
         <% if horse.has_food_tasks_not_done? %>
           <div class="col-xs-12">
 
-            <%= render "task_todo_food", horse: horse %>
+            <%= render "task_todo_food_morning", horse: horse %>
           </div>
         <% end %>
       <% end %>
@@ -35,22 +35,7 @@
       <% @horses.each do |horse| %>
         <% if horse.has_food_tasks_not_done? %>
           <div class="col-xs-12">
-            <div class="task-message" data-aos="fade-up">
-              <% if horse.photo? %>
-                <div class="horse-avatar" style="background-image: url('<%= cl_image_path horse.photo, width: 300, crop: :fill %>')">
-                </div>
-              <%else %>
-                <div class="horse-avatar" style="background-image: url('<%= image_path("default-horse.jpg")  %>')">
-                </div>
-              <% end %>
-                <div class="task-message-body">
-                <p><strong><%= horse.name %> - Box n°<%= horse.box %></strong></p>
-                <p>
-                  <%= render "task_list", horse: horse, tasks: horse.midday_tasks.not_done, time: "midday" %>
-                </p>
-                </div>
-                <img class="avatar-large">
-            </div>
+            <%= render "task_todo_food_midday", horse: horse %>
           </div>
         <% end %>
       <% end %>
@@ -73,7 +58,6 @@
                 <%= render "task_list", horse: horse, tasks: horse.evening_tasks.not_done, time: "evening" %>
               </p>
               </div>
-              <img class="avatar-large">
             </div>
           </div>
         <% end %>

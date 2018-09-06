@@ -2,4 +2,4 @@ function updateTaskToDoing(newTask){
   const task = document.querySelector("[data-task-id='<%= @task.id %>']");
   task.outerHTML = newTask;
 }
-updateTaskToDoing("<%= j render 'task_doing', task: @task %>");
+updateTaskToDoing("<%= j render 'task_doing_activity', task: @task %>");

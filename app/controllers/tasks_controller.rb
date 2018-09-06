@@ -45,7 +45,11 @@ class TasksController < ApplicationController
   # Multi update of FOOD tasks per time range: morning, midday or evening
   def mark_as_doing_food
     @tasks.update_all(doing: true, user_doing_id: current_user.id)
-    redirect_to tasks_index_path
+    @horse = @tasks.first.horse
+    respond_to do |format|
+      format.html {redirect_to tasks_index_path}
+      format.js
+    end
   end
 
   def mark_as_done_food
