@@ -31,11 +31,11 @@ prop3 = User.create!(email: 'mathieu@gmail.com', password: '123456', sur_name: "
 prop4 = User.create!(email: 'henry@gmail.com', password: '123456', sur_name: "Henry", first_name: "Lepôtre", role: "Propriétaire", phone: "06 03 03 03 33", address: "4 place de Bornant 94400")
 
 
-empl1 = User.create!(email: 'empl1@gmail.com', password: '123456', sur_name: "Legros", first_name: "Mathilde", role: "Employée", phone: "06 03 03 03 33", address: "33 rue Bidule Mesnil 78600", remote_photo_url: "https://res.cloudinary.com/dk6vsgttl/image/upload/v1535965874/yann.jpg")
-empl2 = User.create!(email: 'empl2@gmail.com', password: '123456', sur_name: "Perrin", first_name: "Thierry", role: "Employée", phone: "06 03 03 03 33", address: "33 rue Bidule Mesnil 78600", remote_photo_url: "https://res.cloudinary.com/dk6vsgttl/image/upload/v1535965808/mat.jpg")
+empl1 = User.create!(email: 'empl1@gmail.com', password: '123456', sur_name: "Legros", first_name: "Yann", role: "Employée", phone: "06 03 03 03 33", address: "33 rue Bidule Mesnil 78600", remote_photo_url: "https://res.cloudinary.com/dk6vsgttl/image/upload/v1535965874/yann.jpg")
+empl2 = User.create!(email: 'empl2@gmail.com', password: '123456', sur_name: "Perrin", first_name: "Thierry", role: "Employée", phone: "06 03 03 03 33", address: "33 rue Bidule Mesnil 78600")
 empl3 = User.create!(email: 'empl3@gmail.com', password: '123456', sur_name: "Legrand", first_name: "Eric", role: "Employée", phone: "06 03 03 03 33", address: "33 rue Bidule Mesnil 78600", remote_photo_url: "https://res.cloudinary.com/dk6vsgttl/image/upload/v1535965803/tronche.jpg")
 empl4 = User.create!(email: 'empl4@gmail.com', password: '123456', sur_name: "Robert", first_name: "David", role: "Employée", phone: "06 03 03 03 33", address: "33 rue Bidule Mesnil 78600", remote_photo_url: "https://res.cloudinary.com/dk6vsgttl/image/upload/v1535967303/image.png")
-boss1 = User.create!(email: 'boss1@gmail.com', password: '123456', sur_name: "Ceysens", first_name: "Violette", role: "Manager", phone: "06 03 03 03 33", address: "33 rue Bidule Mesnil 78600", admin: true)
+boss1 = User.create!(email: 'boss1@gmail.com', password: '123456', sur_name: "Des Brumes", first_name: "Mathieu", role: "Manager", phone: "06 03 03 03 33", address: "33 rue Bidule Mesnil 78600", admin: true, remote_photo_url: "https://res.cloudinary.com/dk6vsgttl/image/upload/v1535965808/mat.jpg")
 
 
 comm1 = Communication.create!(message: "J'aurai 30 minutes de retard ce lundi.", user_id: empl1.id)
@@ -80,10 +80,10 @@ ant4 = Antidote.create(name: "Rage", slug: "rage")
 horse1 = Horse.create!(name: "Frosty", box: 1 , formula: 'one', user_id: prop1.id , remote_photo_url: "https://res.cloudinary.com/dk6vsgttl/image/upload/v1534867381/hudada_01.jpg")
 horse2 = Horse.create!(name: "Belle des Neiges", box: 2 , formula: 'one', user_id: prop2.id , remote_photo_url: "https://res.cloudinary.com/dk6vsgttl/image/upload/v1534867381/hudada_02.jpg")
 horse3 = Horse.create!(name: "Sophie", box: 3 , formula: 'two', user_id: prop4.id , remote_photo_url: "https://res.cloudinary.com/dk6vsgttl/image/upload/v1534867381/hudada_04.jpg")
-horse4 = Horse.create!(name: "Bobby", box: 4 , formula: 'two', user_id: prop1.id , remote_photo_url: "https://res.cloudinary.com/dk6vsgttl/image/upload/v1534867381/hudada_05.jpg")
-horse5 = Horse.create!(name: "Tony", box: 5 , formula: 'two', user_id: prop1.id , remote_photo_url: "https://res.cloudinary.com/dk6vsgttl/image/upload/v1534867381/hudada_06.jpg")
-horse6 = Horse.create!(name: "Tom", box: 7 , formula: 'three', user_id: prop3.id , remote_photo_url: "https://res.cloudinary.com/dk6vsgttl/image/upload/v1534867381/hudada_07.jpg")
-horse7 = Horse.create!(name: "Capuccin", box: 8 , formula: 'three', user_id: prop4.id , remote_photo_url: "https://res.cloudinary.com/dk6vsgttl/image/upload/v1534867381/hudada_09.jpg")
+#horse4 = Horse.create!(name: "Bobby", box: 4 , formula: 'two', user_id: prop1.id , remote_photo_url: "https://res.cloudinary.com/dk6vsgttl/image/upload/v1534867381/hudada_05.jpg")
+#horse5 = Horse.create!(name: "Tony", box: 5 , formula: 'two', user_id: prop1.id , remote_photo_url: "https://res.cloudinary.com/dk6vsgttl/image/upload/v1534867381/hudada_06.jpg")
+#horse6 = Horse.create!(name: "Tom", box: 7 , formula: 'three', user_id: prop3.id , remote_photo_url: "https://res.cloudinary.com/dk6vsgttl/image/upload/v1534867381/hudada_07.jpg")
+#horse7 = Horse.create!(name: "Capuccin", box: 8 , formula: 'three', user_id: prop4.id , remote_photo_url: "https://res.cloudinary.com/dk6vsgttl/image/upload/v1534867381/hudada_09.jpg")
 
 #TASKS
 #horse 1
@@ -171,6 +171,7 @@ task57 = Task.create!(doing: false, done: false, start_time: DateTime.parse('7th
 
 ##med3 (vendredi)
 task58 = Task.create!(doing: false, done: false, start_time: DateTime.parse('7th Sept 2018 08:00:00'), end_time: DateTime.parse('7th Sept 2018 09:00:00'), horse_id: horse1.id, medecine_id: medic3.id, weekly: true, monthly: false)
+task191 = Task.create!(doing: false, done: false, start_time: DateTime.parse('6th Sept 2018 08:00:00'), end_time: DateTime.parse('6th Sept 2018 09:00:00'), horse_id: horse1.id, medecine_id: medic3.id, weekly: true, monthly: false)
 
 
 #vet
@@ -353,6 +354,7 @@ task181 = Task.create!(doing: false, done: false, start_time: DateTime.parse('8t
 task182 = Task.create!(doing: false, done: false, start_time: DateTime.parse('3rd Sept 2018 08:00:00'), end_time: DateTime.parse('3rd Sept 2018 09:00:00'), horse_id: horse3.id, medecine_id: medic1.id, weekly: true, monthly: false)
 task183 = Task.create!(doing: false, done: false, start_time: DateTime.parse('5th Sept 2018 08:00:00'), end_time: DateTime.parse('5th Sept 2018 09:00:00'), horse_id: horse3.id, medecine_id: medic1.id, weekly: true, monthly: false)
 task184 = Task.create!(doing: false, done: false, start_time: DateTime.parse('8th Sept 2018 08:00:00'), end_time: DateTime.parse('8th Sept 2018 09:00:00'), horse_id: horse3.id, medecine_id: medic1.id, weekly: true, monthly: false)
+task192 = Task.create!(doing: false, done: false, start_time: DateTime.parse('6th Sept 2018 08:00:00'), end_time: DateTime.parse('6th Sept 2018 09:00:00'), horse_id: horse3.id, medecine_id: medic1.id, weekly: true, monthly: false)
 
 ##med 2 (mardi, mercredi, vendredi)
 task185 = Task.create!(doing: false, done: false, start_time: DateTime.parse('4th Sept 2018 08:00:00'), end_time: DateTime.parse('5th Sept 2018 09:00:00'), horse_id: horse3.id, medecine_id: medic2.id, weekly: true, monthly: false)
