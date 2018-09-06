@@ -49,7 +49,7 @@ class HorsesController < ApplicationController
   private
 
   def set_week_days
-    @week_days = [ "monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"]
+    @week_days = [ "Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi", "Dimanche"]
   end
 
   def create_tasks
