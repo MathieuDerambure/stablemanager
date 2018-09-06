@@ -6,5 +6,10 @@
     <div class="horse-avatar" style="background-image: url('<%= image_path("default-horse.jpg")  %>')">
     </div>
   <% end %>
-  <%= render "task_list", horse: horse, tasks: horse.morning_tasks.not_done, time: "morning" %>
+    <div class="task-message-body">
+    <p><strong><%= horse.name %> - Box n°<%= horse.box %></strong></p>
+    <p>
+      <%= render "task_list", horse: horse, tasks: horse.morning_tasks.not_done, time: "morning" %>
+    </p>
+    </div>
 </div>

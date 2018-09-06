@@ -46,6 +46,8 @@ class TasksController < ApplicationController
   def mark_as_doing_food
     @tasks.update_all(doing: true, user_doing_id: current_user.id)
     @horse = @tasks.first.horse
+    @daytime = @tasks.first.daytime
+
     respond_to do |format|
       format.html {redirect_to tasks_index_path}
       format.js

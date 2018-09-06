@@ -1,10 +1,10 @@
 <% if tasks.any? %>
   <div class="task-message-body">
     <p>
-      <strong><%= horse.name %> - Box n°<%= horse.box %></strong>
+      <strong><%= horse.name %></strong> Box n°<%= horse.box %>
     </p>
       <% tasks.each do |task| %>
-        <p>
+        <p class="text-primary">
           <%= task.food_type&.name %>
           <% if task.food_quantity %>
             |<strong><%= task.food_quantity%> L</strong>
@@ -26,7 +26,4 @@
     <% end %>
   <% end %>
 <% end %>
-<%#= time.capitalize %>
-<%#= task.id %>
-<%#= task.start_time %>
 
