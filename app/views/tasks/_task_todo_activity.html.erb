@@ -12,5 +12,7 @@
       <%= task.activity&.name %>
     </p>
   </div>
-  <%= link_to "S'assigner", mark_as_doing_path(task_id: task.id), remote: true, class: "btn btn-default" %>
+  <%= link_to mark_as_doing_path(task_id: task.id), remote: true do%>
+    <%= image_tag "user-default", class: "avatar-large"%>
+  <% end %>
 </div>
