@@ -29,28 +29,33 @@
     </div>
 
     <hr color="blue">
-
     <div class="horse-food">
 
       <h4><strong>🥣 Nourriture</strong></h4>
       <div class="food-card">
+        <div class="food-type">
+          <p> Food/L</p>
+            <% @horse.morning_tasks.each do |task| %>
+            <p><strong> <%= task.food_type.name %></strong></p>
+          <% end %>
+        </div>
         <div class="food-matin">
           <p><strong>Matin</strong></p>
-          <% @horse.morning_tasks.each do |task| %>
-            <p><%= task.food_type.name %> : <%= task.food_quantity %>L</p>
+            <% @horse.morning_tasks.each do |task| %>
+            <p><%= task.food_quantity %>L</p>
           <% end %>
         </div>
         <div class="food-midi">
           <p><strong>Midi</strong></p>
           <% @horse.midday_tasks.each do |task| %>
-            <p><%= task.food_type.name %> : <%= task.food_quantity %>L</p>
+            <p><%= task.food_quantity %>L</p>
           <% end %>
         </div>
 
         <div class="food-soir">
           <p><strong>Soir</strong></p>
           <% @horse.evening_tasks.each do |task| %>
-            <p><%= task.food_type.name %> : <%= task.food_quantity %>L</p>
+            <p><%= task.food_quantity %>L</p>
           <% end %>
         </div>
       </div>
@@ -60,7 +65,6 @@
 
     <div class="horse-activity">
       <h4><strong>🐎 Activités</strong></h4>
-
       <% @horse.tasks.activity.this_week.group_by(&:activity).each do |activity, tasks| %>
         <p>
           <strong><%= activity.name %> :</strong>
