@@ -61,7 +61,7 @@ class Task < ApplicationRecord
     elsif midday?
       "midday"
     elsif evening?
-      "midday"
+      "evening"
     end
   end
 end

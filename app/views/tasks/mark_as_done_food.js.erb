@@ -1,10 +1,12 @@
-function done(task_doing_food_midday){
-  const task = document.querySelector("[data-task-food-midday-id='<%= @horse.id %>']");
-  task.outerHTML = task_doing_food_midday;
-  const message = document.getElementById('task-done-food-midday-<%= @horse.id %>')
+function updateFoodTaskToDone() {
+  const task = document.querySelector("[data-task-food-<%= @time %>-id='<%= @horse.id %>']");
+  task.outerHTML = "<%= j render 'tasks/food/task_done', horse: @horse, time: @time %>";
+
+  const message = document.getElementById('task-done-food-<%= @time %>-<%= @horse.id %>')
+
   setInterval(function(){
    message.remove();
   }, 1000);
 }
 
-done("<%= j render 'task_done_food_midday', horse: @horse %>");
+updateFoodTaskToDone();

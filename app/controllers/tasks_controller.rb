@@ -44,21 +44,25 @@ class TasksController < ApplicationController
 
   # Multi update of FOOD tasks per time range: morning, midday or evening
   def mark_as_doing_food
+    # for performance reasons, we update directly into the DB without passing by the models
     @tasks.update_all(doing: true, user_doing_id: current_user.id)
-    @horse = @tasks.first.horse
-    @daytime = @tasks.first.daytime
+
+    # Needed because update_all calls directly the DB.
+    # Hence the objects are not updated.
+    @tasks.reload
 
     respond_to do |format|
-      format.html {redirect_to tasks_index_path}
+      format.html { redirect_to tasks_index_path }
       format.js
     end
   end
 
   def mark_as_done_food
+    # for performance reasons, we update directly into the DB without passing by the models
     @tasks.update_all(done: true)
-    @horse = @tasks.first.horse
+
     respond_to do |format|
-      format.html {redirect_to tasks_index_path}
+      format.html { redirect_to tasks_index_path }
       format.js
     end
   end
@@ -97,16 +101,16 @@ class TasksController < ApplicationController
   end
 
   def load_food_tasks
-    horse = Horse.find(params[:horse_id])
-    time = params[:time]
+    @horse = Horse.find(params[:horse_id])
+    @time  = params[:time] # can be either 'morning', 'midday' or 'evening'
 
-    case time
+    case @time
     when "morning"
-      @tasks = horse.morning_tasks
+      @tasks = @horse.morning_tasks
     when "midday"
-      @tasks = horse.midday_tasks
+      @tasks = @horse.midday_tasks
     when "evening"
-      @tasks = horse.evening_tasks
+      @tasks = @horse.evening_tasks
     end
   end
 end

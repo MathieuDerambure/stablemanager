@@ -25,8 +25,7 @@
       <% @horses.each do |horse| %>
         <% if horse.has_food_tasks_not_done? %>
           <div class="col-xs-12">
-
-            <%= render "task_todo_food_morning", horse: horse %>
+            <%= render "tasks/food/list", horse: horse, tasks: horse.morning_tasks.not_done, time: "morning" %>
           </div>
         <% end %>
       <% end %>
@@ -35,7 +34,7 @@
       <% @horses.each do |horse| %>
         <% if horse.has_food_tasks_not_done? %>
           <div class="col-xs-12">
-            <%= render "task_todo_food_midday", horse: horse %>
+            <%= render "tasks/food/list", horse: horse, tasks: horse.midday_tasks.not_done, time: "midday" %>
           </div>
         <% end %>
       <% end %>
@@ -44,7 +43,7 @@
       <% @horses.each do |horse| %>
         <% if horse.has_food_tasks_not_done? %>
           <div class="col-xs-12">
-            <%= render "task_todo_food_evening", horse: horse %>
+            <%= render "tasks/food/list", horse: horse, tasks: horse.evening_tasks.not_done, time: "evening" %>
           </div>
         <% end %>
       <% end %>

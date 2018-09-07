@@ -1,11 +1,6 @@
-function updateFoodMiddayTaskToDoing(task_food_midday){
-  const task = document.querySelector("[data-task-food-midday-id='<%= @horse.id %>'");
-  task.outerHTML = task_food_midday;
+function updateFoodTaskToDoing() {
+  const horseTasks = document.querySelector("[data-task-food-<%= @time %>-id='<%= @horse.id %>'");
+  horseTasks.outerHTML = "<%= j render 'tasks/food/list', horse: @horse, tasks: @tasks.not_done, time: @time %>";
 }
 
-if ("<%= @daytime %>" == "morning") {
-
-} else if ("<%= @daytime %>" == "midday") {
-  updateFoodMiddayTaskToDoing("<%= j render 'task_doing_food_midday', horse: @horse %>");
-} else if ("<%= @daytime %>" == "evening") {
-}
+updateFoodTaskToDoing();

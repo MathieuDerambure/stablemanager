@@ -1,0 +1,38 @@
+<% if tasks.any? %>
+  <div class="task-message" data-task-food-<%= time %>-id="<%= horse.id %>" data-aos="<%= tasks.where(doing: true).any? ? 'flip-up' : 'fade-up' %>">
+    <% if horse.photo? %>
+      <div class="horse-avatar" style="background-image: url('<%= cl_image_path horse.photo, width: 300, crop: :fill %>')">
+      </div>
+    <%else %>
+      <div class="horse-avatar" style="background-image: url('<%= image_path("default-horse.jpg")  %>')">
+      </div>
+    <% end %>
+
+    <div class="task-message-body">
+      <p>
+        <strong><%= horse.name %></strong> Box n°<%= horse.box %>
+      </p>
+      <% tasks.each do |task| %>
+        <p class="text-primary">
+          <%= task.food_type&.name %>
+          <% if task.food_quantity %>
+            |<strong><%= task.food_quantity%> L</strong>
+          <% end %>
+        </p>
+      <% end %>
+    </div>
+
+    <!-- TODO tasks -->
+    <% if tasks.where(doing: false, done: false).any? %>
+      <%= link_to mark_as_doing_food_horse_tasks_path(horse, time: time), method: :patch, remote: true do %>
+          <%= image_tag "user-default.png", class: "avatar-large"%>
+      <% end %>
+    <!-- ON GOING tasks -->
+    <% elsif tasks.where(doing: true, done: false).any? %>
+      <%= link_to mark_as_done_food_horse_tasks_path(horse, time: time), remote: true, method: :patch do%>
+        <% image_link = tasks.first.user_doing&.picture || "https://www.viawater.nl/files/default-user.png" %>
+        <%= image_tag image_link, class: "avatar-large" %>
+      <% end %>
+    <% end %>
+  </div>
+<% end %>
