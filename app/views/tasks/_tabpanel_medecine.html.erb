@@ -11,14 +11,14 @@
           <div class="col-xs-12">
             <div class="task-message" data-task-id="<%= task.id %>">
               <% if task.horse.photo? %>
-                <div class="horse-avatar" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path task.horse.photo, width: 300, crop: :fill %>')">
+                <div class="horse-avatar" style="background-image:  url('<%= cl_image_path task.horse.photo, width: 300, crop: :fill %>')">
                 </div>
               <%else %>
-                <div class="horse-avatar" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= image_path("default-horse.jpg")  %>')">
+                <div class="horse-avatar" style="background-image:  url('<%= image_path("default-horse.jpg")  %>')">
                 </div>
               <% end %>
               <div class="task-message-body">
-                <p><strong><%= task.horse.name %>  - Box n° <%= task.horse.box %></strong></p>
+                <p><strong><%= task.horse.name %></strong> Box n° <%= task.horse.box %></p>
                 <p class="text-primary">
                   <%= task.medecine&.name %>
                 </p>
@@ -38,14 +38,14 @@
         <div class="col-xs-12">
           <div class="task-message" data-task-id="<%= task.id %>">
             <% if task.horse.photo? %>
-              <div class="horse-avatar" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path task.horse.photo, width: 300, crop: :fill %>')">
+              <div class="horse-avatar" style="background-image:  url('<%= cl_image_path task.horse.photo, width: 300, crop: :fill %>')">
               </div>
             <%else %>
-              <div class="horse-avatar" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= image_path("default-horse.jpg")  %>')">
+              <div class="horse-avatar" style="background-image:  url('<%= image_path("default-horse.jpg")  %>')">
               </div>
             <% end %>
             <div class="task-message-body">
-              <p><strong><%= task.horse.name %>  - Box n° <%= task.horse.box %></strong></p>
+              <p><strong><%= task.horse.name %></strong> Box n° <%= task.horse.box %></p>
               <p class="text-primary">
                 <%= task.medecine&.name %>
               </p>
