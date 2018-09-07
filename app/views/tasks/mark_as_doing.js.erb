@@ -1,6 +1,6 @@
 function updateTaskToDoing() {
   const task = document.querySelector("[data-task-id='<%= @task.id %>']");
-  task.outerHTML = '<%= j render "tasks/#{@task_type}/task", task: @task %>';
+  task.outerHTML = '<%= j render "tasks/#{@task_type}/task", task: @task, effect: "flip" %>';
 }
 
 updateTaskToDoing();

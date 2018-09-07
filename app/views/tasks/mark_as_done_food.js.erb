@@ -1,6 +1,6 @@
 function updateFoodTaskToDone() {
   const task = document.querySelector("[data-task-food-<%= @time %>-id='<%= @horse.id %>']");
-  task.outerHTML = "<%= j render 'tasks/food/task_done', horse: @horse, time: @time %>";
+  task.outerHTML = "<%= j render 'tasks/food/task_done', horse: @horse, time: @time, effect: 'flip' %>";
 
   const message = document.getElementById('task-done-food-<%= @time %>-<%= @horse.id %>')
 
