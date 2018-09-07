@@ -17,7 +17,7 @@
   <!-- TODO tasks -->
   <% if tasks.where(doing: false, done: false).any? %>
     <%= link_to mark_as_doing_food_horse_tasks_path(horse, time: time), method: :patch, remote: true do%>
-      <%= image_tag "user-default", class: "avatar-large"%>
+      <%= image_tag "user-default.png", class: "avatar-large"%>
 
     <% end %>
   <!-- ON GOING tasks -->
