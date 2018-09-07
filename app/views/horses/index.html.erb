@@ -27,18 +27,17 @@
         <div class="col-xs-12 col-md-4">
           <div class="horse card"  >
             <% if horse.photo?  %>
-              <div class="horse-image wrapper" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path horse.photo, crop: :fill %>')">
+              <div class="horse-image wrapper" style="background-image: url('<%= cl_image_path horse.photo, crop: :fill %>')">
               </div>
             <%else %>
-              <div class="horse-image wrapper" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cloudinary_url("pe12ydym9xpycxvwrnv5.jpg", :crop =>"fill") %>')">
+              <div class="horse-image wrapper" style="background-image: url('<%= cloudinary_url("pe12ydym9xpycxvwrnv5.jpg", :crop =>"fill") %>')">
               </div>
             <% end %>
             <div class="data">
               <div class="content">
                 <div class="title">
-                  <p><strong><%= horse.name %></strong></p>
-                  <p>Appartient à <%= horse.user.first_name %> <%= horse.user.sur_name %></p>
-                  <p>Box n°<%= horse.box %></p>
+                  <p><strong><%= horse.name %></strong><span class="text-muted"> Box n°<%= horse.box %></span></p>
+                  <p>Appartient à  <%= horse.user.sur_name %> <%= horse.user.first_name %></p>
                 </div>
               </div>
             </div>
