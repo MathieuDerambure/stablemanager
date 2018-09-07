@@ -1,5 +1,5 @@
 function updateFoodTaskToDoing() {
-  const horseTasks = document.querySelector("[data-task-food-<%= @time %>-id='<%= @horse.id %>'");
+  const horseTasks = document.querySelector("[data-task-food-<%= @time %>-id='<%= @horse.id %>']");
   horseTasks.outerHTML = "<%= j render 'tasks/food/list', horse: @horse, tasks: @tasks.not_done, time: @time %>";
 }
 
