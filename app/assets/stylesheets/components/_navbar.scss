@@ -86,6 +86,7 @@
   background: $light-gray;
   padding: 3px 0px;
   border-top:2px solid $lighter-gray;
+
   a{
     color : #777777;
     display:flex;
@@ -94,14 +95,23 @@
       font-size: 14px;
       color : $light-gray;
     }
-  }
-  .active a, .active a:focus{
+
+    &:hover {
       background-color: $brand-primary;
-      color : $light-gray;
-      .badge{
+      color: $light-gray;
+    }
+  }
+
+  .active a,
+  .active a:focus,
+  .active a:hover {
+    background-color: $brand-primary;
+    color: $light-gray;
+
+    .badge{
       font-size: 12px;
       color : #777777;
       background-color: $light-gray;
     }
-    }
+  }
 }
