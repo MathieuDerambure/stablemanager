@@ -25,9 +25,9 @@
                 <div>
                   <% profile.horses.each do |horse| %>
                     <% if horse.photo.url.nil? %>
-                      <% url = 'http://res.cloudinary.com/dk6vsgttl/image/upload/v1534863841/s0caeecaab59c4a6bd6d9a36666c361d3.jpg' %>
+                      <% url = 'default-horse.jpg' %>
                     <% else %>
-                      <% url = cl_image_path horse.photo, crop: :fill %>
+                      <% url = cl_image_path horse.photo, width: 40, height: 40, crop: :fill %>
                     <% end %>
                       <%= image_tag url, class:"avatar-large horse-avatar" %>
                   <% end %>
@@ -57,7 +57,7 @@
                   <div>
                     <% profile.horses.each do |horse| %>
                       <% if horse.photo.url.nil? %>
-                        <% url = 'http://res.cloudinary.com/dk6vsgttl/image/upload/v1534863841/s0caeecaab59c4a6bd6d9a36666c361d3.jpg' %>
+                        <% url = 'default-horse.jpg' %>
                       <% else %>
                         <% url = cl_image_path horse.photo, width: 40, height: 40, crop: :fill %>
                       <% end %>
@@ -89,7 +89,7 @@
                 <div>
                   <% profile.horses.each do |horse| %>
                     <% if horse.photo.url.nil? %>
-                      <% url = 'http://res.cloudinary.com/dk6vsgttl/image/upload/v1534863841/s0caeecaab59c4a6bd6d9a36666c361d3.jpg' %>
+                      <% url = 'default-horse.jpg' %>
                     <% else %>
                       <% url = cl_image_path horse.photo, width: 40, height: 40, crop: :fill %>
                     <% end %>

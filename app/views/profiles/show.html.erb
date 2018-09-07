@@ -21,9 +21,9 @@
       <div class ="flex-box-item-horse-name">
         <p> <%= horse.name %> </p>
         <% if horse.photo.url.nil? %>
-          <% url = 'http://res.cloudinary.com/dk6vsgttl/image/upload/v1534863841/s0caeecaab59c4a6bd6d9a36666c361d3.jpg' %>
+          <% url = 'default-horse.jpg' %>
         <% else %>
-          <% url = cl_image_path horse.photo, crop: :fill %>
+          <% url = cl_image_path horse.photo, width: 100, crop: :fill %>
         <% end %>
         <p> <%= image_tag url, class:"big-horse-avatar" %></p>
       </div>
@@ -31,18 +31,8 @@
   </div>
 
   <hr color="blue">
-    <div class ="flex-item3">
-      <%= link_to "modifier", edit_profile_path(@user), class:"btn-red-small" %>
-      <%= link_to "retour", profiles_path, class:"btn-red-small" %>
-    </div>
-
+  <div class ="flex-item3">
+    <%= link_to "modifier", edit_profile_path(@user), class:"btn-red-small" %>
+    <%= link_to "retour", profiles_path, class:"btn-red-small" %>
+  </div>
 </div>
-
-
-
-
-
-
-
-
-
