@@ -23,9 +23,11 @@ class HorsesController < ApplicationController
   def create
     @horse = Horse.new(horse_params)
     @horse.user = current_user
+
     if @horse.save
       create_tasks
-      redirect_to horses_path
+
+      redirect_to horse_path(@horse)
     else
       render :new
     end
