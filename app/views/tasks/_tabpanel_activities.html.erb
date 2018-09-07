@@ -1,29 +1,12 @@
 <div class="col-xs-12">
-  <h3> <strong>🐎 Activités </strong> </h3>
+  <h3> <strong>🐎 Activités </strong></h3>
   <div class="line"></div>
 </div>
 
-
 <% @tasks.each do |task| %>
-
-  <% if task.done == false %>
-
-    <% if task.doing == false %>
-      <% if !task.activity.nil? %>
-        <div class="col-xs-12">
-          <%= render "task_todo_activity", task: task %>
-        </div>
-      <% end %>
-    <% end %>
-
-    <% if task.doing == true %>
-      <% if !task.activity.nil? %>
-        <div class="col-xs-12">
-          <%= render "task_doing_activity", task: task %>
-        </div>
-      <% end %>
-    <% end %>
-
+  <% if task.done == false && !task.activity.nil? %>
+    <div class="col-xs-12">
+      <%= render "tasks/activity/task", task: task %>
+    </div>
   <% end %>
 <% end %>
-
