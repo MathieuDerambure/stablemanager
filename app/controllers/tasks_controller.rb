@@ -27,6 +27,9 @@ class TasksController < ApplicationController
   def mark_as_doing
     @task = Task.find(params[:task_id])
     @task.update(doing: true, user_doing: current_user)
+
+    @task_type = @task.activity ? 'activity' : 'medecine'
+
     respond_to do |format|
       format.html {redirect_to tasks_index_path}
       format.js

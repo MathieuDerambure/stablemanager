@@ -43,6 +43,7 @@ class Task < ApplicationRecord
     order(:start_time)
   end
 
+  # TIME
   def morning?
     start_time.hour == 8
   end
