@@ -35,7 +35,7 @@ empl1 = User.create!(email: 'empl1@gmail.com', password: '123456', sur_name: "Le
 empl2 = User.create!(email: 'empl2@gmail.com', password: '123456', sur_name: "Perrin", first_name: "Thierry", role: "Employée", phone: "06 03 03 03 33", address: "33 rue Bidule Mesnil 78600")
 empl3 = User.create!(email: 'empl3@gmail.com', password: '123456', sur_name: "Legrand", first_name: "Eric", role: "Employée", phone: "06 03 03 03 33", address: "33 rue Bidule Mesnil 78600", remote_photo_url: "https://res.cloudinary.com/dk6vsgttl/image/upload/v1535965803/tronche.jpg")
 empl4 = User.create!(email: 'empl4@gmail.com', password: '123456', sur_name: "Robert", first_name: "David", role: "Employée", phone: "06 03 03 03 33", address: "33 rue Bidule Mesnil 78600", remote_photo_url: "https://res.cloudinary.com/dk6vsgttl/image/upload/v1535967303/image.png")
-boss1 = User.create!(email: 'boss1@gmail.com', password: '123456', sur_name: "Des Brumes", first_name: "Mathieu", role: "Manager", phone: "06 03 03 03 33", address: "33 rue Bidule Mesnil 78600", admin: true, remote_photo_url: "http://res.cloudinary.com/dk6vsgttl/image/upload/c_fill,h_480,w_480/v1536236047/wlzi5ekpfvob8irpcxzk.jpg")
+boss1 = User.create!(email: 'boss1@gmail.com', password: '123456', sur_name: "Adrien", first_name: "Lemoine", role: "Manager", phone: "06 03 03 03 33", address: "33 rue Bidule Mesnil 78600", admin: true, remote_photo_url: "http://res.cloudinary.com/dk6vsgttl/image/upload/c_fill,h_480,w_480/v1536236047/wlzi5ekpfvob8irpcxzk.jpg")
 
 
 comm1 = Communication.create!(message: "J'aurai 30 minutes de retard ce lundi.", user_id: empl1.id)
